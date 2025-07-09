@@ -61,3 +61,47 @@ ul li::before {
   margin-left: 0.5em;
   cursor: pointer;
 }
+
+/* Layout container for consistent width */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .card-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button, .coming-soon input, .coming-soon button {
+    width: 90%;
+    margin-top: 0.5em;
+  }
+
+  header, main, footer {
+    padding: 1em;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Improve header readability */
+header h1, header p {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Center and size the logo */
+header img {
+  display: block;
+  margin: 0 auto 1em auto;
+  max-width: 120px;
+  border-radius: 8px;
+}
