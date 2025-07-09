@@ -159,50 +159,21 @@ AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
    </div>
   </main>
   <footer style="text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem; background-color: #f8f8f8; color: #333;">
-   <p style="margin-bottom: 0.5rem; color: #333;">
-    © 2025 Jakoma. All rights reserved.
-   </p>
-   <p style="margin-bottom: 0.5rem;">
-    <a href="https://policy.jakoma.org" style="margin: 0 10px; text-decoration: none; color: #2c3e50;">
-     Privacy Policy
-    </a>
-    |
-    <a href="https://policy.jakoma.org/terms" style="margin: 0 10px; text-decoration: none; color: #2c3e50;">
-     Terms of Use
-    </a>
-    |
-    <a href="https://policy.jakoma.org#cookies" style="margin: 0 10px; text-decoration: none; color: #2c3e50;">
-     Cookies
-    </a>
-   </p>
-   <a href="https://jakoma.org" style="text-decoration: none;" target="_blank">
-    <img alt="Jakoma Logo" src="https://i.imgur.com/EBwi9Mm.jpeg" style="height: 40px; margin-top: 10px;"/>
-    <br/>
-    <span style="color: #2c3e50;">
-     Powered by Jakoma — Smarter Tools. Real Results.
-    </span>
-   </a>
+   <footer>
+    <p>
+     © 2025 Jakoma. All rights reserved.
+    </p>
+    <p>
+     <a href="policy.html">
+      Privacy Policy
+     </a>
+     |
+     <a href="terms.html">
+      Terms of Use
+     </a>
+    </p>
+   </footer>
   </footer>
-  <script>
-   function toggleMenu() {
-const menu = document.getElementById('mobileMenu');
-const overlay = document.querySelector('.mobile-menu-overlay');
-const toggle = document.querySelector('.menu-toggle');
-const isOpen = menu.classList.contains('open');
-menu.classList.toggle('open');
-overlay.style.display = isOpen ? 'none' : 'block';
-toggle.setAttribute('aria-expanded', !isOpen);
-}
-document.addEventListener('keydown', (e) => {
-if (e.key === 'Escape') {
-const menu = document.getElementById('mobileMenu');
-const overlay = document.querySelector('.mobile-menu-overlay');
-menu.classList.remove('open');
-overlay.style.display = 'none';
-document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
-}
-});
-  </script>
   <!-- Cookie Consent Banner -->
   <div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:#000428; color:#fff; text-align:center; padding:1rem; font-size:0.95rem; z-index:9999; transition: opacity 0.5s ease;">
    <span>
@@ -227,6 +198,16 @@ if (!localStorage.getItem('jakomaCookiesAccepted')) {
 document.getElementById('cookieConsent').style.display = 'block';
 }
 });
+  </script>
+  <script>
+   function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.querySelector('.mobile-menu-overlay');
+  if (menu && overlay) {
+    menu.classList.toggle('open');
+    overlay.classList.toggle('open');
+  }
+}
   </script>
  </body>
 </html>
