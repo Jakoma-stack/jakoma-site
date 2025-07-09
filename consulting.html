@@ -7,12 +7,37 @@
   </title>
  </head>
  <body>
+  <div class="mobile-menu-overlay" onclick="toggleMenu()">
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+   <a href="about.html">
+    👤 About Us
+   </a>
+   <a href="consulting.html">
+    📊 Consulting
+   </a>
+   <a href="services.html">
+    📦 Jakoma Services
+   </a>
+   <a href="https://applysmart.co.uk" target="_blank">
+    📝 ApplySmart
+   </a>
+   <a href="https://100to10k.com" target="_blank">
+    💼 100to10K
+   </a>
+  </div>
   <header>
+   <button class="menu-toggle" onclick="toggleMenu()">
+    ☰
+   </button>
+   <a href="index.html">
+    <img alt="Jakoma logo" src="logo.jpg"/>
+   </a>
    <h1>
-    Strategic Consulting for Data-Driven Organisations
+    Strategic Consulting
    </h1>
    <p>
-    Trusted advisory for data, governance, AI, and transformation — grounded in ethics, built for real-world impact.
+    Expert advisory for data, governance, AI, and transformation — grounded in ethics, built for impact.
    </p>
   </header>
   <main>
@@ -69,28 +94,35 @@
   <button id="darkModeToggle" style="position:fixed;bottom:1rem;right:1rem;z-index:999;">
    🌙
   </button>
-  <script>
-   document.getElementById("darkModeToggle").addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
-});
-if (localStorage.getItem("darkMode") === "true") {
-    document.body.classList.add("dark-mode");
-}
-  </script>
-  <style>
-   body.dark-mode {
-    background-color: #121212;
-    color: #f0f0f0;
-}
-body.dark-mode .service-card {
-    background-color: #1f1f1f;
-    border-color: #444;
-}
-body.dark-mode a {
-    color: #90caf9;
-}
-  </style>
+  <button id="darkModeToggle" style="position:fixed;bottom:1rem;right:1rem;z-index:999;">
+   🌙
+  </button>
+  <section class="cta-section">
+   <h2>
+    🚀 Ready to Launch Smarter?
+   </h2>
+   <p>
+    Grab our
+    <strong>
+     AI-Powered Launch Checklist
+    </strong>
+    — built for founders, creators and mission-led teams preparing to go live without the guesswork.
+   </p>
+   <ul>
+    <li>
+     ✅ Step-by-step launch tasks
+    </li>
+    <li>
+     ✅ GDPR &amp; analytics setup guide
+    </li>
+    <li>
+     ✅ Ethical AI &amp; digital product prep
+    </li>
+   </ul>
+   <a class="cta-button" href="https://tally.so/r/m6z0xo" target="_blank">
+    📥 Download the Free Checklist →
+   </a>
+  </section>
   <footer>
    <p>
     © 2025 Jakoma. All rights reserved.
@@ -105,6 +137,28 @@ body.dark-mode a {
     </a>
    </p>
   </footer>
+  <script>
+   document.getElementById("darkModeToggle").addEventListener("click", function() {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+});
+if (localStorage.getItem("darkMode") === "true") {
+  document.body.classList.add("dark-mode");
+}
+  </script>
+  <style>
+   body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+body.dark-mode .service-card {
+  background-color: #1f1f1f;
+  border-color: #444;
+}
+body.dark-mode a {
+  color: #90caf9;
+}
+  </style>
   <script>
    function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
