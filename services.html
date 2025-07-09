@@ -1,52 +1,73 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>
-   Jakoma Services
-  </title>
-<link href="style.css" rel="stylesheet"/>
+  <meta charset="UTF-8" />
+  <title>Services | Jakoma</title>
+  <meta name="description" content="Explore Jakoma's expert services in AI readiness, data strategy, governance, and ethical digital transformation for solopreneurs and startups." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-<h1>
-    Jakoma Services
-   </h1>
-<p>
-    Smarter digital services for solopreneurs and microbusinesses.
-   </p>
-</header>
-<main><h2>Ethical, Practical Services for Vision-Driven Founders</h2><p>Jakoma provides no-fluff, privacy-first digital services designed for creators, professionals, and mission-led organisations. From rapid setup to strategic scale — we build for impact.</p><div class="service-card" style="border:1px solid #ccc; padding:1rem; margin:1rem 0; border-radius:8px;"><h3>Landing Page Build</h3><p>Mobile-optimised lead capture page, custom domain, basic copy and embedded email form.</p><p style="font-weight:bold;">From £199</p></div><div class="service-card" style="border:1px solid #ccc; padding:1rem; margin:1rem 0; border-radius:8px;"><h3>Smart Automation Kit</h3><p>Zapier/Make-based automation from form → email → CRM → calendar. Setup + test included.</p><p style="font-weight:bold;">From £299</p></div><div class="service-card" style="border:1px solid #ccc; padding:1rem; margin:1rem 0; border-radius:8px;"><h3>Launch Funnel Toolkit</h3><p>Tally + Email + Payhip integration, tailored funnel strategy, and launch checklist.</p><p style="font-weight:bold;">From £399</p></div><div class="service-card" style="border:1px solid #ccc; padding:1rem; margin:1rem 0; border-radius:8px;"><h3>DPO Support (Lite)</h3><p>One-off DPO advisory or IG risk review session (30–60 mins) for small teams or founders.</p><p style="font-weight:bold;">£149</p></div><div class="service-card" style="border:1px solid #ccc; padding:1rem; margin:1rem 0; border-radius:8px;"><h3>Mini Data Strategy Session</h3><p>High-value session mapping data goals to your business model. Ideal for new startups or charities.</p><p style="font-weight:bold;">£179</p></div><div style="text-align:center; margin-top:2rem;"><a class="cta-button" href="mailto:hello@jakoma.org" style="display:inline-block;padding:0.75rem 1.5rem;background:#111;color:#fff;border-radius:4px;text-decoration:none;">📅 Book Your Discovery Call</a></div></main>
-<footer>
-<p>
-    © 2025 Jakoma
-   </p>
-</footer>
+  <main class="container">
+    <section class="card">
+      <h1>Our Services</h1>
+      <p><strong>Jakoma provides practical, ethical, AI-ready solutions for people building real things.</strong></p>
 
-<button id="darkModeToggle" style="position:fixed;bottom:1rem;right:1rem;z-index:999;">🌙</button>
-<script>
-document.getElementById("darkModeToggle").addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
-});
-if (localStorage.getItem("darkMode") === "true") {
-    document.body.classList.add("dark-mode");
-}
-</script>
-<style>
-body.dark-mode {
-    background-color: #121212;
-    color: #f0f0f0;
-}
-body.dark-mode .service-card {
-    background-color: #1f1f1f;
-    border-color: #444;
-}
-body.dark-mode a {
-    color: #90caf9;
-}
-</style>
+      <p>Whether you’re launching your first product, rebuilding a broken system, or trying to scale without losing your soul — we can help. All services are tailored to fit founders, solo teams, and public sector professionals.</p>
+    </section>
+
+    <section class="card-row">
+      <div class="card">
+        <h2>📊 Data Strategy & Transformation</h2>
+        <p>Turn your ideas, outputs, or chaos into usable data. We build frameworks that align delivery with insight, minus the jargon.</p>
+        <ul>
+          <li>AI Readiness Assessments</li>
+          <li>Data Strategy Roadmaps</li>
+          <li>Analytics & KPI Frameworks</li>
+        </ul>
+        <a class="cta-button" href="/contact.html">Book a Discovery Call</a>
+      </div>
+
+      <div class="card">
+        <h2>🛡️ Governance & Compliance</h2>
+        <p>IG, GDPR, DPIAs, cookies — we make it make sense. Protect your users and yourself without slowing down progress.</p>
+        <ul>
+          <li>DPO-as-a-Service</li>
+          <li>DPIA Reviews & Audits</li>
+          <li>Policy Writing & Data Mapping</li>
+        </ul>
+        <a class="cta-button" href="/contact.html">Get IG Support</a>
+      </div>
+    </section>
+
+    <section class="card-row">
+      <div class="card">
+        <h2>🧠 Ethical AI & Automation</h2>
+        <p>Use AI with confidence — and conscience. We help founders integrate automation safely, accessibly, and transparently.</p>
+        <ul>
+          <li>AI Toolkits & Workflows</li>
+          <li>Ethical AI Reviews</li>
+          <li>No-Code Automations</li>
+        </ul>
+        <a class="cta-button" href="/contact.html">Start Your AI Toolkit</a>
+      </div>
+
+      <div class="card">
+        <h2>🧩 Service Design & Delivery</h2>
+        <p>From messy idea to market-ready — we help you launch with lean tools, rebrandable assets, and support you’ll actually use.</p>
+        <ul>
+          <li>Launch Funnels & Lead Magnets</li>
+          <li>Template Packs & Rebrandables</li>
+          <li>Website Optimisation Audits</li>
+        </ul>
+        <a class="cta-button" href="/contact.html">Explore Launch Support</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Want to Work Together?</h2>
+      <p>We keep things lean, ethical, and useful. If that sounds like your speed — let’s talk.</p>
+      <a class="cta-button" href="/contact.html">Book a Free Intro Call</a>
+    </section>
+  </main>
 </body>
 </html>
