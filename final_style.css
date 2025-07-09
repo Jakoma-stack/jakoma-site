@@ -1,0 +1,63 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
+  margin: 0;
+  padding: 0;
+}
+header, footer, main {
+  padding: 2em;
+}
+.cta-button {
+  display: inline-block;
+  margin: 0.5em;
+  padding: 1em 1.5em;
+  background-color: #00bfa6;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+.card {
+  background: #222;
+  padding: 1em;
+  border-radius: 6px;
+  width: 280px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+ul li::before {
+  content: "✔️ ";
+}
+.coming-soon {
+  padding: 2em;
+  text-align: center;
+  border: 1px solid #00bfa6;
+  border-radius: 12px;
+  background: #1a1a1a;
+  color: #eee;
+  max-width: 600px;
+  margin: 2em auto;
+}
+.coming-soon input {
+  padding: 0.8em;
+  width: 60%;
+  margin: 0.5em auto;
+  border-radius: 6px;
+}
+.coming-soon button {
+  background: #00bfa6;
+  color: #fff;
+  padding: 0.8em 1.2em;
+  border-radius: 6px;
+  margin-left: 0.5em;
+  cursor: pointer;
+}
