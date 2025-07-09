@@ -18,6 +18,15 @@
   <meta content="Jakoma – Smarter Tools. Real Results." property="og:title"/>
   <meta content="Ethical data, automation, and consulting for founders and organisations." property="og:description"/>
   <meta content="https://jakoma.org/images/jakoma-banner.jpg" property="og:image"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-493063763">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-493063763', { 'anonymize_ip': true });
+  </script>
  </head>
  <body>
   <div class="mobile-menu-overlay" onclick="toggleMenu()">
@@ -49,10 +58,15 @@
    </a>
   </div>
   <header>
+   <button id="darkModeToggle" onclick="document.body.classList.toggle('dark-mode')">
+    🌙
+   </button>
    <button aria-expanded="false" aria-label="Open menu" class="menu-toggle" onclick="toggleMenu()">
     ☰
    </button>
-   <img alt="Jakoma logo" src="logo.jpg"/>
+   <a href="index.html">
+    <img alt="Jakoma logo" src="logo.jpg"/>
+   </a>
    <h1 data-aos="fade-up">
     Smart Tools. Real Results.
    </h1>
