@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!--<!DOCTYPE html-->
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
@@ -294,6 +294,15 @@ body.dark-mode section h2 {
   gtag('js', new Date());
   gtag('config', 'G-493063763', { 'anonymize_ip': true });
   </script>
+  <link href="style.css" rel="stylesheet"/>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-493063763">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-493063763', { 'anonymize_ip': true });
+  </script>
  </head>
  <body>
   <a aria-label="Go back to previous page" href="javascript:history.back()" style="position: fixed; top: 1.2rem; left: 1.2rem; font-size: 2.2rem; color: white; background: none; border: none; text-decoration: none; cursor: pointer; z-index: 1101;">
@@ -307,10 +316,10 @@ body.dark-mode section h2 {
     👤 About Us
    </a>
    <a href="/consulting.html">
-    📊 Consulting Services
-     </a>
-   <a href="/services.html">
-    📦 Jakoma Services
+    📊 Consulting
+   </a>
+   <a href="https://jakoma.org/products.html?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=site_navigation" target="_blank">
+    🛠️ Products and Services
    </a>
    <a href="https://applysmart.co.uk?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=site_navigation">
     📝 ApplySmart
@@ -318,19 +327,33 @@ body.dark-mode section h2 {
    <a href="https://100to10k.com?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=site_navigation">
     💼 100to10K
    </a>
-     </div>
+   <a href="https://jakoma.org/policy.html?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=site_navigation" target="_blank">
+    🔐 Privacy Policy
+   </a>
+   <a href="https://jakoma.org/terms.html?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=site_navigation" target="_blank">
+    📄 Terms of Use
+   </a>
+   <a href="/services.html">
+    📦 Services
+   </a>
+  </div>
   <header>
+   <button id="darkModeToggle" onclick="document.body.classList.toggle('dark-mode')">
+    🌙
+   </button>
    <button aria-expanded="false" aria-label="Open menu" class="menu-toggle" onclick="toggleMenu()">
     ☰
    </button>
-   <img alt="Jakoma logo" src="logo.jpg"/>
+   <a href="index.html">
+    <img alt="Jakoma logo" src="logo.jpg"/>
+   </a>
    <h1 data-aos="fade-up">
     Smart Tools. Real Results.
    </h1>
    <p data-aos="fade-up" data-aos-delay="100">
     Jakoma builds rebrandable digital products, launch-ready websites, and smart tools for founders, coaches, and creators — backed by marketing specialists, data scientists, and information governance experts.
    </p>
-   <a aria-label="Explore Our Services button" class="cta-button" data-aos="fade-up" data-aos-delay="200" href="/services.html" style="display:inline-block;padding:0.75rem 1.5rem;background:#111;color:#fff;border-radius:4px;text-decoration:none;">
+   <a aria-label="Explore Our Services button" class="cta-button" data-aos="fade-up" data-aos-delay="200" href="/consulting.html" style="display:inline-block;padding:0.75rem 1.5rem;background:#111;color:#fff;border-radius:4px;text-decoration:none;">
     Explore Our Services
    </a>
    <button aria-label="Toggle dark mode" id="dark-mode-toggle" style="margin-left: auto; margin-right: 1rem; background: transparent; border: none; font-size: 1.2rem; cursor: pointer; color: inherit;">
@@ -354,7 +377,7 @@ body.dark-mode section h2 {
    </section>
    <section id="what-we-offer" style="margin-bottom: 3rem; text-align: center;">
     <h2>
-     📦 Jakoma Services
+     🧩 Jakoma Services
     </h2>
     <p>
      Our services are grouped into strategic pillars to help you lead with data, build with confidence, and scale with integrity.
@@ -378,9 +401,6 @@ body.dark-mode section h2 {
         Organisational Data Maturity
        </li>
       </ul>
-      <a class="cta-button" href="strategy.html" style="display:inline-block;margin-top:1rem;background:#004e92;color:white;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;">
-       Learn More →
-      </a>
      </div>
      <div class="service-card" style="background: #f9f9f9; border-radius: 12px; padding: 2rem; margin: 1rem; flex: 1 1 300px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
       <h3>
@@ -400,9 +420,6 @@ body.dark-mode section h2 {
         Risk &amp; Policy Reviews
        </li>
       </ul>
-      <a class="cta-button" href="governance.html" style="display:inline-block;margin-top:1rem;background:#004e92;color:white;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;">
-       Learn More →
-      </a>
      </div>
      <div class="service-card" style="background: #f9f9f9; border-radius: 12px; padding: 2rem; margin: 1rem; flex: 1 1 300px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
       <h3>
@@ -422,9 +439,6 @@ body.dark-mode section h2 {
         E-learning &amp; Resource Libraries
        </li>
       </ul>
-      <a class="cta-button" href="delivery.html" style="display:inline-block;margin-top:1rem;background:#004e92;color:white;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;">
-       Learn More →
-      </a>
      </div>
      <div class="service-card" style="background: #f9f9f9; border-radius: 12px; padding: 2rem; margin: 1rem; flex: 1 1 300px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
       <h3>
@@ -444,9 +458,6 @@ body.dark-mode section h2 {
         Ethical-by-Design Frameworks
        </li>
       </ul>
-      <a class="cta-button" href="ethical-tech.html" style="display:inline-block;margin-top:1rem;background:#004e92;color:white;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;">
-       Learn More →
-      </a>
      </div>
     </div>
    </section>
@@ -530,32 +541,6 @@ body.dark-mode section h2 {
     </a>
    </section>
   </main>
-  <section class="cta-section">
-   <h2>
-    🚀 Ready to Launch Smarter?
-   </h2>
-   <p>
-    Grab our
-    <strong>
-     AI-Powered Launch Checklist
-    </strong>
-    — built for founders, creators and mission-led teams preparing to go live without the guesswork.
-   </p>
-   <ul>
-    <li>
-     ✅ Step-by-step launch tasks
-    </li>
-    <li>
-     ✅ GDPR &amp; analytics setup guide
-    </li>
-    <li>
-     ✅ Ethical AI &amp; digital product prep
-    </li>
-   </ul>
-   <a class="cta-button" href="path/to/launch-checklist.pdf">
-    📥 Download the Free Checklist →
-   </a>
-  </section>
   <footer style="text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem; background-color: #f8f8f8; color: #333;">
    <p style="margin-bottom: 0.5rem; color: #333;">
     © 2025 Jakoma. All rights reserved.
