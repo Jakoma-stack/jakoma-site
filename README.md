@@ -1,40 +1,49 @@
 # Jakoma Website
 
-This is the production-ready homepage for Jakoma, built for ethical growth and smart digital tools.
+Welcome to the **Jakoma** GitHub repository — a clean, responsive HTML/CSS website designed to showcase and support Jakoma’s ecosystem of ethical, accessible digital products and consultancy services.
 
-## Structure
+## 🌐 Live Website
+Once deployed via GitHub Pages, your site will be accessible at:
 
 ```
-/jakoma-site/
-├── index.html
-├── style.css
-├── favicon.ico
-├── favicon-64x64.png
-├── /assets/
-│   └── checklist.pdf (optional)
-├── /fonts/
-│   └── inter.woff2 (recommended)
-└── README.md
+https://<your-github-username>.github.io/<repository-name>/
 ```
 
-## Instructions
+Replace `<your-github-username>` and `<repository-name>` with your actual GitHub username and repo name.
 
-1. Clone this repo or upload contents to your GitHub Pages branch.
-2. Ensure any lead magnet (e.g., checklist.pdf) is placed in `/assets`.
-3. Add Google Fonts or embed Inter locally for performance.
-4. Include cookie banner and analytics scripts before going live.
-5. Minify CSS and JS for production (optional).
+## 🗂️ Folder Structure
 
-## Compliance
+```
+/
+├── index.html          # Homepage
+├── about.html          # About Jakoma
+├── products.html       # Products overview
+├── services.html       # Jakoma Services (e.g. websites, IG consultancy)
+├── advisory.html       # Jakoma Advisory (e.g. CDO/DPO support)
+├── policy.html         # Privacy Policy
+├── terms.html          # Terms of Use
+├── style.css           # Custom CSS styles
+```
 
-- Add GDPR cookie banner
-- Link to `/privacy`, `/terms`, `/cookies` in footer
-- Ensure SSL and secure forms if adding lead capture
+## 🛠️ How to Use
 
-## Hosting
+1. Clone or download the repo.
+2. Open `index.html` in a browser to view the site locally.
+3. Customise any HTML or CSS files to reflect your evolving business.
+4. Push updates to GitHub to automatically deploy changes if using GitHub Pages.
 
-You can use GitHub Pages, Netlify, or Vercel for deployment.
+## 🧠 About Jakoma
 
-For GitHub:
-- Push to `main`
-- Go to repo settings → Pages → set source to `/root` or `/docs`
+Jakoma is a multi-faceted digital business built to deliver ethical, privacy-first solutions to individuals and micro-businesses. The brand includes:
+- **ApplySmart** — smarter, faster job application tools.
+- **100 to £10k** — tools and challenges to bootstrap digital income.
+- **Jakoma Advisory & Services** — CDO, DPO, strategy, and website solutions.
+
+## 🚀 Future Enhancements
+- Contact form and email integration
+- Expanded templates and content packs
+- Multi-brand navigation
+
+---
+
+Built with ❤️ by [Jakoma]
