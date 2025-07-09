@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>About Us | Jakoma</title>
-  <meta name="description" content="Learn about Jakoma — a purpose-driven data and digital company committed to ethical AI, public sector transformation, and smart tech solutions." />
+  <meta name="description" content="Discover Jakoma — a purpose-driven digital organisation supporting ethical, data-enabled transformation and smart product development." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-493063763"></script>
@@ -18,17 +18,28 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Jakoma",
-    "url": "https://jakoma.org",
-    "logo": "https://jakoma.org/logo.jpg",
-    "sameAs": [
-      "https://twitter.com/jakoma",
-      "https://linkedin.com/company/jakoma"
-    ]
+    "url": "https://jakoma.org"
   }}
   </script>
 </head>
 <body>
-  <nav>
+  
+<div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="about.html">👤 About Us</a>
+  <a href="consulting.html">📊 Consulting</a>
+  <a href="services.html">📦 Jakoma Services</a>
+  <a href="https://applysmart.co.uk" target="_blank">📝 ApplySmart</a>
+  <a href="https://100to10k.com" target="_blank">💼 100to10K</a>
+</div>
+<header>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <img src="logo.jpg" alt="Jakoma logo" />
+  <h1>About Jakoma</h1>
+  <p>Ethical. Data-led. Privacy-first. Jakoma exists to build better digital solutions.</p>
+</header>
+<nav>
+
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
@@ -40,35 +51,43 @@
 
   <header>
     <h1>💡 About Jakoma</h1>
-    <p>We help ethical founders, public sector teams, and social impact organisations use data and digital tools to work smarter — without selling out.</p>
+    <p>Jakoma empowers ethical organisations and independent creators to deliver smarter, safer digital services using data, AI, and real-world insight.</p>
   </header>
 
   <main>
     <section>
-      <h2>Our Story</h2>
-      <p>Jakoma was founded by a UK-based digital leader with over 22 years of experience in health and social care transformation, analytics, and information governance. From commissioning groundbreaking data platforms to scaling Project ECHO in Northern Ireland, we've always built systems that serve people — not the other way around.</p>
+      <h2>Our Ethos</h2>
+      <p>We believe that digital and data solutions should improve lives — not extract from them. Whether we’re supporting a founder to build a lean online product or guiding a public team through data maturity, everything we do centres on privacy, accessibility and impact.</p>
     </section>
 
     <section>
-      <h2>What We Stand For</h2>
-      <ul>
-        <li>🧠 Evidence over hype — we use AI and data science where it truly adds value</li>
-        <li>🔐 Privacy-first — built-in IG, ethical tech, and DPO expertise</li>
-        <li>⚖️ Access for all — we believe digital tools should empower, not exclude</li>
-      </ul>
+      <h2>Who We Are</h2>
+      <p>Jakoma brings together cross-sector expertise in digital strategy, analytics, information governance, and ethical AI. Our team blends operational experience with strategic oversight to deliver results that matter.</p>
     </section>
 
     <section>
-      <h2>How We Work</h2>
-      <p>Jakoma is structured as a parent brand to multiple ventures — including ApplySmart, the 100to10k Challenge, and future services still in development. We combine digital products, smart consulting, and ethical automation to enable income independence for founders and flexibility for system leaders.</p>
+      <h2>What We Build</h2>
+      <p>Our projects range from lightweight automations and launch-ready websites to full-scale data strategies and governance frameworks. Jakoma is the parent brand for multiple ventures, each built to support smarter, more sustainable ways of working.</p>
     </section>
 
     <section>
-      <a href="consulting.html" class="cta-button">Work With Us →</a>
+      <a href="consulting.html" class="cta-button">Explore Our Services →</a>
     </section>
   </main>
 
-  <footer>
+  
+<section class="cta-section">
+  <h2>🚀 Ready to Launch Smarter?</h2>
+  <p>Grab our <strong>AI-Powered Launch Checklist</strong> — built for founders, creators and mission-led teams preparing to go live without the guesswork.</p>
+  <ul>
+    <li>✅ Step-by-step launch tasks</li>
+    <li>✅ GDPR & analytics setup guide</li>
+    <li>✅ Ethical AI & digital product prep</li>
+  </ul>
+  <a class="cta-button" href="https://tally.so/r/m6z0xo" target="_blank">📥 Download the Free Checklist →</a>
+</section>
+<footer>
+
     <p>© 2025 Jakoma. All rights reserved.</p>
   </footer>
 </body>
