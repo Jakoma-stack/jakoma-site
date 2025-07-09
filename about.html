@@ -24,6 +24,14 @@
     "url": "https://jakoma.org"
   }}
   </script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-493063763">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-493063763', { 'anonymize_ip': true });
+  </script>
  </head>
  <body>
   <div class="mobile-menu-overlay" onclick="toggleMenu()">
@@ -46,6 +54,9 @@
    </a>
   </div>
   <header>
+   <button id="darkModeToggle" onclick="document.body.classList.toggle('dark-mode')">
+    🌙
+   </button>
    <button class="menu-toggle" onclick="toggleMenu()">
     ☰
    </button>
@@ -98,7 +109,6 @@
     Jakoma is a made-up word created by combining parts of three meaningful names that hold deep personal significance. It represents a legacy of care, strength, and creativity — values that shape everything we build. More than just a name, Jakoma is a quiet tribute and a daily reminder that smart, scalable tools can be grounded in real purpose.
    </p>
   </section>
-
   <section class="cta-section">
    <h2>
     🚀 Ready to Launch Smarter?
@@ -125,7 +135,7 @@
     📥 Download the Free Checklist →
    </a>
   </section>
- <footer style="text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem; background-color: #f8f8f8; color: #333;">
+  <footer style="text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem; background-color: #f8f8f8; color: #333;">
    <p style="margin-bottom: 0.5rem; color: #333;">
     © 2025 Jakoma. All rights reserved.
    </p>
