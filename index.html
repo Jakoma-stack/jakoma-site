@@ -3,13 +3,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jakoma | Private by Design, Powerful by Intent</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <meta name="description" content="Jakoma builds ethical digital infrastructure, intelligent products, and data strategies that restore control to people — not platforms.">
+  <style>
+    nav {
+      background: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+    }
+    nav img { height: 40px; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
+
+  <nav>
+    <a href="index.html"><img src="logo.jpg" alt="Jakoma Logo"></a>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="policy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="mailto:hello@jakoma.org">Contact</a></li>
+    </ul>
+  </nav>
+
   <header class="hero">
     <h1>Jakoma: Private by Design, Powerful by Intent</h1>
     <p>We build data strategies, digital tools, and governance systems that put control back in the hands of people — not platforms.</p>
@@ -40,8 +72,12 @@
   </section>
 
   <section class="section">
-    <h2>Our Clients</h2>
-    <p>We work with NHS trusts, governments, founder-led ventures, and values-driven investors. Our results speak — we don’t need to.</p>
+    <h2>Our Ecosystem</h2>
+    <p>Jakoma is the parent brand behind:</p>
+    <ul style="list-style: none; padding: 0; max-width: 600px; margin: auto; text-align: left;">
+      <li>🚀 <strong><a href="https://applysmart.co.uk" target="_blank">ApplySmart</a></strong>: Smarter applications, faster success</li>
+      <li>💸 <strong><a href="https://100to10k.com" target="_blank">100 to £10k</a></strong>: Digital income challenges that build real capability</li>
+    </ul>
   </section>
 
   <section class="section">
@@ -63,6 +99,8 @@
 
   <footer class="section" style="background:#111;color:#fff;">
     <p>© 2025 Jakoma | Private by Design. Powerful by Intent.</p>
+    <p><a href="policy.html" style="color:#fff;">Privacy</a> | <a href="terms.html" style="color:#fff;">Terms</a> | <a href="about.html" style="color:#fff;">About</a></p>
   </footer>
+
 </body>
 </html>
