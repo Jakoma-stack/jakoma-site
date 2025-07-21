@@ -22,47 +22,55 @@ padding: 4rem 2rem 3rem;
 text-align: center;
 }
 .menu-toggle {
-position: absolute;
-top: 1.5rem;
-right: 1.5rem;
-background: none;
-border: none;
-color: white;
-font-size: 2.2rem;
-cursor: pointer;
-z-index: 1101;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+  z-index: 1101;
 }
+
 .mobile-menu-overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-background: rgba(0, 0, 0, 0.5);
-display: none;
-z-index: 1100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1100;
 }
+
+.mobile-menu-overlay.open {
+  display: block;
+}
+
 .mobile-menu {
-position: fixed;
-top: 0;
-right: -250px;
-width: 250px;
-height: 100vh;
-background: white;
-box-shadow: -4px 0 10px rgba(0,0,0,0.1);
-padding: 2rem;
-transition: right 0.3s ease;
-z-index: 1102;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100vh;
+  background: white;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  transition: right 0.3s ease;
+  z-index: 1102;
 }
+
 .mobile-menu.open {
-right: 0;
+  right: 0;
 }
+
 .mobile-menu a {
-display: block;
-margin: 1rem 0;
-color: var(--brand-dark);
-text-decoration: none;
-font-weight: 600;
+  display: block;
+  margin: 1rem 0;
+  color: var(--brand-dark);
+  text-decoration: none;
+  font-weight: 600;
 }
 header img {
 width: 90px;
