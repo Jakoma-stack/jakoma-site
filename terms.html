@@ -194,5 +194,11 @@ document.getElementById('cookie-banner').style.display = 'block';
 }
 });
   </script>
- </body>
+ 
+<script>
+document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+</script>
+</body>
 </html>

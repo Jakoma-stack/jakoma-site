@@ -104,6 +104,19 @@ a:focus-visible, button:focus-visible {
 a:hover, a:focus {
   text-decoration: underline;
 }
+
+body.dark-mode {
+  background: #111;
+  color: #f0f0f0;
+}
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #000428;
+  color: #fff;
+}
+body.dark-mode a {
+  color: #88ccff;
+}
 </style>
 <script>
 function setCookie(name, value, days) {
@@ -509,5 +522,11 @@ document.addEventListener('mouseleave', function (e) {
 <h2>Trusted by Professionals</h2>
 <p>Clients include NHS teams, local government projects, and digital-first founders.</p>
 </section>
+
+<script>
+document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+</script>
 </body>
 </html>

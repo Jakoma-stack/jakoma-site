@@ -178,7 +178,20 @@
     #testimonials {
       margin-top: 4rem;
     }
-  </style>
+  
+body.dark-mode {
+  background: #111;
+  color: #f0f0f0;
+}
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #000428;
+  color: #fff;
+}
+body.dark-mode a {
+  color: #88ccff;
+}
+</style>
 </head>
 <body>
 <!-- REMAINDER OF PAGE UNCHANGED -->
@@ -325,7 +338,7 @@
 </p>
 
 <a href="https://jakoma.org?utm_source=jakoma&utm_medium=web&utm_campaign= site_navigation" target="_blank" style="text-decoration: none;">
-<img src="logo.jpg" alt="Jakoma Logo" style="height: 40px; margin-top: 10px;"><br>
+<img src="logo.jpg" alt="Jakoma Logo" style="height: 40px; width: auto; margin-top: 10px; object-fit: contain;"><br>
 <span style="color: #2c3e50;">Powered by Jakoma — Smarter Tools. Real Results.</span>
 </a>
 </footer>
@@ -370,6 +383,12 @@ cookieAcceptBtn.addEventListener('click', () => {
 localStorage.setItem('cookiesAccepted', 'true');
 cookieBanner.style.display = 'none';
 });
+});
+</script>
+
+<script>
+document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
 });
 </script>
 </body>
