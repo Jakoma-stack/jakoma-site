@@ -1,254 +1,452 @@
 <!DOCTYPE html>
+
 <html lang="en">
- <head>
+<head>
+<title>Digital Products for Solopreneurs | Jakoma</title>
+<meta content="Launch your digital toolkit with privacy-first products from Jakoma — templates, checklists, and guides to get you moving fast and ethically." name="description"/>
+<!--Digital Products for Solopreneurs | Jakoma-->
+<!-- <meta name="description" content="Launch your digital toolkit with privacy-first products from Jakoma — templates, checklists, and guides to get you moving fast and ethically.">
+<meta name="keywords" content="AI toolkit, solopreneur tools, Payhip product, digital downloads, starter kit, launch planner, jakoma templates">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Starter Launch Kit",
+  "description": "Everything you need to kickstart with clarity and momentum.",
+  "brand": { "@type": "Brand", "name": "Jakoma" },
+  "offers": {
+    "@type": "Offer",
+    "price": "9.99",
+    "priceCurrency": "GBP",
+    "url": "https://payhip.com/b/starter-placeholder",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Bootcamp Taster",
+  "description": "A low-cost preview of what our launch system can do for you.",
+  "brand": { "@type": "Brand", "name": "Jakoma" },
+  "offers": {
+    "@type": "Offer",
+    "price": "5.00",
+    "priceCurrency": "GBP",
+    "url": "https://payhip.com/b/bootcamp-placeholder",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Premium Launch Kit",
+  "description": "Perfect if you're ready to go deeper, get feedback, and launch faster.",
+  "brand": { "@type": "Brand", "name": "Jakoma" },
+  "offers": {
+    "@type": "Offer",
+    "price": "39.00",
+    "priceCurrency": "GBP",
+    "url": "https://calendly.com/executivecall/30min?utm_campaign=premium_launch",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+
+  <link rel="canonical" href="https://jakoma.org/products.html" />
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
+  <!--
    Products &amp; Services
-  </title>
-  <meta content="Explore Jakoma's smart AI-powered launch packages — from landing pages to full-scale brand builds." name="description"/>
-  <meta content="Products &amp; Services" property="og:title"/>
-  <meta content="Choose a Jakoma build that fits your goals — whether you're just starting or ready to scale." property="og:description"/>
-  <meta content="https://i.imgur.com/EBwi9Mm.jpeg" property="og:image"/>
-  <meta content="https://jakoma.org/products" property="og:url"/>
-  <meta content="summary_large_image" name="twitter:card"/>
-  <meta content="Jakoma" name="author"/>
-  <link href="/favicon.ico" rel="icon"/>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-  <script defer="" src="https://unpkg.com/aos@2.3.4/dist/aos.js">
-  </script>
-  <script>
+  -->
+<meta content="Explore Jakoma's smart AI-powered launch packages — from landing pages to full-scale brand builds." name="description">
+<meta content="Products &amp; Services" property="og:title"/>
+<meta content="Choose a Jakoma build that fits your goals — whether you're just starting or ready to scale." property="og:description"/>
+<meta content="https://i.imgur.com/EBwi9Mm.jpeg" property="og:image"/>
+<meta content="https://jakoma.org/products" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Jakoma" name="author"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<script defer="" src="https://unpkg.com/aos@2.3.4/dist/aos.js">
+</script>
+<script>
    document.addEventListener('DOMContentLoaded', function () {
 AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 });
   </script>
-  <link href="style.css" rel="stylesheet"/>
- </head>
- <body>
-  
+<link href="style.css" rel="stylesheet"/>
+<style>
+.package-card.premium {
+  border: 2px solid gold;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  transform: scale(1.05);
+}
+.tag {
+  background-color: #0077cc;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+</style>
+<script>
+function setCookie(name, value, days) {
+  var expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+}
+function getCookie(name) {
+  return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+}
+function acceptCookies() {
+  setCookie('cookie_consent', 'accepted', 365);
+  document.getElementById('cookie-banner').style.display = 'none';
+  loadAnalytics();
+}
+function loadAnalytics() {
+  if (!window.gaLoaded) {
+    let script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-493063763';
+    script.async = true;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-493063763');
+    window.gaLoaded = true;
+  }
+}
+if (getCookie('cookie_consent') === 'accepted') loadAnalytics();
+</script>
+</meta></head>
+<body>
 <div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/index.html">🏠 Home</a>
-  <a href="/about.html">👤 About</a>
-  <a href="/products.html">🛍️ Products</a>
-  <a href="/services.html">📦 Services</a>
-  <a href="https://calendly.com/executivecall/30min" target="_blank">📅 Book a Call</a>
-  <a href="/policy.html">🔐 Privacy Policy</a>
-  <a href="/terms.html">📄 Terms of Use</a>
-  <a href="/cookies.html">🍪 Cookie Policy</a>
+<a href="/index.html">🏠 Home</a>
+<a href="/about.html">👤 About</a>
+<a href="/products.html">🛍️ Products</a>
+<a href="/services.html">📦 Services</a>
+<a href="https://calendly.com/executivecall/30min?utm_campaign=calendly_booking" target="_blank">📅 Book a Call</a>
+<a href="/policy.html">🔐 Privacy Policy</a>
+<a href="/terms.html">📄 Terms of Use</a>
+<a href="/cookies.html">🍪 Cookie Policy</a>
 </div>
-
-  <div class="mobile-menu" id="mobileMenu">
-   <a href="https://jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page">
+<div class="mobile-menu" id="mobileMenu">
+<a href="https://jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page">
     🏠 Home
    </a>
-   <a href="https://about.jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page" rel="noopener noreferrer" target="_blank">
+<a href="https://about.jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page" rel="noopener noreferrer" target="_blank">
     👤 About Us
    </a>
-   <a href="https://applysmart.co.uk?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page">
+<a href="https://applysmart.co.uk?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page">
     📝 ApplySmart
    </a>
-   <a href="https://100to10k.com?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page">
+<a href="https://100to10k.com?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page">
     💼 100to10K
    </a>
-   <a href="https://policy.jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page" rel="noopener noreferrer" target="_blank">
+<a href="https://policy.jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page" rel="noopener noreferrer" target="_blank">
     🔐 Privacy Policy
    </a>
-   <a href="https://terms.jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page" rel="noopener noreferrer" target="_blank">
+<a href="https://terms.jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page" rel="noopener noreferrer" target="_blank">
     📄 Terms of Use
    </a>
-  </div>
-  <header>
-   <button aria-expanded="false" aria-label="Open menu" class="menu-toggle" onclick="toggleMenu()">
+</div>
+<header>
+<button aria-expanded="false" aria-label="Open menu" class="menu-toggle" onclick="toggleMenu()">
     ☰
    </button>
-   <a aria-label="Go to Jakoma homepage" href="https://jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page">
-    <img alt="Jakoma logo" aria-label="Jakoma" role="img" src="https://i.imgur.com/EBwi9Mm.jpeg"/>
-   </a>
-   <h1>
+<a aria-label="Go to Jakoma homepage" href="https://jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page">
+<img alt="Jakoma logo" aria-label="Jakoma" role="img" src="https://i.imgur.com/EBwi9Mm.jpeg"/>
+</a>
+<h1>
     Products &amp; Services
    </h1>
-   <p>
+<p>
     Choose a Jakoma build that fits your goals — whether you're just starting or ready to scale.
    </p>
-  </header>
-  <main role="main">
-   <section>
-    <h2>
+</header>
+<main role="main">
+<section>
+<h2>
      🧰 What We Offer
     </h2>
-    <p>
+<p>
      Jakoma builds rebrandable, revenue-ready AI tools for creators, coaches, and solopreneurs who want to launch smarter and monetise faster. All packages include tailored support and optional add-ons.
     </p>
-   </section>
-   <section id="packages">
-    <h2>
+</section>
+<section id="packages">
+<h2>
      📦 Our Packages
     </h2>
-    <p class="center">
+<p class="center">
      Choose a Jakoma build that fits your goals — whether you're just starting or ready to scale.
     </p>
-    <div class="packages-row">
-     <a class="card" href="https://applysmart.co.uk" rel="noopener noreferrer" target="_blank">
-      <img alt="ApplySmart" src="https://i.imgur.com/H7Lmy48.png" style="max-width: 120px; display: block; margin: 0 auto 1rem;"/>
-      <h3>
+<div class="packages-row">
+<a class="card" href="https://applysmart.co.uk" rel="noopener noreferrer" target="_blank">
+<img alt="ApplySmart" src="https://i.imgur.com/H7Lmy48.png" style="max-width: 120px; display: block; margin: 0 auto 1rem;"/>
+<h3>
        ApplySmart
       </h3>
-      <p>
+<p>
        AI-powered CVs, cover letters, and LinkedIn prompts. Designed for smarter job applications.
       </p>
-     </a>
-     <a class="card" href="https://100to10k.com" rel="noopener noreferrer" target="_blank">
-      <img alt="100to10K Challenge" src="https://i.imgur.com/ygDMY7N.png" style="max-width: 120px; display: block; margin: 0 auto 1rem;"/>
-      <h3>
+</a>
+<a class="card" href="https://100to10k.com" rel="noopener noreferrer" target="_blank">
+<img alt="100to10K Challenge" src="https://i.imgur.com/ygDMY7N.png" style="max-width: 120px; display: block; margin: 0 auto 1rem;"/>
+<h3>
        100to10K Challenge
       </h3>
-      <p>
+<p>
        Solo experiment to build £10,000 online from £100 — using only smart, public tools.
       </p>
-     </a>
-     <a class="card" href="https://payhip.com/b/kev4Z?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=starter_package">
-      <h3>
+</a>
+<a class="card" href="https://payhip.com/b/kev4Z?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=starter_package">
+<h3>
        ✨ Starter (£299)
       </h3>
-      <ul>
-       <li>
+<ul>
+<li>
         Logo + brand identity setup
        </li>
-       <li>
+<li>
         One-page landing page
        </li>
-       <li>
+<li>
         Prompt-based product (PDF, Notion, or Google Doc)
        </li>
-       <li>
+<li>
         Email opt-in form integration
        </li>
-      </ul>
-     </a>
-     <a class="card" href="https://payhip.com/b/8kErv?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=standard_package">
-      <h3>
+</ul>
+</a>
+<a class="card" href="https://payhip.com/b/8kErv?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=standard_package">
+<h3>
        🚀 Standard (£499–£799)
       </h3>
-      <ul>
-       <li>
+<ul>
+<li>
         Multi-tier product setup (Payhip)
        </li>
-       <li>
+<li>
         Custom landing page
        </li>
-       <li>
+<li>
         Email funnel + lead magnet
        </li>
-       <li>
+<li>
         3–5 Canva templates
        </li>
-      </ul>
-     </a>
-     <a class="card" href="https://payhip.com/b/dJ154?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=premium_package" rel="noopener noreferrer" target="_blank">
-      <h3>
+</ul>
+</a>
+<a class="card" href="https://payhip.com/b/dJ154?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=premium_package" rel="noopener noreferrer" target="_blank">
+<h3>
        👑 Premium (£999+)
       </h3>
-      <ul>
-       <li>
+<ul>
+<li>
         Everything in Standard
        </li>
-       <li>
+<li>
         Custom 14-day content calendar
        </li>
-       <li>
+<li>
         1:1 launch strategy session
        </li>
-       <li>
+<li>
         2 weeks post-launch coaching
        </li>
-      </ul>
-     </a>
-    </div>
-   </section>
-   <div class="spacer-top">
-   </div>
-  
+</ul>
+</a>
+</div>
+</section>
+<div class="spacer-top">
+</div>
 <section class="funnel-flow" style="padding: 2rem; background-color: #f4f4f4; text-align: center;">
-  <h2>🚀 Your Launch Path</h2>
-  <p style="max-width: 700px; margin: 0 auto 2rem;">
+<h2>🚀 Your Launch Path</h2>
+<p style="max-width: 700px; margin: 0 auto 2rem;">
     Whether you're just getting started or ready to scale, Jakoma has a smart step for you. Follow the path that suits your journey:
   </p>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-    <div style="flex: 1; min-width: 200px;">
-      <h3>🆓 Free Checklist</h3>
-      <p>Start with our proven launch roadmap.</p>
-      <a href="/vault.html" class="cta-button">Get the Freebie</a>
-    </div>
-    <div style="flex: 1; min-width: 200px;">
-      <h3>🎯 Starter or Standard</h3>
-      <p>Choose a ready-to-go product tailored to solopreneurs.</p>
-      <a href="/products.html" class="cta-button">Explore Products</a>
-    </div>
-    <div style="flex: 1; min-width: 200px;">
-      <h3>💼 Premium + Strategy</h3>
-      <p>Need more support? Book a bespoke 1:1 strategy session.</p>
-      <a href="https://calendly.com/executivecall/30min" class="cta-button" target="_blank">Book a Call</a>
-    </div>
-  </div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+<div style="flex: 1; min-width: 200px;">
+<h3>🆓 Free Checklist</h3>
+<p>Start with our proven launch roadmap.</p>
+<a class="cta-button" href="/vault.html?utm_campaign=checklist_download">Get the Freebie</a>
+</div>
+<div style="flex: 1; min-width: 200px;">
+<h3>🎯 Starter or Standard</h3>
+<p>Choose a ready-to-go product tailored to solopreneurs.</p>
+<a class="cta-button" href="/products.html">Explore Products</a>
+</div>
+<div style="flex: 1; min-width: 200px;">
+<h3>💼 Premium + Strategy</h3>
+<p>Need more support? Book a bespoke 1:1 strategy session.</p>
+<a class="cta-button" href="https://calendly.com/executivecall/30min?utm_campaign=calendly_booking" target="_blank">Book a Call</a>
+</div>
+</div>
 </section>
-
-
 <section class="testimonials" style="background-color: #f9f9f9; padding: 3rem 1rem; text-align: center;">
-  <h2>💬 What Our Clients Say</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
-    <div style="flex: 1; min-width: 250px; max-width: 350px;">
-      <blockquote>
-        <p>“Jakoma’s toolkit helped me finally launch with clarity. It felt like having a digital co-founder.”</p>
-        <footer>— Independent Founder, London</footer>
-      </blockquote>
-    </div>
-    <div style="flex: 1; min-width: 250px; max-width: 350px;">
-      <blockquote>
-        <p>“From chaos to clarity in just two calls. Their strategy saved our pilot project.”</p>
-        <footer>— NHS Innovation Lead, NI</footer>
-      </blockquote>
-    </div>
-    <div style="flex: 1; min-width: 250px; max-width: 350px;">
-      <blockquote>
-        <p>“Professional, ethical, and zero fluff. Finally, a consultancy that delivers.”</p>
-        <footer>— Public Sector Advisor</footer>
-      </blockquote>
-    </div>
-  </div>
+<h2>💬 What Our Clients Say</h2>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
+<div style="flex: 1; min-width: 250px; max-width: 350px;">
+<blockquote>
+<p>“Jakoma’s toolkit helped me finally launch with clarity. It felt like having a digital co-founder.”</p>
+<footer>— Independent Founder, London</footer>
+</blockquote>
+</div>
+<div style="flex: 1; min-width: 250px; max-width: 350px;">
+<blockquote>
+<p>“From chaos to clarity in just two calls. Their strategy saved our pilot project.”</p>
+<footer>— NHS Innovation Lead, NI</footer>
+</blockquote>
+</div>
+<div style="flex: 1; min-width: 250px; max-width: 350px;">
+<blockquote>
+<p>“Professional, ethical, and zero fluff. Finally, a consultancy that delivers.”</p>
+<footer>— Public Sector Advisor</footer>
+</blockquote>
+</div>
+</div>
 </section>
-
+<section class="comparison" style="padding: 2rem; text-align: center;">
+<h2>📊 Compare Our Packages</h2>
+<table style="width: 100%; max-width: 900px; margin: 2rem auto; border-collapse: collapse;">
+<thead>
+<tr style="background: #f0f0f0;">
+<th style="padding: 1rem;">Feature</th>
+<th style="padding: 1rem;">Starter</th>
+<th style="padding: 1rem;">Premium</th>
+<th style="padding: 1rem;">Strategy Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 1rem;">Launch Roadmap</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr style="background: #f9f9f9;">
+<td style="padding: 1rem;">Editable Templates</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td style="padding: 1rem;">1:1 Strategy Support</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr style="background: #f9f9f9;">
+<td style="padding: 1rem;">Customisation &amp; Feedback</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td style="padding: 1rem;">Direct Call With Jakoma</td>
+<td>❌</td>
+<td>Limited</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section style="padding: 2rem; text-align: center;">
+<h2>📅 Book Your Discovery Call</h2>
+<p>Choose a time that works for you to speak 1:1 with a Jakoma advisor.</p>
+<div style="margin-top: 2rem;">
+<iframe frameborder="0" height="600" scrolling="no" src="https://calendly.com/executivecall/30min?utm_campaign=calendly_booking" style="min-width:320px;" width="100%"></iframe>
+</div>
+</section>
+<section style="padding: 2rem; background: #f9f9f9;">
+<h2>🫵 This Is For You If...</h2>
+<ul style="max-width: 600px; margin: 0 auto; text-align: left;">
+<li>You're overwhelmed by where to start with your idea</li>
+<li>You want a fast but flexible system to test and launch</li>
+<li>You prefer clarity and structure over endless courses</li>
+<li>You want trusted tools without giving up your privacy</li>
+</ul>
+</section>
+<section style="padding: 2rem; text-align: center;">
+<h2>💬 What Users Are Saying</h2>
+<div id="testimonial" style="font-style: italic; max-width: 600px; margin: auto;"></div>
+</section>
+<script>
+const testimonials = [
+  "“The Starter Kit helped me get clear in one weekend. I actually launched!” — Indie Maker",
+  "“Loved the templates — everything was editable and jargon-free.” — Side Hustler, Belfast",
+  "“No fluff, no overwhelm. Jakoma's product just works.” — Freelance Consultant"
+];
+let tIndex = 0;
+function rotateTestimonial() {
+  document.getElementById('testimonial').innerText = testimonials[tIndex];
+  tIndex = (tIndex + 1) % testimonials.length;
+}
+rotateTestimonial();
+setInterval(rotateTestimonial, 5000);
+</script>
+<section style="padding: 2rem; background: #f4f4f4;">
+<h2>❓ Frequently Asked Questions</h2>
+<details>
+<summary>What if I’m not technical?</summary>
+<p>No problem — all our products are beginner-friendly with clear instructions.</p>
+</details>
+<details>
+<summary>How soon will I get my product?</summary>
+<p>Instant delivery. As soon as you purchase, you’ll receive a secure link to download.</p>
+</details>
+<details>
+<summary>Can I upgrade later?</summary>
+<p>Yes — you can start with any product and upgrade anytime. Email us or book a call.</p>
+</details>
+</section>
 </main>
-  <footer style="text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem; background-color: #f8f8f8; color: #333;">
-   <footer>
-    <p>
+<footer style="text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem; background-color: #f8f8f8; color: #333;">
+<footer>
+<p>
      © 2025 Jakoma. All rights reserved.
     </p>
-    <p>
-     <a href="policy.html">
+<p>
+<a href="policy.html">
       Privacy Policy
      </a>
      |
      <a href="terms.html">
       Terms of Use
      </a>
-    </p>
-   </footer>
-  </footer>
-  <!-- Cookie Consent Banner -->
-  <div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:#000428; color:#fff; text-align:center; padding:1rem; font-size:0.95rem; z-index:9999; transition: opacity 0.5s ease;">
-   <span>
+</p>
+</footer>
+</footer>
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:#000428; color:#fff; text-align:center; padding:1rem; font-size:0.95rem; z-index:9999; transition: opacity 0.5s ease;">
+<span>
     We use cookies to improve your experience. By using this site, you accept our
     <a href="https://policy.jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=cookie_consent" style="color:#aad8ff; text-decoration:underline; text-shadow: 0 1px 1px #000;">
      cookie policy
     </a>
     .
    </span>
-   <button onclick="acceptCookies()" style="margin-left:1rem; padding:0.5rem 1rem; background:#004e92; border:none; color:#fff; cursor:pointer; font-weight:bold;">
+<button onclick="acceptCookies()" style="margin-left:1rem; padding:0.5rem 1rem; background:#004e92; border:none; color:#fff; cursor:pointer; font-weight:bold;">
     Got it
    </button>
-  </div>
-  <script>
+</div>
+<script>
    function acceptCookies() {
 localStorage.setItem('jakomaCookiesAccepted', 'true');
 document.getElementById('cookieConsent').style.display = 'none';
@@ -260,7 +458,7 @@ document.getElementById('cookieConsent').style.display = 'block';
 }
 });
   </script>
-  <script>
+<script>
    function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
   const overlay = document.querySelector('.mobile-menu-overlay');
@@ -270,5 +468,41 @@ document.getElementById('cookieConsent').style.display = 'block';
   }
 }
   </script>
- </body>
+<!-- Exit Intent Modal -->
+<div id="exitModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+<div style="background:#fff; padding:2rem; max-width:400px; text-align:center; border-radius:8px;">
+<h2>Leaving so soon?</h2>
+<p>Grab our FREE checklist or claim a discounted 1:1 strategy call to stay on track.</p>
+<a class="cta-button" href="/vault.html?utm_campaign=checklist_download" style="display:inline-block; margin:1rem 0;">🎯 Get the Checklist</a><br/>
+<a class="cta-button" href="https://calendly.com/executivecall/30min?utm_campaign=calendly_booking" target="_blank">📅 Book a Call</a><br/>
+<button onclick="document.getElementById('exitModal').style.display='none';" style="margin-top:1rem;">No thanks</button>
+</div>
+</div>
+<script>
+let exitIntentShown = false;
+document.addEventListener('mouseleave', function (e) {
+  if (e.clientY < 50 && !exitIntentShown) {
+    document.getElementById('exitModal').style.display = 'flex';
+    exitIntentShown = true;
+  }
+});
+</script>
+<a href="/vault.html?utm_campaign=checklist_download?utm_campaign=checklist_download" style="
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: #222;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+  z-index: 9999;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+" target="_blank">
+  📥 Get Checklist
+</a>
+<div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #000; color: #fff; padding: 1rem; text-align: center; z-index: 10000;">
+  This site uses cookies for anonymised analytics. <button onclick="acceptCookies()" style="margin-left: 1rem;">Accept</button>
+</div>
+</body>
 </html>
