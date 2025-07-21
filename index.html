@@ -1,212 +1,187 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jakoma | Smart Tools. Real Results.</title>
-  <meta name="description" content="Jakoma creates AI-powered digital products and branded websites for fast, confident launches." />
-  <meta property="og:title" content="Jakoma | Smart Tools. Real Results." />
-  <meta property="og:description" content="Jakoma builds digital products, websites, and launch-ready services — rebrandable and revenue-ready." />
-  <meta property="og:image" content="logo.jpg" />
-  <meta property="og:url" content="https://jakoma.org" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="author" content="Jakoma" />
-  <link rel="icon" href="/favicon.ico" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
-    });
-  </script>
-  <style>
-    :root {
-      --brand-blue: #004e92;
-      --brand-dark: #000428;
-      --neutral-bg: #f9f9f9;
-      --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: white;
-      color: #1e1e1e;
-      line-height: 1.6;
-    }
-    header {
-      position: relative;
-      background: linear-gradient(135deg, var(--brand-dark), var(--brand-blue));
-      color: white;
-      padding: 4rem 2rem 3rem;
-      text-align: center;
-    }
-    .menu-toggle {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2.2rem;
-      cursor: pointer;
-      z-index: 1101;
-    }
-    .mobile-menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      display: none;
-      z-index: 1100;
-    }
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100vh;
-      background: white;
-      box-shadow: -4px 0 10px rgba(0,0,0,0.1);
-      padding: 2rem;
-      transition: right 0.3s ease;
-      z-index: 1102;
-    }
-    .mobile-menu.open {
-      right: 0;
-    }
-    .mobile-menu a {
-      display: block;
-      margin: 1rem 0;
-      color: var(--brand-dark);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    header img {
-      width: 90px;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-    header h1 {
-      font-size: 2.75rem;
-      margin: 0 0 1rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .cta-button {
-      display: inline-block;
-      background: var(--brand-blue);
-      color: white;
-      padding: 0.9rem 1.8rem;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      margin-top: 2rem;
-      transition: background 0.3s ease;
-    }
-    .cta-button:hover {
-      background: #003366;
-    }
-    main {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-    h2 {
-      font-size: 2rem;
-      color: var(--brand-blue);
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .card-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card {
-      background: var(--neutral-bg);
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: var(--card-shadow);
-      width: 320px;
-      text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-      background: #fff;
-    }
-    .lead-capture {
-      text-align: center;
-      background: #f0f4f8;
-      padding: 4rem 2rem;
-      margin-top: 3rem;
-    }
-    footer {
-      background: #f0f0f0;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    footer a {
-      color: var(--brand-blue);
-      text-decoration: none;
-      margin: 0 0.5rem;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 768px) {
-      .card {
-        width: 90%;
-      }
-      .card-row {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-    #testimonials {
-      margin-top: 4rem;
-    }
-  
-body.dark-mode {
-  background: #111;
-  color: #f0f0f0;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jakoma | Smart Tools. Real Results.</title>
+<meta name="description" content="Jakoma creates AI-powered digital products and branded websites for fast, confident launches." />
+<meta property="og:title" content="Jakoma | Smart Tools. Real Results." />
+<meta property="og:description" content="Jakoma builds digital products, websites, and launch-ready services — rebrandable and revenue-ready." />
+<meta property="og:image" content="logo.jpg" />
+<meta property="og:url" content="https://jakoma.org" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="author" content="Jakoma" />
+<link rel="icon" href="/favicon.ico" />
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+});
+</script>
+<style>
+:root {
+--brand-blue: #004e92;
+--brand-dark: #000428;
+--neutral-bg: #f9f9f9;
+--card-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
-body.dark-mode header,
-body.dark-mode footer {
-  background-color: #000428;
-  color: #fff;
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+margin: 0;
+font-family: 'Inter', sans-serif;
+background: white;
+color: #1e1e1e;
+line-height: 1.6;
 }
-body.dark-mode a {
-  color: #88ccff;
+header {
+position: relative;
+background: linear-gradient(135deg, var(--brand-dark), var(--brand-blue));
+color: white;
+padding: 4rem 2rem 3rem;
+text-align: center;
+}
+.menu-toggle {
+position: absolute;
+top: 1.5rem;
+right: 1.5rem;
+background: none;
+border: none;
+color: white;
+font-size: 2.2rem;
+cursor: pointer;
+z-index: 1101;
+}
+.mobile-menu-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: rgba(0, 0, 0, 0.5);
+display: none;
+z-index: 1100;
+}
+.mobile-menu {
+position: fixed;
+top: 0;
+right: -250px;
+width: 250px;
+height: 100vh;
+background: white;
+box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+padding: 2rem;
+transition: right 0.3s ease;
+z-index: 1102;
+}
+.mobile-menu.open {
+right: 0;
+}
+.mobile-menu a {
+display: block;
+margin: 1rem 0;
+color: var(--brand-dark);
+text-decoration: none;
+font-weight: 600;
+}
+header img {
+width: 90px;
+border-radius: 12px;
+margin-bottom: 1rem;
+}
+header h1 {
+font-size: 2.75rem;
+margin: 0 0 1rem;
+}
+header p {
+font-size: 1.2rem;
+max-width: 700px;
+margin: 0 auto;
+}
+.cta-button {
+display: inline-block;
+background: var(--brand-blue);
+color: white;
+padding: 0.9rem 1.8rem;
+text-decoration: none;
+border-radius: 30px;
+font-weight: 600;
+margin-top: 2rem;
+transition: background 0.3s ease;
+}
+.cta-button:hover {
+background: #003366;
+}
+main {
+max-width: 1200px;
+margin: 3rem auto;
+padding: 0 2rem;
+}
+h2 {
+font-size: 2rem;
+color: var(--brand-blue);
+margin-bottom: 1rem;
+text-align: center;
+}
+.card-row {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 2rem;
+margin-top: 2rem;
+}
+.card {
+background: var(--neutral-bg);
+border-radius: 16px;
+padding: 2rem;
+box-shadow: var(--card-shadow);
+width: 320px;
+text-align: left;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+transform: translateY(-6px);
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+background: #fff;
+}
+.lead-capture {
+text-align: center;
+background: #f0f4f8;
+padding: 4rem 2rem;
+margin-top: 3rem;
+}
+footer {
+background: #f0f0f0;
+text-align: center;
+padding: 2rem 1rem;
+font-size: 0.9rem;
+color: #666;
+}
+footer a {
+color: var(--brand-blue);
+text-decoration: none;
+margin: 0 0.5rem;
+}
+footer a:hover {
+text-decoration: underline;
+}
+@media (max-width: 768px) {
+.card {
+width: 90%;
+}
+.card-row {.org
+flex-direction: column;
+align-items: center;
+}
+}
+#testimonials {
+margin-top: 4rem;
 }
 </style>
 </head>
 <body>
-<!-- REMAINDER OF PAGE UNCHANGED -->
-<div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="/index.html">🏠 Home</a>
-  <a href="/about.html">👤 About</a>
-  <a href="/products.html">🛍️ Products</a>
-  <a href="/services.html">📦 Services</a>
-  <a href="https://calendly.com/executivecall/30min" target="_blank">📅 Book a Call</a>
-  <a href="/policy.html">🔐 Privacy Policy</a>
-  <a href="/terms.html">📄 Terms of Use</a>
-  <a href="/cookies.html">🍪 Cookie Policy</a>
-</div>
-
+<!-- REMAINDER OF PAGE UNCHANGED --><div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
 <div class="mobile-menu" id="mobileMenu">
 <a href="https://jakoma.org/about.html?utm_source=jakoma&utm_medium=web&utm_campaign=site_navigation">👤 About Us</a>
 <a href="https://jakoma.org/products.html?utm_source=jakoma&utm_medium=web&utm_campaign=site_navigation" target="_blank">🛠️ Products and Services</a>
@@ -300,31 +275,6 @@ body.dark-mode a {
     <a href="https://tally.so/r/m6z0xo?utm_source=jakoma&utm_medium=web&utm_campaign=checklist_download" class="cta-button" target="_blank">Download the Checklist</a>
   </section>
 
-
-<section class="testimonials" style="background-color: #f9f9f9; padding: 3rem 1rem; text-align: center;">
-  <h2>💬 What Our Clients Say</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
-    <div style="flex: 1; min-width: 250px; max-width: 350px;">
-      <blockquote>
-        <p>“Jakoma’s toolkit helped me finally launch with clarity. It felt like having a digital co-founder.”</p>
-        <footer>— Independent Founder, London</footer>
-      </blockquote>
-    </div>
-    <div style="flex: 1; min-width: 250px; max-width: 350px;">
-      <blockquote>
-        <p>“From chaos to clarity in just two calls. Their strategy saved our pilot project.”</p>
-        <footer>— NHS Innovation Lead, NI</footer>
-      </blockquote>
-    </div>
-    <div style="flex: 1; min-width: 250px; max-width: 350px;">
-      <blockquote>
-        <p>“Professional, ethical, and zero fluff. Finally, a consultancy that delivers.”</p>
-        <footer>— Public Sector Advisor</footer>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
 </main>
 
 
@@ -338,7 +288,7 @@ body.dark-mode a {
 </p>
 
 <a href="https://jakoma.org?utm_source=jakoma&utm_medium=web&utm_campaign= site_navigation" target="_blank" style="text-decoration: none;">
-<img src="logo.jpg" alt="Jakoma Logo" style="height: 40px; width: auto; margin-top: 10px; object-fit: contain;"><br>
+<img src="logo.jpg" alt="Jakoma Logo" style="height: 40px; margin-top: 10px;"><br>
 <span style="color: #2c3e50;">Powered by Jakoma — Smarter Tools. Real Results.</span>
 </a>
 </footer>
@@ -383,12 +333,6 @@ cookieAcceptBtn.addEventListener('click', () => {
 localStorage.setItem('cookiesAccepted', 'true');
 cookieBanner.style.display = 'none';
 });
-});
-</script>
-
-<script>
-document.querySelector('.theme-toggle')?.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
 });
 </script>
 </body>

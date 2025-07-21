@@ -42,19 +42,6 @@ a:focus-visible, button:focus-visible {
 a:hover, a:focus {
   text-decoration: underline;
 }
-
-body.dark-mode {
-  background: #111;
-  color: #f0f0f0;
-}
-body.dark-mode header,
-body.dark-mode footer {
-  background-color: #000428;
-  color: #fff;
-}
-body.dark-mode a {
-  color: #88ccff;
-}
 </style>
 <script>
 function setCookie(name, value, days) {
@@ -479,11 +466,5 @@ if (toggle) {
 <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #000; color: #fff; padding: 1rem; text-align: center; z-index: 10000;">
   This site uses cookies for anonymised analytics. <button onclick="acceptCookies()" style="margin-left: 1rem;">Accept</button>
 </div>
-</a>
-<script>
-document.querySelector('.theme-toggle')?.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-});
-</script>
-</body>
+</a></body>
 </html>
