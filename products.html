@@ -25,8 +25,19 @@ AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
   <link href="style.css" rel="stylesheet"/>
  </head>
  <body>
-  <div class="mobile-menu-overlay" onclick="toggleMenu()">
-  </div>
+  
+<div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html">🏠 Home</a>
+  <a href="/about.html">👤 About</a>
+  <a href="/products.html">🛍️ Products</a>
+  <a href="/services.html">📦 Services</a>
+  <a href="https://calendly.com/executivecall/30min" target="_blank">📅 Book a Call</a>
+  <a href="/policy.html">🔐 Privacy Policy</a>
+  <a href="/terms.html">📄 Terms of Use</a>
+  <a href="/cookies.html">🍪 Cookie Policy</a>
+</div>
+
   <div class="mobile-menu" id="mobileMenu">
    <a href="https://jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=products_page">
     🏠 Home
@@ -157,7 +168,57 @@ AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
    </section>
    <div class="spacer-top">
    </div>
-  </main>
+  
+<section class="funnel-flow" style="padding: 2rem; background-color: #f4f4f4; text-align: center;">
+  <h2>🚀 Your Launch Path</h2>
+  <p style="max-width: 700px; margin: 0 auto 2rem;">
+    Whether you're just getting started or ready to scale, Jakoma has a smart step for you. Follow the path that suits your journey:
+  </p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+    <div style="flex: 1; min-width: 200px;">
+      <h3>🆓 Free Checklist</h3>
+      <p>Start with our proven launch roadmap.</p>
+      <a href="/vault.html" class="cta-button">Get the Freebie</a>
+    </div>
+    <div style="flex: 1; min-width: 200px;">
+      <h3>🎯 Starter or Standard</h3>
+      <p>Choose a ready-to-go product tailored to solopreneurs.</p>
+      <a href="/products.html" class="cta-button">Explore Products</a>
+    </div>
+    <div style="flex: 1; min-width: 200px;">
+      <h3>💼 Premium + Strategy</h3>
+      <p>Need more support? Book a bespoke 1:1 strategy session.</p>
+      <a href="https://calendly.com/executivecall/30min" class="cta-button" target="_blank">Book a Call</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="testimonials" style="background-color: #f9f9f9; padding: 3rem 1rem; text-align: center;">
+  <h2>💬 What Our Clients Say</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
+    <div style="flex: 1; min-width: 250px; max-width: 350px;">
+      <blockquote>
+        <p>“Jakoma’s toolkit helped me finally launch with clarity. It felt like having a digital co-founder.”</p>
+        <footer>— Independent Founder, London</footer>
+      </blockquote>
+    </div>
+    <div style="flex: 1; min-width: 250px; max-width: 350px;">
+      <blockquote>
+        <p>“From chaos to clarity in just two calls. Their strategy saved our pilot project.”</p>
+        <footer>— NHS Innovation Lead, NI</footer>
+      </blockquote>
+    </div>
+    <div style="flex: 1; min-width: 250px; max-width: 350px;">
+      <blockquote>
+        <p>“Professional, ethical, and zero fluff. Finally, a consultancy that delivers.”</p>
+        <footer>— Public Sector Advisor</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+</main>
   <footer style="text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem; background-color: #f8f8f8; color: #333;">
    <footer>
     <p>
