@@ -10,7 +10,7 @@
 <meta content="cdpo, data strategy, fractional dpo, IG services, NHS consulting, ethical digital leadership" name="keywords"/></head>
 <body>
 <header>
-  <button aria-label="☰" class="menu-toggle" onclick="toggleMenu()">☰</button>
+<button aria-label="☰" class="menu-toggle" onclick="toggleMenu()">☰</button>
 <a href="index.html">
 <img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/>
 </a>
@@ -45,5 +45,26 @@
     <a aria-label="Terms" href="/terms.html">Terms</a> |
     <a aria-label="Cookies" href="/cookies.html">Cookies</a>
 </footer>
+<div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="products.html">Products</a>
+<a href="services.html">Services</a>
+<a href="applysmart.html">ApplySmart</a>
+<a href="100to10k.html">100to10K</a>
+<a href="consulting.html">Consulting</a>
+<a href="https://calendly.com/executivecall/30min">Book a Call</a>
+<a href="https://policy.jakoma.org">Privacy / Terms / Cookies</a>
+</div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    menu.classList.toggle('open');
+    overlay.classList.toggle('open');
+  }
+</script>
 </body>
 </html>
