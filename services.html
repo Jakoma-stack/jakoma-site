@@ -23,8 +23,19 @@
  <body>
    <a aria-label="Go back to previous page" href="javascript:history.back()" style="position: fixed; top: 1.2rem; left: 1.2rem; font-size: 2.2rem; color: white; background: none; border: none; text-decoration: none; cursor: pointer; z-index: 1101;">
    ←
-  <div class="mobile-menu-overlay" onclick="toggleMenu()">
-  </div>
+  
+<div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html">🏠 Home</a>
+  <a href="/about.html">👤 About</a>
+  <a href="/products.html">🛍️ Products</a>
+  <a href="/services.html">📦 Services</a>
+  <a href="https://calendly.com/executivecall/30min" target="_blank">📅 Book a Call</a>
+  <a href="/policy.html">🔐 Privacy Policy</a>
+  <a href="/terms.html">📄 Terms of Use</a>
+  <a href="/cookies.html">🍪 Cookie Policy</a>
+</div>
+
   <div class="mobile-menu" id="mobileMenu">
       <a href="https://jakoma.org/about.html?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=site_navigation">
     👤 About Us
@@ -135,7 +146,27 @@
      📅 Book Your Discovery Call
     </a>
    </div>
-  </main>
+  
+<section class="cta-funnel" style="padding: 2rem; background-color: #eef2f3; text-align: center;">
+  <h2>🎯 Not Sure Where to Start?</h2>
+  <p style="max-width: 700px; margin: 0 auto 1.5rem;">
+    Whether you're just exploring or ready to invest, we’ve got you covered. Pick the right next step for your digital journey:
+  </p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+    <div style="flex: 1; min-width: 200px;">
+      <h3>🛍️ Explore Products</h3>
+      <p>Browse toolkits and launch kits designed for solopreneurs and ethical startups.</p>
+      <a href="/products.html" class="cta-button">Explore Products</a>
+    </div>
+    <div style="flex: 1; min-width: 200px;">
+      <h3>💼 Need Support?</h3>
+      <p>Book a no-pressure strategy call to talk through your options with a Jakoma advisor.</p>
+      <a href="https://calendly.com/executivecall/30min" class="cta-button" target="_blank">Book a Strategy Call</a>
+    </div>
+  </div>
+</section>
+
+</main>
   <section class="cta-section">
    <h2>
     🚀 Ready to Launch Smarter?
