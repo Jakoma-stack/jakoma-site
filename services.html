@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,27 +9,31 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="services.html" class="active">Services</a></li>
-        <li><a href="consulting.html">Consulting</a></li>
-        <li><a href="https://applysmart.co.uk" target="_blank">ApplySmart</a></li>
-        <li><a href="https://100to10k.challenge" target="_blank">100to10K</a></li>
-        <li><a href="https://calendly.com/executivecall/30min" target="_blank">Book a Call</a></li>
-      </ul>
-    </nav>
+<div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html">🏠 Home</a>
+  <a href="/about.html">👤 About</a>
+  <a href="/products.html">🛍️ Products</a>
+  <a href="/services.html">📦 Services</a>
+  <a href="/consulting.html">📊 Consulting</a>
+  <a href="https://applysmart.co.uk" target="_blank">📝 ApplySmart</a>
+  <a href="https://100to10k.com" target="_blank">💼 100to10K</a>
+  <a href="https://calendly.com/executivecall/30min" target="_blank">📅 Book a Call</a>
+  <a href="/policy.html">🔐 Privacy Policy</a>
+  <a href="/terms.html">📄 Terms of Use</a>
+  <a href="/cookies.html">🍪 Cookie Policy</a>
+</div>
+
+  <header>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <a href="/index.html">
+      <img src="logo.jpg" alt="Jakoma Logo" class="footer-logo"/>
+    </a>
+    <h1>Done-for-You Digital Services</h1>
+    <p>Affordable, fixed-price packages designed to help small teams, founders, and solo entrepreneurs go from stuck to launched without the need for long retainers.</p>
   </header>
 
   <main class="content">
-    <section class="page-intro">
-      <h1>Done-for-You Digital Services</h1>
-      <p>Affordable, fixed-price packages designed to help small teams, founders, and solo entrepreneurs go from stuck to launched without the need for long retainers.</p>
-    </section>
-
     <section class="services-grid">
       <div class="service-card">
         <h2>Landing Page Build</h2>
@@ -64,16 +67,25 @@
     </section>
 
     <section class="cta">
-      <a href="https://calendly.com/executivecall/30min" class="cta-button">📞 Book a Discovery Call</a>
+      <a href="https://calendly.com/executivecall/30min?utm_campaign=services_cta" class="cta-button">📅 Book a Discovery Call</a>
     </section>
   </main>
 
   <footer>
     <p>© 2025 Jakoma. All rights reserved.</p>
-    <a href="policy.html">Privacy</a> |
-    <a href="terms.html">Terms</a> |
-    <a href="cookies.html">Cookies</a><br/>
+    <a href="/policy.html">Privacy</a> |
+    <a href="/terms.html">Terms</a> |
+    <a href="/cookies.html">Cookies</a><br/>
     <img src="logo.jpg" alt="Jakoma Logo" class="footer-logo"/>
   </footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.querySelector('.mobile-menu-overlay');
+  menu.classList.toggle('open');
+  overlay.classList.toggle('open');
+}
+</script>
 </body>
 </html>
