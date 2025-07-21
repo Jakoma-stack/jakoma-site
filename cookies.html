@@ -1,30 +1,76 @@
 <!DOCTYPE html>
+
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
+<head>
+<title>Cookie Policy | Jakoma</title>
+<meta content="Jakoma builds smart, scalable, privacy-first digital solutions for ethical entrepreneurs and public innovators." name="description"/>
+<link href="https://jakoma.org/cookies.html" rel="canonical"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!--
    Cookie Policy | Jakoma
-  </title>
-  <link href="style.css" rel="stylesheet"/>
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-493063763">
-  </script>
-  <script>
+  -->
+<link href="style.css" rel="stylesheet"/>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-493063763">
+</script>
+<script>
    window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-493063763', { 'anonymize_ip': true });
   </script>
-  <meta content="Jakoma builds smart, scalable, privacy-first digital solutions for ethical entrepreneurs and public innovators." name="description"/>
- </head>
- <body>
-  <main>
-   <h1>
+<meta content="Jakoma builds smart, scalable, privacy-first digital solutions for ethical entrepreneurs and public innovators." name="description"/>
+<script>
+function setCookie(name, value, days) {
+  var expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+}
+function getCookie(name) {
+  return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+}
+function acceptCookies() {
+  setCookie('cookie_consent', 'accepted', 365);
+  document.getElementById('cookie-banner').style.display = 'none';
+  loadAnalytics();
+}
+function loadAnalytics() {
+  if (!window.gaLoaded) {
+    let script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-493063763';
+    script.async = true;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-493063763');
+    window.gaLoaded = true;
+  }
+}
+if (getCookie('cookie_consent') === 'accepted') loadAnalytics();
+</script>
+</meta></head>
+<body>
+<div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+<a href="/index.html">🏠 Home</a>
+<a href="/about.html">👤 About</a>
+<a href="/products.html">🛍️ Products</a>
+<a href="/services.html">📦 Services</a>
+<a href="https://calendly.com/executivecall/30min" target="_blank">📅 Book a Call</a>
+<a href="/policy.html">🔐 Privacy Policy</a>
+<a href="/terms.html">📄 Terms of Use</a>
+<a href="/cookies.html">🍪 Cookie Policy</a>
+</div>
+<main>
+<h1>
     Cookie Policy
    </h1>
-   <p>
+<p>
     This site uses minimal cookies for analytics and site performance. By continuing to browse, you accept our use of cookies. You may opt out using your browser settings or by clicking 'Decline' on our cookie banner.
    </p>
-  </main>
- </body>
+</main>
+<div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #000; color: #fff; padding: 1rem; text-align: center; z-index: 10000;">
+  This site uses cookies for anonymised analytics. <button onclick="acceptCookies()" style="margin-left: 1rem;">Accept</button>
+</div>
+</body>
 </html>
