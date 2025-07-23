@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply to Access The Vault | Jakoma</title>
+  <link href="style.css" rel="stylesheet" />
+  <!-- GA4 Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-493063763"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-493063763');
+  </script>
+</head>
+<body>
+
+<div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html">🏠 Home</a>
+  <a href="/about.html">👤 About</a>
+  <a href="/products.html">🛍️ Products</a>
+  <a href="/services.html">📦 Services</a>
+  <a href="/consulting.html">📊 Consulting</a>
+  <a href="https://calendly.com/executivecall/30min" target="_blank">📅 Book a Call</a>
+  <a href="https://applysmart.co.uk" target="_blank">📝 ApplySmart</a>
+  <a href="https://100to10k.com" target="_blank">💼 100to10K</a>
+  <a href="/policy.html">🔐 Privacy Policy</a>
+  <a href="/terms.html">📄 Terms of Use</a>
+  <a href="/cookies.html">🍪 Cookie Policy</a>
+</div>
+
+<header style="text-align: center;">
+  <button aria-label="☰" class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <img alt="Jakoma Logo" src="logo.jpg" style="max-width: 120px; margin: 1rem auto;" />
+  <h1>🔐 Apply to Access The Vault</h1>
+  <p>Our premium services are limited and reviewed on a rolling basis. This short application helps us assess fit and ensure we deliver maximum value.</p>
+</header>
+
+<main style="max-width: 700px; margin: 2rem auto; padding: 2rem;">
+  <section>
+    <h2>🧠 How It Works</h2>
+    <ul style="line-height: 1.7;">
+      <li>✔️ Fill out the quick form below (2 mins)</li>
+      <li>✔️ We review all submissions manually</li>
+      <li>✔️ If you're a good fit, you’ll get access to The Vault offers and/or a private call link</li>
+    </ul>
+    <p style="margin-top: 1rem; font-size: 0.95rem; color: #666;">Note: Vault offers typically range from <strong>£149 to £2,000</strong>. This form is not a commitment to buy, but it helps us tailor your experience.</p>
+  </section>
+
+  <section style="margin-top: 2rem;">
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLSe9nInterestFormURLHere/viewform?embedded=true" 
+      width="100%" 
+      height="800" 
+      frameborder="0" 
+      marginheight="0" 
+      marginwidth="0"
+      loading="lazy">
+      Loading…
+    </iframe>
+  </section>
+
+  <section style="text-align: center; margin-top: 2rem;">
+    <p>Having issues with the form? <a href="mailto:support@jakoma.org">Email support@jakoma.org</a> and we’ll send you a direct link.</p>
+  </section>
+</main>
+
+<footer style="text-align: center; padding: 2rem;">
+  <p>© 2025 Jakoma. All rights reserved.</p>
+  <a href="/policy.html">Privacy</a> |
+  <a href="/terms.html">Terms</a> |
+  <a href="/cookies.html">Cookies</a>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    menu.classList.toggle('open');
+    overlay.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
