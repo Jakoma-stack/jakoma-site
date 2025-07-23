@@ -25,6 +25,22 @@ AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 </script>
 <script>
    window.dataLayer = window.dataLayer || [];
+    function gtag(){{ dataLayer.push(arguments); }}
+    gtag('js', new Date());
+    gtag('config', 'G-493063763', {{ anonymize_ip: true }});
+  </script>
+<script type="application/ld+json">
+   {{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Jakoma",
+    "url": "https://jakoma.org"
+  }}
+  </script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-493063763">
+</script>
+<script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-493063763', { 'anonymize_ip': true });
