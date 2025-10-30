@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jakoma | Solana Bot Status</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #0b0c10; color: #f1f1f1; font-family: 'Inter', sans-serif; }
+    .card { background: #1f2833; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+  </style>
+</head>
+<body class="p-6">
+  <h1 class="text-3xl font-bold mb-6 text-center text-teal-400">Jakoma Solana Bot — Live Monitor</h1>
+
+  <div id="dashboard" class="grid grid-cols-2 gap-6 max-w-3xl mx-auto">
+    <div class="card"><h2 class="text-lg font-semibold">Tokens Tracked</h2><p id="tokens_tracked" class="text-2xl mt-2">—</p></div>
+    <div class="card"><h2 class="text-lg font-semibold">Pumps Detected</h2><p id="pumps_detected" class="text-2xl mt-2">—</p></div>
+    <div class="card"><h2 class="text-lg font-semibold">Retraces Detected</h2><p id="retraces_detected" class="text-2xl mt-2">—</p></div>
+    <div class="card"><h2 class="text-lg font-semibold">Active Predictions</h2><p id="predictions" class="text-2xl mt-2">—</p></div>
+    <div class="card col-span-2"><h2 class="text-lg font-semibold">Daily PnL</h2><p id="daily_pnl" class="text-2xl mt-2">—</p></div>
+    <div class="card col-span-2"><h2 class="text-lg font-semibold">Total PnL</h2><p id="total_pnl" class="text-2xl mt-2">—</p></div>
+  </div>
+
+  <p class="text-center text-gray-400 mt-6">Last updated: <span id="last_update">—</span></p>
+
+  <script>
+    async function fetchStatus() {
+      try {
+        const response = await fetch('/data/solana_status.json?cache=' + Date.now());
+        const data = await response.json();
+        for (const key in data) {
+          const el = document.getElementById(key);
+          if (el) el.textContent = data[key];
+        }
+      } catch (err) {
+        console.error('Error fetching status:', err);
+      }
+    }
+    fetchStatus();
+    setInterval(fetchStatus, 60000); // refresh every 60s
+  </script>
+</body>
+</html>
 
