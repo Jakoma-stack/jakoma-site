@@ -1,0 +1,51 @@
+name: 🪙 Update Solana Dashboard Data
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # every 15 minutes
+  workflow_dispatch:        # allows manual trigger
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Jakoma Site Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 🔍 Fetch latest JSON from Quant Lab Repo
+        env:
+          TOKEN: ${{ secrets.SOLANA_LAB_TOKEN }}
+        run: |
+          # Adjust the repo and path if needed
+          LAB_REPO="Jakoma-stack/solana-lab"
+          FILE_PATH="outputs/solana_status.json"
+          DEST_PATH="public/data/solana_status.json"
+
+          echo "Fetching $FILE_PATH from $LAB_REPO..."
+          if [ -z "$TOKEN" ]; then
+            curl -sL "https://raw.githubusercontent.com/${LAB_REPO}/main/${FILE_PATH}" -o "$DEST_PATH"
+          else
+            curl -H "Authorization: token $TOKEN" \
+                 -sL "https://raw.githubusercontent.com/${LAB_REPO}/main/${FILE_PATH}" -o "$DEST_PATH"
+          fi
+
+          if [ ! -s "$DEST_PATH" ]; then
+            echo "❌ Failed to fetch dashboard data — file empty or missing"
+            exit 1
+          fi
+
+      - name: 🧾 Commit & Push if Changed
+        run: |
+          git config user.name "Jakoma Bot"
+          git config user.email "bot@jakoma.org"
+
+          if git diff --quiet public/data/solana_status.json; then
+            echo "⚙️ No changes detected — skipping commit."
+            exit 0
+          fi
+
+          git add public/data/solana_status.json
+          git commit -m "🔄 Auto-update Solana dashboard data"
+          git push origin main
