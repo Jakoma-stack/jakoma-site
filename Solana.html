@@ -1,58 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scotts| Solana Bot Status</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <title>Solana Quant Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { background: #0b0c10; color: #f1f1f1; font-family: 'Inter', sans-serif; }
-    .card { background: #1f2833; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
-  
-  <footer style="text-align: center; padding: 2rem;">
-  <p>© 2025 Jakoma. All rights reserved.</p>
-  <a href="/policy.html">Privacy</a> |
-  <a href="/terms.html">Terms</a> |
-  <a href="/cookies.html">Cookies</a>
-</footer>
+    body { background: #0b0c10; color: #eaeaea; font-family: 'Inter', sans-serif; }
+    .card { background: #1f2833; border: none; border-radius: 1rem; color: #fff; }
+    .value { font-size: 1.6rem; font-weight: bold; }
+    h1 { margin-bottom: 1rem; color: #66fcf1; }
   </style>
 </head>
-<body class="p-6">
-  <h1 class="text-3xl font-bold mb-6 text-center text-teal-400">Scott's Solana Bot — Live Monitor for Testing</h1>
+<body class="p-4">
+  <div class="container">
+    <h1 class="text-center">📊 Solana Quant Dashboard</h1>
 
-  <div id="dashboard" class="grid grid-cols-2 gap-6 max-w-3xl mx-auto">
-    <div class="card"><h2 class="text-lg font-semibold">Tokens Tracked</h2><p id="tokens_tracked" class="text-2xl mt-2">—</p></div>
-    <div class="card"><h2 class="text-lg font-semibold">Pumps Detected</h2><p id="pumps_detected" class="text-2xl mt-2">—</p></div>
-    <div class="card"><h2 class="text-lg font-semibold">Retraces Detected</h2><p id="retraces_detected" class="text-2xl mt-2">—</p></div>
-    <div class="card"><h2 class="text-lg font-semibold">Active Predictions</h2><p id="predictions" class="text-2xl mt-2">—</p></div>
-    <div class="card col-span-2"><h2 class="text-lg font-semibold">Daily PnL</h2><p id="daily_pnl" class="text-2xl mt-2">—</p></div>
-    <div class="card col-span-2"><h2 class="text-lg font-semibold">Total PnL</h2><p id="total_pnl" class="text-2xl mt-2">—</p></div>
+    <!-- KPI Grid -->
+    <div class="row g-3 text-center">
+      <div class="col-md-3"><div class="card p-3"><div>🪙 Tokens Tracked</div><div id="tokens-tracked" class="value">-</div></div></div>
+      <div class="col-md-3"><div class="card p-3"><div>🚀 Pumps Detected</div><div id="pumps-detected" class="value">-</div></div></div>
+      <div class="col-md-3"><div class="card p-3"><div>🔻 Retraces</div><div id="retraces-detected" class="value">-</div></div></div>
+      <div class="col-md-3"><div class="card p-3"><div>🔄 Open Trades</div><div id="open-trades" class="value">-</div></div></div>
+
+      <div class="col-md-3"><div class="card p-3"><div>💰 Total PnL</div><div id="total-pnl" class="value">-</div></div></div>
+      <div class="col-md-3"><div class="card p-3"><div>💵 Realised PnL</div><div id="realised-pnl" class="value">-</div></div></div>
+      <div class="col-md-3"><div class="card p-3"><div>📈 Unrealised PnL</div><div id="unrealised-pnl" class="value">-</div></div></div>
+      <div class="col-md-3"><div class="card p-3"><div>🏆 Win Rate</div><div id="win-rate" class="value">-</div></div></div>
+    </div>
+
+    <hr class="my-4">
+
+    <!-- Chart placeholders -->
+    <h4>📅 Daily PnL Trend</h4>
+    <canvas id="dailyChart"></canvas>
+
+    <h4 class="mt-5">🪙 Top Tokens by Profit</h4>
+    <canvas id="tokenChart"></canvas>
   </div>
 
-  <p class="text-center text-gray-400 mt-6">Last updated: <span id="last_update">—</span></p>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    async function fetchStatus() {
-      try {
-        const response = await fetch('/data/solana_status.json?cache=' + Date.now());
-        const data = await response.json();
-        for (const key in data) {
-          const el = document.getElementById(key);
-          if (el) el.textContent = data[key];
-        }
-      } catch (err) {
-        console.error('Error fetching status:', err);
-      }
+    async function fetchJSON(url) {
+      const res = await fetch(url + '?' + new Date().getTime());
+      return res.json();
     }
-    fetchStatus();
-    setInterval(fetchStatus, 60000); // refresh every 60s
+
+    async function fetchCSV(url) {
+      const res = await fetch(url + '?' + new Date().getTime());
+      return res.text();
+    }
+
+    async function updateDashboard() {
+      const [status, trades] = await Promise.all([
+        fetchJSON('/data/solana_status.json'),
+        fetchJSON('/data/solana_trades.json')
+      ]);
+
+      // Update KPIs
+      document.getElementById('tokens-tracked').innerText = status.tokens_tracked ?? '-';
+      document.getElementById('pumps-detected').innerText = status.pumps_detected ?? '-';
+      document.getElementById('retraces-detected').innerText = status.retraces_detected ?? '-';
+      document.getElementById('open-trades').innerText = trades.open_trades ?? '-';
+      document.getElementById('total-pnl').innerText = `$${(status.total_pnl ?? 0).toFixed(2)}`;
+      document.getElementById('realised-pnl').innerText = `$${(trades.realised_pnl ?? 0).toFixed(2)}`;
+      document.getElementById('unrealised-pnl').innerText = `$${(trades.unrealised_pnl ?? 0).toFixed(2)}`;
+      document.getElementById('win-rate').innerText = `${(trades.win_rate ?? 0).toFixed(1)}%`;
+    }
+
+    async function renderCharts() {
+      const dailyCSV = await fetchCSV('/data/pnl_daily_summary.csv');
+      const tokenCSV = await fetchCSV('/data/pnl_by_token.csv');
+
+      const parseCSV = (text) => {
+        const [header, ...rows] = text.trim().split('\n');
+        const cols = header.split(',');
+        return rows.map(r => {
+          const vals = r.split(',');
+          return Object.fromEntries(cols.map((c, i) => [c.trim(), vals[i]]));
+        });
+      };
+
+      const dailyData = parseCSV(dailyCSV);
+      const tokenData = parseCSV(tokenCSV);
+
+      // Daily PnL Trend
+      new Chart(document.getElementById('dailyChart'), {
+        type: 'line',
+        data: {
+          labels: dailyData.map(d => d.date),
+          datasets: [{
+            label: 'Total PnL ($)',
+            data: dailyData.map(d => parseFloat(d.total_pnl || 0)),
+            borderColor: '#66fcf1',
+            backgroundColor: 'rgba(102,252,241,0.2)',
+            tension: 0.3,
+            fill: true
+          }]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true } } }
+      });
+
+      // Token Profit Bar Chart
+      const topTokens = tokenData.slice(0, 10);
+      new Chart(document.getElementById('tokenChart'), {
+        type: 'bar',
+        data: {
+          labels: topTokens.map(t => t.token),
+          datasets: [{
+            label: 'Total Profit ($)',
+            data: topTokens.map(t => parseFloat(t.total_profit || 0)),
+            backgroundColor: '#45a29e'
+          }]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true } } }
+      });
+    }
+
+    updateDashboard();
+    renderCharts();
   </script>
 </body>
-  <footer style="text-align: center; padding: 2rem;">
-  <p>© 2025 Jakoma. All rights reserved.</p>
-  <a href="/policy.html">Privacy</a> |
-  <a href="/terms.html">Terms</a> |
-  <a href="/cookies.html">Cookies</a>
-</footer>
 </html>
-
