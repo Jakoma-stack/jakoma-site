@@ -79,6 +79,7 @@
         const dailyCSV = await fetchCSV('data/pnl_daily_summary.csv');
         const tokenCSV = await fetchCSV('data/pnl_by_token.csv');
 
+<<<<<<< HEAD
         const parseCSV = (text) => {
           const [header, ...rows] = text.trim().split('\n');
           const cols = header.split(',');
@@ -143,3 +144,6 @@
   </script>
 </body>
 </html>
+=======
+        const parseCSV = (text
+>>>>>>> 3757032 (Update Solana dashboard and add solana_status.json)
