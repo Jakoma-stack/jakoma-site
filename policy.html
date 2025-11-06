@@ -5,122 +5,131 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="How Jakoma protects your personal data. Learn about our privacy-first practices, policies, and compliance commitments."/>
-  <link rel="canonical" href="https://jakoma.org/policy.html"/>
-  <link href="style.css" rel="stylesheet"/>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link href="/style.css" rel="stylesheet"/>
+
+  <!-- Page-specific professional styles -->
+  <style>
+    body{font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7;color:#222;background:#fafafa;margin:0}
+    .page-header{background:linear-gradient(135deg,#0a0a23,#1a1a4a);color:#fff;text-align:center;padding:3rem 1rem 2rem;border-bottom:4px solid #4adede}
+    .page-header .logo{width:120px;margin-bottom:1rem}
+    main{background:#fff;max-width:960px;margin:2rem auto;padding:3rem;border-radius:12px;box-shadow:0 0 25px rgba(0,0,0,.05)}
+    h1,h2{color:#0a0a23} h2{border-left:4px solid #4adede;padding-left:.75rem;margin-top:2rem}
+    .cta-banner{text-align:center;margin:3rem 0}
+    footer{background:#0a0a23;color:#eee;text-align:center;padding:2rem;font-size:.9rem}
+    footer a{color:#4adede;text-decoration:none}
+    .mobile-menu{display:none} .mobile-menu-overlay{display:none}
+    .menu-toggle{display:none}
+    a{color:#0a66c2}
+    @media (prefers-color-scheme: dark){
+      body{background:#0f0f14;color:#eaeaea}
+      main{background:#14141c;box-shadow:none}
+      h1,h2{color:#eaf7ff}
+      .page-header{border-bottom-color:#4adede}
+      a{color:#7fc8ff}
+      footer{background:#0a0a23}
+    }
+    /* Cookie banner */
+    #cookie-banner{position:fixed;bottom:0;left:0;width:100%;background:#0a0a23;color:#fff;padding:1rem;text-align:center;z-index:9999;display:none}
+    #cookie-banner a{color:#66b2ff}
+    #cookie-banner button{margin-left:.5rem;padding:.5rem 1rem;border:none;cursor:pointer;border-radius:6px}
+    #cookie-accept{background:#4adede;color:#0a0a23} #cookie-decline{background:#555;color:#fff}
+  </style>
 </head>
 <body>
-  <!-- Mobile menu -->
-  <div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/index.html">🏠 Home</a>
-    <a href="/about.html">👤 About</a>
-    <a href="/products.html">🛍️ Products</a>
-    <a href="/services.html">📦 Services</a>
-    <a href="/consulting.html">📊 Consulting</a>
-    <a href="https://tally.so/r/3yAx84" target="_blank">🚀 Submit Interest Form</a>
-    <a href="https://applysmart.co.uk" target="_blank">📝 ApplySmart</a>
-    <a href="https://100to10k.com" target="_blank">💼 100to10K</a>
-    <a href="/terms.html">📄 Terms of Use</a>
-    <a href="/cookies.html">🍪 Cookie Policy</a>
-  </div>
 
-  <header>
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
-    <a aria-label="Go to Jakoma homepage" href="https://jakoma.org">
-      <img src="https://i.imgur.com/EBwi9Mm.jpeg" alt="Jakoma logo"/>
+  <header class="page-header">
+    <a href="/index.html" class="brand">
+      <img src="/assets/logo-jakoma.svg" alt="Jakoma Logo" class="logo"/>
     </a>
-    <h1>Privacy Policy</h1>
-    <p>This policy explains how Jakoma collects, uses, and protects personal data across our websites and tools.</p>
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="page-subtitle">Ethical, transparent, and privacy-first by design.</p>
   </header>
 
   <main role="main">
     <section>
-      <h2>📌 Scope</h2>
-      <p>This policy applies to websites and tools operated by <strong>Jakoma</strong>, including:
-        <a href="https://applysmart.co.uk" target="_blank">ApplySmart</a>,
-        <em>EduSmart</em> (upcoming),
-        and <a href="https://100to10k.com" target="_blank">100to10K</a>.
+      <h2>Scope</h2>
+      <p>This policy explains how <strong>Jakoma</strong> collects, uses, and protects personal data across our websites and tools, including
+        <a href="https://applysmart.co.uk" target="_blank" rel="noopener">ApplySmart</a> and
+        <a href="https://100to10k.com" target="_blank" rel="noopener">100 to 10K</a>. Future projects (e.g., EduSmart) will follow the same principles.
       </p>
 
-      <h2>👤 Controller & Contact</h2>
-      <p>Jakoma is the data controller for personal data processed on our sites. For any privacy query or rights request, contact
+      <h2>Controller & Contact</h2>
+      <p>Jakoma is the data controller for personal data processed on our sites. For privacy queries or rights requests, email
         <a href="mailto:support@jakoma.org">support@jakoma.org</a>.
       </p>
 
-      <h2>🧾 What We Collect</h2>
+      <h2>What We Collect</h2>
       <ul>
-        <li><strong>Information you provide</strong> (e.g., name, email) via forms or purchases.</li>
-        <li><strong>Usage data</strong> (pages viewed, device info) — collected only after cookie consent where analytics apply.</li>
+        <li><strong>Information you provide</strong> — e.g., name, email, and message content submitted via forms or purchases.</li>
+        <li><strong>Usage data</strong> — page views and device info used to improve services; analytics load only after cookie consent.</li>
       </ul>
 
-      <h2>🎯 Why We Use Your Data (Lawful Bases)</h2>
+      <h2>Lawful Bases</h2>
       <ul>
         <li><strong>Consent</strong> — analytics cookies, newsletters.</li>
-        <li><strong>Contract</strong> — to deliver purchased digital products (e.g., via Payhip).</li>
-        <li><strong>Legitimate interests</strong> — site security, fraud prevention, service optimisation (strictly necessary cookies only).</li>
-        <li><strong>Legal obligation</strong> — compliance with tax/accounting or applicable regulations.</li>
+        <li><strong>Contract</strong> — delivering purchased digital products (via Payhip).</li>
+        <li><strong>Legitimate interests</strong> — security, fraud prevention, essential site operations (strictly necessary cookies).</li>
+        <li><strong>Legal obligation</strong> — tax, accounting, and regulatory compliance.</li>
       </ul>
 
-      <h2>🤝 Processors & Third Parties</h2>
+      <h2>Processors & Third Parties</h2>
       <p>We use trusted providers acting under our instructions:</p>
       <ul>
         <li><strong>Google Analytics</strong> (consent-based; IP anonymised) — usage insights.</li>
-        <li><strong>Payhip</strong> — secure checkout and product delivery.</li>
+        <li><strong>Payhip</strong> — secure checkout and product delivery for digital items.</li>
         <li><strong>Tally</strong> — interest/contact forms.</li>
-        <li><strong>MailerLite</strong> or similar — email updates (opt-in only).</li>
+        <li><strong>MailerLite</strong> (or equivalent) — opt-in email updates.</li>
       </ul>
-      <p>We do <strong>not</strong> sell personal data. Data is shared only as necessary to operate the service, comply with law, or with your consent.</p>
+      <p>We do <strong>not</strong> sell personal data. We share data only to operate services, comply with law, or with your consent.</p>
 
-      <h2>🌍 International Transfers</h2>
-      <p>Where data may be processed outside the UK/EEA, we rely on appropriate safeguards (e.g., SCCs) with our processors.</p>
+      <h2>International Transfers</h2>
+      <p>Where data may be processed outside the UK/EEA, we rely on appropriate safeguards (e.g., Standard Contractual Clauses).</p>
 
-      <h2>⏱ Retention</h2>
-      <p>We keep data only as long as necessary for the purpose collected, after which it is deleted or anonymised.</p>
+      <h2>Retention</h2>
+      <p>We retain personal data only as long as necessary for the purpose collected, then delete or anonymise it.</p>
 
-      <h2>🔐 Security</h2>
-      <p>We apply organisational and technical controls appropriate to the risk (access control, encryption in transit, minimum collection).</p>
+      <h2>Security</h2>
+      <p>We apply technical and organisational measures appropriate to risk (access control, encryption in transit, least-privilege access).</p>
 
-      <h2>🧭 Your Rights</h2>
+      <h2>Your Rights</h2>
       <ul>
-        <li>Access, rectification, erasure</li>
+        <li>Access, rectification, and erasure</li>
         <li>Restriction or objection to processing</li>
         <li>Data portability (where applicable)</li>
         <li>Withdraw consent at any time (for consent-based processing)</li>
       </ul>
-      <p>To exercise your rights, email <a href="mailto:support@jakoma.org">support@jakoma.org</a>. You also have the right to complain to the ICO in the UK.</p>
+      <p>To exercise your rights, email <a href="mailto:support@jakoma.org">support@jakoma.org</a>. You may also complain to the ICO in the UK.</p>
 
-      <h2>🍪 Cookies & Consent</h2>
-      <p>Analytics only load after you click <em>Accept</em> on our banner. You can change your choice anytime (see <a href="/cookies.html">Cookie Policy</a>).</p>
+      <h2>Cookies & Consent</h2>
+      <p>Analytics load only after you click <em>Accept</em> on our banner. You can change your choice anytime on our
+        <a href="/cookies.html">Cookie Policy</a> page.
+      </p>
 
-      <h2>📅 Updates</h2>
+      <h2>Updates</h2>
       <p>We’ll update this notice if our practices change. <strong>Last updated:</strong> November 2025.</p>
+    </section>
+
+    <section class="cta-banner">
+      <h2>Questions about privacy or data use?</h2>
+      <p>Email <a href="mailto:support@jakoma.org">support@jakoma.org</a> or see our <a href="/cookies.html">Cookie Policy</a>.</p>
     </section>
   </main>
 
   <!-- Consent banner (Accept / Decline) + GA load on consent -->
-  <div id="cookie-banner" role="dialog" aria-live="polite" style="position:fixed;bottom:0;left:0;width:100%;background:#000428;color:#fff;padding:1rem;text-align:center;z-index:9999;display:none;">
-    We use cookies to improve your experience. <a href="/cookies.html" style="color:#66b2ff;text-decoration:underline;">Learn more</a>.
-    <button aria-label="Accept cookies" onclick="acceptCookies()" style="margin-left:1rem;padding:.5rem 1rem;background:#66b2ff;border:none;color:#fff;cursor:pointer;">Accept</button>
-    <button aria-label="Decline cookies" onclick="declineCookies()" style="margin-left:1rem;padding:.5rem 1rem;background:#555;border:none;color:#fff;cursor:pointer;">Decline</button>
+  <div id="cookie-banner" role="dialog" aria-live="polite">
+    We use cookies to improve your experience. <a href="/cookies.html">Learn more</a>.
+    <button id="cookie-accept" aria-label="Accept cookies">Accept</button>
+    <button id="cookie-decline" aria-label="Decline cookies">Decline</button>
   </div>
 
-  <footer style="text-align:center;padding:2rem;">
+  <footer>
     <p>© 2025 Jakoma. All rights reserved.</p>
-    <a href="/policy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/cookies.html">Cookies</a>
+    <a href="/policy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/cookies.html">Cookies</a>
   </footer>
 
   <script>
-    function toggleMenu(){
-      const menu=document.getElementById('mobileMenu');
-      const overlay=document.querySelector('.mobile-menu-overlay');
-      const toggle=document.querySelector('.menu-toggle');
-      const isOpen=menu.classList.contains('open');
-      menu.classList.toggle('open');
-      overlay.style.display=isOpen?'none':'block';
-      toggle.setAttribute('aria-expanded',!isOpen);
-    }
-    function acceptCookies(){ localStorage.setItem('jakomaCookieConsent','accepted'); document.getElementById('cookie-banner').style.display='none'; loadAnalytics(); }
-    function declineCookies(){ localStorage.setItem('jakomaCookieConsent','declined'); document.getElementById('cookie-banner').style.display='none'; }
+    // Cookie banner + consent-safe GA
     function loadAnalytics(){
       if(window.gaLoaded) return;
       const s=document.createElement('script');
@@ -128,15 +137,23 @@
       s.async=true; document.head.appendChild(s);
       window.dataLayer=window.dataLayer||[];
       function gtag(){dataLayer.push(arguments);}
+      window.gtag=gtag;
       gtag('js', new Date());
       gtag('config','G-493063763', {'anonymize_ip': true});
       window.gaLoaded=true;
     }
+    function setConsent(v){
+      localStorage.setItem('jakomaCookieConsent', v);
+      document.getElementById('cookie-banner').style.display='none';
+      if(v==='accepted'){ loadAnalytics(); }
+    }
     document.addEventListener('DOMContentLoaded',function(){
-      const c=localStorage.getItem('jakomaCookieConsent');
       const bar=document.getElementById('cookie-banner');
-      if(!c){ bar.style.display='block'; }
-      else if(c==='accepted'){ loadAnalytics(); }
+      const cons=localStorage.getItem('jakomaCookieConsent');
+      if(!cons){ bar.style.display='block'; }
+      else if(cons==='accepted'){ loadAnalytics(); }
+      document.getElementById('cookie-accept').onclick=function(){ setConsent('accepted'); }
+      document.getElementById('cookie-decline').onclick=function(){ setConsent('declined'); }
     });
   </script>
 </body>
