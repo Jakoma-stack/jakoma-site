@@ -9,6 +9,7 @@
     .card { background: #1f2833; border: none; border-radius: 1rem; color: #fff; }
     .value { font-size: 1.6rem; font-weight: bold; }
     h1 { margin-bottom: 1rem; color: #66fcf1; }
+    hr { border-color: #45a29e; }
   </style>
 </head>
 <body class="p-4">
@@ -42,82 +43,103 @@
   <script>
     async function fetchJSON(url) {
       const res = await fetch(url + '?' + new Date().getTime());
+      if (!res.ok) throw new Error('Failed to load ' + url);
       return res.json();
     }
 
     async function fetchCSV(url) {
       const res = await fetch(url + '?' + new Date().getTime());
+      if (!res.ok) throw new Error('Failed to load ' + url);
       return res.text();
     }
 
     async function updateDashboard() {
-      const [status, trades] = await Promise.all([
-        fetchJSON('/data/solana_status.json'),
-        fetchJSON('/data/solana_trades.json')
-      ]);
+      try {
+        const [status, trades] = await Promise.all([
+          fetchJSON('data/solana_status.json'),
+          fetchJSON('data/solana_trades.json')
+        ]);
 
-      // Update KPIs
-      document.getElementById('tokens-tracked').innerText = status.tokens_tracked ?? '-';
-      document.getElementById('pumps-detected').innerText = status.pumps_detected ?? '-';
-      document.getElementById('retraces-detected').innerText = status.retraces_detected ?? '-';
-      document.getElementById('open-trades').innerText = trades.open_trades ?? '-';
-      document.getElementById('total-pnl').innerText = `$${(status.total_pnl ?? 0).toFixed(2)}`;
-      document.getElementById('realised-pnl').innerText = `$${(trades.realised_pnl ?? 0).toFixed(2)}`;
-      document.getElementById('unrealised-pnl').innerText = `$${(trades.unrealised_pnl ?? 0).toFixed(2)}`;
-      document.getElementById('win-rate').innerText = `${(trades.win_rate ?? 0).toFixed(1)}%`;
+        // Update KPIs
+        document.getElementById('tokens-tracked').innerText = status.tokens_tracked ?? '-';
+        document.getElementById('pumps-detected').innerText = status.pumps_detected ?? '-';
+        document.getElementById('retraces-detected').innerText = status.retraces_detected ?? '-';
+        document.getElementById('open-trades').innerText = trades.open_trades ?? '-';
+        document.getElementById('total-pnl').innerText = `$${(status.total_pnl ?? 0).toFixed(2)}`;
+        document.getElementById('realised-pnl').innerText = `$${(trades.realised_pnl ?? 0).toFixed(2)}`;
+        document.getElementById('unrealised-pnl').innerText = `$${(trades.unrealised_pnl ?? 0).toFixed(2)}`;
+        document.getElementById('win-rate').innerText = `${(trades.win_rate ?? 0).toFixed(1)}%`;
+      } catch (err) {
+        console.error('Dashboard update failed:', err);
+      }
     }
 
     async function renderCharts() {
-      const dailyCSV = await fetchCSV('/data/pnl_daily_summary.csv');
-      const tokenCSV = await fetchCSV('/data/pnl_by_token.csv');
+      try {
+        const dailyCSV = await fetchCSV('data/pnl_daily_summary.csv');
+        const tokenCSV = await fetchCSV('data/pnl_by_token.csv');
 
-      const parseCSV = (text) => {
-        const [header, ...rows] = text.trim().split('\n');
-        const cols = header.split(',');
-        return rows.map(r => {
-          const vals = r.split(',');
-          return Object.fromEntries(cols.map((c, i) => [c.trim(), vals[i]]));
+        const parseCSV = (text) => {
+          const [header, ...rows] = text.trim().split('\n');
+          const cols = header.split(',');
+          return rows.map(r => {
+            const vals = r.split(',');
+            return Object.fromEntries(cols.map((c, i) => [c.trim(), vals[i]]));
+          });
+        };
+
+        const dailyData = parseCSV(dailyCSV);
+        const tokenData = parseCSV(tokenCSV);
+
+        // Destroy existing charts if they exist
+        if (window.dailyChartObj) window.dailyChartObj.destroy();
+        if (window.tokenChartObj) window.tokenChartObj.destroy();
+
+        // Daily PnL Trend
+        window.dailyChartObj = new Chart(document.getElementById('dailyChart'), {
+          type: 'line',
+          data: {
+            labels: dailyData.map(d => d.date),
+            datasets: [{
+              label: 'Total PnL ($)',
+              data: dailyData.map(d => parseFloat(d.total_pnl || 0)),
+              borderColor: '#66fcf1',
+              backgroundColor: 'rgba(102,252,241,0.2)',
+              tension: 0.3,
+              fill: true
+            }]
+          },
+          options: { responsive: true, scales: { y: { beginAtZero: true } } }
         });
-      };
 
-      const dailyData = parseCSV(dailyCSV);
-      const tokenData = parseCSV(tokenCSV);
-
-      // Daily PnL Trend
-      new Chart(document.getElementById('dailyChart'), {
-        type: 'line',
-        data: {
-          labels: dailyData.map(d => d.date),
-          datasets: [{
-            label: 'Total PnL ($)',
-            data: dailyData.map(d => parseFloat(d.total_pnl || 0)),
-            borderColor: '#66fcf1',
-            backgroundColor: 'rgba(102,252,241,0.2)',
-            tension: 0.3,
-            fill: true
-          }]
-        },
-        options: { responsive: true, scales: { y: { beginAtZero: true } } }
-      });
-
-      // Token Profit Bar Chart
-      const topTokens = tokenData.slice(0, 10);
-      new Chart(document.getElementById('tokenChart'), {
-        type: 'bar',
-        data: {
-          labels: topTokens.map(t => t.token),
-          datasets: [{
-            label: 'Total Profit ($)',
-            data: topTokens.map(t => parseFloat(t.total_profit || 0)),
-            backgroundColor: '#45a29e'
-          }]
-        },
-        options: { responsive: true, scales: { y: { beginAtZero: true } } }
-      });
+        // Token Profit Bar Chart
+        const topTokens = tokenData.slice(0, 10);
+        window.tokenChartObj = new Chart(document.getElementById('tokenChart'), {
+          type: 'bar',
+          data: {
+            labels: topTokens.map(t => t.token),
+            datasets: [{
+              label: 'Total Profit ($)',
+              data: topTokens.map(t => parseFloat(t.total_profit || 0)),
+              backgroundColor: '#45a29e'
+            }]
+          },
+          options: { responsive: true, scales: { y: { beginAtZero: true } } }
+        });
+      } catch (err) {
+        console.error('Chart render failed:', err);
+      }
     }
 
+    // Initial load
     updateDashboard();
     renderCharts();
+
+    // Auto-refresh every 5 minutes
+    setInterval(() => {
+      updateDashboard();
+      renderCharts();
+    }, 5 * 60 * 1000);
   </script>
 </body>
 </html>
