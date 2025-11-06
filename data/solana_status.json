@@ -1,12 +1,15 @@
 {
-  "timestamp": "2025-11-06 18:30:03 UTC",
-  "tokens_tracked": 495,
-  "pumps_detected": 117,
-  "retraces_detected": 84,
-  "active_predictions": 4,
-  "daily_pnl": 0,
+  "timestamp": "2025-11-06 20:12:17 UTC",
+  "tokens_tracked": 4,
+  "pumps_detected": 252693,
+  "retraces_detected": 252693,
+  "active_predictions": 0,
   "total_pnl": 0,
   "realised_pnl": 0,
   "unrealised_pnl": 0,
-  "win_rate": 0
+  "win_rate": "NaN",
+  "runtime_minutes": 22.9,
+  "last_updated": "2025-11-06 20:12:17 UTC",
+  "environment_user": "jakoma-stack",
+  "environment_email": "hq@jakoma.org"
 }
