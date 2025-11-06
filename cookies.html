@@ -1,165 +1,92 @@
-<title>
- Cookie Policy | Jakoma
-</title>
-<meta content="Jakoma builds smart, scalable, privacy-first digital solutions for ethical entrepreneurs and public innovators." name="description"/>
-<link href="https://jakoma.org/cookies.html" rel="canonical"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<!--
-   Cookie Policy | Jakoma
-  -->
-<link href="style.css" rel="stylesheet"/>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-493063763">
-</script>
-<script>
- window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-493063763', { 'anonymize_ip': true });
-</script>
-<meta content="Jakoma builds smart, scalable, privacy-first digital solutions for ethical entrepreneurs and public innovators." name="description">
-</meta>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cookie Policy | Jakoma</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="How Jakoma uses cookies and how you can control them. Analytics only load after consent."/>
+  <link rel="canonical" href="https://jakoma.org/cookies.html"/>
+  <link href="style.css" rel="stylesheet"/>
+</head>
 <body>
- <div class="mobile-menu-overlay" onclick="toggleMenu()">
- </div>
- <div class="mobile-menu" id="mobileMenu">
-  <a href="/index.html">
-   🏠 Home
-  </a>
-  <a href="/about.html">
-   👤 About
-  </a>
-  <a href="/products.html">
-   🛍️ Products
-  </a>
-  <a href="/services.html">
-   📦 Services
-  </a>
-  <a href="/consulting.html">
-   📊 Consulting
-  </a>
-    <a href="https://tally.so/r/3yAx84" target="_blank">
-    🚀 Submit Interest Form
-   </a>
-  <a href="https://applysmart.co.uk" target="_blank">
-   📝 ApplySmart
-  </a>
-  <a href="https://100to10k.com" target="_blank">
-   💼 100to10K
-  </a>
-  <a href="/policy.html">
-   🔐 Privacy Policy
-  </a>
-  <a href="/terms.html">
-   📄 Terms of Use
-  </a>
- </div>
- <header>
-  <button aria-expanded="false" aria-label="Open menu" class="menu-toggle" onclick="toggleMenu()">
-   ☰
-  </button>
-  <a aria-label="Go to Jakoma homepage" href="https://jakoma.org?utm_source=jakoma&amp;utm_medium=web&amp;utm_campaign=cookies">
-   <img alt="Jakoma logo" src="https://i.imgur.com/EBwi9Mm.jpeg"/>
-  </a>
-  <h1>
-   Cookie Policy
-  </h1>
- 
- </header>
- <main role="main">
-  <section>
-   <p>
-   This site uses minimal cookies for analytics and site performance. By continuing to browse, you accept our use of cookies. You may opt out using your browser settings or by clicking 'Decline' on our cookie banner.
-  </p>
-    <strong>
-     Last updated:
-    </strong>
-    June 2025.
-   </p>
-  </section>
- </main>
+  <div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/index.html">🏠 Home</a>
+    <a href="/about.html">👤 About</a>
+    <a href="/products.html">🛍️ Products</a>
+    <a href="/services.html">📦 Services</a>
+    <a href="/consulting.html">📊 Consulting</a>
+    <a href="https://tally.so/r/3yAx84" target="_blank">🚀 Submit Interest Form</a>
+    <a href="https://applysmart.co.uk" target="_blank">📝 ApplySmart</a>
+    <a href="https://100to10k.com" target="_blank">💼 100to10K</a>
+    <a href="/policy.html">🔐 Privacy Policy</a>
+    <a href="/terms.html">📄 Terms of Use</a>
+  </div>
 
- <script>
-  function toggleMenu() {
-const menu = document.getElementById('mobileMenu');
-const overlay = document.querySelector('.mobile-menu-overlay');
-const toggle = document.querySelector('.menu-toggle');
-const isOpen = menu.classList.contains('open');
-menu.classList.toggle('open');
-overlay.style.display = isOpen ? 'none' : 'block';
-toggle.setAttribute('aria-expanded', !isOpen);
-}
-document.addEventListener('keydown', (e) => {
-if (e.key === 'Escape') {
-const menu = document.getElementById('mobileMenu');
-const overlay = document.querySelector('.mobile-menu-overlay');
-menu.classList.remove('open');
-overlay.style.display = 'none';
-document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
-}
-});
- </script>
- <footer style="text-align: center; padding: 2rem;">
-  <p>
-   © 2025 Jakoma. All rights reserved.
-  </p>
-  <a href="/policy.html">
-   Privacy
-  </a>
-  |
-  <a href="/terms.html">
-   Terms
-  </a>
-  |
-  <a href="/cookies.html">
-   Cookies
-  </a>
- </footer>
- <div aria-live="polite" id="cookie-banner" role="dialog" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #000428; color: white; padding: 1rem; text-align: center; font-size: 0.95rem; z-index: 9999; display: none;">
-  We use cookies to enhance your experience. By continuing to visit this site, you accept our use of cookies.
-  <a href="/cookies.html" style="color: #66b2ff; text-decoration: underline;">
-   Learn more
-  </a>
-  .
-  <button aria-label="Accept cookies" onclick="acceptCookies()" style="margin-left: 1rem; padding: 0.5rem 1rem; background: #66b2ff; border: none; color: white; cursor: pointer;">
-   Accept
-  </button>
-  <button aria-label="Decline cookies" onclick="declineCookies()" style="margin-left: 1rem; padding: 0.5rem 1rem; background: #555; border: none; color: white; cursor: pointer;">
-   Decline
-  </button>
- </div>
- <script>
-  function acceptCookies() {
-    localStorage.setItem('jakomaCookieConsent', 'accepted');
-    document.getElementById('cookie-banner').style.display = 'none';
-    loadAnalytics();
-  }
+  <header>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+    <a aria-label="Go to Jakoma homepage" href="https://jakoma.org">
+      <img src="https://i.imgur.com/EBwi9Mm.jpeg" alt="Jakoma logo"/>
+    </a>
+    <h1>Cookie Policy</h1>
+  </header>
 
-  function declineCookies() {
-    localStorage.setItem('jakomaCookieConsent', 'declined');
-    document.getElementById('cookie-banner').style.display = 'none';
-  }
+  <main role="main">
+    <section>
+      <p>We use two categories of cookies:</p>
+      <ul>
+        <li><strong>Strictly Necessary</strong> — required for basic site operation and security.</li>
+        <li><strong>Analytics (optional)</strong> — Google Analytics for anonymous usage insights, loaded only after consent.</li>
+      </ul>
 
-  function loadAnalytics() {
-    if (!window.gaLoaded) {
-      let script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-493063763';
-      script.async = true;
-      document.head.appendChild(script);
-      window.dataLayer = window.dataLayer || [];
+      <h2>Managing Your Preferences</h2>
+      <p>You can Accept or Decline analytics on the banner. You can also clear your choice below and re-set it.</p>
+
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0;">
+        <button class="cta-button" onclick="setConsent('accepted')">Accept Analytics</button>
+        <button class="cta-button" onclick="setConsent('declined')">Decline Analytics</button>
+        <button class="cta-button" onclick="resetConsent()">Reset Choice</button>
+      </div>
+
+      <p><strong>Last updated:</strong> November 2025.</p>
+    </section>
+  </main>
+
+  <footer style="text-align:center;padding:2rem;">
+    <p>© 2025 Jakoma. All rights reserved.</p>
+    <a href="/policy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/cookies.html">Cookies</a>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      const menu=document.getElementById('mobileMenu');
+      const overlay=document.querySelector('.mobile-menu-overlay');
+      const toggle=document.querySelector('.menu-toggle');
+      const isOpen=menu.classList.contains('open');
+      menu.classList.toggle('open');
+      overlay.style.display=isOpen?'none':'block';
+      toggle.setAttribute('aria-expanded',!isOpen);
+    }
+    function setConsent(v){
+      localStorage.setItem('jakomaCookieConsent', v);
+      alert('Your cookie preference has been saved: '+v.toUpperCase());
+      if(v==='accepted'){ loadAnalytics(); }
+    }
+    function resetConsent(){
+      localStorage.removeItem('jakomaCookieConsent');
+      alert('Cookie preference cleared. You will see the banner on your next visit.');
+    }
+    function loadAnalytics(){
+      if(window.gaLoaded) return;
+      const s=document.createElement('script');
+      s.src='https://www.googletagmanager.com/gtag/js?id=G-493063763';
+      s.async=true; document.head.appendChild(s);
+      window.dataLayer=window.dataLayer||[];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-493063763', { 'anonymize_ip': true });
-      window.gaLoaded = true;
+      gtag('config','G-493063763', {'anonymize_ip': true});
+      window.gaLoaded=true;
     }
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    if (!localStorage.getItem('jakomaCookieConsent')) {
-      document.getElementById('cookie-banner').style.display = 'block';
-    } else if (localStorage.getItem('jakomaCookieConsent') === 'accepted') {
-      loadAnalytics();
-    }
-  });
- </script>
+  </script>
 </body>
+</html>
