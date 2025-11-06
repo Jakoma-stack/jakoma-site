@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Solan Quant Dashboard</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Solana Quant Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body { background: #0b0c10; color: #eaeaea; font-family: 'Inter', sans-serif; }
     .card { background: #1f2833; border: none; border-radius: 1rem; color: #fff; }
@@ -13,6 +13,7 @@
     footer { margin-top: 2rem; color: #c5c6c7; }
   </style>
 </head>
+
 <body class="p-4">
   <div class="container">
     <h1 class="text-center">📊 Solana Quant Dashboard</h1>
@@ -22,7 +23,7 @@
       <div class="col-md-3"><div class="card p-3"><div>🪙 Tokens Tracked</div><div id="tokens-tracked" class="value">-</div></div></div>
       <div class="col-md-3"><div class="card p-3"><div>🚀 Pumps Detected</div><div id="pumps-detected" class="value">-</div></div></div>
       <div class="col-md-3"><div class="card p-3"><div>🔻 Retraces</div><div id="retraces-detected" class="value">-</div></div></div>
-      <div class="col-md-3"><div class="card p-3"><div>🔄 Open Trades</div><div id="open-trades" class="value">-</div></div></div>
+      <div class="col-md-3"><div class="card p-3"><div>🔄 Active Predictions</div><div id="open-trades" class="value">-</div></div></div>
 
       <div class="col-md-3"><div class="card p-3"><div>💰 Total PnL</div><div id="total-pnl" class="value">-</div></div></div>
       <div class="col-md-3"><div class="card p-3"><div>💵 Realised PnL</div><div id="realised-pnl" class="value">-</div></div></div>
@@ -30,7 +31,7 @@
       <div class="col-md-3"><div class="card p-3"><div>🏆 Win Rate</div><div id="win-rate" class="value">-</div></div></div>
     </div>
 
-    <hr class="my-4">
+    <hr class="my-4" />
 
     <!-- Chart placeholders -->
     <h4>📅 Daily PnL Trend</h4>
@@ -39,7 +40,7 @@
     <h4 class="mt-5">🪙 Top Tokens by Profit</h4>
     <canvas id="tokenChart"></canvas>
 
-    <hr class="my-4">
+    <hr class="my-4" />
 
     <!-- Last updated footer -->
     <footer class="text-center">
@@ -61,32 +62,37 @@
       return res.text();
     }
 
+    // -------------------------------
+    // Update dashboard KPIs
+    // -------------------------------
     async function updateDashboard() {
       try {
-        const [status, trades] = await Promise.all([
-          fetchJSON('data/solana_status.json'),
-          fetchJSON('data/solana_trades.json')
-        ]);
+        const status = await fetchJSON('data/solana_status.json');
 
-        // Update KPIs
+        // Update KPI values
         document.getElementById('tokens-tracked').innerText = status.tokens_tracked ?? '-';
         document.getElementById('pumps-detected').innerText = status.pumps_detected ?? '-';
         document.getElementById('retraces-detected').innerText = status.retraces_detected ?? '-';
-        document.getElementById('open-trades').innerText = trades.open_trades ?? '-';
+        document.getElementById('open-trades').innerText = status.active_predictions ?? '-';
         document.getElementById('total-pnl').innerText = `$${(status.total_pnl ?? 0).toFixed(2)}`;
-        document.getElementById('realised-pnl').innerText = `$${(trades.realised_pnl ?? 0).toFixed(2)}`;
-        document.getElementById('unrealised-pnl').innerText = `$${(trades.unrealised_pnl ?? 0).toFixed(2)}`;
-        document.getElementById('win-rate').innerText = `${(trades.win_rate ?? 0).toFixed(1)}%`;
+        document.getElementById('realised-pnl').innerText = `$${(status.realised_pnl ?? 0).toFixed(2)}`;
+        document.getElementById('unrealised-pnl').innerText = `$${(status.unrealised_pnl ?? 0).toFixed(2)}`;
+        document.getElementById('win-rate').innerText =
+          `${isNaN(status.win_rate) ? 0 : status.win_rate.toFixed(1)}%`;
 
-        // 🕒 Display last updated timestamp
+        // Update timestamp
         document.getElementById('last-updated').innerText =
           "Last updated: " + (status.last_updated || "unknown");
 
+        console.log("✅ Dashboard updated:", status);
       } catch (err) {
-        console.error('Dashboard update failed:', err);
+        console.error("Dashboard update failed:", err);
       }
     }
 
+    // -------------------------------
+    // Render charts
+    // -------------------------------
     async function renderCharts() {
       try {
         const dailyCSV = await fetchCSV('data/pnl_daily_summary.csv');
@@ -139,11 +145,13 @@
           options: { responsive: true, scales: { y: { beginAtZero: true } } }
         });
       } catch (err) {
-        console.error('Chart render failed:', err);
+        console.error("Chart render failed:", err);
       }
     }
 
-    // Initial load
+    // -------------------------------
+    // Initial load & refresh
+    // -------------------------------
     updateDashboard();
     renderCharts();
 
