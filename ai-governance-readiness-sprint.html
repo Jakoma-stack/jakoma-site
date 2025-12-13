@@ -2,18 +2,22 @@
 <html lang="en-GB">
 <head>
   <title>AI Governance &amp; Readiness Sprint (2–3 weeks) | Jakoma</title>
-  <meta charset="utf-8"/>
+  <link rel="canonical" href="https://www.jakoma.org/ai-governance-readiness-sprint.html"/>
+<meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="A 2–3 week AI Governance & Readiness Sprint delivering a governance pack, risk controls, and a 30/60/90-day roadmap for safe Copilot and AI adoption."/>
   <link href="style.css" rel="stylesheet"/>
 
-
   <script id="consent-init">
+    // Minimal Consent Mode initialisation (runs BEFORE GTM loads)
+    // Default: analytics denied until user opts in.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    window.__jakomaConsentInitialised = true;
 
-    // Consent Mode defaults (UK/EU friendly): analytics/ads denied until user opts in
-    const storedConsent = localStorage.getItem('jakoma_cookie_consent');
+    let storedConsent = null;
+    try { storedConsent = localStorage.getItem('jakoma_cookie_consent'); } catch (e) { storedConsent = null; }
+
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
@@ -23,12 +27,24 @@
       'security_storage': 'granted'
     });
 
-    if (storedConsent === 'granted') {
+    // Accept either legacy values ('granted'/'denied') or site.js values ('accepted'/'declined')
+    if (storedConsent === 'accepted' || storedConsent === 'granted') {
       gtag('consent', 'update', {
-        'ad_storage': 'granted',
+        'ad_storage': 'denied',
         'analytics_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted'
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted'
+      });
+    } else if (storedConsent === 'declined' || storedConsent === 'denied') {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted'
       });
     }
   </script>
@@ -44,21 +60,29 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!-- Cookie banner (kept as per index.html) -->
   <div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
     🍪 We use cookies to enhance your experience.
-    <button aria-label="Accept Cookies" onclick="setCookieConsent('granted')">Accept</button>
-    <button aria-label="Decline Cookies" onclick="setCookieConsent('denied')">Decline</button>
+    <button aria-label="Accept Cookies" type="button">Accept</button>
+    <button aria-label="Decline Cookies" type="button">Decline</button>
   </div>
 
   <!-- Mobile menu (kept as per index.html) -->
-  <div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+  <div class="mobile-menu-overlay"></div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="/about.html">👤 About</a>
     <a href="/products.html">🛍️ Products</a>
     <a href="/services.html">📦 Services</a>
     <a href="/consulting.html">📊 Consulting</a>
-    <a href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=mobile-menu&utm_campaign=interest-form" target="_blank" rel="noopener">🚀 Submit Interest Form</a>
+    
+    <div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
+    <a href="/ai-governance-readiness-sprint.html" data-track="nav_offer_sprint">AI Governance Sprint</a>
+    <a href="/fractional-governance-leader-retainer.html" data-track="nav_offer_retainer">Fractional Retainer</a>
+    <a href="/copilot-workflow-automation-prototype-sprint.html" data-track="nav_offer_prototype">Prototype Sprint</a>
+<a href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=nav&utm_campaign=interest-form&utm_content=ai-governance-sprint" data-track="nav_interest_form" target="_blank" rel="noopener">🚀 Submit Interest Form</a>
     <a href="https://applysmart.co.uk" target="_blank" rel="noopener">📝 ApplySmart</a>
     <a href="https://100to10k.com" target="_blank" rel="noopener">💼 100to10K</a>
     <a href="/policy.html">🔐 Privacy Policy</a>
@@ -67,7 +91,7 @@
   </div>
 
   <header>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
     <a href="index.html">
       <img src="logo.jpg" width="150" alt="Jakoma logo" loading="lazy"/>
     </a>
@@ -79,8 +103,8 @@
     </p>
 
     <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.25rem;">
-      <a class="cta-button" href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=offer-page&utm_campaign=ai-governance-sprint" target="_blank" rel="noopener">🚀 Request a Proposal</a>
-      <a class="cta-button" href="https://tally.so/r/nWav0j?utm_source=jakoma-site&utm_medium=offer-page&utm_campaign=free-checklist" target="_blank" rel="noopener">📥 Download the Checklist</a>
+      <a class="cta-button" data-track="proposal_click" href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=hero&utm_campaign=ai-governance-sprint&utm_content=proposal" target="_blank" rel="noopener">🚀 Request a Proposal</a>
+      <a class="cta-button" data-track="book_call_click" href="https://calendly.com/executivecall/30min?utm_source=jakoma-site&utm_medium=hero&utm_campaign=ai-governance-sprint&utm_content=call" target="_blank" rel="noopener">📅 Book a 30-minute Call</a>
     </div>
   </header>
 
@@ -238,19 +262,19 @@
       </p>
 
       <div style="text-align:center;">
-        <a class="cta-button" href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=offer-page&utm_campaign=ai-governance-sprint" target="_blank" rel="noopener">🚀 Request a Proposal</a>
+        <a class="cta-button" data-track="proposal_click" href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=section&utm_campaign=ai-governance-sprint" target="_blank" rel="noopener">🚀 Request a Proposal</a>
       </div>
 
       <p style="max-width:800px;margin:1.25rem auto 0;text-align:center;font-size:0.95rem;opacity:0.9;">
         Want to self-check first? Grab the free checklist and score your readiness in 10 minutes.
       </p>
       <div style="text-align:center;margin-top:0.75rem;">
-        <a class="cta-button" href="https://tally.so/r/nWav0j?utm_source=jakoma-site&utm_medium=offer-page&utm_campaign=free-checklist" target="_blank" rel="noopener">📥 Download the Checklist</a>
+        <a class="cta-button" data-track="checklist_click" href="https://tally.so/r/nWav0j?utm_source=jakoma-site&utm_medium=section&utm_campaign=free-checklist&utm_content=ai-governance-sprint" target="_blank" rel="noopener">📥 Download the Checklist</a>
       </div>
     </section>
 
     <div style="text-align:center;margin:2rem 0;">
-      <a href="https://www.linkedin.com/company/jakoma/" class="cta-button" target="_blank" rel="noopener">💼 Follow Us on LinkedIn</a>
+      <a href="https://www.linkedin.com/company/jakoma/" class="cta-button" data-track="linkedin_follow_click" target="_blank" rel="noopener">💼 Follow Us on LinkedIn</a>
     </div>
   </main>
 
@@ -262,50 +286,11 @@
     <a href="/cookies.html">Cookies</a>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      const overlay = document.querySelector('.mobile-menu-overlay');
-      menu.classList.toggle('open');
-      overlay.classList.toggle('open');
-    }
-  </script>
+  
 
-  <script id="cookie-consent-helpers">
-    (function(){
-      const storedConsent = localStorage.getItem('jakoma_cookie_consent');
-      const banner = document.getElementById('cookie-banner');
-      if (storedConsent === 'granted' || storedConsent === 'denied') {
-        if (banner) banner.style.display = 'none';
-      }
-    })();
+  
 
-    function setCookieConsent(choice){
-      localStorage.setItem('jakoma_cookie_consent', choice);
-
-      // Update Consent Mode for Google tags
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      if (choice === 'granted') {
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'analytics_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted'
-        });
-      } else {
-        gtag('consent', 'update', {
-          'ad_storage': 'denied',
-          'analytics_storage': 'denied',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied'
-        });
-      }
-
-      const banner = document.getElementById('cookie-banner');
-      if (banner) banner.style.display = 'none';
-    }
-  </script>
+  <script src="/assets/js/site.js" defer></script>
 
 </body>
 </html>
