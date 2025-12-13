@@ -1,5 +1,14 @@
-/* Jakoma shared site behaviours: hamburger menu + cookie consent (Consent Mode) */
+/* Jakoma shared behaviours (single source of truth)
+   - Hamburger menu (mobile drawer)
+   - Cookie consent (Consent Mode friendly)
+   - Click tracking hooks (dataLayer events)
+
+   Include on every page:
+   <script src="/assets/js/site.js" defer></script>
+*/
 (function () {
+  "use strict";
+
   // -------------------------
   // Hamburger menu
   // -------------------------
@@ -11,97 +20,106 @@
     if (!menu || !overlay) return;
     menu.classList.toggle("open", open);
     overlay.classList.toggle("open", open);
-
-    if (menuBtn) {
-      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    }
+    if (menuBtn) menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
     document.body.classList.toggle("menu-open", open);
   }
 
   function toggleMenu() {
-    const isOpen = menu?.classList.contains("open");
+    const isOpen = !!(menu && menu.classList.contains("open"));
     setMenuState(!isOpen);
   }
 
-  // Backwards compatibility: pages that call toggleMenu() inline
+  // Backwards compatibility (in case any page still calls toggleMenu inline)
   window.toggleMenu = toggleMenu;
 
   if (menuBtn) {
     menuBtn.setAttribute("aria-controls", "mobileMenu");
     menuBtn.setAttribute("aria-expanded", "false");
-    menuBtn.setAttribute("aria-label", "Open menu");
+    if (!menuBtn.getAttribute("aria-label")) menuBtn.setAttribute("aria-label", "Open menu");
+    menuBtn.addEventListener("click", toggleMenu);
   }
 
-  // Close menu when any menu link is clicked
+  if (overlay) overlay.addEventListener("click", () => setMenuState(false));
+
   if (menu) {
+    // Close menu after any nav click (mobile UX)
     menu.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => setMenuState(false));
     });
   }
 
-  // Close menu when overlay is clicked
-  if (overlay) {
-    overlay.addEventListener("click", () => setMenuState(false));
-  }
-
-  // Close on Escape
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setMenuState(false);
   });
 
   // -------------------------
-  // Cookie consent (basic + Consent Mode)
+  // Cookie consent
   // -------------------------
   const banner = document.getElementById("cookie-banner");
-  const STORAGE_KEY = "jakoma_cookie_consent"; // "accepted" | "declined"
+  const STORAGE_KEY = "jakoma_cookie_consent"; // accepted | declined | granted | denied (legacy)
+
+  // Always provide gtag helper (Consent Mode uses dataLayer)
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+
+  // If head didn't initialise Consent Mode (should), do it safely here as a fallback
+  if (!window.__jakomaConsentInitialised) {
+    gtag("consent", "default", {
+      ad_storage: "denied",
+      analytics_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      functionality_storage: "granted",
+      security_storage: "granted",
+    });
+    window.__jakomaConsentInitialised = true;
+  }
 
   function hideBanner() {
     if (banner) banner.style.display = "none";
   }
 
-  // Consent Mode default (deny analytics until accepted)
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    window.dataLayer.push(arguments);
+  function readConsent() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
   }
 
-  gtag("consent", "default", {
-    ad_storage: "denied",
-    analytics_storage: "denied",
-    functionality_storage: "granted",
-    personalization_storage: "denied",
-    security_storage: "granted",
-  });
+  function writeConsent(val) {
+    try { localStorage.setItem(STORAGE_KEY, val); } catch (e) { /* ignore */ }
+  }
 
-  function setConsent(choice) {
-    try {
-      localStorage.setItem(STORAGE_KEY, choice);
-    } catch (e) {
-      // If storage is blocked, still honour choice for this session by hiding banner.
-    }
+  function applyConsent(choice) {
+    // Normalise legacy values
+    const accepted = (choice === "accepted" || choice === "granted");
+    const declined = (choice === "declined" || choice === "denied");
 
-    if (choice === "accepted") {
+    if (accepted) {
       gtag("consent", "update", {
         ad_storage: "denied",
         analytics_storage: "granted",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
         functionality_storage: "granted",
-        personalization_storage: "denied",
         security_storage: "granted",
       });
-    } else {
+    } else if (declined) {
       gtag("consent", "update", {
         ad_storage: "denied",
         analytics_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
         functionality_storage: "granted",
-        personalization_storage: "denied",
         security_storage: "granted",
       });
     }
+  }
 
+  function setConsent(choice) {
+    writeConsent(choice);
+    applyConsent(choice);
     hideBanner();
   }
 
-  // Wire up banner buttons if they exist
+  // Wire cookie banner buttons (uses aria-labels)
   if (banner) {
     const buttons = banner.querySelectorAll("button");
     buttons.forEach((btn) => {
@@ -113,13 +131,33 @@
       });
     });
 
-    // Hide banner if already decided
-    let saved = null;
-    try {
-      saved = localStorage.getItem(STORAGE_KEY);
-    } catch (e) {}
-
-    if (saved === "accepted") setConsent("accepted");
-    else if (saved === "declined") setConsent("declined");
+    // Apply previously saved choice (and hide banner)
+    const saved = readConsent();
+    if (saved) {
+      applyConsent(saved);
+      hideBanner();
+    }
   }
+
+  // -------------------------
+  // Lightweight click tracking (GTM-friendly)
+  // Add data-track="..." to links/buttons you want to measure.
+  // -------------------------
+  function trackClick(el, label) {
+    try {
+      const payload = {
+        event: "jakoma_click",
+        click_label: label || "",
+        click_text: (el.textContent || "").trim().slice(0, 120),
+        click_href: el.getAttribute("href") || "",
+        page_path: window.location.pathname,
+      };
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(payload);
+    } catch (e) { /* ignore */ }
+  }
+
+  document.querySelectorAll("a[data-track], button[data-track]").forEach((el) => {
+    el.addEventListener("click", () => trackClick(el, el.getAttribute("data-track")));
+  });
 })();
