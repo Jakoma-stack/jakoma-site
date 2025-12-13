@@ -1,85 +1,240 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A 5-day AI & Data Strategy Sprint for ethical founders and digital teams. Fast-track your roadmap, compliance, and AI-readiness.">
-  <title>AI & Data Strategy Sprint | Jakoma</title>
+  <title>AI Governance &amp; Readiness Sprint (2–3 weeks) | Jakoma</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="A 2–3 week AI Governance & Readiness Sprint delivering a governance pack, risk controls, and a 30/60/90-day roadmap for safe Copilot and AI adoption."/>
   <link href="style.css" rel="stylesheet"/>
+
+  <!-- Google Tag Manager (kept as per index.html) -->
+  <script id="gtm-script">
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WCJBPXM6');
+  </script>
 </head>
+
 <body>
- 
-  <<div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
-<div class="mobile-menu" id="mobileMenu">
-<a href="/index.html">🏠 Home</a>
-<a href="/about.html">👤 About</a>
-<a href="/products.html">🛍️ Products</a>
-<a href="/consulting.html">📊 Consulting</a>
-<a href="https://calendly.com/executivecall/30min" target="_blank">📅 Book a Call</a>
-<a href="https://applysmart.co.uk" target="_blank">📝 ApplySmart</a>
-<a href="https://100to10k.com" target="_blank">💼 100to10K</a>
-<a href="/policy.html">🔐 Privacy Policy</a>
-<a href="/terms.html">📄 Terms of Use</a>
-<a href="/cookies.html">🍪 Cookie Policy</a>
+  <!-- Cookie banner (kept as per index.html) -->
+  <div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
+    🍪 We use cookies to enhance your experience.
+    <button aria-label="Accept Cookies" onclick="this.parentElement.style.display='none'">Accept</button>
+    <button aria-label="Decline Cookies" onclick="this.parentElement.style.display='none'">Decline</button>
   </div>
-    <header>
-<button aria-label="☰" class="menu-toggle" onclick="toggleMenu()">☰</button>
-<a href="index.html">
-<img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/>
-</a>
-<h1>AI & Data Strategy Sprint</h1>
-<p>For ethical founders and digital teams ready to align technology with purpose — fast</p>
- 
-</header>
- 
-  <main class="container">
-    <section class="benefits">
-       <p>This 5-day sprint gives you a rapid, tailored strategy foundation you can act on immediately.</p>    
-      <h2>✅ What You Get</h2>
-      <ul>
-        <li>60-minute discovery session</li>
-        <li>Data & digital maturity assessment (based on NHS/public sector standards)</li>
-        <li>Custom roadmap with 30/60/90-day actions</li>
-        <li>AI-readiness checklist (safe, ethical automation)</li>
-        <li>Final review session + exec-ready summary</li>
-      </ul>
+
+  <!-- Mobile menu (kept as per index.html) -->
+  <div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/about.html">👤 About</a>
+    <a href="/products.html">🛍️ Products</a>
+    <a href="/services.html">📦 Services</a>
+    <a href="/consulting.html">📊 Consulting</a>
+    <a href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=mobile-menu&utm_campaign=interest-form" target="_blank" rel="noopener">🚀 Submit Interest Form</a>
+    <a href="https://applysmart.co.uk" target="_blank" rel="noopener">📝 ApplySmart</a>
+    <a href="https://100to10k.com" target="_blank" rel="noopener">💼 100to10K</a>
+    <a href="/policy.html">🔐 Privacy Policy</a>
+    <a href="/terms.html">📄 Terms of Use</a>
+    <a href="/cookies.html">🍪 Cookie Policy</a>
+  </div>
+
+  <header>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <a href="index.html">
+      <img src="logo.jpg" width="150" alt="Jakoma logo" loading="lazy"/>
+    </a>
+
+    <h1>AI Governance &amp; Readiness Sprint (2–3 weeks)</h1>
+    <p>
+      A governance pack, risk controls and adoption roadmap for safe AI use —
+      built for complex and regulated organisations across public, private and third sector.
+    </p>
+
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.25rem;">
+      <a class="cta-button" href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=offer-page&utm_campaign=ai-governance-sprint" target="_blank" rel="noopener">🚀 Request a Proposal</a>
+      <a class="cta-button" href="https://tally.so/r/nWav0j?utm_source=jakoma-site&utm_medium=offer-page&utm_campaign=free-checklist" target="_blank" rel="noopener">📥 Download the Checklist</a>
+    </div>
+  </header>
+
+  <main>
+    <section style="padding:3rem 1rem;">
+      <h2 style="text-align:center;">✅ What You Get</h2>
+      <p style="max-width:800px;margin:0.75rem auto 2rem;text-align:center;">
+        This sprint gives you the minimum viable governance and assurance pack needed to deploy Copilot and other AI tools safely —
+        without drowning your teams in bureaucracy.
+      </p>
+
+      <div class="card-row">
+        <div class="card">
+          <h3>Governance Pack (ready to adopt)</h3>
+          <ul>
+            <li><strong>AI policy</strong> + acceptable use guidance</li>
+            <li><strong>AI governance operating model</strong> (roles, decision rights, escalation)</li>
+            <li><strong>Model/tool register</strong> template + minimum documentation standard</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Risk &amp; Control Set (practical)</h3>
+          <ul>
+            <li><strong>Risk approach</strong> for priority use cases (templates + decision points)</li>
+            <li><strong>DPIA / AI risk approach</strong> for Copilot and AI-enabled workflows</li>
+            <li><strong>Procurement due diligence</strong> questions for suppliers and tools</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Adoption Roadmap (30/60/90)</h3>
+          <ul>
+            <li>30/60/90-day roadmap for rollout and assurance</li>
+            <li>Training and comms recommendations (role-based)</li>
+            <li>Measurement plan (what to track, how to evidence progress)</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="audience">
-      <h2>🔐 Who It’s For</h2>
-      <ul>
-        <li>NHS, health, or charity teams under pressure to deliver digital results</li>
-        <li>Founders in data-heavy sectors (AI, health, govtech, impact)</li>
-        <li>Teams unsure if they’re compliant enough to deploy new tools</li>
-      </ul>
+    <section style="background:#f9f9f9;padding:3rem 1rem;">
+      <h2 style="text-align:center;">🔐 Who It’s For</h2>
+      <div class="card-row">
+        <div class="card">
+          <h3>Buyers</h3>
+          <ul>
+            <li>CIO / CTO</li>
+            <li>COO / Transformation Director</li>
+            <li>CDO / Head of Data</li>
+            <li>DPO / IG Lead</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Typical triggers</h3>
+          <ul>
+            <li>Copilot / AI rollout planned (or already happening)</li>
+            <li>Audit, risk or compliance findings</li>
+            <li>Supplier procurement and due diligence pressure</li>
+            <li>Data sharing blockers and operational risk</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Organisation types</h3>
+          <ul>
+            <li>Regulated or complex environments</li>
+            <li>Public, private and third sector</li>
+            <li>Teams needing “safe speed” and clear governance</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="pricing">
-      <h2>💷 Price: £2,000 flat</h2>
-      <p>Includes full sprint delivery, all materials, and access to frameworks you can reuse across your organisation.</p>
-    </section>
+    <section style="padding:3rem 1rem;">
+      <h2 style="text-align:center;">🗓️ How the Sprint Works</h2>
 
-    <section class="cta">
-      <h2>🎯 Secure Your Sprint</h2>
-      <p>
-        <a class="cta-button" href="https://payhip.com/b/IPtK6">Buy Now</a><br />
-       
+      <div class="card-row">
+        <div class="card">
+          <h3>Week 1: Discovery + Current State</h3>
+          <ul>
+            <li>Stakeholder discovery and priorities</li>
+            <li>Current controls and known risks review</li>
+            <li>Data/content exposure checks (where AI will “see”)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Week 2: Governance Pack + Roadmap</h3>
+          <ul>
+            <li>Draft and tailor the governance pack</li>
+            <li>Agree decision points, approvals and escalation</li>
+            <li>Build the 30/60/90 adoption roadmap</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Week 3 (optional): Socialise + Decide</h3>
+          <ul>
+            <li>Decision workshop with execs/senior owners</li>
+            <li>Embed changes into BAU (minimum friction)</li>
+            <li>Final sign-off pack and next-step plan</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="max-width:850px;margin:2rem auto 0;text-align:center;">
+        Delivery is <strong>timeboxed</strong>, <strong>template-led</strong>, and focused on assets you can actually adopt.
       </p>
     </section>
 
-    <section class="testimonial">
-      <blockquote>
-        “It felt like having a Chief Data Officer for a week — focused only on our priorities, with zero fluff.”
- <footer style="text-align: center; padding: 2rem;">
-<p>© 2025 Jakoma. All rights reserved.</p>
-<a href="/policy.html">Privacy</a> |
-  <a href="/terms.html">Terms</a> |
-  <a href="/cookies.html">Cookies</a>
-</footer>
-      </blockquote>
+    <section style="background:#f9f9f9;padding:3rem 1rem;">
+      <h2 style="text-align:center;">💷 Pricing Bands</h2>
+      <p style="max-width:800px;margin:0.75rem auto 2rem;text-align:center;">
+        Pricing depends on complexity, stakeholder load, and whether Week 3 is included — you’re buying decision-making, templates, and speed.
+      </p>
+
+      <div class="card-row">
+        <div class="card">
+          <h3>Starter</h3>
+          <p><strong>£3k–£5k</strong></p>
+          <ul>
+            <li>Smaller org / lighter stakeholder map</li>
+            <li>Core pack + roadmap</li>
+            <li>Light touch on use-case risk</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Standard</h3>
+          <p><strong>£6k–£10k</strong></p>
+          <ul>
+            <li>Most organisations fit here</li>
+            <li>Full governance pack + risk set + roadmap</li>
+            <li>Priority use cases assessed with templates</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Enterprise</h3>
+          <p><strong>£12k–£18k</strong></p>
+          <ul>
+            <li>High regulatory / high complexity environments</li>
+            <li>Broader stakeholder alignment</li>
+            <li>Week 3 decision workshop included</li>
+          </ul>
+        </div>
+      </div>
     </section>
+
+    <section style="padding:3rem 1rem;">
+      <h2 style="text-align:center;">🎯 Next Steps</h2>
+      <p style="max-width:800px;margin:0.75rem auto 1.5rem;text-align:center;">
+        If you’re serious about deploying Copilot/AI safely, don’t overthink it.
+        Submit the interest form with your timeline and scope, and you’ll get a proposal with the right band and delivery start options.
+      </p>
+
+      <div style="text-align:center;">
+        <a class="cta-button" href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=offer-page&utm_campaign=ai-governance-sprint" target="_blank" rel="noopener">🚀 Request a Proposal</a>
+      </div>
+
+      <p style="max-width:800px;margin:1.25rem auto 0;text-align:center;font-size:0.95rem;opacity:0.9;">
+        Want to self-check first? Grab the free checklist and score your readiness in 10 minutes.
+      </p>
+      <div style="text-align:center;margin-top:0.75rem;">
+        <a class="cta-button" href="https://tally.so/r/nWav0j?utm_source=jakoma-site&utm_medium=offer-page&utm_campaign=free-checklist" target="_blank" rel="noopener">📥 Download the Checklist</a>
+      </div>
+    </section>
+
+    <div style="text-align:center;margin:2rem 0;">
+      <a href="https://www.linkedin.com/company/jakoma/" class="cta-button" target="_blank" rel="noopener">💼 Follow Us on LinkedIn</a>
+    </div>
   </main>
+
+  <footer style="text-align:center;padding:2rem;">
+    <p>© 2025 Jakoma. All rights reserved.</p>
+    <p><em>Jakoma is a developing platform exploring ethical AI, data, and digital capability.</em></p>
+    <a href="/policy.html">Privacy</a> |
+    <a href="/terms.html">Terms</a> |
+    <a href="/cookies.html">Cookies</a>
+  </footer>
 
   <script>
     function toggleMenu() {
@@ -91,3 +246,4 @@
   </script>
 </body>
 </html>
+
