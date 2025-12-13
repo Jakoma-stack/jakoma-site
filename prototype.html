@@ -7,6 +7,32 @@
   <meta name="description" content="A 2-week Copilot / Workflow Automation Prototype Sprint delivering a working prototype, pilot plan, and measurement approach so you can prove value quickly and safely."/>
   <link href="style.css" rel="stylesheet"/>
 
+
+  <script id="consent-init">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Consent Mode defaults (UK/EU friendly): analytics/ads denied until user opts in
+    const storedConsent = localStorage.getItem('jakoma_cookie_consent');
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted'
+    });
+
+    if (storedConsent === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted'
+      });
+    }
+  </script>
+
   <!-- Google Tag Manager (kept as per your template) -->
   <script id="gtm-script">
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -21,8 +47,8 @@
   <!-- Cookie banner (kept as per your template) -->
   <div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
     🍪 We use cookies to enhance your experience.
-    <button aria-label="Accept Cookies" onclick="this.parentElement.style.display='none'">Accept</button>
-    <button aria-label="Decline Cookies" onclick="this.parentElement.style.display='none'">Decline</button>
+    <button aria-label="Accept Cookies" onclick="setCookieConsent('granted')">Accept</button>
+    <button aria-label="Decline Cookies" onclick="setCookieConsent('denied')">Decline</button>
   </div>
 
   <!-- Mobile menu (kept as per your template) -->
@@ -238,7 +264,7 @@
 
   <footer style="text-align:center;padding:2rem;">
     <p>© 2025 Jakoma. All rights reserved.</p>
-    <p><em>Jakoma is a developing platform exploring ethical AI, data, and digital capability.</em></p>
+    <p><em>Jakoma is a multi-sector consultancy and digital product studio focused on ethical AI, data, and governance.</em></p>
     <a href="/policy.html">Privacy</a> |
     <a href="/terms.html">Terms</a> |
     <a href="/cookies.html">Cookies</a>
@@ -252,5 +278,42 @@
       overlay.classList.toggle('open');
     }
   </script>
+
+  <script id="cookie-consent-helpers">
+    (function(){
+      const storedConsent = localStorage.getItem('jakoma_cookie_consent');
+      const banner = document.getElementById('cookie-banner');
+      if (storedConsent === 'granted' || storedConsent === 'denied') {
+        if (banner) banner.style.display = 'none';
+      }
+    })();
+
+    function setCookieConsent(choice){
+      localStorage.setItem('jakoma_cookie_consent', choice);
+
+      // Update Consent Mode for Google tags
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      if (choice === 'granted') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'analytics_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted'
+        });
+      } else {
+        gtag('consent', 'update', {
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied'
+        });
+      }
+
+      const banner = document.getElementById('cookie-banner');
+      if (banner) banner.style.display = 'none';
+    }
+  </script>
+
 </body>
 </html>
