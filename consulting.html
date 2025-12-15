@@ -1,153 +1,175 @@
 <!DOCTYPE html>
+
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jakoma Consulting | Ethical Data, Digital & AI</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jakoma Consulting | Ethical Data, Digital &amp; AI</title><link href="https://www.jakoma.org/consulting.html" rel="canonical"/>
+<link href="style.css" rel="stylesheet"/>
+<meta content="Jakoma Consulting: governance-first support for data, digital and AI — designed for regulated and complex organisations that need speed with assurance." name="description"/>
+<meta content="AI governance, information governance, DPO, CDO, CDIO, ISO 27001, DSPT, UK GDPR, AI assurance, data strategy, digital maturity, Jakoma consulting" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<meta content="website" property="og:type"/>
+<meta content="Jakoma Consulting" property="og:title"/>
+<meta content="Governance-first advisory and delivery for safer, smarter AI and digital transformation." property="og:description"/>
+<meta content="https://www.jakoma.org/consulting.html" property="og:url"/>
+<!-- Google Tag Manager -->
+<script id="consent-init">
+  // Minimal Consent Mode initialisation (runs BEFORE GTM loads)
+  // Default: analytics denied until user opts in.
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.__jakomaConsentInitialised = true;
 
-  <link href="style.css" rel="stylesheet"/>
-  <meta name="description" content="Jakoma Consulting: governance-first support for data, digital and AI — designed for regulated and complex organisations that need speed with assurance."/>
-  <meta name="keywords" content="AI governance, information governance, DPO, CDO, CDIO, ISO 27001, DSPT, UK GDPR, AI assurance, data strategy, digital maturity, Jakoma consulting"/>
-  <meta name="robots" content="index,follow"/>
+  let storedConsent = null;
+  try {
+    storedConsent = localStorage.getItem('jakoma_cookie_consent') || localStorage.getItem('jakoma_cookie_consent_v1');
+  } catch (e) { storedConsent = null; }
 
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Jakoma Consulting"/>
-  <meta property="og:description" content="Governance-first advisory and delivery for safer, smarter AI and digital transformation."/>
-  <meta property="og:url" content="https://www.jakoma.org/consulting.html"/>
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'functionality_storage': 'granted',
+    'security_storage': 'granted'
+  });
 
-  <!-- Google Tag Manager -->
-  <script>
+  // Accept either legacy values ('granted'/'denied') or site.js values ('accepted'/'declined')
+  if (storedConsent === 'accepted' || storedConsent === 'granted') {
+    gtag('consent', 'update', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'granted',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted'
+    });
+  } else if (storedConsent === 'declined' || storedConsent === 'denied') {
+    gtag('consent', 'update', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted'
+    });
+  }
+</script><script id="gtm-script">
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
     var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
     j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WCJBPXM6');
   </script>
-  <!-- End Google Tag Manager -->
-  <script src="/assets/js/site.js" defer></script>
+<!-- End Google Tag Manager -->
 </head>
-
 <body data-page="consulting">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <a class="skip-link" href="#main">Skip to content</a>
-
-  <div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
+<div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
     🍪 We use cookies to enhance your experience.
     <button aria-label="Accept Cookies" data-cookie="accept" type="button">Accept</button>
-    <button aria-label="Decline Cookies" data-cookie="decline" type="button">Decline</button>
-  </div>
-
-
+<button aria-label="Decline Cookies" data-cookie="decline" type="button">Decline</button>
+</div>
 <header class="site-header">
-  <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false" onclick="toggleMenu()">☰</button>
-  <a href="index.html" aria-label="Jakoma home"><img src="logo.jpg" width="150" alt="Jakoma logo" loading="lazy"/></a>
-  <h1>Jakoma Consulting</h1>
-  <p>Governance-first approaches to data, digital and AI — so you can move quickly without creating avoidable risk.</p>
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
+<a aria-label="Jakoma home" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
+<h1>Jakoma Consulting</h1>
+<p>Governance-first approaches to data, digital and AI — so you can move quickly without creating avoidable risk.</p>
 </header>
-
 <main id="main" style="padding:2rem;max-width:900px;margin:auto;">
-  <section>
-    <h2>What this is (and what it isn’t)</h2>
-    <p>
+<section>
+<h2>What this is (and what it isn’t)</h2>
+<p>
       This is for organisations that need modern capabilities — AI, analytics, interoperability, automation —
       but operate under real constraints: regulation, audit, public trust, and limited capacity.
     </p>
-    <p>
+<p>
       It’s not vague “innovation strategy”. You get practical artefacts: operating models, controls,
       templates, decision packs, and roadmaps you can actually execute.
     </p>
-  </section>
-
-  <hr/>
-
-  <section>
-    <h2>⚙️ Fractional governance leadership (retainer)</h2>
-    <p>Light-touch senior capacity to run governance, steer decisions, and keep delivery unblocked.</p>
-    <ul>
-      <li>Fractional CDIO / CDO / DPO-style leadership</li>
-      <li>Assurance and oversight for AI and digital change</li>
-      <li>Stakeholder alignment, escalation, and delivery steering</li>
-    </ul>
-  </section>
-
-  <hr/>
-
-  <section>
-    <h2>🛡️ Information governance &amp; AI assurance</h2>
-    <p>
+</section>
+<hr/>
+<section>
+<h2>⚙️ Fractional governance leadership (retainer)</h2>
+<p>Light-touch senior capacity to run governance, steer decisions, and keep delivery unblocked.</p>
+<ul>
+<li>Fractional CDIO / CDO / DPO-style leadership</li>
+<li>Assurance and oversight for AI and digital change</li>
+<li>Stakeholder alignment, escalation, and delivery steering</li>
+</ul>
+</section>
+<hr/>
+<section>
+<h2>🛡️ Information governance &amp; AI assurance</h2>
+<p>
       Practical readiness aligned to UK GDPR and widely used assurance frameworks (ISO 27001/DSPT and NIS principles),
       including DPIA approaches, acceptable-use guidance, tool registers and minimum documentation standards.
     </p>
-    <ul>
-      <li>IG and data protection reviews</li>
-      <li>Privacy-by-design guidance and DPIA templates</li>
-      <li>Guardrails for AI and automated decision-making</li>
-    </ul>
-  </section>
-
-  <hr/>
-
-  <section>
-    <h2>📊 Data strategy &amp; digital maturity</h2>
-    <p>Clear baselines and priorities — so investment decisions are defensible and outcomes are measurable.</p>
-    <ul>
-      <li>Maturity assessment and 30/60/90-day priorities</li>
-      <li>Interoperability and standards-based architecture direction</li>
-      <li>Linking data quality, insight and assurance to outcomes</li>
-    </ul>
-  </section>
-
-  <hr/>
-
-  <section>
-    <h2>🧭 Leadership capability &amp; AI literacy</h2>
-    <p>Briefings and clinics that help boards and senior teams make better decisions about AI and risk.</p>
-    <ul>
-      <li>AI risk, ethics and governance oversight</li>
-      <li>Secure copilot clinics and safe productivity playbooks</li>
-      <li>Templates for reporting, controls and accountability</li>
-    </ul>
-  </section>
-
-  <div style="text-align:center;margin-top:2rem;">
-    <p>If you want to discuss fit, start with a short interest form.</p>
-    <a class="cta-button js-utm" data-cta="interest_form"
-       data-utm-base="utm_source=jakoma&utm_medium=website&utm_campaign=evergreen&utm_content=consulting_interest_cta"
-       href="https://tally.so/r/3yAx84" target="_blank" rel="noopener noreferrer">🚀 Share your interest</a>
-  </div>
-
-  <p style="margin-top:2rem;font-size:0.9rem;text-align:center;">
-    <em>Note:</em> This page describes Jakoma’s consulting model and intended delivery approach.
+<ul>
+<li>IG and data protection reviews</li>
+<li>Privacy-by-design guidance and DPIA templates</li>
+<li>Guardrails for AI and automated decision-making</li>
+</ul>
+</section>
+<hr/>
+<section>
+<h2>📊 Data strategy &amp; digital maturity</h2>
+<p>Clear baselines and priorities — so investment decisions are defensible and outcomes are measurable.</p>
+<ul>
+<li>Maturity assessment and 30/60/90-day priorities</li>
+<li>Interoperability and standards-based architecture direction</li>
+<li>Linking data quality, insight and assurance to outcomes</li>
+</ul>
+</section>
+<hr/>
+<section>
+<h2>🧭 Leadership capability &amp; AI literacy</h2>
+<p>Briefings and clinics that help boards and senior teams make better decisions about AI and risk.</p>
+<ul>
+<li>AI risk, ethics and governance oversight</li>
+<li>Secure copilot clinics and safe productivity playbooks</li>
+<li>Templates for reporting, controls and accountability</li>
+</ul>
+</section>
+<div style="text-align:center;margin-top:2rem;">
+<p>If you want to discuss fit, start with a short interest form.</p>
+<a class="cta-button js-utm" data-cta="interest_form" data-utm-base="utm_source=jakoma-site&amp;utm_medium=website&amp;utm_campaign=evergreen&amp;utm_content=consulting_interest_cta" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Share your interest</a>
+</div>
+<p style="margin-top:2rem;font-size:0.9rem;text-align:center;">
+<em>Note:</em> This page describes Jakoma’s consulting model and intended delivery approach.
   </p>
 </main>
-
 <footer style="text-align:center;padding:2rem;">
-  <p>© 2025 Jakoma. All rights reserved.</p>
-  <p><em>Jakoma is a developing platform exploring ethical AI, data and digital capability.</em></p>
-  <a href="/policy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/cookies.html">Cookies</a>
+<p>© 2025 Jakoma. All rights reserved.</p>
+<p><em>Jakoma is a multi-sector consultancy and digital product studio focused on ethical AI, data, and governance.</em></p>
+<a href="/policy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/cookies.html">Cookies</a>
 </footer>
-
-<div class="mobile-menu-overlay" onclick="toggleMenu()" aria-hidden="true"></div>
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile menu">
-  <a href="/index.html">🏠 Home</a>
-  <a href="/about.html">👤 About</a>
-  <a href="/services.html">📦 Services</a>
-  <a href="/consulting.html" aria-current="page">📊 Consulting</a>
-  <a href="/products.html">🛍️ Products</a>
-  <a class="js-utm" data-utm-base="utm_source=jakoma&utm_medium=menu&utm_campaign=evergreen&utm_content=menu_interest_form" href="https://tally.so/r/3yAx84" target="_blank" rel="noopener noreferrer">🚀 Submit Interest Form</a>
-  <a class="js-utm" data-utm-base="utm_source=jakoma&utm_medium=menu&utm_campaign=evergreen&utm_content=menu_applysmart" href="https://applysmart.co.uk" target="_blank" rel="noopener noreferrer">📝 ApplySmart</a>
-  <a class="js-utm" data-utm-base="utm_source=jakoma&utm_medium=menu&utm_campaign=evergreen&utm_content=menu_100to10k" href="https://100to10k.com" target="_blank" rel="noopener noreferrer">💼 100to10K</a>
-  <a href="/policy.html">🔐 Privacy Policy</a>
-  <a href="/terms.html">📄 Terms of Use</a>
-  <a href="/cookies.html">🍪 Cookie Policy</a>
+<div aria-hidden="true" class="mobile-menu-overlay"></div>
+<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu">
+<a href="/index.html">🏠 Home</a>
+<a href="/about.html">👤 About</a>
+<a href="/services.html">📦 Services</a>
+<a aria-current="page" href="/consulting.html">📊 Consulting</a>
+<a href="/products.html">🛍️ Products</a>
+<div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
+<a href="/ai-governance-readiness-sprint.html">AI Governance Sprint</a>
+<a href="/fractional-governance-leader-retainer.html">Fractional Retainer</a>
+<a href="/copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a><a class="js-utm" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=evergreen&amp;utm_content=menu_interest_form" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Submit Interest Form</a>
+<a class="js-utm" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=evergreen&amp;utm_content=menu_applysmart" href="https://applysmart.co.uk" rel="noopener noreferrer" target="_blank">📝 ApplySmart</a>
+<a class="js-utm" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=evergreen&amp;utm_content=menu_100to10k" href="https://100to10k.com" rel="noopener noreferrer" target="_blank">💼 100to10K</a>
+<a href="/policy.html">🔐 Privacy Policy</a>
+<a href="/terms.html">📄 Terms of Use</a>
+<a href="/cookies.html">🍪 Cookie Policy</a>
 </nav>
-
 <noscript>
-  <div style="max-width:900px;margin:1rem auto;padding:1rem;border:1px solid #ccc;">
+<div style="max-width:900px;margin:1rem auto;padding:1rem;border:1px solid #ccc;">
     This site works best with JavaScript enabled (menu + UTM carry-over).
   </div>
 </noscript>
+
+<script defer src="/assets/js/site.js"></script>
 </body>
 </html>

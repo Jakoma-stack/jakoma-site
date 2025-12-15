@@ -1,24 +1,46 @@
 <!DOCTYPE html>
+
 <html lang="en-GB">
 <head>
-  <title>Copilot / Workflow Automation Prototype Sprint (2 weeks) | Jakoma</title>
-  <link rel="canonical" href="https://www.jakoma.org/copilot-workflow-automation-prototype-sprint.html"/>
+<title>Copilot / Workflow Automation Prototype Sprint (2 weeks) | Jakoma</title>
+<link href="https://www.jakoma.org/copilot-workflow-automation-prototype-sprint.html" rel="canonical"/>
 <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="A 2-week Copilot / Workflow Automation Prototype Sprint delivering a working prototype, pilot plan, and measurement approach so you can prove value quickly and safely."/>
-  <link href="style.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="A 2-week Copilot / Workflow Automation Prototype Sprint delivering a working prototype, pilot plan, and measurement approach so you can prove value quickly and safely." name="description"/>
+<link href="style.css" rel="stylesheet"/>
+<script id="consent-init">
+  // Minimal Consent Mode initialisation (runs BEFORE GTM loads)
+  // Default: analytics denied until user opts in.
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.__jakomaConsentInitialised = true;
 
-  <script id="consent-init">
-    // Minimal Consent Mode initialisation (runs BEFORE GTM loads)
-    // Default: analytics denied until user opts in.
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.__jakomaConsentInitialised = true;
+  let storedConsent = null;
+  try {
+    storedConsent = localStorage.getItem('jakoma_cookie_consent') || localStorage.getItem('jakoma_cookie_consent_v1');
+  } catch (e) { storedConsent = null; }
 
-    let storedConsent = null;
-    try { storedConsent = localStorage.getItem('jakoma_cookie_consent'); } catch (e) { storedConsent = null; }
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'functionality_storage': 'granted',
+    'security_storage': 'granted'
+  });
 
-    gtag('consent', 'default', {
+  // Accept either legacy values ('granted'/'denied') or site.js values ('accepted'/'declined')
+  if (storedConsent === 'accepted' || storedConsent === 'granted') {
+    gtag('consent', 'update', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'granted',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted'
+    });
+  } else if (storedConsent === 'declined' || storedConsent === 'denied') {
+    gtag('consent', 'update', {
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
       'ad_user_data': 'denied',
@@ -26,31 +48,10 @@
       'functionality_storage': 'granted',
       'security_storage': 'granted'
     });
-
-    // Accept either legacy values ('granted'/'denied') or site.js values ('accepted'/'declined')
-    if (storedConsent === 'accepted' || storedConsent === 'granted') {
-      gtag('consent', 'update', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'granted',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'functionality_storage': 'granted',
-        'security_storage': 'granted'
-      });
-    } else if (storedConsent === 'declined' || storedConsent === 'denied') {
-      gtag('consent', 'update', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'functionality_storage': 'granted',
-        'security_storage': 'granted'
-      });
-    }
-  </script>
-
-  <!-- Google Tag Manager (kept as per your template) -->
-  <script id="gtm-script">
+  }
+</script>
+<!-- Google Tag Manager (kept as per your template) -->
+<script id="gtm-script">
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -58,246 +59,212 @@
     })(window,document,'script','dataLayer','GTM-WCJBPXM6');
   </script>
 </head>
-
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <!-- Cookie banner (kept as per your template) -->
-  <div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
+<body data-page="copilot_prototype_sprint"><a class="skip-link" href="#main">Skip to content</a>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie banner (kept as per your template) -->
+<div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
     🍪 We use cookies to enhance your experience.
-    <button aria-label="Accept Cookies" type="button">Accept</button>
-    <button aria-label="Decline Cookies" type="button">Decline</button>
-  </div>
-
-  <!-- Mobile menu (kept as per your template) -->
-  <div class="mobile-menu-overlay"></div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/about.html">👤 About</a>
-    <a href="/products.html">🛍️ Products</a>
-    <a href="/services.html">📦 Services</a>
-    <a href="/consulting.html">📊 Consulting</a>
-    
-    <div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
-    <a href="/ai-governance-readiness-sprint.html" data-track="nav_offer_sprint">AI Governance Sprint</a>
-    <a href="/fractional-governance-leader-retainer.html" data-track="nav_offer_retainer">Fractional Retainer</a>
-    <a href="/copilot-workflow-automation-prototype-sprint.html" data-track="nav_offer_prototype">Prototype Sprint</a>
-<a href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=nav&utm_campaign=interest-form&utm_content=prototype-sprint" data-track="nav_interest_form" target="_blank" rel="noopener">🚀 Submit Interest Form</a>
-    <a href="https://applysmart.co.uk" target="_blank" rel="noopener">📝 ApplySmart</a>
-    <a href="https://100to10k.com" target="_blank" rel="noopener">💼 100to10K</a>
-    <a href="/policy.html">🔐 Privacy Policy</a>
-    <a href="/terms.html">📄 Terms of Use</a>
-    <a href="/cookies.html">🍪 Cookie Policy</a>
-  </div>
-
-  <header>
-    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
-    <a href="index.html">
-      <img src="logo.jpg" width="150" alt="Jakoma logo" loading="lazy"/>
-    </a>
-
-    <h1>Copilot / Workflow Automation Prototype Sprint (2 weeks)</h1>
-    <p>
+    <button aria-label="Accept Cookies" data-cookie="accept" type="button">Accept</button>
+<button aria-label="Decline Cookies" data-cookie="decline" type="button">Decline</button>
+</div>
+<!-- Mobile menu (kept as per your template) -->
+<div aria-hidden="true" class="mobile-menu-overlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+<a href="/about.html">👤 About</a>
+<a href="/products.html">🛍️ Products</a>
+<a href="/services.html">📦 Services</a>
+<a href="/consulting.html">📊 Consulting</a>
+<div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
+<a data-cta="nav_offer_sprint" data-track="nav_offer_sprint" href="/ai-governance-readiness-sprint.html">AI Governance Sprint</a>
+<a data-cta="nav_offer_retainer" data-track="nav_offer_retainer" href="/fractional-governance-leader-retainer.html">Fractional Retainer</a>
+<a data-cta="nav_offer_prototype" data-track="nav_offer_prototype" href="/copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
+<a class="js-utm" data-cta="nav_interest_form" data-track="nav_interest_form" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=nav&amp;utm_campaign=interest-form&amp;utm_content=prototype-sprint" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Submit Interest Form</a>
+<a class="js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=copilot_prototype_sprint&amp;utm_content=applysmart" href="https://applysmart.co.uk" rel="noopener noreferrer" target="_blank">📝 ApplySmart</a>
+<a class="js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=copilot_prototype_sprint&amp;utm_content=100to10k" href="https://100to10k.com" rel="noopener noreferrer" target="_blank">💼 100to10K</a>
+<a href="/policy.html">🔐 Privacy Policy</a>
+<a href="/terms.html">📄 Terms of Use</a>
+<a href="/cookies.html">🍪 Cookie Policy</a>
+</div>
+<header>
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
+<a href="index.html">
+<img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/>
+</a>
+<h1>Copilot / Workflow Automation Prototype Sprint (2 weeks)</h1>
+<p>
       A working prototype plus a pilot plan and measurement approach —
       so you can prove value quickly, safely, and repeatably.
     </p>
-
-    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.25rem;">
-      <a class="cta-button" data-track="proposal_click" href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=hero&utm_campaign=prototype-sprint&utm_content=proposal" target="_blank" rel="noopener">🚀 Request a Proposal</a>
-      <a class="cta-button" data-track="book_call_click" href="https://calendly.com/executivecall/30min?utm_source=jakoma-site&utm_medium=hero&utm_campaign=prototype-sprint&utm_content=call" target="_blank" rel="noopener">📅 Book a 30-minute Call</a>
-    </div>
-  </header>
-
-  <main>
-    <section style="padding:3rem 1rem;">
-      <h2 style="text-align:center;">✅ What You Get</h2>
-      <p style="max-width:800px;margin:0.75rem auto 2rem;text-align:center;">
+<div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.25rem;">
+<a class="cta-button js-utm" data-cta="proposal_click" data-track="proposal_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=prototype-sprint&amp;utm_content=proposal" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Request a Proposal</a>
+<a class="cta-button js-utm" data-cta="book_call_click" data-track="book_call_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=prototype-sprint&amp;utm_content=call" href="https://calendly.com/executivecall/30min" rel="noopener noreferrer" target="_blank">📅 Book a 30-minute Call</a>
+</div>
+</header>
+<main id="main">
+<section style="padding:3rem 1rem;">
+<h2 style="text-align:center;">✅ What You Get</h2>
+<p style="max-width:800px;margin:0.75rem auto 2rem;text-align:center;">
         This is a timeboxed build sprint. You walk away with a working prototype, documented controls, and a pilot plan
         you can take straight into delivery.
       </p>
-
-      <div class="card-row">
-        <div class="card">
-          <h3>Working Prototype</h3>
-          <ul>
-            <li><strong>1–2 workflows</strong> prototyped end-to-end</li>
-            <li>Clear inputs/outputs and decision points</li>
-            <li>Designed to be reusable (not a one-off demo)</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Secure Process Map + Risk Notes</h3>
-          <ul>
-            <li>Process map with <strong>controls</strong> and <strong>human checks</strong></li>
-            <li>Risk notes: data exposure, access, retention, auditability</li>
-            <li>Minimum viable governance for safe rollout</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Pilot Plan + Measurement</h3>
-          <ul>
-            <li>Pilot plan (who, where, guardrails, success criteria)</li>
-            <li>Adoption &amp; training checklist</li>
-            <li>Measurement plan (time saved, error reduction, quality uplift)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section style="background:#f9f9f9;padding:3rem 1rem;">
-      <h2 style="text-align:center;">🔍 Examples of Good Prototype Targets</h2>
-      <p style="max-width:850px;margin:0.75rem auto 2rem;text-align:center;">
+<div class="card-row">
+<div class="card">
+<h3>Working Prototype</h3>
+<ul>
+<li><strong>1–2 workflows</strong> prototyped end-to-end</li>
+<li>Clear inputs/outputs and decision points</li>
+<li>Designed to be reusable (not a one-off demo)</li>
+</ul>
+</div>
+<div class="card">
+<h3>Secure Process Map + Risk Notes</h3>
+<ul>
+<li>Process map with <strong>controls</strong> and <strong>human checks</strong></li>
+<li>Risk notes: data exposure, access, retention, auditability</li>
+<li>Minimum viable governance for safe rollout</li>
+</ul>
+</div>
+<div class="card">
+<h3>Pilot Plan + Measurement</h3>
+<ul>
+<li>Pilot plan (who, where, guardrails, success criteria)</li>
+<li>Adoption &amp; training checklist</li>
+<li>Measurement plan (time saved, error reduction, quality uplift)</li>
+</ul>
+</div>
+</div>
+</section>
+<section style="background:#f9f9f9;padding:3rem 1rem;">
+<h2 style="text-align:center;">🔍 Examples of Good Prototype Targets</h2>
+<p style="max-width:850px;margin:0.75rem auto 2rem;text-align:center;">
         You’ll get the best ROI by choosing workflows that are repetitive, rules-based, and currently depend on lots of manual effort.
       </p>
-
-      <div class="card-row">
-        <div class="card">
-          <h3>Operations</h3>
-          <ul>
-            <li>Intake triage and routing</li>
-            <li>Standardised document packs and summaries</li>
-            <li>Meeting outputs: actions, decisions, trackers</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Risk / Compliance</h3>
-          <ul>
-            <li>Policy-to-process mapping</li>
-            <li>Evidence pack generation (with human approval)</li>
-            <li>Audit readiness trackers and follow-ups</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>People / Customer</h3>
-          <ul>
-            <li>Onboarding packs and knowledge capture</li>
-            <li>Case notes structured into templates</li>
-            <li>FAQs and internal guidance assistants</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section style="padding:3rem 1rem;">
-      <h2 style="text-align:center;">🗓️ How the 2 Weeks Work</h2>
-
-      <div class="card-row">
-        <div class="card">
-          <h3>Days 1–3: Discovery + Design</h3>
-          <ul>
-            <li>Workflow selection and success criteria</li>
-            <li>Data/access boundaries agreed</li>
-            <li>Controls and human review points defined</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Days 4–8: Build + Iterate</h3>
-          <ul>
-            <li>Prototype build and test cycles</li>
-            <li>Process map + risk notes drafted</li>
-            <li>Stakeholder demos to keep it real</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Days 9–10: Pilot Plan + Handover</h3>
-          <ul>
-            <li>Pilot plan and measurement framework</li>
-            <li>Adoption/training checklist</li>
-            <li>Handover pack + next sprint options</li>
-          </ul>
-        </div>
-      </div>
-
-      <p style="max-width:850px;margin:2rem auto 0;text-align:center;">
+<div class="card-row">
+<div class="card">
+<h3>Operations</h3>
+<ul>
+<li>Intake triage and routing</li>
+<li>Standardised document packs and summaries</li>
+<li>Meeting outputs: actions, decisions, trackers</li>
+</ul>
+</div>
+<div class="card">
+<h3>Risk / Compliance</h3>
+<ul>
+<li>Policy-to-process mapping</li>
+<li>Evidence pack generation (with human approval)</li>
+<li>Audit readiness trackers and follow-ups</li>
+</ul>
+</div>
+<div class="card">
+<h3>People / Customer</h3>
+<ul>
+<li>Onboarding packs and knowledge capture</li>
+<li>Case notes structured into templates</li>
+<li>FAQs and internal guidance assistants</li>
+</ul>
+</div>
+</div>
+</section>
+<section style="padding:3rem 1rem;">
+<h2 style="text-align:center;">🗓️ How the 2 Weeks Work</h2>
+<div class="card-row">
+<div class="card">
+<h3>Days 1–3: Discovery + Design</h3>
+<ul>
+<li>Workflow selection and success criteria</li>
+<li>Data/access boundaries agreed</li>
+<li>Controls and human review points defined</li>
+</ul>
+</div>
+<div class="card">
+<h3>Days 4–8: Build + Iterate</h3>
+<ul>
+<li>Prototype build and test cycles</li>
+<li>Process map + risk notes drafted</li>
+<li>Stakeholder demos to keep it real</li>
+</ul>
+</div>
+<div class="card">
+<h3>Days 9–10: Pilot Plan + Handover</h3>
+<ul>
+<li>Pilot plan and measurement framework</li>
+<li>Adoption/training checklist</li>
+<li>Handover pack + next sprint options</li>
+</ul>
+</div>
+</div>
+<p style="max-width:850px;margin:2rem auto 0;text-align:center;">
         This is not a “big transformation programme”. It’s a controlled build sprint designed to prove value quickly —
         and to do it without creating governance debt.
       </p>
-    </section>
-
-    <section style="background:#f9f9f9;padding:3rem 1rem;">
-      <h2 style="text-align:center;">💷 Pricing Bands</h2>
-      <p style="max-width:800px;margin:0.75rem auto 2rem;text-align:center;">
+</section>
+<section style="background:#f9f9f9;padding:3rem 1rem;">
+<h2 style="text-align:center;">💷 Pricing Bands</h2>
+<p style="max-width:800px;margin:0.75rem auto 2rem;text-align:center;">
         Pricing depends on workflow complexity, integrations, data risk, and stakeholder time.
         If you’re unsure, select “Need guidance” on the proposal form and we’ll recommend the right band.
       </p>
-
-      <div class="card-row">
-        <div class="card">
-          <h3>Starter Prototype</h3>
-          <p><strong>£4k–£7k</strong></p>
-          <ul>
-            <li>1 workflow, low integration</li>
-            <li>Clear data boundaries</li>
-            <li>Core pilot plan + measures</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Standard Prototype</h3>
-          <p><strong>£8k–£12k</strong></p>
-          <ul>
-            <li>1–2 workflows</li>
-            <li>Stronger controls + documentation</li>
-            <li>More robust measurement approach</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Enterprise Prototype</h3>
-          <p><strong>£14k–£20k</strong></p>
-          <ul>
-            <li>Complex workflows / higher risk data</li>
-            <li>Wider stakeholder alignment</li>
-            <li>Expanded handover + scale plan</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section style="padding:3rem 1rem;">
-      <h2 style="text-align:center;">🎯 Next Steps</h2>
-      <p style="max-width:800px;margin:0.75rem auto 1.5rem;text-align:center;">
+<div class="card-row">
+<div class="card">
+<h3>Starter Prototype</h3>
+<p><strong>£4k–£7k</strong></p>
+<ul>
+<li>1 workflow, low integration</li>
+<li>Clear data boundaries</li>
+<li>Core pilot plan + measures</li>
+</ul>
+</div>
+<div class="card">
+<h3>Standard Prototype</h3>
+<p><strong>£8k–£12k</strong></p>
+<ul>
+<li>1–2 workflows</li>
+<li>Stronger controls + documentation</li>
+<li>More robust measurement approach</li>
+</ul>
+</div>
+<div class="card">
+<h3>Enterprise Prototype</h3>
+<p><strong>£14k–£20k</strong></p>
+<ul>
+<li>Complex workflows / higher risk data</li>
+<li>Wider stakeholder alignment</li>
+<li>Expanded handover + scale plan</li>
+</ul>
+</div>
+</div>
+</section>
+<section style="padding:3rem 1rem;">
+<h2 style="text-align:center;">🎯 Next Steps</h2>
+<p style="max-width:800px;margin:0.75rem auto 1.5rem;text-align:center;">
         Submit a proposal request with your preferred workflows and timeline — or book a quick scoping call.
         Either way, you’ll get a clear plan and a price band without the waffle.
       </p>
-
-      <div style="text-align:center;display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;">
-        <a class="cta-button" data-track="proposal_click" href="https://tally.so/r/3yAx84?utm_source=jakoma-site&utm_medium=section&utm_campaign=prototype-sprint" target="_blank" rel="noopener">🚀 Request a Proposal</a>
-        <a class="cta-button" data-track="book_call_click" href="https://calendly.com/executivecall/30min?utm_source=jakoma-site&utm_medium=section&utm_campaign=prototype-sprint" target="_blank" rel="noopener">📅 Book a 30-minute Call</a>
-      </div>
-
-      <p style="max-width:800px;margin:1.25rem auto 0;text-align:center;font-size:0.95rem;opacity:0.9;">
+<div style="text-align:center;display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;">
+<a class="cta-button js-utm" data-cta="proposal_click" data-track="proposal_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=section&amp;utm_campaign=prototype-sprint" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Request a Proposal</a>
+<a class="cta-button js-utm" data-cta="book_call_click" data-track="book_call_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=section&amp;utm_campaign=prototype-sprint" href="https://calendly.com/executivecall/30min" rel="noopener noreferrer" target="_blank">📅 Book a 30-minute Call</a>
+</div>
+<p style="max-width:800px;margin:1.25rem auto 0;text-align:center;font-size:0.95rem;opacity:0.9;">
         Want to check your governance readiness first? Download the free checklist and score your foundation in 10 minutes.
       </p>
-      <div style="text-align:center;margin-top:0.75rem;">
-        <a class="cta-button" data-track="checklist_click" href="https://tally.so/r/nWav0j?utm_source=jakoma-site&utm_medium=section&utm_campaign=free-checklist&utm_content=prototype-sprint" target="_blank" rel="noopener">📥 Download the Checklist</a>
-      </div>
-    </section>
-
-    <div style="text-align:center;margin:2rem 0;">
-      <a href="https://www.linkedin.com/company/jakoma/" class="cta-button" data-track="linkedin_follow_click" target="_blank" rel="noopener">💼 Follow Us on LinkedIn</a>
-    </div>
-  </main>
-
-  <footer style="text-align:center;padding:2rem;">
-    <p>© 2025 Jakoma. All rights reserved.</p>
-    <p><em>Jakoma is a multi-sector consultancy and digital product studio focused on ethical AI, data, and governance.</em></p>
-    <a href="/policy.html">Privacy</a> |
+<div style="text-align:center;margin-top:0.75rem;">
+<a class="cta-button js-utm" data-cta="checklist_click" data-track="checklist_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=section&amp;utm_campaign=free-checklist&amp;utm_content=prototype-sprint" href="https://tally.so/r/nWav0j" rel="noopener noreferrer" target="_blank">📥 Download the Checklist</a>
+</div>
+</section>
+<div style="text-align:center;margin:2rem 0;">
+<a class="cta-button js-utm" data-cta="linkedin_follow_click" data-track="linkedin_follow_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=copilot_prototype_sprint&amp;utm_content=linkedin_follow_click" href="https://www.linkedin.com/company/jakoma/" rel="noopener noreferrer" target="_blank">💼 Follow Us on LinkedIn</a>
+</div>
+</main>
+<footer style="text-align:center;padding:2rem;">
+<p>© 2025 Jakoma. All rights reserved.</p>
+<p><em>Jakoma is a multi-sector consultancy and digital product studio focused on ethical AI, data, and governance.</em></p>
+<a href="/policy.html">Privacy</a> |
     <a href="/terms.html">Terms</a> |
     <a href="/cookies.html">Cookies</a>
-  </footer>
-
-  
-
-  
-
-  <script src="/assets/js/site.js" defer></script>
-
+</footer>
+<script defer src="/assets/js/site.js"></script>
 </body>
 </html>
