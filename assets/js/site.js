@@ -1,32 +1,110 @@
 /*!
  * Jakoma site.js (unified)
- * - Mobile menu toggle (works with or without inline onclick)
- * - UTM persistence + outbound link decoration (.js-utm)
+ * - Mobile menu toggle (accessible)
+ * - UTM persistence (session) + outbound link decoration
  * - CTA click events (dataLayer)
- * - Cookie banner preference (localStorage/sessionStorage) + Consent Mode update
+ * - Cookie consent preference (localStorage) + Google Consent Mode update
  */
 (function () {
   'use strict';
 
-  // ---------- Utilities ----------
-  const win = window;
-  const doc = document;
+  // -----------------------------
+  // Helpers
+  // -----------------------------
+  const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','msclkid','li_fat_id'];
+  const UTM_STORE_KEY = 'jakoma_utm_v1';
 
-  win.dataLayer = win.dataLayer || [];
-  win.gtag = win.gtag || function(){ win.dataLayer.push(arguments); };
+  const CONSENT_KEY = 'jakoma_cookie_consent'; // 'accepted' | 'declined'
+  const CONSENT_LEGACY_KEYS = ['jakoma_cookie_consent_v1'];
 
-  function safeGet(storage, key) {
-    try { return storage.getItem(key); } catch (e) { return null; }
+  function safeJSONParse(str) {
+    try { return JSON.parse(str || '{}'); } catch (e) { return {}; }
   }
-  function safeSet(storage, key, value) {
-    try { storage.setItem(key, value); } catch (e) {}
+
+  function parseQuery(qs) {
+    const out = {};
+    const params = new URLSearchParams(qs || '');
+    for (const k of UTM_KEYS) {
+      const v = params.get(k);
+      if (v) out[k] = v;
+    }
+    return out;
   }
 
-  // ---------- Mobile menu ----------
+  function getStoredUtm() {
+    return safeJSONParse(sessionStorage.getItem(UTM_STORE_KEY));
+  }
+
+  function setStoredUtm(obj) {
+    try { sessionStorage.setItem(UTM_STORE_KEY, JSON.stringify(obj || {})); } catch (e) {}
+  }
+
+  function parseBase(str) {
+    if (!str) return {};
+    return parseQuery(str.startsWith('?') ? str : '?' + str);
+  }
+
+  function getConsent() {
+    let v = null;
+    try {
+      v = localStorage.getItem(CONSENT_KEY);
+      if (!v) {
+        for (const k of CONSENT_LEGACY_KEYS) {
+          const legacy = localStorage.getItem(k);
+          if (legacy) { v = legacy; break; }
+        }
+      }
+    } catch (e) { v = null; }
+    return v;
+  }
+
+  function setConsent(val) {
+    try { localStorage.setItem(CONSENT_KEY, val); } catch (e) {}
+  }
+
+  function updateGtagConsent(val) {
+    // Works whether gtag is present or only dataLayer exists.
+    try {
+      window.dataLayer = window.dataLayer || [];
+      const gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+
+      if (val === 'accepted' || val === 'granted') {
+        gtag('consent', 'update', {
+          ad_storage: 'denied',
+          analytics_storage: 'granted',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted'
+        });
+      } else if (val === 'declined' || val === 'denied') {
+        gtag('consent', 'update', {
+          ad_storage: 'denied',
+          analytics_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted'
+        });
+      }
+    } catch (e) {}
+  }
+
+  function whenReady(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn, { once: true });
+    } else {
+      fn();
+    }
+  }
+
+  // -----------------------------
+  // Mobile menu (global toggleMenu for inline handlers)
+  // -----------------------------
   function setMenuState(isOpen) {
-    const menu = doc.getElementById('mobileMenu');
-    const overlay = doc.querySelector('.mobile-menu-overlay');
-    const toggle = doc.querySelector('.menu-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const toggle = document.querySelector('.menu-toggle');
     if (!menu || !overlay) return;
 
     menu.classList.toggle('open', isOpen);
@@ -36,231 +114,186 @@
       toggle.setAttribute('aria-expanded', String(isOpen));
       toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     }
+
+    if (isOpen) {
+      overlay.setAttribute('aria-hidden', 'false');
+    } else {
+      overlay.setAttribute('aria-hidden', 'true');
+    }
   }
 
-  win.toggleMenu = function toggleMenu() {
-    const menu = doc.getElementById('mobileMenu');
+  window.toggleMenu = function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
     if (!menu) return;
-    setMenuState(!menu.classList.contains('open'));
+    const isOpen = menu.classList.contains('open');
+    setMenuState(!isOpen);
   };
 
-  function bindMenu() {
-    const toggle = doc.querySelector('.menu-toggle');
-    const overlay = doc.querySelector('.mobile-menu-overlay');
-    const menu = doc.getElementById('mobileMenu');
+  function initMenuBindings() {
+    const toggle = document.querySelector('.menu-toggle');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+
     if (toggle && !toggle.__jakomaBound) {
-      toggle.addEventListener('click', (e) => { e.preventDefault(); win.toggleMenu(); });
+      toggle.addEventListener('click', (e) => {
+        // If the button also has onclick="toggleMenu()", prevent double toggles.
+        if (toggle.getAttribute('onclick')) return;
+        e.preventDefault();
+        window.toggleMenu();
+      });
       toggle.__jakomaBound = true;
     }
+
     if (overlay && !overlay.__jakomaBound) {
-      overlay.addEventListener('click', () => setMenuState(false));
+      overlay.addEventListener('click', (e) => {
+        if (overlay.getAttribute('onclick')) return;
+        e.preventDefault();
+        setMenuState(false);
+      });
       overlay.__jakomaBound = true;
     }
-    if (menu && !menu.__jakomaBound) {
-      menu.addEventListener('click', (e) => {
-        const a = e.target && e.target.closest && e.target.closest('a[href]');
-        if (a) setMenuState(false);
-      });
-      menu.__jakomaBound = true;
-    }
-    doc.addEventListener('keydown', (e) => {
+
+    document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') setMenuState(false);
     });
   }
 
-  // ---------- UTM persistence ----------
-  const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','msclkid','li_fat_id'];
-  const STORE_KEY = 'jakoma_utm_v1';
+  // -----------------------------
+  // UTM persistence + decoration
+  // -----------------------------
+  function captureInboundUtm() {
+    const inbound = parseQuery(window.location.search);
+    const stored = getStoredUtm();
+    const merged = Object.assign({}, stored, inbound); // inbound wins
+    if (Object.keys(merged).length) setStoredUtm(merged);
+  }
 
-  function parseQuery(qs) {
-    const out = {};
-    const params = new URLSearchParams((qs || '').replace(/^\?/, ''));
+  function buildTrackingParamsForLink(a) {
+    const stored = getStoredUtm();
+    const base = parseBase(a.getAttribute('data-utm-base'));
+
+    // Start with base defaults (for direct traffic), then let stored override most fields.
+    const out = Object.assign({}, base);
+
     for (const k of UTM_KEYS) {
-      const v = params.get(k);
-      if (v) out[k] = v;
+      if (!stored[k]) continue;
+
+      // Keep CTA context: if base provides utm_content, prefer base for that single key.
+      if (k === 'utm_content' && base.utm_content) continue;
+
+      out[k] = stored[k];
     }
+
+    // If base doesn't specify content, fall back to stored content.
+    if (!out.utm_content && stored.utm_content) out.utm_content = stored.utm_content;
+
     return out;
   }
 
-  function readStoredUtm() {
-    const raw = safeGet(win.sessionStorage, STORE_KEY) || safeGet(win.localStorage, STORE_KEY);
-    if (!raw) return {};
-    try { return JSON.parse(raw) || {}; } catch (e) { return {}; }
-  }
-
-  function storeUtm(obj) {
-    const json = JSON.stringify(obj || {});
-    safeSet(win.sessionStorage, STORE_KEY, json);
-    safeSet(win.localStorage, STORE_KEY, json);
-  }
-
-  // Store UTMs from landing URL if present
-  (function initUtmStore() {
-    const current = parseQuery(win.location.search || '');
-    if (Object.keys(current).length) {
-      const merged = { ...readStoredUtm(), ...current };
-      storeUtm(merged);
-    }
-  })();
-
-  function buildDecoratedUrl(href, baseParams) {
+  function decorateLink(a) {
     try {
-      const url = new URL(href, win.location.origin);
-      const stored = readStoredUtm();
+      const href = a.getAttribute('href');
+      if (!href) return;
 
-      // Apply base defaults first
-      if (baseParams) {
-        for (const [k,v] of Object.entries(baseParams)) {
-          if (v && !url.searchParams.get(k)) url.searchParams.set(k, v);
-        }
+      if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+      const u = new URL(href, window.location.origin);
+
+      // Only decorate outbound links OR links marked with js-utm/data-utm
+      const force = a.classList.contains('js-utm') || a.getAttribute('data-utm') === 'true';
+      const outbound = u.origin !== window.location.origin;
+
+      if (!force && !outbound) return;
+
+      const params = buildTrackingParamsForLink(a);
+      for (const [k, v] of Object.entries(params)) {
+        if (!v) continue;
+        if (!u.searchParams.get(k)) u.searchParams.set(k, v);
       }
 
-      // Preserve original acquisition UTMs where available
-      for (const k of ['utm_source','utm_medium','utm_campaign','utm_term','gclid','fbclid','msclkid','li_fat_id']) {
-        if (stored[k]) url.searchParams.set(k, stored[k]);
-      }
-
-      // Prefer link-level utm_content if provided; otherwise keep stored utm_content
-      if (baseParams && baseParams.utm_content) {
-        url.searchParams.set('utm_content', baseParams.utm_content);
-      } else if (stored.utm_content) {
-        url.searchParams.set('utm_content', stored.utm_content);
-      }
-
-      return url.toString();
-    } catch (e) {
-      return href;
-    }
+      a.setAttribute('href', u.toString());
+    } catch (e) {}
   }
 
   function applyUtmDecoration() {
-    const links = Array.from(doc.querySelectorAll('a.js-utm[href]'));
-    if (!links.length) return;
-
-    for (const a of links) {
-      const base = (a.getAttribute('data-utm-base') || '').trim();
-      const baseParams = base ? Object.fromEntries(new URLSearchParams(base)) : null;
-      const original = a.getAttribute('href');
-
-      // Don’t decorate anchors/mailto/tel
-      if (!original || original.startsWith('#') || original.startsWith('mailto:') || original.startsWith('tel:')) continue;
-
-      a.setAttribute('href', buildDecoratedUrl(original, baseParams));
-    }
+    document.querySelectorAll('a.js-utm, a[data-utm="true"]').forEach(decorateLink);
   }
 
-  // ---------- CTA click tracking ----------
-  function trackCtaClicks() {
-    doc.addEventListener('click', (e) => {
-      const a = e.target && e.target.closest && e.target.closest('a');
+  // -----------------------------
+  // CTA click tracking (dataLayer)
+  // -----------------------------
+  function initClickTracking() {
+    window.dataLayer = window.dataLayer || [];
+
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[data-cta], a[data-track]');
       if (!a) return;
 
-      const cta = a.getAttribute('data-cta') || a.getAttribute('data-track');
-      if (!cta) return;
+      const cta = a.getAttribute('data-cta') || a.getAttribute('data-track') || '';
+      const page = document.body ? (document.body.getAttribute('data-page') || '') : '';
+      const href = a.getAttribute('href') || '';
+      const text = (a.textContent || '').trim().slice(0, 120);
 
-      win.dataLayer.push({
+      window.dataLayer.push({
         event: 'cta_click',
-        cta_id: cta,
-        page: doc.body && doc.body.getAttribute('data-page') || '',
-        href: a.getAttribute('href') || '',
-        text: (a.textContent || '').trim().slice(0, 100)
+        cta,
+        page,
+        href,
+        text
       });
     }, { passive: true });
   }
 
-  // ---------- Cookie banner + Consent Mode ----------
-  const CONSENT_KEY = 'jakoma_cookie_consent'; // values: 'accepted' | 'declined'
-  const LEGACY_KEYS = ['jakoma_cookie_consent_v1']; // if any older script used this
-
-  function getConsentValue() {
-    return safeGet(win.localStorage, CONSENT_KEY)
-      || safeGet(win.sessionStorage, CONSENT_KEY)
-      || LEGACY_KEYS.map(k => safeGet(win.localStorage, k) || safeGet(win.sessionStorage, k)).find(Boolean)
-      || null;
-  }
-
-  function setConsentValue(value) {
-    safeSet(win.localStorage, CONSENT_KEY, value);
-    safeSet(win.sessionStorage, CONSENT_KEY, value);
-    for (const k of LEGACY_KEYS) {
-      safeSet(win.localStorage, k, value);
-      safeSet(win.sessionStorage, k, value);
-    }
-  }
-
+  // -----------------------------
+  // Cookie banner
+  // -----------------------------
   function hideCookieBanner() {
-    const banner = doc.getElementById('cookie-banner');
+    const banner = document.getElementById('cookie-banner');
     if (banner) banner.style.display = 'none';
   }
 
-  function updateConsentMode(value) {
-    // Your template sets ad_storage denied; keep that.
-    if (value === 'accepted') {
-      win.gtag('consent', 'update', {
-        ad_storage: 'denied',
-        analytics_storage: 'granted',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        functionality_storage: 'granted',
-        security_storage: 'granted'
-      });
-    } else if (value === 'declined') {
-      win.gtag('consent', 'update', {
-        ad_storage: 'denied',
-        analytics_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        functionality_storage: 'granted',
-        security_storage: 'granted'
-      });
-    }
-  }
-
   function initCookieBanner() {
-    const banner = doc.getElementById('cookie-banner');
+    const banner = document.getElementById('cookie-banner');
     if (!banner) return;
 
-    const existing = getConsentValue();
-    if (existing === 'accepted' || existing === 'declined') {
+    const pref = getConsent();
+    if (pref === 'accepted' || pref === 'declined' || pref === 'granted' || pref === 'denied') {
+      // Migrate legacy key to the current key if needed
+      if (pref === 'granted') setConsent('accepted');
+      if (pref === 'denied') setConsent('declined');
+      if (pref === 'accepted' || pref === 'declined') setConsent(pref);
       hideCookieBanner();
-      updateConsentMode(existing);
+      updateGtagConsent(pref === 'granted' ? 'accepted' : pref === 'denied' ? 'declined' : pref);
       return;
     }
 
-    // Support BOTH styles:
-    // 1) data-cookie="accept"/"decline"
-    // 2) aria-label / button text containing Accept/Decline
-    const buttons = Array.from(banner.querySelectorAll('button'));
-    const acceptBtn =
-      banner.querySelector('button[data-cookie="accept"]') ||
-      buttons.find(b => /accept/i.test(b.getAttribute('aria-label') || '') || /^accept$/i.test((b.textContent || '').trim()));
-    const declineBtn =
-      banner.querySelector('button[data-cookie="decline"]') ||
-      buttons.find(b => /decline|reject/i.test(b.getAttribute('aria-label') || '') || /^(decline|reject)$/i.test((b.textContent || '').trim()));
+    const acceptBtn = banner.querySelector('[data-cookie="accept"]');
+    const declineBtn = banner.querySelector('[data-cookie="decline"]');
 
-    if (acceptBtn && !acceptBtn.__jakomaBound) {
+    if (acceptBtn) {
       acceptBtn.addEventListener('click', () => {
-        setConsentValue('accepted');
-        updateConsentMode('accepted');
+        setConsent('accepted');
         hideCookieBanner();
-        win.dataLayer.push({ event: 'cookie_consent', status: 'accepted' });
+        updateGtagConsent('accepted');
       });
-      acceptBtn.__jakomaBound = true;
     }
-    if (declineBtn && !declineBtn.__jakomaBound) {
+    if (declineBtn) {
       declineBtn.addEventListener('click', () => {
-        setConsentValue('declined');
-        updateConsentMode('declined');
+        setConsent('declined');
         hideCookieBanner();
-        win.dataLayer.push({ event: 'cookie_consent', status: 'declined' });
+        updateGtagConsent('declined');
       });
-      declineBtn.__jakomaBound = true;
     }
   }
 
-  // ---------- Run ----------
-  bindMenu();
-  applyUtmDecoration();
-  trackCtaClicks();
-  initCookieBanner();
+  // -----------------------------
+  // Boot
+  // -----------------------------
+  captureInboundUtm();
+
+  whenReady(function () {
+    initMenuBindings();
+    applyUtmDecoration();
+    initClickTracking();
+    initCookieBanner();
+  });
 })();
