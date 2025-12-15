@@ -11,7 +11,7 @@
   // -----------------------------
   // Helpers
   // -----------------------------
-  const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','msclkid','li_fat_id'];
+  const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','gclid','gbraid','wbraid','fbclid','ttclid','msclkid','li_fat_id'];
   const UTM_STORE_KEY = 'jakoma_utm_v1';
 
   const CONSENT_KEY = 'jakoma_cookie_consent'; // 'accepted' | 'declined'
@@ -215,10 +215,12 @@
   }
 
   function applyUtmDecoration() {
-    document.querySelectorAll('a.js-utm, a[data-utm="true"]').forEach(decorateLink);
+    // Decorate outbound links by default so UTMs survive through to Tally/Calendly/Payhip even if you forget .js-utm.
+    // Internal links are ignored unless explicitly forced via .js-utm or data-utm="true".
+    document.querySelectorAll('a').forEach(decorateLink);
   }
 
-  // -----------------------------
+// -----------------------------
   // CTA click tracking (dataLayer)
   // -----------------------------
   function initClickTracking() {
