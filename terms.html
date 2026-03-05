@@ -1,67 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Terms of Use | Jakoma</title>
-  <meta name="description" content="Jakoma Terms of Use – covering digital products, services, and user responsibilities across Jakoma brands."/>
-  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-  <link href="/style.css" rel="stylesheet"/>
+  <link rel="canonical" href="https://www.jakoma.org/terms.html"/>
+  <link href="style.css" rel="stylesheet"/>
+
+  <meta name="description" content="Jakoma Terms of Use — covering digital products, services, and user responsibilities across Jakoma brands."/>
+  <meta name="robots" content="index,follow"/>
+
   <style>
-    body{font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7;color:#222;background:#fafafa;margin:0}
-    .page-header{background:linear-gradient(135deg,#0a0a23,#1a1a4a);color:#fff;text-align:center;padding:3rem 1rem 2rem;border-bottom:4px solid #4adede}
-    .page-header .logo{width:120px;margin-bottom:1rem}
-    main{background:#fff;max-width:960px;margin:2rem auto;padding:3rem;border-radius:12px;box-shadow:0 0 25px rgba(0,0,0,.05)}
-    h1,h2{color:#0a0a23} h2{border-left:4px solid #4adede;padding-left:.75rem;margin-top:2rem}
-    footer{background:#0a0a23;color:#eee;text-align:center;padding:2rem;font-size:.9rem}
-    footer a{color:#4adede;text-decoration:none}
-    a{color:#0a66c2}
-    @media (prefers-color-scheme: dark){
-      body{background:#0f0f14;color:#eaeaea}
-      main{background:#14141c;box-shadow:none}
-      h1,h2{color:#eaf7ff}
-      a{color:#7fc8ff}
-    }
+    .legal-wrap{max-width:980px;margin:2rem auto;padding:0 2rem}
+    .legal-card{background:#fff;border-radius:16px;padding:2.5rem;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+    .legal-card h2{margin-top:2rem}
+    .legal-meta{opacity:0.85}
+    @media (max-width:768px){ .legal-wrap{padding:0 1rem} .legal-card{padding:1.5rem} }
   </style>
+
+  <!-- Consent init (cookie-first, legacy fallback) -->
+  <script id="consent-init">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.__jakomaConsentInitialised = true;
+
+    function getCookie(name) {
+      const parts = document.cookie ? document.cookie.split('; ') : [];
+      for (const part of parts) {
+        const i = part.indexOf('=');
+        if (i === -1) continue;
+        const k = part.slice(0, i);
+        const v = part.slice(i + 1);
+        if (k === name) return decodeURIComponent(v);
+      }
+      return null;
+    }
+
+    let storedConsent = getCookie('jakoma_cookie_consent');
+    if (!storedConsent) {
+      try {
+        storedConsent =
+          localStorage.getItem('jakoma_cookie_consent') ||
+          localStorage.getItem('jakoma_cookie_consent_v1') ||
+          localStorage.getItem('jakomaCookieConsent');
+      } catch (e) { storedConsent = null; }
+    }
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted'
+    });
+
+    const norm = (storedConsent === 'granted') ? 'accepted'
+               : (storedConsent === 'denied') ? 'declined'
+               : storedConsent;
+
+    if (norm === 'accepted') {
+      gtag('consent', 'update', {
+        ad_storage: 'denied',
+        analytics_storage: 'granted',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+    } else if (norm === 'declined') {
+      gtag('consent', 'update', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script id="gtm-script">
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WCJBPXM6');
+  </script>
 </head>
-<body>
 
-  <header class="page-header">
-    <a href="/index.html" class="brand">
-      <img src="/assets/logo-jakoma.svg" alt="Jakoma Logo" class="logo"/>
-    </a>
-    <h1>Terms of Use</h1>
-    <p class="page-subtitle">These terms govern use of Jakoma websites, platforms, and digital products.</p>
-  </header>
+<body data-page="terms">
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <main role="main">
-    <section>
-      <h2>Acceptance</h2>
-      <p>By using our sites or purchasing our products, you agree to these terms. If you do not agree, please discontinue use.</p>
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
 
-      <h2>Products & Access</h2>
-      <p>Digital products are licensed for personal or business use as stated on the product page. Do not resell, redistribute, or reverse-engineer without permission.</p>
+<div id="cookie-banner"
+     role="dialog"
+     aria-label="Cookie consent"
+     aria-hidden="true"
+     style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
+  🍪 We use essential cookies for site function and optional analytics cookies to understand usage.
+  <a href="cookies.html">Learn more</a>
+  <button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button>
+  <button aria-label="Decline cookies" data-cookie="decline" type="button">Decline</button>
+</div>
 
-      <h2>Payments & Refunds</h2>
-      <p>Payments are processed by trusted providers (e.g., Payhip). Provider terms apply at checkout. Refunds are considered per the relevant product policy.</p>
+<div aria-hidden="true" class="mobile-menu-overlay"></div>
+<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu">
+  <button class="menu-close" type="button" aria-label="Close menu" onclick="toggleMenu()">✕</button>
 
-      <h2>Intellectual Property</h2>
-      <p>All content, brand assets, and materials are owned by Jakoma unless stated otherwise. Do not copy or reuse without written consent.</p>
+  <a href="index.html">🏠 Home</a>
+  <a href="about.html">👤 About</a>
+  <a href="services.html">📦 Services</a>
+  <a href="consulting.html">📊 Consulting</a>
+  <a href="products.html">🛍️ Products</a>
 
-      <h2>User Content</h2>
-      <p>Content you submit (e.g., forms, feedback) must be lawful and respect intellectual property and privacy rights.</p>
+  <div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
+  <a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a>
+  <a href="fractional-governance-leader-retainer.html">Fractional Retainer</a>
+  <a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
 
-      <h2>Changes</h2>
-      <p>We may update these terms at any time. Material changes will be signposted on our site. Continued use means you accept the updated terms.</p>
+  <a href="policy.html">🔐 Privacy Policy</a>
+  <a aria-current="page" href="terms.html">📄 Terms of Use</a>
+  <a href="cookies.html">🍪 Cookie Policy</a>
+</nav>
 
-      <h2>Contact</h2>
-      <p>Questions? Email <a href="mailto:support@jakoma.org">support@jakoma.org</a>. <br><strong>Last updated:</strong> November 2025.</p>
-    </section>
-  </main>
+<header>
+  <button id="backButton" class="back-toggle" type="button" aria-label="Go back">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
 
-  <footer>
-    <p>© 2025 Jakoma. All rights reserved.</p>
-    <a href="/policy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/cookies.html">Cookies</a>
-  </footer>
+  <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
+
+  <a aria-label="Jakoma home" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
+
+  <h1>Terms of Use</h1>
+  <p>These terms govern use of Jakoma websites, platforms, and digital products.</p>
+</header>
+
+<main id="main" class="legal-wrap">
+  <div class="legal-card">
+    <p class="legal-meta"><strong>Last updated:</strong> March 2026</p>
+
+    <h2>Acceptance</h2>
+    <p>By using our sites or purchasing our products, you agree to these terms. If you do not agree, please discontinue use.</p>
+
+    <h2>Products &amp; access</h2>
+    <p>Digital products are licensed for personal or business use as stated on the product page. Do not resell, redistribute, or reverse-engineer without permission.</p>
+
+    <h2>Payments &amp; refunds</h2>
+    <p>Payments are processed by trusted providers (e.g. digital checkout/delivery platforms). Provider terms apply at checkout. Refunds are considered per the relevant product policy.</p>
+
+    <h2>Intellectual property</h2>
+    <p>All content, brand assets, and materials are owned by Jakoma unless stated otherwise. Do not copy or reuse without written consent.</p>
+
+    <h2>User content</h2>
+    <p>Content you submit (e.g. forms, feedback) must be lawful and respect intellectual property and privacy rights.</p>
+
+    <h2>Changes</h2>
+    <p>We may update these terms at any time. Material changes will be signposted on our site. Continued use means you accept the updated terms.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Email <a href="mailto:support@jakoma.org">support@jakoma.org</a>.</p>
+  </div>
+</main>
+
+<footer style="text-align:center;padding:2rem;">
+  <p>© 2025–2026 Jakoma. All rights reserved.</p>
+  <a href="policy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="cookies.html">Cookies</a>
+</footer>
+
+<script defer src="assets/js/site.js"></script>
 </body>
 </html>
