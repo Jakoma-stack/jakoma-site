@@ -1,52 +1,53 @@
 <!DOCTYPE html>
-
 <html lang="en-GB">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Jakoma Services | Consulting, Learning &amp; Labs</title><link href="https://www.jakoma.org/services.html" rel="canonical"/>
-<link href="style.css" rel="stylesheet"/>
-<meta content="Jakoma services: governance-first consulting, practical learning toolkits, and safe labs sprints for data, digital and AI." name="description"/>
-<meta content="AI governance, data governance, consulting, fractional DPO, fractional CDO, CDIO, digital maturity, assurance, ISO 27001, UK GDPR, DSPT, Jakoma" name="keywords"/>
-<meta content="index,follow" name="robots"/>
-<meta content="website" property="og:type"/>
-<meta content="Jakoma Services" property="og:title"/>
-<meta content="Consulting, learning and labs — built to deliver outcomes without losing trust." property="og:description"/>
-<meta content="https://www.jakoma.org/services.html" property="og:url"/>
-<!-- Google Tag Manager -->
-<script id="consent-init">
-  // Minimal Consent Mode initialisation (runs BEFORE GTM loads)
-  // Default: analytics denied until user opts in.
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.__jakomaConsentInitialised = true;
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
-  let storedConsent = null;
-  try {
-    storedConsent = localStorage.getItem('jakoma_cookie_consent') || localStorage.getItem('jakoma_cookie_consent_v1');
-  } catch (e) { storedConsent = null; }
+  <title>Jakoma Services | Consulting, Learning &amp; Labs</title>
+  <link rel="canonical" href="https://www.jakoma.org/services.html"/>
+  <link href="style.css" rel="stylesheet"/>
 
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'functionality_storage': 'granted',
-    'security_storage': 'granted'
-  });
+  <meta name="description" content="Jakoma services: governance-first consulting, practical learning toolkits, and safe labs sprints for data, digital and AI."/>
+  <meta name="robots" content="index,follow"/>
 
-  // Accept either legacy values ('granted'/'denied') or site.js values ('accepted'/'declined')
-  if (storedConsent === 'accepted' || storedConsent === 'granted') {
-    gtag('consent', 'update', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'granted',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'functionality_storage': 'granted',
-      'security_storage': 'granted'
-    });
-  } else if (storedConsent === 'declined' || storedConsent === 'denied') {
-    gtag('consent', 'update', {
+  <!-- Social sharing -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Jakoma Services"/>
+  <meta property="og:description" content="Consulting, learning and labs — built to deliver outcomes without losing trust."/>
+  <meta property="og:url" content="https://www.jakoma.org/services.html"/>
+  <meta property="og:image" content="https://www.jakoma.org/logo.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Consent mode init (cookie-first, legacy fallback) -->
+  <script id="consent-init">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.__jakomaConsentInitialised = true;
+
+    function getCookie(name) {
+      const parts = document.cookie ? document.cookie.split('; ') : [];
+      for (const part of parts) {
+        const i = part.indexOf('=');
+        if (i === -1) continue;
+        const k = part.slice(0, i);
+        const v = part.slice(i + 1);
+        if (k === name) return decodeURIComponent(v);
+      }
+      return null;
+    }
+
+    let storedConsent = getCookie('jakoma_cookie_consent');
+    if (!storedConsent) {
+      try {
+        storedConsent =
+          localStorage.getItem('jakoma_cookie_consent') ||
+          localStorage.getItem('jakoma_cookie_consent_v1') ||
+          localStorage.getItem('jakomaCookieConsent');
+      } catch (e) { storedConsent = null; }
+    }
+
+    gtag('consent', 'default', {
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
       'ad_user_data': 'denied',
@@ -54,113 +55,264 @@
       'functionality_storage': 'granted',
       'security_storage': 'granted'
     });
-  }
-</script><script id="gtm-script">
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-    var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-    j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
+
+    const norm = (storedConsent === 'granted') ? 'accepted'
+               : (storedConsent === 'denied') ? 'declined'
+               : storedConsent;
+
+    if (norm === 'accepted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'granted',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted'
+      });
+    } else if (norm === 'declined') {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted'
+      });
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script id="gtm-script">
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WCJBPXM6');
   </script>
-<!-- End Google Tag Manager -->
 </head>
+
 <body data-page="services">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <a class="skip-link" href="#main">Skip to content</a>
-<div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
-    🍪 We use cookies to enhance your experience.
-    <button aria-label="Accept Cookies" data-cookie="accept" type="button">Accept</button>
-<button aria-label="Decline Cookies" data-cookie="decline" type="button">Decline</button>
+
+<!-- GTM (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+
+<!-- Cookie banner (hidden by default; site.js shows only if no consent) -->
+<div id="cookie-banner"
+     role="dialog"
+     aria-label="Cookie consent"
+     aria-hidden="true"
+     style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
+  🍪 We use essential cookies for site function and optional analytics cookies to understand usage.
+  <a href="cookies.html">Learn more</a>
+  <button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button>
+  <button aria-label="Decline cookies" data-cookie="decline" type="button">Decline</button>
 </div>
-<header class="site-header">
-<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
-<a aria-label="Jakoma home" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
-<h1>Our Services</h1>
-<p>Three connected pillars — built to help you move faster, stay compliant, and prove outcomes.</p>
+
+<!-- Mobile menu -->
+<div aria-hidden="true" class="mobile-menu-overlay"></div>
+
+<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu">
+  <button class="menu-close" type="button" aria-label="Close menu" onclick="toggleMenu()">✕</button>
+
+  <a href="index.html">🏠 Home</a>
+  <a href="about.html">👤 About</a>
+  <a aria-current="page" href="services.html">📦 Services</a>
+  <a href="consulting.html">📊 Consulting</a>
+  <a href="products.html">🛍️ Products</a>
+
+  <div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
+  <a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a>
+  <a href="fractional-governance-leader-retainer.html">Fractional Retainer</a>
+  <a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
+
+  <a class="js-utm"
+     data-cta="nav_interest_form"
+     data-track="nav_interest_form"
+     data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=menu&amp;utm_campaign=evergreen&amp;utm_content=menu_interest_form"
+     href="https://tally.so/r/3yAx84"
+     rel="noopener noreferrer"
+     target="_blank">🚀 Submit Interest Form</a>
+
+  <a class="js-utm"
+     data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=services&amp;utm_content=applysmart"
+     href="https://applysmart.co.uk"
+     rel="noopener noreferrer"
+     target="_blank">📝 ApplySmart</a>
+
+  <a class="js-utm"
+     data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=services&amp;utm_content=100to10k"
+     href="https://100to10k.com"
+     rel="noopener noreferrer"
+     target="_blank">💼 100to10K</a>
+
+  <a href="policy.html">🔐 Privacy Policy</a>
+  <a href="terms.html">📄 Terms of Use</a>
+  <a href="cookies.html">🍪 Cookie Policy</a>
+</nav>
+
+<header>
+  <button id="backButton" class="back-toggle" type="button" aria-label="Go back">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
+
+  <a aria-label="Jakoma home" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
+
+  <h1>Our Services</h1>
+  <p>
+    Three connected pillars — built to help you move faster, stay compliant, and prove outcomes.
+    Practical delivery, clear assurance routes, and artefacts you can implement.
+  </p>
+
+  <a class="cta-button js-utm"
+     data-cta="services_primary_interest"
+     data-track="services_primary_interest"
+     data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=services&amp;utm_content=interest_form"
+     href="https://tally.so/r/3yAx84"
+     rel="noopener noreferrer"
+     target="_blank">🚀 Request a Proposal</a>
+
+  <p style="max-width:720px;margin:1rem auto 0;opacity:0.9;">
+    2–3 minutes. You’ll get a clear recommendation on the best starting point (Sprint vs Retainer vs Prototype).
+  </p>
 </header>
+
 <main id="main" style="padding:2rem;max-width:950px;margin:auto;">
-<section>
-<h2>What you can expect</h2>
-<p>
-      Jakoma is designed for organisations that want to use AI and modern data capabilities, but can’t afford
-      uncontrolled risk, vague advice, or “innovation theatre”. The work is practical, timeboxed and governance-led.
+
+  <section>
+    <h2>What you can expect</h2>
+    <p>
+      Jakoma is for organisations that want to use AI and modern data capabilities, but can’t afford uncontrolled risk,
+      vague advice, or “innovation theatre”. The work is timeboxed, governance-led, and designed to stand up to scrutiny.
     </p>
-</section>
-<hr/>
-<section>
-<h2>1️⃣ Consulting</h2>
-<p>Governance-first advisory and delivery support for leaders who need progress <em>and</em> assurance.</p>
-<ul>
-<li>AI governance and readiness (policy, operating model, controls, roadmap)</li>
-<li>Fractional executive capacity (CDIO / CDO / DPO-style governance leadership)</li>
-<li>Information governance and assurance aligned to UK GDPR, ISO 27001/DSPT and NIS principles</li>
-<li>Data strategy, interoperability and digital maturity roadmaps</li>
-<li>Executive and board-level AI literacy (risk, ethics, decision-making, oversight)</li>
-</ul>
-<div style="text-align:center;margin-top:1rem;">
-<a class="cta-button" data-cta="services_to_consulting" data-track="services_to_consulting" href="/consulting.html">See consulting offers</a>
-</div>
-</section>
-<hr/>
-<section>
-<h2>2️⃣ Learning</h2>
-<p>Toolkits and resources that make AI and governance usable quickly — for leaders, teams and practitioners.</p>
-<ul>
-<li>AI acceptable-use policy starter packs</li>
-<li>AI tool/model registers and minimum documentation standards</li>
-<li>DPIA prompts and privacy-by-design guidance</li>
-<li>Practical governance templates for reporting, risk and decision rights</li>
-</ul>
-<div style="text-align:center;margin-top:1rem;">
-<a class="cta-button" data-cta="services_to_products" data-track="services_to_products" href="/products.html">Browse products</a>
-</div>
-</section>
-<hr/>
-<section>
-<h2>3️⃣ Labs</h2>
-<p>
+    <p style="opacity:0.9;">
+      Client names and employer details are withheld for confidentiality. References can be provided on request.
+    </p>
+  </section>
+
+  <hr/>
+
+  <!-- Quick chooser cards (uses existing .card-row/.card styling) -->
+  <section>
+    <h2>Choose your starting point</h2>
+    <div class="card-row">
+      <div class="card">
+        <h3>Consulting</h3>
+        <p>Governance-first advisory and delivery support when you need progress <em>and</em> assurance.</p>
+        <a class="cta-button" data-cta="services_chooser_consulting" data-track="services_chooser_consulting" href="consulting.html">Explore Consulting</a>
+      </div>
+      <div class="card">
+        <h3>Learning</h3>
+        <p>Toolkits and templates that make AI governance usable quickly for leaders and teams.</p>
+        <a class="cta-button" data-cta="services_chooser_products" data-track="services_chooser_products" href="products.html">Browse Products</a>
+      </div>
+      <div class="card">
+        <h3>Labs</h3>
+        <p>Timeboxed prototypes that prove value safely — with controls, adoption and measurement built in.</p>
+        <a class="cta-button" data-cta="services_chooser_labs" data-track="services_chooser_labs" href="copilot-workflow-automation-prototype-sprint.html">Explore Labs</a>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <section>
+    <h2>1️⃣ Consulting</h2>
+    <p>Governance-first advisory and delivery support for leaders who need progress <em>and</em> assurance.</p>
+    <ul>
+      <li>AI governance and readiness (policy, operating model, controls, roadmap)</li>
+      <li>Fractional executive capacity (CDIO / CDO / DPO-style governance leadership)</li>
+      <li>Information governance and assurance aligned to UK GDPR, ISO 27001/DSPT and NIS principles</li>
+      <li>Data strategy, interoperability and digital maturity roadmaps</li>
+      <li>Executive and board-level AI literacy (risk, ethics, decision-making, oversight)</li>
+    </ul>
+    <div style="text-align:center;margin-top:1rem;">
+      <a class="cta-button" data-cta="services_to_consulting" data-track="services_to_consulting" href="consulting.html">See consulting offers</a>
+    </div>
+  </section>
+
+  <hr/>
+
+  <section>
+    <h2>2️⃣ Learning</h2>
+    <p>Toolkits and resources that make AI and governance usable quickly — for leaders, teams and practitioners.</p>
+    <ul>
+      <li>AI acceptable-use policy starter packs</li>
+      <li>AI tool/model registers and minimum documentation standards</li>
+      <li>DPIA prompts and privacy-by-design guidance</li>
+      <li>Practical governance templates for reporting, risk and decision rights</li>
+    </ul>
+    <div style="text-align:center;margin-top:1rem;">
+      <a class="cta-button" data-cta="services_to_products" data-track="services_to_products" href="products.html">Browse products</a>
+    </div>
+  </section>
+
+  <hr/>
+
+  <section>
+    <h2>3️⃣ Labs</h2>
+    <p>
       A safe space for proof-of-concept builds and workflow automation sprints — scoped to measurable outcomes.
       Labs work is framed as: <strong>prototype + pilot plan + measurement</strong>, not open-ended R&amp;D.
     </p>
-<ul>
-<li>Workflow automation prototypes</li>
-<li>Secure copilots and governance-friendly productivity tools</li>
-<li>Process maps, risks, controls and adoption checklists</li>
-</ul>
-</section>
-<div style="text-align:center;margin-top:2rem;">
-<p>If you want to explore fit, share a few details and we’ll come back with next steps.</p>
-<a class="cta-button js-utm" data-cta="interest_form" data-utm-base="utm_source=jakoma-site&amp;utm_medium=website&amp;utm_campaign=evergreen&amp;utm_content=services_interest_cta" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Join the interest list</a>
-</div>
+    <ul>
+      <li>Workflow automation prototypes</li>
+      <li>Secure copilots and governance-friendly productivity tools</li>
+      <li>Process maps, risks, controls and adoption checklists</li>
+    </ul>
+    <div style="text-align:center;margin-top:1rem;">
+      <a class="cta-button" data-cta="services_to_labs" data-track="services_to_labs" href="copilot-workflow-automation-prototype-sprint.html">See prototype sprint</a>
+    </div>
+  </section>
+
+  <hr/>
+
+  <section>
+    <h2>How we engage</h2>
+    <div class="card-row">
+      <div class="card">
+        <h3>1) Fit check</h3>
+        <p>You share what you’re trying to achieve and what’s constraining you (risk, time, stakeholders, procurement).</p>
+      </div>
+      <div class="card">
+        <h3>2) Clear recommendation</h3>
+        <p>You get a straight answer: Sprint vs Retainer vs Prototype, with scope options and what “good” looks like.</p>
+      </div>
+      <div class="card">
+        <h3>3) Deliver &amp; embed</h3>
+        <p>We ship implementable artefacts and help you land them: ownership, decision routes, measurement and adoption.</p>
+      </div>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin-top:2rem;">
+    <p>If you want to explore fit, share a few details and we’ll come back with next steps.</p>
+    <a class="cta-button js-utm"
+       data-cta="interest_form"
+       data-track="interest_form"
+       data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=website&amp;utm_campaign=evergreen&amp;utm_content=services_interest_cta"
+       href="https://tally.so/r/3yAx84"
+       rel="noopener noreferrer"
+       target="_blank">🚀 Join the interest list</a>
+  </div>
 </main>
+
 <footer style="text-align:center;padding:2rem;">
-<p>© 2025 Jakoma. All rights reserved.</p>
-<p><em>Jakoma is a multi-sector consultancy and digital product studio focused on ethical AI, data, and governance.</em></p>
-<a href="/policy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/cookies.html">Cookies</a>
+  <p>© 2025–2026 Jakoma. All rights reserved.</p>
+  <p><em>Jakoma is a multi-sector consultancy and digital product studio focused on ethical AI, data, and governance.</em></p>
+  <a href="policy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="cookies.html">Cookies</a>
 </footer>
-<div aria-hidden="true" class="mobile-menu-overlay"></div>
-<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu">
-<a href="/index.html">🏠 Home</a>
-<a href="/about.html">👤 About</a>
-<a aria-current="page" href="/services.html">📦 Services</a>
-<a href="/consulting.html">📊 Consulting</a>
-<a href="/products.html">🛍️ Products</a>
-<a class="js-utm" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=evergreen&amp;utm_content=menu_applysmart" href="https://applysmart.co.uk" rel="noopener noreferrer" target="_blank">📝 ApplySmart</a>
-<a class="js-utm" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=evergreen&amp;utm_content=menu_100to10k" href="https://100to10k.com" rel="noopener noreferrer" target="_blank">💼 100to10K</a>
-<a href="/policy.html">🔐 Privacy Policy</a>
-<a href="/terms.html">📄 Terms of Use</a>
-<a href="/cookies.html">🍪 Cookie Policy</a>
-<div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
-<a href="/ai-governance-readiness-sprint.html">AI Governance Sprint</a>
-<a href="/fractional-governance-leader-retainer.html">Fractional Retainer</a>
-<a href="/copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a></nav>
+
 <noscript>
-<div style="max-width:950px;margin:1rem auto;padding:1rem;border:1px solid #ccc;">
+  <div style="max-width:950px;margin:1rem auto;padding:1rem;border:1px solid #ccc;">
     This site works best with JavaScript enabled (menu + UTM carry-over).
   </div>
 </noscript>
 
-<script defer src="/assets/js/site.js"></script>
+<script defer src="assets/js/site.js"></script>
 </body>
 </html>
