@@ -54,7 +54,8 @@
   // -----------------------------
   function isJakomaDomain() {
     const h = (window.location.hostname || '').toLowerCase();
-    return h === 'jakoma.org' || h.endsWith('.jakoma.org');
+    // ✅ PATCH: include www.jakoma.org so consent persists regardless of entry host
+    return h === 'jakoma.org' || h === 'www.jakoma.org' || h.endsWith('.jakoma.org');
   }
 
   function getCookie(name) {
@@ -236,7 +237,8 @@
 
     btn.addEventListener('click', () => {
       if (sameOriginReferrer) window.history.back();
-      else window.location.href = '/';
+      // ✅ PATCH: avoid '/' assumptions; keep relative navigation consistent
+      else window.location.href = 'index.html';
     });
   }
 
@@ -353,8 +355,6 @@
   }
 
   function applyUtmDecoration() {
-    // Decorate outbound links by default so UTMs survive through to Tally/Calendly/Payhip even if you forget .js-utm.
-    // Internal links are ignored unless explicitly forced via .js-utm or data-utm="true".
     document.querySelectorAll('a').forEach(decorateLink);
   }
 
@@ -413,7 +413,6 @@
       return;
     }
 
-    // No choice made yet => keep banner visible + default consent already set to denied.
     showCookieBanner();
 
     const acceptBtn = banner.querySelector('[data-cookie="accept"]');
@@ -440,8 +439,6 @@
   // Boot
   // -----------------------------
   captureInboundUtm();
-
-  // Set default consent early (best effort)
   setDefaultConsentIfNone();
 
   whenReady(function () {
