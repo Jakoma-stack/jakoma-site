@@ -3,19 +3,23 @@
  * - Mobile menu toggle (accessible)
  * - UTM persistence (session) + outbound link decoration
  * - CTA click events (dataLayer)
- * - Cookie consent preference (localStorage) + Google Consent Mode update
+ * - Cookie consent preference (COOKIE) + Google Consent Mode update
  */
 (function () {
   'use strict';
 
   // -----------------------------
-  // Helpers
+  // Helpers / constants
   // -----------------------------
   const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','gclid','gbraid','wbraid','fbclid','ttclid','msclkid','li_fat_id'];
   const UTM_STORE_KEY = 'jakoma_utm_v1';
 
   const CONSENT_KEY = 'jakoma_cookie_consent'; // 'accepted' | 'declined'
-  const CONSENT_LEGACY_KEYS = ['jakoma_cookie_consent_v1'];
+  const CONSENT_LEGACY_KEYS = [
+    'jakoma_cookie_consent_v1',
+    'jakomaCookieConsent' // older pages sometimes used this
+  ];
+  const CONSENT_COOKIE_DAYS = 365;
 
   function safeJSONParse(str) {
     try { return JSON.parse(str || '{}'); } catch (e) { return {}; }
@@ -44,7 +48,59 @@
     return parseQuery(str.startsWith('?') ? str : '?' + str);
   }
 
+  // -----------------------------
+  // Cookie helpers (consent)
+  // -----------------------------
+  function isJakomaDomain() {
+    const h = (window.location.hostname || '').toLowerCase();
+    return h === 'jakoma.org' || h.endsWith('.jakoma.org');
+  }
+
+  function getCookie(name) {
+    try {
+      const parts = document.cookie ? document.cookie.split('; ') : [];
+      for (const part of parts) {
+        const idx = part.indexOf('=');
+        if (idx === -1) continue;
+        const k = part.slice(0, idx);
+        const v = part.slice(idx + 1);
+        if (k === name) return decodeURIComponent(v);
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  function setCookie(name, value, days) {
+    try {
+      const maxAge = (days || 365) * 24 * 60 * 60;
+      const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+      const domain = isJakomaDomain() ? '; Domain=.jakoma.org' : '';
+      document.cookie = `${name}=${encodeURIComponent(value)}; Max-Age=${maxAge}; Path=/${domain}; SameSite=Lax${secure}`;
+    } catch (e) {}
+  }
+
+  function deleteCookie(name) {
+    try {
+      const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+      const domain = isJakomaDomain() ? '; Domain=.jakoma.org' : '';
+      document.cookie = `${name}=; Max-Age=0; Path=/${domain}; SameSite=Lax${secure}`;
+    } catch (e) {}
+  }
+
+  function normaliseConsent(v) {
+    if (!v) return null;
+    if (v === 'granted') return 'accepted';
+    if (v === 'denied') return 'declined';
+    if (v === 'accepted' || v === 'declined') return v;
+    return null;
+  }
+
   function getConsent() {
+    // 1) Prefer cookie (works across pages + subdomains)
+    const fromCookie = normaliseConsent(getCookie(CONSENT_KEY));
+    if (fromCookie) return fromCookie;
+
+    // 2) Migrate from localStorage (older implementation)
     let v = null;
     try {
       v = localStorage.getItem(CONSENT_KEY);
@@ -55,20 +111,60 @@
         }
       }
     } catch (e) { v = null; }
-    return v;
+
+    const norm = normaliseConsent(v);
+    if (norm) {
+      // write-through migration so visitor doesn’t get prompted again
+      setCookie(CONSENT_KEY, norm, CONSENT_COOKIE_DAYS);
+      try { localStorage.setItem(CONSENT_KEY, norm); } catch (e) {}
+      return norm;
+    }
+
+    return null;
   }
 
   function setConsent(val) {
-    try { localStorage.setItem(CONSENT_KEY, val); } catch (e) {}
+    const norm = normaliseConsent(val);
+    if (!norm) return;
+
+    // Persist site-wide via cookie
+    setCookie(CONSENT_KEY, norm, CONSENT_COOKIE_DAYS);
+
+    // Optional mirror to localStorage during transition (prevents old inline scripts misbehaving)
+    try { localStorage.setItem(CONSENT_KEY, norm); } catch (e) {}
+
+    updateGtagConsent(norm);
   }
 
+  function resetConsent() {
+    deleteCookie(CONSENT_KEY);
+    try {
+      localStorage.removeItem(CONSENT_KEY);
+      for (const k of CONSENT_LEGACY_KEYS) localStorage.removeItem(k);
+    } catch (e) {}
+  }
+
+  // Expose a small API for your Cookie Policy page buttons
+  window.jakomaConsent = {
+    get: getConsent,
+    set: setConsent,
+    reset: function () {
+      resetConsent();
+      // simplest behaviour: refresh so banner can reappear naturally
+      window.location.reload();
+    }
+  };
+
+  // -----------------------------
+  // Google Consent Mode
+  // -----------------------------
   function updateGtagConsent(val) {
     // Works whether gtag is present or only dataLayer exists.
     try {
       window.dataLayer = window.dataLayer || [];
       const gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
 
-      if (val === 'accepted' || val === 'granted') {
+      if (val === 'accepted') {
         gtag('consent', 'update', {
           ad_storage: 'denied',
           analytics_storage: 'granted',
@@ -77,7 +173,7 @@
           functionality_storage: 'granted',
           security_storage: 'granted'
         });
-      } else if (val === 'declined' || val === 'denied') {
+      } else if (val === 'declined') {
         gtag('consent', 'update', {
           ad_storage: 'denied',
           analytics_storage: 'denied',
@@ -90,6 +186,27 @@
     } catch (e) {}
   }
 
+  // Optional: default to denied until a choice is made (helps Consent Mode behaviour)
+  function setDefaultConsentIfNone() {
+    try {
+      const pref = getConsent();
+      if (pref) return;
+      window.dataLayer = window.dataLayer || [];
+      const gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+    } catch (e) {}
+  }
+
+  // -----------------------------
+  // DOM ready helper
+  // -----------------------------
   function whenReady(fn) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', fn, { once: true });
@@ -115,11 +232,7 @@
       toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     }
 
-    if (isOpen) {
-      overlay.setAttribute('aria-hidden', 'false');
-    } else {
-      overlay.setAttribute('aria-hidden', 'true');
-    }
+    overlay.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
   }
 
   window.toggleMenu = function toggleMenu() {
@@ -220,7 +333,7 @@
     document.querySelectorAll('a').forEach(decorateLink);
   }
 
-// -----------------------------
+  // -----------------------------
   // CTA click tracking (dataLayer)
   // -----------------------------
   function initClickTracking() {
@@ -250,7 +363,18 @@
   // -----------------------------
   function hideCookieBanner() {
     const banner = document.getElementById('cookie-banner');
-    if (banner) banner.style.display = 'none';
+    if (banner) {
+      banner.style.display = 'none';
+      banner.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  function showCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) {
+      banner.style.display = '';
+      banner.setAttribute('aria-hidden', 'false');
+    }
   }
 
   function initCookieBanner() {
@@ -258,32 +382,32 @@
     if (!banner) return;
 
     const pref = getConsent();
-    if (pref === 'accepted' || pref === 'declined' || pref === 'granted' || pref === 'denied') {
-      // Migrate legacy key to the current key if needed
-      if (pref === 'granted') setConsent('accepted');
-      if (pref === 'denied') setConsent('declined');
-      if (pref === 'accepted' || pref === 'declined') setConsent(pref);
+    if (pref === 'accepted' || pref === 'declined') {
       hideCookieBanner();
-      updateGtagConsent(pref === 'granted' ? 'accepted' : pref === 'denied' ? 'declined' : pref);
+      updateGtagConsent(pref);
       return;
     }
+
+    // No choice made yet => keep banner visible + default consent already set to denied.
+    showCookieBanner();
 
     const acceptBtn = banner.querySelector('[data-cookie="accept"]');
     const declineBtn = banner.querySelector('[data-cookie="decline"]');
 
-    if (acceptBtn) {
+    if (acceptBtn && !acceptBtn.__jakomaBound) {
       acceptBtn.addEventListener('click', () => {
         setConsent('accepted');
         hideCookieBanner();
-        updateGtagConsent('accepted');
       });
+      acceptBtn.__jakomaBound = true;
     }
-    if (declineBtn) {
+
+    if (declineBtn && !declineBtn.__jakomaBound) {
       declineBtn.addEventListener('click', () => {
         setConsent('declined');
         hideCookieBanner();
-        updateGtagConsent('declined');
       });
+      declineBtn.__jakomaBound = true;
     }
   }
 
@@ -291,6 +415,9 @@
   // Boot
   // -----------------------------
   captureInboundUtm();
+
+  // Set default consent early (best effort)
+  setDefaultConsentIfNone();
 
   whenReady(function () {
     initMenuBindings();
