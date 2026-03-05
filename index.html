@@ -1,68 +1,52 @@
 <!DOCTYPE html>
-
 <html lang="en-GB">
 <head>
-<title>Jakoma | AI, Data &amp; Governance — Delivered Safely, Fast, and Measurably</title>
-<link href="https://www.jakoma.org/" rel="canonical"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="AI, data and governance — delivered safely, fast, and measurably — for complex and regulated organisations." name="description"/>
-<link href="style.css" rel="stylesheet"/>
+  <title>Jakoma | AI, Data &amp; Governance — Delivered Safely, Fast, and Measurably</title>
+  <link href="https://www.jakoma.org/" rel="canonical"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="description" content="Productised AI governance, data and automation delivery for regulated organisations — shipped fast, measured properly, and designed to stand up to scrutiny."/>
 
-<script id="consent-init">
-  // Minimal Consent Mode initialisation (runs BEFORE GTM loads)
-  // Default: analytics denied until user opts in.
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.__jakomaConsentInitialised = true;
+  <!-- Social sharing -->
+  <meta property="og:site_name" content="Jakoma"/>
+  <meta property="og:title" content="Jakoma | AI, Data &amp; Governance — Delivered Safely, Fast, and Measurably"/>
+  <meta property="og:description" content="Productised sprints and fractional leadership for regulated organisations. Safe-by-design delivery, measurable outcomes, no hype."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.jakoma.org/"/>
+  <meta property="og:image" content="https://www.jakoma.org/logo.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  function getCookie(name) {
-    const parts = document.cookie ? document.cookie.split('; ') : [];
-    for (const part of parts) {
-      const i = part.indexOf('=');
-      if (i === -1) continue;
-      const k = part.slice(0, i);
-      const v = part.slice(i + 1);
-      if (k === name) return decodeURIComponent(v);
+  <link href="style.css" rel="stylesheet"/>
+
+  <!-- Consent mode init (cookie-first, legacy fallback) -->
+  <script id="consent-init">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.__jakomaConsentInitialised = true;
+
+    function getCookie(name) {
+      const parts = document.cookie ? document.cookie.split('; ') : [];
+      for (const part of parts) {
+        const i = part.indexOf('=');
+        if (i === -1) continue;
+        const k = part.slice(0, i);
+        const v = part.slice(i + 1);
+        if (k === name) return decodeURIComponent(v);
+      }
+      return null;
     }
-    return null;
-  }
 
-  // Prefer cookie (works across pages + subdomains), fallback to localStorage for legacy
-  let storedConsent = getCookie('jakoma_cookie_consent');
-  if (!storedConsent) {
-    try {
-      storedConsent =
-        localStorage.getItem('jakoma_cookie_consent') ||
-        localStorage.getItem('jakoma_cookie_consent_v1') ||
-        localStorage.getItem('jakomaCookieConsent');
-    } catch (e) { storedConsent = null; }
-  }
+    let storedConsent = getCookie('jakoma_cookie_consent');
+    if (!storedConsent) {
+      try {
+        storedConsent =
+          localStorage.getItem('jakoma_cookie_consent') ||
+          localStorage.getItem('jakoma_cookie_consent_v1') ||
+          localStorage.getItem('jakomaCookieConsent');
+      } catch (e) { storedConsent = null; }
+    }
 
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'functionality_storage': 'granted',
-    'security_storage': 'granted'
-  });
-
-  const norm = (storedConsent === 'granted') ? 'accepted'
-             : (storedConsent === 'denied') ? 'declined'
-             : storedConsent;
-
-  if (norm === 'accepted') {
-    gtag('consent', 'update', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'granted',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'functionality_storage': 'granted',
-      'security_storage': 'granted'
-    });
-  } else if (norm === 'declined') {
-    gtag('consent', 'update', {
+    gtag('consent', 'default', {
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
       'ad_user_data': 'denied',
@@ -70,24 +54,59 @@
       'functionality_storage': 'granted',
       'security_storage': 'granted'
     });
-  }
-</script>
 
-<!-- Google Tag Manager -->
-<script id="gtm-script">
+    const norm = (storedConsent === 'granted') ? 'accepted'
+               : (storedConsent === 'denied') ? 'declined'
+               : storedConsent;
+
+    if (norm === 'accepted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'granted',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted'
+      });
+    } else if (norm === 'declined') {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted'
+      });
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script id="gtm-script">
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WCJBPXM6');
   </script>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Jakoma",
+    "url": "https://www.jakoma.org/",
+    "logo": "https://www.jakoma.org/logo.jpg",
+    "sameAs": ["https://www.linkedin.com/company/jakoma/"]
+  }
+  </script>
 </head>
 
-<body data-page="index"><a class="skip-link" href="#main">Skip to content</a>
+<body data-page="index">
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Google Tag Manager (noscript) -->
+<!-- GTM (noscript) -->
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- Cookie banner (hidden by default; site.js shows only if no consent) -->
 <div id="cookie-banner"
@@ -95,33 +114,47 @@
      aria-label="Cookie consent"
      aria-hidden="true"
      style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
-  🍪 We use cookies to enhance your experience.
-  <a href="/cookies.html">Learn more</a>
-  <button aria-label="Accept Cookies" data-cookie="accept" type="button">Accept</button>
-  <button aria-label="Decline Cookies" data-cookie="decline" type="button">Decline</button>
+  🍪 We use essential cookies for site function and optional analytics cookies to understand usage.
+  <a href="cookies.html">Learn more</a>
+  <button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button>
+  <button aria-label="Decline cookies" data-cookie="decline" type="button">Decline</button>
 </div>
 
 <!-- Mobile menu -->
 <div aria-hidden="true" class="mobile-menu-overlay"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="/about.html">👤 About</a>
-  <a href="/products.html">🛍️ Products</a>
-  <a href="/services.html">📦 Services</a>
-  <a href="/consulting.html">📊 Consulting</a>
+
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+  <button class="menu-close" type="button" aria-label="Close menu" onclick="toggleMenu()">✕</button>
+
+  <a href="about.html">👤 About</a>
+  <a href="products.html">🛍️ Products</a>
+  <a href="services.html">📦 Services</a>
+  <a href="consulting.html">📊 Consulting</a>
+
   <div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
-  <a data-cta="nav_offer_sprint" data-track="nav_offer_sprint" href="/ai-governance-readiness-sprint.html">AI Governance Sprint</a>
-  <a data-cta="nav_offer_retainer" data-track="nav_offer_retainer" href="/fractional-governance-leader-retainer.html">Fractional Retainer</a>
-  <a data-cta="nav_offer_prototype" data-track="nav_offer_prototype" href="/copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
-  <a class="js-utm" data-cta="nav_interest_form" data-track="nav_interest_form" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=nav&amp;utm_campaign=interest-form&amp;utm_content=homepage" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Submit Interest Form</a>
+  <a data-cta="nav_offer_sprint" data-track="nav_offer_sprint" href="ai-governance-readiness-sprint.html">AI Governance Sprint</a>
+  <a data-cta="nav_offer_retainer" data-track="nav_offer_retainer" href="fractional-governance-leader-retainer.html">Fractional Retainer</a>
+  <a data-cta="nav_offer_prototype" data-track="nav_offer_prototype" href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
+
+  <a class="js-utm"
+     data-cta="nav_interest_form"
+     data-track="nav_interest_form"
+     data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=nav&amp;utm_campaign=interest-form&amp;utm_content=homepage"
+     href="https://tally.so/r/3yAx84"
+     rel="noopener noreferrer"
+     target="_blank">🚀 Submit Interest Form</a>
+
+  <div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">🧩 Studio</div>
   <a class="js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=index&amp;utm_content=applysmart" href="https://applysmart.co.uk" rel="noopener noreferrer" target="_blank">📝 ApplySmart</a>
   <a class="js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=index&amp;utm_content=100to10k" href="https://100to10k.com" rel="noopener noreferrer" target="_blank">💼 100to10K</a>
-  <a href="/policy.html">🔐 Privacy Policy</a>
-  <a href="/terms.html">📄 Terms of Use</a>
-  <a href="/cookies.html">🍪 Cookie Policy</a>
+
+  <a href="policy.html">🔐 Privacy Policy</a>
+  <a href="terms.html">📄 Terms of Use</a>
+  <a href="cookies.html">🍪 Cookie Policy</a>
 </div>
 
 <header>
-  <!-- Back icon (top-left). site.js will hide it automatically when useless -->
+  <!-- Back icon (top-left). site.js hides it if not useful -->
   <button id="backButton" class="back-toggle" type="button" aria-label="Go back">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -130,117 +163,188 @@
 
   <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
 
-  <a href="/"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
+  <a href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
+
   <h1>AI, data and governance — delivered safely, fast, and measurably.</h1>
-  <p>Productised sprints and fractional leadership for complex and regulated organisations across public, private and third sector.</p>
-  <a class="cta-button js-utm" data-cta="proposal_click" data-track="proposal_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=homepage&amp;utm_content=proposal" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Request a Proposal</a>
-  <a class="cta-button js-utm" data-cta="checklist_click" data-track="checklist_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=free-checklist&amp;utm_content=homepage" href="https://tally.so/r/nWav0j" style="margin-top:0.75rem;display:inline-block;">📥 Download the Copilot &amp; AI Governance Readiness Checklist</a>
+  <p>
+    Productised sprints and fractional leadership for regulated organisations.
+    You get implementable artefacts, clear assurance routes, and outcomes you can measure — without the theatre.
+  </p>
+
+  <a class="cta-button js-utm"
+     data-cta="proposal_click"
+     data-track="proposal_click"
+     data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=homepage&amp;utm_content=proposal"
+     href="https://tally.so/r/3yAx84"
+     rel="noopener noreferrer"
+     target="_blank">🚀 Request a Proposal</a>
+
+  <a class="cta-button js-utm"
+     data-cta="checklist_click"
+     data-track="checklist_click"
+     data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=free-checklist&amp;utm_content=homepage"
+     href="https://tally.so/r/nWav0j"
+     rel="noopener noreferrer"
+     target="_blank"
+     style="margin-top:0.75rem;display:inline-block;">📥 Download the AI Governance Readiness Checklist</a>
+
+  <p style="max-width:720px;margin:1rem auto 0;opacity:0.9;">
+    Takes 2–3 minutes. No spam. If we’re not a fit, we’ll tell you.
+  </p>
 </header>
 
 <main id="main">
 
-  <!-- Everything below stays as you had it in index (66) -->
+  <!-- Proof strip (confidential, credible, non-identifying) -->
+  <section style="padding:2.5rem 1rem 0;">
+    <div class="card-row">
+      <div class="card">
+        <h3>Measured outcomes</h3>
+        <p>Typical results include major reductions in manual reporting and faster decision cycles — delivered with audit-ready controls.</p>
+      </div>
+      <div class="card">
+        <h3>Governance that enables delivery</h3>
+        <p>Clear decision routes, roles, templates and registers so teams can move quickly without creating avoidable risk.</p>
+      </div>
+      <div class="card">
+        <h3>Built for scrutiny</h3>
+        <p>Designed for regulated environments: privacy-by-design, proportionate controls, and evidence you can stand behind.</p>
+      </div>
+    </div>
+    <p style="max-width:900px;margin:1rem auto 0;text-align:center;opacity:0.85;">
+      Client names and employer details are withheld for confidentiality. References can be provided on request.
+    </p>
+  </section>
+
+  <!-- Offers -->
   <section style="padding:3rem 1rem;">
     <h2>Flagship Offers</h2>
     <p style="max-width:700px;margin:auto;text-align:center;">
-      Timeboxed, governance-first delivery with clear outcomes — designed to help teams adopt AI safely, prove value quickly, and stay compliant.
+      Choose the fastest path to value. Each offer is timeboxed, productised, and designed to be implemented — not admired.
     </p>
 
     <div class="card-row">
       <div class="card">
         <h3>1. AI Governance &amp; Readiness Sprint (2–3 weeks)</h3>
-        <p>A governance pack, risk controls and adoption roadmap for safe AI use — built for complex and regulated organisations across public, private and third sector.</p>
+        <p>Executive-ready governance pack, risk controls and adoption plan for safe AI use in regulated settings.</p>
+        <p><strong>Ideal for:</strong> teams adopting Copilot/AI who need clarity, controls, and assurance quickly.</p>
         <ul>
-          <li>AI policy + acceptable use guidance</li>
-          <li>AI governance operating model (roles, decision rights, escalation)</li>
+          <li>Governance operating model (roles, decision rights, escalation)</li>
+          <li>Policy and acceptable use guidance</li>
           <li>Risk approach for priority use-cases (templates + decision points)</li>
-          <li>Procurement due diligence questions for suppliers and tools</li>
-          <li>Model/tool register template + minimum documentation standard</li>
-          <li>30/60/90-day roadmap for adoption and assurance</li>
+          <li>Supplier/procurement due diligence question set</li>
+          <li>Register + minimum documentation standard</li>
+          <li>30/60/90-day adoption roadmap</li>
         </ul>
-        <a class="cta-button" data-cta="offer_sprint_click" data-track="offer_sprint_click" href="/ai-governance-readiness-sprint.html">Explore the Sprint</a>
+        <a class="cta-button" data-cta="offer_sprint_click" data-track="offer_sprint_click" href="ai-governance-readiness-sprint.html">Explore the Sprint</a>
       </div>
 
       <div class="card">
         <h3>2. Fractional Governance Leader Retainer (monthly)</h3>
-        <p>Ongoing governance cadence, assurance and delivery steering — without the overhead of a full-time hire.</p>
+        <p>Senior governance leadership without the overhead of a full-time hire. Keeps momentum, risk, and assurance aligned.</p>
+        <p><strong>Ideal for:</strong> programmes that need steady leadership, decision discipline, and stakeholder confidence.</p>
         <ul>
           <li>Monthly governance cadence + steerco pack</li>
           <li>Risk and assurance guidance (controls, DPIA approach, audit readiness)</li>
           <li>Stakeholder alignment + delivery unblock</li>
           <li>Metrics and accountability for adoption</li>
         </ul>
-        <a class="cta-button" data-cta="offer_retainer_click" data-track="offer_retainer_click" href="/fractional-governance-leader-retainer.html">Explore Retainers</a>
+        <a class="cta-button" data-cta="offer_retainer_click" data-track="offer_retainer_click" href="fractional-governance-leader-retainer.html">Explore Retainers</a>
       </div>
 
       <div class="card">
         <h3>3. Copilot / Workflow Automation Prototype Sprint (2 weeks)</h3>
-        <p>A working prototype plus a pilot plan and measurement approach — so you can prove value quickly, safely and repeatably.</p>
+        <p>A working prototype plus pilot plan and measurement approach — prove value first, then scale with confidence.</p>
+        <p><strong>Ideal for:</strong> teams who want real evidence before bigger investment.</p>
         <ul>
           <li>1–2 workflows prototyped</li>
           <li>Secure process map + risk notes</li>
           <li>Adoption and training checklist</li>
           <li>Measurement plan (time saved, error reduction)</li>
         </ul>
-        <a class="cta-button" data-cta="offer_prototype_click" data-track="offer_prototype_click" href="/copilot-workflow-automation-prototype-sprint.html">Explore Prototype Sprints</a>
+        <a class="cta-button" data-cta="offer_prototype_click" data-track="offer_prototype_click" href="copilot-workflow-automation-prototype-sprint.html">Explore Prototype Sprints</a>
       </div>
     </div>
   </section>
 
-  <!-- Proof -->
+  <!-- How it works (reduces friction, improves conversion) -->
+  <section style="padding:3rem 1rem;background:#f9f9f9;">
+    <h2>How it works</h2>
+    <div class="card-row">
+      <div class="card">
+        <h3>1) Quick fit check</h3>
+        <p>You tell us what you’re trying to achieve and what’s constraining you (risk, time, stakeholders, procurement).</p>
+      </div>
+      <div class="card">
+        <h3>2) Clear recommendation</h3>
+        <p>You get a straight answer: Sprint vs Retainer vs Prototype, with scope options and what “good” looks like.</p>
+      </div>
+      <div class="card">
+        <h3>3) Deliver &amp; embed</h3>
+        <p>We ship implementable artefacts and help you land them: decision routes, ownership, measurement and adoption.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof (confidential, but sharper + more commercial) -->
   <section style="padding:3rem 1rem;">
     <h2 style="text-align:center;">Proof &amp; Credibility</h2>
-    <p style="max-width:700px;margin:auto;text-align:center;">
-      Governance and delivery leadership in complex services — focused on practical, adoptable assets and measurable outcomes.
+    <p style="max-width:760px;margin:auto;text-align:center;">
+      You’re not buying “ideas”. You’re buying safe delivery, measurable improvement, and governance you can defend.
+      Evidence and references available on request.
     </p>
 
     <div class="card-row">
       <div class="card">
         <h3>Delivery leadership</h3>
         <ul>
-          <li>Led informatics, information governance, data engineering and analytics teams</li>
-          <li>Built frameworks and operating models that can actually be adopted</li>
+          <li>Led multidisciplinary digital, data and governance delivery</li>
+          <li>Turned messy reporting into resilient, automated outputs</li>
+          <li>Focused on adoption — not slideware</li>
         </ul>
       </div>
       <div class="card">
-        <h3>Governance-first assurance</h3>
+        <h3>Governance that works in real life</h3>
         <ul>
-          <li>DPO-level risk and assurance decision-making</li>
-          <li>Privacy, security and ethical AI controls designed into delivery</li>
+          <li>Privacy-by-design and proportionate controls</li>
+          <li>Clear decision routes and auditable trails</li>
+          <li>Templates and standards teams actually use</li>
         </ul>
       </div>
       <div class="card">
-        <h3>System-wide impact</h3>
+        <h3>Commercial impact mindset</h3>
         <ul>
-          <li>Enabled data sharing, performance frameworks and decision support</li>
-          <li>Upskilled analytics workforces with practical, repeatable training</li>
+          <li>Benefits tracking and measurable outcomes</li>
+          <li>Reduced manual effort and improved timeliness</li>
+          <li>Scaled approaches that survive scrutiny</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Family brands -->
+  <!-- Studio brands (kept, but de-risked) -->
   <section style="background:#f9f9f9;padding:3rem 1rem;">
-    <h2 style="text-align:center;">Meet the Jakoma Family</h2>
-    <p style="max-width:700px;margin:auto;text-align:center;">
-      ApplySmart and 100to10k sit within the Jakoma Learning ecosystem. Organisational toolkits and templates are available via Jakoma Products.
+    <h2 style="text-align:center;">The Jakoma Studio</h2>
+    <p style="max-width:760px;margin:auto;text-align:center;">
+      Jakoma Consulting delivers governance, data and automation outcomes for organisations.
+      ApplySmart and 100to10k are separate learning brands within the wider studio.
     </p>
 
     <div class="card-row">
-      <a class="js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=index&amp;utm_content=applysmart_a_smart_job_toolkit_learning_for_professionals_re" href="https://applysmart.co.uk" rel="noopener noreferrer" style="text-decoration:none;color:inherit;" target="_blank">
+      <a class="js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=index&amp;utm_content=applysmart" href="https://applysmart.co.uk" rel="noopener noreferrer" style="text-decoration:none;color:inherit;" target="_blank">
         <div class="card">
           <img alt="ApplySmart Logo" loading="lazy" src="Logo_ApplySmart.png" style="max-width:150px;display:block;margin:0 auto 1rem;"/>
           <h3>ApplySmart</h3>
-          <p>A smart job toolkit (Learning) for professionals re-entering or repositioning — CVs, prompts, and interview prep powered by ethical AI.</p>
+          <p>AI-powered job toolkit: CVs, prompts, and interview prep with an ethics-first approach.</p>
           <div class="cta-button">Visit ApplySmart</div>
         </div>
       </a>
 
-      <a class="js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=index&amp;utm_content=100_to_10k_a_challenge_based_business_builder_learning_using" href="https://100to10k.com" rel="noopener noreferrer" style="text-decoration:none;color:inherit;" target="_blank">
+      <a class="js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=index&amp;utm_content=100to10k" href="https://100to10k.com" rel="noopener noreferrer" style="text-decoration:none;color:inherit;" target="_blank">
         <div class="card">
           <img alt="100to10k Logo" loading="lazy" src="Logo_100to10k.png" style="max-width:150px;display:block;margin:0 auto 1rem;"/>
           <h3>100 to 10K</h3>
-          <p>A challenge-based business builder (Learning) using simple tools to help you turn £100 into recurring income with confidence.</p>
+          <p>A challenge-based business builder: simple tools to turn £100 into recurring income.</p>
           <div class="cta-button">Visit 100 to 10K</div>
         </div>
       </a>
@@ -249,16 +353,29 @@
         <div class="card">
           <h3>Launching Soon</h3>
           <p>Smarter learning. Smarter living.</p>
-          <p>Jakoma's next two solutions — EduSmart and FitSmart — will help students, coaches, and professionals apply AI safely for real progress.</p>
-          <div class="cta-button">Sign Up for Updates</div>
+          <p>Next: tools designed for real-world progress with privacy and accessibility built in.</p>
+          <div class="cta-button">Sign up for updates</div>
         </div>
       </a>
     </div>
   </section>
 
+  <!-- Final CTA -->
   <div style="text-align:center;margin:2rem 0;">
-    <a class="cta-button js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=section&amp;utm_campaign=homepage&amp;utm_content=proposal" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Request a Proposal</a>
-    <a class="cta-button js-utm" data-cta="linkedin_follow_click" data-track="linkedin_follow_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=index&amp;utm_content=linkedin_follow_click" href="https://www.linkedin.com/company/jakoma/" rel="noopener noreferrer" style="margin-top:0.75rem;display:inline-block;" target="_blank">💼 Follow Us on LinkedIn</a>
+    <a class="cta-button js-utm"
+       data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=section&amp;utm_campaign=homepage&amp;utm_content=proposal"
+       href="https://tally.so/r/3yAx84"
+       rel="noopener noreferrer"
+       target="_blank">🚀 Request a Proposal</a>
+
+    <a class="cta-button js-utm"
+       data-cta="linkedin_follow_click"
+       data-track="linkedin_follow_click"
+       data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=index&amp;utm_content=linkedin_follow_click"
+       href="https://www.linkedin.com/company/jakoma/"
+       rel="noopener noreferrer"
+       style="margin-top:0.75rem;display:inline-block;"
+       target="_blank">💼 Follow us on LinkedIn</a>
   </div>
 
 </main>
@@ -266,9 +383,9 @@
 <footer style="text-align:center;padding:2rem;">
   <p>© 2025–2026 Jakoma. All rights reserved.</p>
   <p><em>Jakoma is a multi-sector consultancy and digital product studio focused on ethical AI, data, and governance.</em></p>
-  <a href="/policy.html">Privacy</a> |
-  <a href="/terms.html">Terms</a> |
-  <a href="/cookies.html">Cookies</a>
+  <a href="policy.html">Privacy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="cookies.html">Cookies</a>
 </footer>
 
 <script defer src="assets/js/site.js"></script>
