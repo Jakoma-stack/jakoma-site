@@ -1,57 +1,88 @@
 <!DOCTYPE html>
-
 <html lang="en-GB">
 <head>
-<title>AI Governance &amp; Readiness Sprint (2–3 weeks) | Jakoma</title>
-<link href="https://www.jakoma.org/ai-governance-readiness-sprint.html" rel="canonical"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="A 2–3 week AI Governance &amp; Readiness Sprint delivering a governance pack, risk controls, and a 30/60/90-day roadmap for safe Copilot and AI adoption." name="description"/>
-<link href="style.css" rel="stylesheet"/>
-<script id="consent-init">
-  // Minimal Consent Mode initialisation (runs BEFORE GTM loads)
-  // Default: analytics denied until user opts in.
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.__jakomaConsentInitialised = true;
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  let storedConsent = null;
-  try {
-    storedConsent = localStorage.getItem('jakoma_cookie_consent') || localStorage.getItem('jakoma_cookie_consent_v1');
-  } catch (e) { storedConsent = null; }
+  <title>Terms of Use | Jakoma</title>
+  <link rel="canonical" href="https://www.jakoma.org/terms.html"/>
+  <link href="style.css" rel="stylesheet"/>
 
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'functionality_storage': 'granted',
-    'security_storage': 'granted'
-  });
+  <meta name="description" content="Jakoma Terms of Use — covering digital products, services, and user responsibilities across Jakoma brands."/>
+  <meta name="robots" content="index,follow"/>
 
-  // Accept either legacy values ('granted'/'denied') or site.js values ('accepted'/'declined')
-  if (storedConsent === 'accepted' || storedConsent === 'granted') {
-    gtag('consent', 'update', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'granted',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'functionality_storage': 'granted',
-      'security_storage': 'granted'
+  <style>
+    .legal-wrap{max-width:980px;margin:2rem auto;padding:0 2rem}
+    .legal-card{background:#fff;border-radius:16px;padding:2.5rem;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+    .legal-card h2{margin-top:2rem}
+    .legal-meta{opacity:0.85}
+    @media (max-width:768px){ .legal-wrap{padding:0 1rem} .legal-card{padding:1.5rem} }
+  </style>
+
+  <!-- Consent init (cookie-first, legacy fallback) -->
+  <script id="consent-init">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.__jakomaConsentInitialised = true;
+
+    function getCookie(name) {
+      const parts = document.cookie ? document.cookie.split('; ') : [];
+      for (const part of parts) {
+        const i = part.indexOf('=');
+        if (i === -1) continue;
+        const k = part.slice(0, i);
+        const v = part.slice(i + 1);
+        if (k === name) return decodeURIComponent(v);
+      }
+      return null;
+    }
+
+    let storedConsent = getCookie('jakoma_cookie_consent');
+    if (!storedConsent) {
+      try {
+        storedConsent =
+          localStorage.getItem('jakoma_cookie_consent') ||
+          localStorage.getItem('jakoma_cookie_consent_v1') ||
+          localStorage.getItem('jakomaCookieConsent');
+      } catch (e) { storedConsent = null; }
+    }
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted'
     });
-  } else if (storedConsent === 'declined' || storedConsent === 'denied') {
-    gtag('consent', 'update', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'functionality_storage': 'granted',
-      'security_storage': 'granted'
-    });
-  }
-</script>
-<!-- Google Tag Manager (kept as per index.html) -->
-<script id="gtm-script">
+
+    const norm = (storedConsent === 'granted') ? 'accepted'
+               : (storedConsent === 'denied') ? 'declined'
+               : storedConsent;
+
+    if (norm === 'accepted') {
+      gtag('consent', 'update', {
+        ad_storage: 'denied',
+        analytics_storage: 'granted',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+    } else if (norm === 'declined') {
+      gtag('consent', 'update', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script id="gtm-script">
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -59,208 +90,90 @@
     })(window,document,'script','dataLayer','GTM-WCJBPXM6');
   </script>
 </head>
-<body data-page="ai_gov_sprint"><a class="skip-link" href="#main">Skip to content</a>
-<!-- Google Tag Manager (noscript) -->
+
+<body data-page="terms">
+<a class="skip-link" href="#main">Skip to content</a>
+
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<!-- Cookie banner (kept as per index.html) -->
-<div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
-    🍪 We use cookies to enhance your experience.
-    <button aria-label="Accept Cookies" data-cookie="accept" type="button">Accept</button>
-<button aria-label="Decline Cookies" data-cookie="decline" type="button">Decline</button>
+
+<div id="cookie-banner"
+     role="dialog"
+     aria-label="Cookie consent"
+     aria-hidden="true"
+     style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
+  🍪 We use essential cookies for site function and optional analytics cookies to understand usage.
+  <a href="cookies.html">Learn more</a>
+  <button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button>
+  <button aria-label="Decline cookies" data-cookie="decline" type="button">Decline</button>
 </div>
-<!-- Mobile menu (kept as per index.html) -->
+
 <div aria-hidden="true" class="mobile-menu-overlay"></div>
-<div class="mobile-menu" id="mobileMenu">
-<a href="/about.html">👤 About</a>
-<a href="/products.html">🛍️ Products</a>
-<a href="/services.html">📦 Services</a>
-<a href="/consulting.html">📊 Consulting</a>
-<div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
-<a data-cta="nav_offer_sprint" data-track="nav_offer_sprint" href="/ai-governance-readiness-sprint.html">AI Governance Sprint</a>
-<a data-cta="nav_offer_retainer" data-track="nav_offer_retainer" href="/fractional-governance-leader-retainer.html">Fractional Retainer</a>
-<a data-cta="nav_offer_prototype" data-track="nav_offer_prototype" href="/copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
-<a class="js-utm" data-cta="nav_interest_form" data-track="nav_interest_form" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=nav&amp;utm_campaign=interest-form&amp;utm_content=ai-governance-sprint" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Submit Interest Form</a>
-<a class="js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=ai_gov_sprint&amp;utm_content=applysmart" href="https://applysmart.co.uk" rel="noopener noreferrer" target="_blank">📝 ApplySmart</a>
-<a class="js-utm" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=ai_gov_sprint&amp;utm_content=100to10k" href="https://100to10k.com" rel="noopener noreferrer" target="_blank">💼 100to10K</a>
-<a href="/policy.html">🔐 Privacy Policy</a>
-<a href="/terms.html">📄 Terms of Use</a>
-<a href="/cookies.html">🍪 Cookie Policy</a>
-</div>
+<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu">
+  <button class="menu-close" type="button" aria-label="Close menu" onclick="toggleMenu()">✕</button>
+
+  <a href="index.html">🏠 Home</a>
+  <a href="about.html">👤 About</a>
+  <a href="services.html">📦 Services</a>
+  <a href="consulting.html">📊 Consulting</a>
+  <a href="products.html">🛍️ Products</a>
+
+  <div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
+  <a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a>
+  <a href="fractional-governance-leader-retainer.html">Fractional Retainer</a>
+  <a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
+
+  <a href="policy.html">🔐 Privacy Policy</a>
+  <a aria-current="page" href="terms.html">📄 Terms of Use</a>
+  <a href="cookies.html">🍪 Cookie Policy</a>
+</nav>
+
 <header>
-<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
-<a href="index.html">
-<img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/>
-</a>
-<h1>AI Governance &amp; Readiness Sprint (2–3 weeks)</h1>
-<p>
-      A governance pack, risk controls and adoption roadmap for safe AI use —
-      built for complex and regulated organisations across public, private and third sector.
-    </p>
-<div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.25rem;">
-<a class="cta-button js-utm" data-cta="proposal_click" data-track="proposal_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=sprint&amp;utm_content=proposal" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Request a Proposal</a>
-<a class="cta-button js-utm" data-cta="checklist_click" data-track="checklist_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=free-checklist&amp;utm_content=sprint" href="https://tally.so/r/nWav0j" style="margin-top:0.75rem;display:inline-block;">📥 Download the Copilot &amp; AI Governance Readiness Checklist</a>
-</div>
+  <button id="backButton" class="back-toggle" type="button" aria-label="Go back">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
+
+  <a aria-label="Jakoma home" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
+
+  <h1>Terms of Use</h1>
+  <p>These terms govern use of Jakoma websites, platforms, and digital products.</p>
 </header>
-<main id="main">
-<section style="padding:3rem 1rem;">
-<h2 style="text-align:center;">✅ What You Get</h2>
-<p style="max-width:800px;margin:0.75rem auto 2rem;text-align:center;">
-        This sprint gives you the minimum viable governance and assurance pack needed to deploy Copilot and other AI tools safely —
-        without drowning your teams in bureaucracy.
-      </p>
-<div class="card-row">
-<div class="card">
-<h3>Governance Pack (ready to adopt)</h3>
-<ul>
-<li><strong>AI policy</strong> + acceptable use guidance</li>
-<li><strong>AI governance operating model</strong> (roles, decision rights, escalation)</li>
-<li><strong>Model/tool register</strong> template + minimum documentation standard</li>
-</ul>
-</div>
-<div class="card">
-<h3>Risk &amp; Control Set (practical)</h3>
-<ul>
-<li><strong>Risk approach</strong> for priority use cases (templates + decision points)</li>
-<li><strong>DPIA / AI risk approach</strong> for Copilot and AI-enabled workflows</li>
-<li><strong>Procurement due diligence</strong> questions for suppliers and tools</li>
-</ul>
-</div>
-<div class="card">
-<h3>Adoption Roadmap (30/60/90)</h3>
-<ul>
-<li>30/60/90-day roadmap for rollout and assurance</li>
-<li>Training and comms recommendations (role-based)</li>
-<li>Measurement plan (what to track, how to evidence progress)</li>
-</ul>
-</div>
-</div>
-</section>
-<section style="background:#f9f9f9;padding:3rem 1rem;">
-<h2 style="text-align:center;">🔐 Who It’s For</h2>
-<div class="card-row">
-<div class="card">
-<h3>Buyers</h3>
-<ul>
-<li>CIO / CTO</li>
-<li>COO / Transformation Director</li>
-<li>CDO / Head of Data</li>
-<li>DPO / IG Lead</li>
-</ul>
-</div>
-<div class="card">
-<h3>Typical triggers</h3>
-<ul>
-<li>Copilot / AI rollout planned (or already happening)</li>
-<li>Audit, risk or compliance findings</li>
-<li>Supplier procurement and due diligence pressure</li>
-<li>Data sharing blockers and operational risk</li>
-</ul>
-</div>
-<div class="card">
-<h3>Organisation types</h3>
-<ul>
-<li>Regulated or complex environments</li>
-<li>Public, private and third sector</li>
-<li>Teams needing “safe speed” and clear governance</li>
-</ul>
-</div>
-</div>
-</section>
-<section style="padding:3rem 1rem;">
-<h2 style="text-align:center;">🗓️ How the Sprint Works</h2>
-<div class="card-row">
-<div class="card">
-<h3>Week 1: Discovery + Current State</h3>
-<ul>
-<li>Stakeholder discovery and priorities</li>
-<li>Current controls and known risks review</li>
-<li>Data/content exposure checks (where AI will “see”)</li>
-</ul>
-</div>
-<div class="card">
-<h3>Week 2: Governance Pack + Roadmap</h3>
-<ul>
-<li>Draft and tailor the governance pack</li>
-<li>Agree decision points, approvals and escalation</li>
-<li>Build the 30/60/90 adoption roadmap</li>
-</ul>
-</div>
-<div class="card">
-<h3>Week 3 (optional): Socialise + Decide</h3>
-<ul>
-<li>Decision workshop with execs/senior owners</li>
-<li>Embed changes into BAU (minimum friction)</li>
-<li>Final sign-off pack and next-step plan</li>
-</ul>
-</div>
-</div>
-<p style="max-width:850px;margin:2rem auto 0;text-align:center;">
-        Delivery is <strong>timeboxed</strong>, <strong>template-led</strong>, and focused on assets you can actually adopt.
-      </p>
-</section>
-<section style="background:#f9f9f9;padding:3rem 1rem;">
-<h2 style="text-align:center;">💷 Pricing Bands</h2>
-<p style="max-width:800px;margin:0.75rem auto 2rem;text-align:center;">
-        Pricing depends on complexity, stakeholder load, and whether Week 3 is included — you’re buying decision-making, templates, and speed.
-      </p>
-<div class="card-row">
-<div class="card">
-<h3>Starter</h3>
-<p><strong>£3k–£5k</strong></p>
-<ul>
-<li>Smaller org / lighter stakeholder map</li>
-<li>Core pack + roadmap</li>
-<li>Light touch on use-case risk</li>
-</ul>
-</div>
-<div class="card">
-<h3>Standard</h3>
-<p><strong>£6k–£10k</strong></p>
-<ul>
-<li>Most organisations fit here</li>
-<li>Full governance pack + risk set + roadmap</li>
-<li>Priority use cases assessed with templates</li>
-</ul>
-</div>
-<div class="card">
-<h3>Enterprise</h3>
-<p><strong>£12k–£18k</strong></p>
-<ul>
-<li>High regulatory / high complexity environments</li>
-<li>Broader stakeholder alignment</li>
-<li>Week 3 decision workshop included</li>
-</ul>
-</div>
-</div>
-</section>
-<section style="padding:3rem 1rem;">
-<h2 style="text-align:center;">🎯 Next Steps</h2>
-<p style="max-width:800px;margin:0.75rem auto 1.5rem;text-align:center;">
-        If you’re serious about deploying Copilot/AI safely, don’t overthink it.
-        Submit the interest form with your timeline and scope, and you’ll get a proposal with the right band and delivery start options.
-      </p>
-<div style="text-align:center;">
-<a class="cta-button js-utm" data-cta="proposal_click" data-track="proposal_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=section&amp;utm_campaign=ai-governance-sprint" href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Request a Proposal</a>
-</div>
-<p style="max-width:800px;margin:1.25rem auto 0;text-align:center;font-size:0.95rem;opacity:0.9;">
-        Want to self-check first? Grab the free checklist and score your readiness in 10 minutes.
-      </p>
-<div style="text-align:center;margin-top:0.75rem;">
-<a class="cta-button js-utm" data-cta="checklist_click" data-track="checklist_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=section&amp;utm_campaign=free-checklist&amp;utm_content=ai-governance-sprint" href="https://tally.so/r/nWav0j" rel="noopener noreferrer" target="_blank">📥 Download the Checklist</a>
-</div>
-</section>
-<div style="text-align:center;margin:2rem 0;">
-<a class="cta-button js-utm" data-cta="linkedin_follow_click" data-track="linkedin_follow_click" data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=outbound&amp;utm_campaign=ai_gov_sprint&amp;utm_content=linkedin_follow_click" href="https://www.linkedin.com/company/jakoma/" rel="noopener noreferrer" target="_blank">💼 Follow Us on LinkedIn</a>
-</div>
+
+<main id="main" class="legal-wrap">
+  <div class="legal-card">
+    <p class="legal-meta"><strong>Last updated:</strong> March 2026</p>
+
+    <h2>Acceptance</h2>
+    <p>By using our sites or purchasing our products, you agree to these terms. If you do not agree, please discontinue use.</p>
+
+    <h2>Products &amp; access</h2>
+    <p>Digital products are licensed for personal or business use as stated on the product page. Do not resell, redistribute, or reverse-engineer without permission.</p>
+
+    <h2>Payments &amp; refunds</h2>
+    <p>Payments are processed by trusted providers (e.g. digital checkout/delivery platforms). Provider terms apply at checkout. Refunds are considered per the relevant product policy.</p>
+
+    <h2>Intellectual property</h2>
+    <p>All content, brand assets, and materials are owned by Jakoma unless stated otherwise. Do not copy or reuse without written consent.</p>
+
+    <h2>User content</h2>
+    <p>Content you submit (e.g. forms, feedback) must be lawful and respect intellectual property and privacy rights.</p>
+
+    <h2>Changes</h2>
+    <p>We may update these terms at any time. Material changes will be signposted on our site. Continued use means you accept the updated terms.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Email <a href="mailto:support@jakoma.org">support@jakoma.org</a>.</p>
+  </div>
 </main>
+
 <footer style="text-align:center;padding:2rem;">
-<p>© 2025 Jakoma. All rights reserved.</p>
-<p><em>Jakoma is a multi-sector consultancy and digital product studio focused on ethical AI, data, and governance.</em></p>
-<a href="/policy.html">Privacy</a> |
-    <a href="/terms.html">Terms</a> |
-    <a href="/cookies.html">Cookies</a>
+  <p>© 2025–2026 Jakoma. All rights reserved.</p>
+  <a href="policy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="cookies.html">Cookies</a>
 </footer>
-<script defer src="/assets/js/site.js"></script>
+
+<script defer src="assets/js/site.js"></script>
 </body>
 </html>
