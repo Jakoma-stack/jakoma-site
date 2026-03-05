@@ -1,65 +1,201 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-  <title>AI Governance &amp; Readiness Sprint (2–3 weeks) | Jakoma</title>
-  <link rel="canonical" href="https://www.jakoma.org/ai-governance-readiness-sprint.html"/>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="A 2–3 week AI Governance &amp; Readiness Sprint delivering a governance pack, risk controls, and a 30/60/90-day roadmap for safe Copilot and AI adoption."/>
-  <link href="style.css" rel="stylesheet"/>
+/*!
+ * Jakoma site.js (unified)
+ * - Mobile menu toggle (accessible)
+ * - UTM persistence (session) + outbound link decoration
+ * - CTA click events (dataLayer)
+ * - Cookie consent preference (COOKIE) + Google Consent Mode update
+ * - Back navigation (top-left button if present)
+ */
+(function () {
+  'use strict';
 
-  <!-- Consent init (cookie-first, legacy fallback) -->
-  <script id="consent-init">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.__jakomaConsentInitialised = true;
+  // -----------------------------
+  // Helpers / constants
+  // -----------------------------
+  const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','gclid','gbraid','wbraid','fbclid','ttclid','msclkid','li_fat_id'];
+  const UTM_STORE_KEY = 'jakoma_utm_v1';
 
-    function getCookie(name) {
+  const CONSENT_KEY = 'jakoma_cookie_consent'; // 'accepted' | 'declined'
+  const CONSENT_LEGACY_KEYS = [
+    'jakoma_cookie_consent_v1',
+    'jakomaCookieConsent' // older pages sometimes used this
+  ];
+  const CONSENT_COOKIE_DAYS = 365;
+
+  function safeJSONParse(str) {
+    try { return JSON.parse(str || '{}'); } catch (e) { return {}; }
+  }
+
+  function parseQuery(qs) {
+    const out = {};
+    const params = new URLSearchParams(qs || '');
+    for (const k of UTM_KEYS) {
+      const v = params.get(k);
+      if (v) out[k] = v;
+    }
+    return out;
+  }
+
+  function getStoredUtm() {
+    return safeJSONParse(sessionStorage.getItem(UTM_STORE_KEY));
+  }
+
+  function setStoredUtm(obj) {
+    try { sessionStorage.setItem(UTM_STORE_KEY, JSON.stringify(obj || {})); } catch (e) {}
+  }
+
+  function parseBase(str) {
+    if (!str) return {};
+    return parseQuery(str.startsWith('?') ? str : '?' + str);
+  }
+
+  // -----------------------------
+  // Cookie helpers (consent)
+  // -----------------------------
+  function isJakomaDomain() {
+    const h = (window.location.hostname || '').toLowerCase();
+    // ✅ PATCH: include www.jakoma.org so consent persists regardless of entry host
+    return h === 'jakoma.org' || h === 'www.jakoma.org' || h.endsWith('.jakoma.org');
+  }
+
+  function getCookie(name) {
+    try {
       const parts = document.cookie ? document.cookie.split('; ') : [];
       for (const part of parts) {
-        const i = part.indexOf('=');
-        if (i === -1) continue;
-        const k = part.slice(0, i);
-        const v = part.slice(i + 1);
+        const idx = part.indexOf('=');
+        if (idx === -1) continue;
+        const k = part.slice(0, idx);
+        const v = part.slice(idx + 1);
         if (k === name) return decodeURIComponent(v);
       }
-      return null;
+    } catch (e) {}
+    return null;
+  }
+
+  function setCookie(name, value, days) {
+    try {
+      const maxAge = (days || 365) * 24 * 60 * 60;
+      const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+      const domain = isJakomaDomain() ? '; Domain=.jakoma.org' : '';
+      document.cookie = `${name}=${encodeURIComponent(value)}; Max-Age=${maxAge}; Path=/${domain}; SameSite=Lax${secure}`;
+    } catch (e) {}
+  }
+
+  function deleteCookie(name) {
+    try {
+      const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+      const domain = isJakomaDomain() ? '; Domain=.jakoma.org' : '';
+      document.cookie = `${name}=; Max-Age=0; Path=/${domain}; SameSite=Lax${secure}`;
+    } catch (e) {}
+  }
+
+  function normaliseConsent(v) {
+    if (!v) return null;
+    if (v === 'granted') return 'accepted';
+    if (v === 'denied') return 'declined';
+    if (v === 'accepted' || v === 'declined') return v;
+    return null;
+  }
+
+  function getConsent() {
+    // 1) Prefer cookie (works across pages + subdomains)
+    const fromCookie = normaliseConsent(getCookie(CONSENT_KEY));
+    if (fromCookie) return fromCookie;
+
+    // 2) Migrate from localStorage (older implementation)
+    let v = null;
+    try {
+      v = localStorage.getItem(CONSENT_KEY);
+      if (!v) {
+        for (const k of CONSENT_LEGACY_KEYS) {
+          const legacy = localStorage.getItem(k);
+          if (legacy) { v = legacy; break; }
+        }
+      }
+    } catch (e) { v = null; }
+
+    const norm = normaliseConsent(v);
+    if (norm) {
+      // write-through migration so visitor doesn’t get prompted again
+      setCookie(CONSENT_KEY, norm, CONSENT_COOKIE_DAYS);
+      try { localStorage.setItem(CONSENT_KEY, norm); } catch (e) {}
+      return norm;
     }
 
-    let storedConsent = getCookie('jakoma_cookie_consent');
-    if (!storedConsent) {
-      try {
-        storedConsent =
-          localStorage.getItem('jakoma_cookie_consent') ||
-          localStorage.getItem('jakoma_cookie_consent_v1') ||
-          localStorage.getItem('jakomaCookieConsent');
-      } catch (e) { storedConsent = null; }
+    return null;
+  }
+
+  function setConsent(val) {
+    const norm = normaliseConsent(val);
+    if (!norm) return;
+
+    // Persist site-wide via cookie
+    setCookie(CONSENT_KEY, norm, CONSENT_COOKIE_DAYS);
+
+    // Optional mirror to localStorage during transition (prevents old inline scripts misbehaving)
+    try { localStorage.setItem(CONSENT_KEY, norm); } catch (e) {}
+
+    updateGtagConsent(norm);
+  }
+
+  function resetConsent() {
+    deleteCookie(CONSENT_KEY);
+    try {
+      localStorage.removeItem(CONSENT_KEY);
+      for (const k of CONSENT_LEGACY_KEYS) localStorage.removeItem(k);
+    } catch (e) {}
+  }
+
+  // Expose a small API for your Cookie Policy page buttons
+  window.jakomaConsent = {
+    get: getConsent,
+    set: setConsent,
+    reset: function () {
+      resetConsent();
+      // simplest behaviour: refresh so banner can reappear naturally
+      window.location.reload();
     }
+  };
 
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      analytics_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      functionality_storage: 'granted',
-      security_storage: 'granted'
-    });
+  // -----------------------------
+  // Google Consent Mode
+  // -----------------------------
+  function updateGtagConsent(val) {
+    // Works whether gtag is present or only dataLayer exists.
+    try {
+      window.dataLayer = window.dataLayer || [];
+      const gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
 
-    const norm = (storedConsent === 'granted') ? 'accepted'
-               : (storedConsent === 'denied') ? 'declined'
-               : storedConsent;
+      if (val === 'accepted') {
+        gtag('consent', 'update', {
+          ad_storage: 'denied',
+          analytics_storage: 'granted',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted'
+        });
+      } else if (val === 'declined') {
+        gtag('consent', 'update', {
+          ad_storage: 'denied',
+          analytics_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted'
+        });
+      }
+    } catch (e) {}
+  }
 
-    if (norm === 'accepted') {
-      gtag('consent', 'update', {
-        ad_storage: 'denied',
-        analytics_storage: 'granted',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        functionality_storage: 'granted',
-        security_storage: 'granted'
-      });
-    } else if (norm === 'declined') {
-      gtag('consent', 'update', {
+  // Optional: default to denied until a choice is made (helps Consent Mode behaviour)
+  function setDefaultConsentIfNone() {
+    try {
+      const pref = getConsent();
+      if (pref) return;
+      window.dataLayer = window.dataLayer || [];
+      const gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+      gtag('consent', 'default', {
         ad_storage: 'denied',
         analytics_storage: 'denied',
         ad_user_data: 'denied',
@@ -67,99 +203,249 @@
         functionality_storage: 'granted',
         security_storage: 'granted'
       });
+    } catch (e) {}
+  }
+
+  // -----------------------------
+  // DOM ready helper
+  // -----------------------------
+  function whenReady(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn, { once: true });
+    } else {
+      fn();
     }
-  </script>
+  }
 
-  <!-- GTM -->
-  <script id="gtm-script">
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WCJBPXM6');
-  </script>
-</head>
+  // -----------------------------
+  // Back button (optional)
+  // -----------------------------
+  function initBackButton() {
+    const btn = document.getElementById('backButton');
+    if (!btn) return;
 
-<body data-page="ai_gov_sprint">
-<a class="skip-link" href="#main">Skip to content</a>
+    let sameOriginReferrer = false;
+    try {
+      sameOriginReferrer = document.referrer && new URL(document.referrer).origin === window.location.origin;
+    } catch (e) { sameOriginReferrer = false; }
 
-<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+    // Hide if there’s nowhere sensible to go back to (keeps homepage clean)
+    if (!sameOriginReferrer && (!window.history || window.history.length <= 1)) {
+      btn.style.display = 'none';
+      return;
+    }
 
-<div id="cookie-banner"
-     role="dialog"
-     aria-label="Cookie consent"
-     aria-hidden="true"
-     style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
-  🍪 We use essential cookies for site function and optional analytics cookies to understand usage.
-  <a href="cookies.html">Learn more</a>
-  <button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button>
-  <button aria-label="Decline cookies" data-cookie="decline" type="button">Decline</button>
-</div>
+    btn.addEventListener('click', () => {
+      if (sameOriginReferrer) window.history.back();
+      // ✅ PATCH: avoid '/' assumptions; keep relative navigation consistent
+      else window.location.href = 'index.html';
+    });
+  }
 
-<div aria-hidden="true" class="mobile-menu-overlay"></div>
-<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu">
-  <button class="menu-close" type="button" aria-label="Close menu" onclick="toggleMenu()">✕</button>
+  // -----------------------------
+  // Mobile menu (global toggleMenu for inline handlers)
+  // -----------------------------
+  function setMenuState(isOpen) {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const toggle = document.querySelector('.menu-toggle');
+    if (!menu || !overlay) return;
 
-  <a href="index.html">🏠 Home</a>
-  <a href="about.html">👤 About</a>
-  <a href="services.html">📦 Services</a>
-  <a href="consulting.html">📊 Consulting</a>
-  <a href="products.html">🛍️ Products</a>
+    menu.classList.toggle('open', isOpen);
+    overlay.classList.toggle('open', isOpen);
 
-  <div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
-  <a aria-current="page" href="ai-governance-readiness-sprint.html">AI Governance Sprint</a>
-  <a href="fractional-governance-leader-retainer.html">Fractional Retainer</a>
-  <a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    }
 
-  <a class="js-utm" data-cta="nav_interest_form" data-track="nav_interest_form"
-     data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=menu&amp;utm_campaign=sprint&amp;utm_content=interest_form"
-     href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Submit Interest Form</a>
+    overlay.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  }
 
-  <a href="policy.html">🔐 Privacy Policy</a>
-  <a href="terms.html">📄 Terms of Use</a>
-  <a href="cookies.html">🍪 Cookie Policy</a>
-</nav>
+  window.toggleMenu = function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if (!menu) return;
+    const isOpen = menu.classList.contains('open');
+    setMenuState(!isOpen);
+  };
 
-<header>
-  <button id="backButton" class="back-toggle" type="button" aria-label="Go back">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
+  function initMenuBindings() {
+    const toggle = document.querySelector('.menu-toggle');
+    const overlay = document.querySelector('.mobile-menu-overlay');
 
-  <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
+    if (toggle && !toggle.__jakomaBound) {
+      toggle.addEventListener('click', (e) => {
+        // If the button also has onclick="toggleMenu()", prevent double toggles.
+        if (toggle.getAttribute('onclick')) return;
+        e.preventDefault();
+        window.toggleMenu();
+      });
+      toggle.__jakomaBound = true;
+    }
 
-  <a href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
+    if (overlay && !overlay.__jakomaBound) {
+      overlay.addEventListener('click', (e) => {
+        if (overlay.getAttribute('onclick')) return;
+        e.preventDefault();
+        setMenuState(false);
+      });
+      overlay.__jakomaBound = true;
+    }
 
-  <h1>AI Governance &amp; Readiness Sprint (2–3 weeks)</h1>
-  <p>
-    A governance pack, risk controls and adoption roadmap for safe AI use —
-    built for complex and regulated organisations across public, private and third sector.
-  </p>
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMenuState(false);
+    });
+  }
 
-  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.25rem;">
-    <a class="cta-button js-utm" data-cta="proposal_click" data-track="proposal_click"
-       data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=sprint&amp;utm_content=proposal"
-       href="https://tally.so/r/3yAx84" rel="noopener noreferrer" target="_blank">🚀 Request a Proposal</a>
+  // -----------------------------
+  // UTM persistence + decoration
+  // -----------------------------
+  function captureInboundUtm() {
+    const inbound = parseQuery(window.location.search);
+    const stored = getStoredUtm();
+    const merged = Object.assign({}, stored, inbound); // inbound wins
+    if (Object.keys(merged).length) setStoredUtm(merged);
+  }
 
-    <a class="cta-button js-utm" data-cta="checklist_click" data-track="checklist_click"
-       data-utm-base="utm_source=jakoma-site-site&amp;utm_medium=hero&amp;utm_campaign=free-checklist&amp;utm_content=sprint"
-       href="https://tally.so/r/nWav0j" rel="noopener noreferrer" target="_blank">📥 Download the AI Governance Readiness Checklist</a>
-  </div>
-</header>
+  function buildTrackingParamsForLink(a) {
+    const stored = getStoredUtm();
+    const base = parseBase(a.getAttribute('data-utm-base'));
 
-<main id="main">
-  <!-- your existing sections unchanged (copy from your current file) -->
-  <!-- ✅ What You Get / Who It’s For / How the Sprint Works / Pricing Bands / Next Steps -->
-  <!-- KEEP as-is -->
-</main>
+    // Start with base defaults (for direct traffic), then let stored override most fields.
+    const out = Object.assign({}, base);
 
-<footer style="text-align:center;padding:2rem;">
-  <p>© 2025–2026 Jakoma. All rights reserved.</p>
-  <p><em>Jakoma is a multi-sector consultancy and digital product studio focused on ethical AI, data, and governance.</em></p>
-  <a href="policy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="cookies.html">Cookies</a>
-</footer>
+    for (const k of UTM_KEYS) {
+      if (!stored[k]) continue;
 
-<script defer src="assets/js/site.js"></script>
-</body>
-</html>
+      // Keep CTA context: if base provides utm_content, prefer base for that single key.
+      if (k === 'utm_content' && base.utm_content) continue;
+
+      out[k] = stored[k];
+    }
+
+    // If base doesn't specify content, fall back to stored content.
+    if (!out.utm_content && stored.utm_content) out.utm_content = stored.utm_content;
+
+    return out;
+  }
+
+  function decorateLink(a) {
+    try {
+      const href = a.getAttribute('href');
+      if (!href) return;
+
+      if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+      const u = new URL(href, window.location.origin);
+
+      // Only decorate outbound links OR links marked with js-utm/data-utm
+      const force = a.classList.contains('js-utm') || a.getAttribute('data-utm') === 'true';
+      const outbound = u.origin !== window.location.origin;
+
+      if (!force && !outbound) return;
+
+      const params = buildTrackingParamsForLink(a);
+      for (const [k, v] of Object.entries(params)) {
+        if (!v) continue;
+        if (!u.searchParams.get(k)) u.searchParams.set(k, v);
+      }
+
+      a.setAttribute('href', u.toString());
+    } catch (e) {}
+  }
+
+  function applyUtmDecoration() {
+    document.querySelectorAll('a').forEach(decorateLink);
+  }
+
+  // -----------------------------
+  // CTA click tracking (dataLayer)
+  // -----------------------------
+  function initClickTracking() {
+    window.dataLayer = window.dataLayer || [];
+
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[data-cta], a[data-track]');
+      if (!a) return;
+
+      const cta = a.getAttribute('data-cta') || a.getAttribute('data-track') || '';
+      const page = document.body ? (document.body.getAttribute('data-page') || '') : '';
+      const href = a.getAttribute('href') || '';
+      const text = (a.textContent || '').trim().slice(0, 120);
+
+      window.dataLayer.push({
+        event: 'cta_click',
+        cta,
+        page,
+        href,
+        text
+      });
+    }, { passive: true });
+  }
+
+  // -----------------------------
+  // Cookie banner
+  // -----------------------------
+  function hideCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) {
+      banner.style.display = 'none';
+      banner.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  function showCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) {
+      banner.style.display = '';
+      banner.setAttribute('aria-hidden', 'false');
+    }
+  }
+
+  function initCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    const pref = getConsent();
+    if (pref === 'accepted' || pref === 'declined') {
+      hideCookieBanner();
+      updateGtagConsent(pref);
+      return;
+    }
+
+    showCookieBanner();
+
+    const acceptBtn = banner.querySelector('[data-cookie="accept"]');
+    const declineBtn = banner.querySelector('[data-cookie="decline"]');
+
+    if (acceptBtn && !acceptBtn.__jakomaBound) {
+      acceptBtn.addEventListener('click', () => {
+        setConsent('accepted');
+        hideCookieBanner();
+      });
+      acceptBtn.__jakomaBound = true;
+    }
+
+    if (declineBtn && !declineBtn.__jakomaBound) {
+      declineBtn.addEventListener('click', () => {
+        setConsent('declined');
+        hideCookieBanner();
+      });
+      declineBtn.__jakomaBound = true;
+    }
+  }
+
+  // -----------------------------
+  // Boot
+  // -----------------------------
+  captureInboundUtm();
+  setDefaultConsentIfNone();
+
+  whenReady(function () {
+    initBackButton();
+    initMenuBindings();
+    applyUtmDecoration();
+    initClickTracking();
+    initCookieBanner();
+  });
+})();
