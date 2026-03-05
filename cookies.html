@@ -1,92 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <title>Cookie Policy | Jakoma</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Cookie Policy | Jakoma</title>
+  <link rel="canonical" href="https://www.jakoma.org/cookies.html"/>
+  <link href="style.css" rel="stylesheet"/>
+
   <meta name="description" content="How Jakoma uses cookies and how you can control them. Analytics only load after consent."/>
-  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-  <link href="/style.css" rel="stylesheet"/>
+  <meta name="robots" content="index,follow"/>
+
   <style>
-    body{font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7;color:#222;background:#fafafa;margin:0}
-    .page-header{background:linear-gradient(135deg,#0a0a23,#1a1a4a);color:#fff;text-align:center;padding:3rem 1rem 2rem;border-bottom:4px solid #4adede}
-    .page-header .logo{width:120px;margin-bottom:1rem}
-    main{background:#fff;max-width:960px;margin:2rem auto;padding:3rem;border-radius:12px;box-shadow:0 0 25px rgba(0,0,0,.05)}
-    h1,h2{color:#0a0a23} h2{border-left:4px solid #4adede;padding-left:.75rem;margin-top:2rem}
-    footer{background:#0a0a23;color:#eee;text-align:center;padding:2rem;font-size:.9rem}
-    footer a{color:#4adede;text-decoration:none}
-    a{color:#0a66c2}
-    @media (prefers-color-scheme: dark){
-      body{background:#0f0f14;color:#eaeaea}
-      main{background:#14141c;box-shadow:none}
-      h1,h2{color:#eaf7ff}
-      a{color:#7fc8ff}
-    }
-    .btns{display:flex;gap:.5rem;flex-wrap:wrap;margin:.75rem 0}
-    .cta-button{background:#0a66c2;color:#fff;border:none;padding:.6rem 1rem;border-radius:8px;cursor:pointer}
+    .legal-wrap{max-width:980px;margin:2rem auto;padding:0 2rem}
+    .legal-card{background:#fff;border-radius:16px;padding:2.5rem;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+    .btns{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+    .btns .cta-button{border:none;cursor:pointer}
+    .legal-meta{opacity:0.85}
+    @media (max-width:768px){ .legal-wrap{padding:0 1rem} .legal-card{padding:1.5rem} }
   </style>
-</head>
-<body>
 
-  <header class="page-header">
-    <a href="/index.html" class="brand">
-      <img src="/assets/logo-jakoma.svg" alt="Jakoma Logo" class="logo"/>
-    </a>
-    <h1>Cookie Policy</h1>
-  </header>
+  <!-- Consent init (cookie-first, legacy fallback) -->
+  <script id="consent-init">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.__jakomaConsentInitialised = true;
 
-  <main role="main">
-    <section>
-      <p>We use two categories of cookies:</p>
-      <ul>
-        <li><strong>Strictly Necessary</strong> — required for basic site operation and security.</li>
-        <li><strong>Analytics (optional)</strong> — Google Analytics for anonymised usage insights, loaded only after consent.</li>
-      </ul>
-
-      <h2>Managing Your Preferences</h2>
-      <p>Use the controls below to set or reset your analytics choice.</p>
-      <div class="btns">
-        <button class="cta-button" onclick="setConsent('accepted')">Accept Analytics</button>
-        <button class="cta-button" onclick="setConsent('declined')">Decline Analytics</button>
-        <button class="cta-button" onclick="resetConsent()">Reset Choice</button>
-      </div>
-
-      <h2>Changes</h2>
-      <p>We may update this policy to reflect changes in technology or regulation. <strong>Last updated:</strong> November 2025.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Jakoma. All rights reserved.</p>
-    <a href="/policy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/cookies.html">Cookies</a>
-  </footer>
-
-  <script>
-    function loadAnalytics(){
-      if(window.gaLoaded) return;
-      const s=document.createElement('script');
-      s.src='https://www.googletagmanager.com/gtag/js?id=G-493063763';
-      s.async=true; document.head.appendChild(s);
-      window.dataLayer=window.dataLayer||[];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag=gtag;
-      gtag('js', new Date());
-      gtag('config','G-493063763', {'anonymize_ip': true});
-      window.gaLoaded=true;
+    function getCookie(name) {
+      const parts = document.cookie ? document.cookie.split('; ') : [];
+      for (const part of parts) {
+        const i = part.indexOf('=');
+        if (i === -1) continue;
+        const k = part.slice(0, i);
+        const v = part.slice(i + 1);
+        if (k === name) return decodeURIComponent(v);
+      }
+      return null;
     }
-    function setConsent(v){
-      localStorage.setItem('jakomaCookieConsent', v);
-      alert('Your cookie preference has been saved: '+v.toUpperCase());
-      if(v==='accepted'){ loadAnalytics(); }
+
+    let storedConsent = getCookie('jakoma_cookie_consent');
+    if (!storedConsent) {
+      try {
+        storedConsent =
+          localStorage.getItem('jakoma_cookie_consent') ||
+          localStorage.getItem('jakoma_cookie_consent_v1') ||
+          localStorage.getItem('jakomaCookieConsent');
+      } catch (e) { storedConsent = null; }
     }
-    function resetConsent(){
-      localStorage.removeItem('jakomaCookieConsent');
-      alert('Cookie preference cleared. You will see the banner on your next visit.');
-    }
-    document.addEventListener('DOMContentLoaded',function(){
-      const cons=localStorage.getItem('jakomaCookieConsent');
-      if(cons==='accepted'){ loadAnalytics(); }
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted'
     });
+
+    const norm = (storedConsent === 'granted') ? 'accepted'
+               : (storedConsent === 'denied') ? 'declined'
+               : storedConsent;
+
+    if (norm === 'accepted') {
+      gtag('consent', 'update', {
+        ad_storage: 'denied',
+        analytics_storage: 'granted',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+    } else if (norm === 'declined') {
+      gtag('consent', 'update', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+    }
   </script>
+
+  <!-- Google Tag Manager -->
+  <script id="gtm-script">
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WCJBPXM6');
+  </script>
+</head>
+
+<body data-page="cookies">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+
+<div id="cookie-banner"
+     role="dialog"
+     aria-label="Cookie consent"
+     aria-hidden="true"
+     style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">
+  🍪 We use essential cookies for site function and optional analytics cookies to understand usage.
+  <a href="cookies.html">Learn more</a>
+  <button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button>
+  <button aria-label="Decline cookies" data-cookie="decline" type="button">Decline</button>
+</div>
+
+<div aria-hidden="true" class="mobile-menu-overlay"></div>
+<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu">
+  <button class="menu-close" type="button" aria-label="Close menu" onclick="toggleMenu()">✕</button>
+
+  <a href="index.html">🏠 Home</a>
+  <a href="about.html">👤 About</a>
+  <a href="services.html">📦 Services</a>
+  <a href="consulting.html">📊 Consulting</a>
+  <a href="products.html">🛍️ Products</a>
+
+  <div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">⚡ Offers</div>
+  <a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a>
+  <a href="fractional-governance-leader-retainer.html">Fractional Retainer</a>
+  <a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
+
+  <a href="policy.html">🔐 Privacy Policy</a>
+  <a href="terms.html">📄 Terms of Use</a>
+  <a aria-current="page" href="cookies.html">🍪 Cookie Policy</a>
+</nav>
+
+<header>
+  <button id="backButton" class="back-toggle" type="button" aria-label="Go back">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
+
+  <a aria-label="Jakoma home" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
+
+  <h1>Cookie Policy</h1>
+  <p>How we use cookies, and how you control analytics consent.</p>
+</header>
+
+<main id="main" class="legal-wrap">
+  <div class="legal-card">
+    <p class="legal-meta"><strong>Last updated:</strong> March 2026</p>
+
+    <p>We use two categories of cookies:</p>
+    <ul>
+      <li><strong>Strictly necessary</strong> — required for basic site operation and security.</li>
+      <li><strong>Analytics (optional)</strong> — helps us understand usage; loaded only after consent.</li>
+    </ul>
+
+    <h2>Manage your preferences</h2>
+    <p>Use the controls below to set or reset your analytics choice.</p>
+
+    <div class="btns">
+      <button class="cta-button" type="button" onclick="window.jakomaConsent && window.jakomaConsent.set('accepted')">Accept analytics</button>
+      <button class="cta-button" type="button" onclick="window.jakomaConsent && window.jakomaConsent.set('declined')">Decline analytics</button>
+      <button class="cta-button" type="button" onclick="window.jakomaConsent && window.jakomaConsent.reset()">Reset choice</button>
+    </div>
+
+    <p style="opacity:0.9;">
+      If you don’t see anything change immediately: that’s normal. The site simply won’t load analytics until consent is granted.
+    </p>
+  </div>
+</main>
+
+<footer style="text-align:center;padding:2rem;">
+  <p>© 2025–2026 Jakoma. All rights reserved.</p>
+  <a href="policy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="cookies.html">Cookies</a>
+</footer>
+
+<script defer src="assets/js/site.js"></script>
 </body>
 </html>
