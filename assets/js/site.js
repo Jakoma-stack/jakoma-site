@@ -4,6 +4,7 @@
  * - UTM persistence (session) + outbound link decoration
  * - CTA click events (dataLayer)
  * - Cookie consent preference (COOKIE) + Google Consent Mode update
+ * - Back navigation (top-left button if present)
  */
 (function () {
   'use strict';
@@ -216,6 +217,30 @@
   }
 
   // -----------------------------
+  // Back button (optional)
+  // -----------------------------
+  function initBackButton() {
+    const btn = document.getElementById('backButton');
+    if (!btn) return;
+
+    let sameOriginReferrer = false;
+    try {
+      sameOriginReferrer = document.referrer && new URL(document.referrer).origin === window.location.origin;
+    } catch (e) { sameOriginReferrer = false; }
+
+    // Hide if there’s nowhere sensible to go back to (keeps homepage clean)
+    if (!sameOriginReferrer && (!window.history || window.history.length <= 1)) {
+      btn.style.display = 'none';
+      return;
+    }
+
+    btn.addEventListener('click', () => {
+      if (sameOriginReferrer) window.history.back();
+      else window.location.href = '/';
+    });
+  }
+
+  // -----------------------------
   // Mobile menu (global toggleMenu for inline handlers)
   // -----------------------------
   function setMenuState(isOpen) {
@@ -420,6 +445,7 @@
   setDefaultConsentIfNone();
 
   whenReady(function () {
+    initBackButton();
     initMenuBindings();
     applyUtmDecoration();
     initClickTracking();
