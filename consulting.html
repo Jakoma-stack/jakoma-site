@@ -1,310 +1,69 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-
-  <title>Jakoma Consulting | AI, Data &amp; Governance Support</title>
-  <link rel="canonical" href="https://www.jakoma.org/consulting.html"/>
-  <link href="style.css" rel="stylesheet"/>
-
-  <meta name="description" content="Governance-first advisory and delivery for regulated organisations using AI, data and digital services. Practical standards, clear assurance routes, measurable outcomes."/>
-  <meta name="robots" content="index,follow"/>
-
-  <!-- Social -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Jakoma Consulting"/>
-  <meta property="og:description" content="Founder-led AI, data and governance consulting for organisations that need progress with control."/>
-  <meta property="og:url" content="https://www.jakoma.org/consulting.html"/>
-  <meta property="og:image" content="https://www.jakoma.org/logo.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-
-  <!-- Consent init (cookie-first, legacy fallback) -->
-  <script id="consent-init">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.__jakomaConsentInitialised = true;
-
-    function getCookie(name) {
-      const parts = document.cookie ? document.cookie.split('; ') : [];
-      for (const part of parts) {
-        const i = part.indexOf('=');
-        if (i === -1) continue;
-        const k = part.slice(0, i);
-        const v = part.slice(i + 1);
-        if (k === name) return decodeURIComponent(v);
-      }
-      return null;
-    }
-
-    let storedConsent = getCookie('jakoma_cookie_consent');
-    if (!storedConsent) {
-      try {
-        storedConsent =
-          localStorage.getItem('jakoma_cookie_consent') ||
-          localStorage.getItem('jakoma_cookie_consent_v1') ||
-          localStorage.getItem('jakomaCookieConsent');
-      } catch (e) { storedConsent = null; }
-    }
-
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'functionality_storage': 'granted',
-      'security_storage': 'granted'
-    });
-
-    const norm = (storedConsent === 'granted') ? 'accepted'
-               : (storedConsent === 'denied') ? 'declined'
-               : storedConsent;
-
-    if (norm === 'accepted') {
-      gtag('consent', 'update', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'granted',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'functionality_storage': 'granted',
-        'security_storage': 'granted'
-      });
-    } else if (norm === 'declined') {
-      gtag('consent', 'update', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'functionality_storage': 'granted',
-        'security_storage': 'granted'
-      });
-    }
-  </script>
-
-  <!-- Google Tag Manager -->
-  <script id="gtm-script">
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WCJBPXM6');
-  </script>
+<title>Jakoma Engagement Models | Sprints, Retainers & Prototypes</title>
+<link rel="canonical" href="https://www.jakoma.org/consulting.html"/>
+<meta name="description" content="See how Jakoma works through timeboxed sprints, fractional retainers, and prototype engagements across AI, analytics, automation, and transformation."/>
+<meta property="og:site_name" content="Jakoma"/>
+<meta property="og:title" content="Jakoma Engagement Models | Sprints, Retainers & Prototypes"/>
+<meta property="og:description" content="See how Jakoma works through timeboxed sprints, fractional retainers, and prototype engagements across AI, analytics, automation, and transformation."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.jakoma.org/consulting.html"/>
+<meta property="og:image" content="https://www.jakoma.org/logo.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="style.css"/>
+<script id="consent-init">
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'analytics_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'functionality_storage': 'granted',
+  'security_storage': 'granted'
+});
+</script>
+<script id="gtm-script">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WCJBPXM6');</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Jakoma",
+  "url": "https://www.jakoma.org/",
+  "logo": "https://www.jakoma.org/logo.jpg",
+  "sameAs": ["https://www.linkedin.com/company/jakoma/"]
+}</script>
 </head>
-
-<body data-page="consulting">
+<body data-page="consulting.html">
 <a class="skip-link" href="#main">Skip to content</a>
-
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-
 <div aria-hidden="true" aria-label="Cookie consent" id="cookie-banner" role="dialog" style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">We use essential cookies for site function and optional analytics cookies to understand usage. <a href="cookies.html">Learn more</a><button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button><button aria-label="Decline cookies" data-cookie="decline" type="button">Decline</button></div>
-
-<div aria-hidden="true" class="mobile-menu-overlay"></div>
-<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu"><button aria-label="Close menu" class="menu-close" onclick="toggleMenu()" type="button">✕</button><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a aria-current="page" href="consulting.html">Consulting</a><a href="products.html">Toolkits</a><div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">Offers</div><a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a><a href="fractional-governance-leader-retainer.html">Fractional Retainer</a><a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a><a class="js-utm" data-cta="nav_proposal_click" data-track="nav_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=proposal&amp;utm_content=nav" href="https://tally.so/r/jaxr2R" rel="noopener noreferrer" target="_blank">Request a Proposal</a><a href="policy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookies.html">Cookie Policy</a></nav>
-
-<header>
-  <button id="backButton" class="back-toggle" type="button" aria-label="Go back">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-
+<div aria-hidden="true" class="mobile-menu-overlay"></div><nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu"><button aria-label="Close menu" class="menu-close" onclick="toggleMenu()" type="button">✕</button><a href="index.html">Home</a><a href="services.html">Services</a><a href="how-we-work.html">How We Work</a><a href="about.html">About</a><a href="products.html">Toolkits</a><div class="mobile-menu-section">Service areas</div><a href="ai-governance.html">AI & Governance</a><a href="data-analytics.html">Data & Analytics</a><a href="apps-automation.html">Apps & Automation</a><a href="strategy-transformation.html">Strategy & Transformation</a><a href="audit-assurance.html">Audit & Assurance</a><div class="mobile-menu-section">Offers</div><a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a><a href="fractional-governance-leader-retainer.html">Fractional Retainer</a><a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a><a class="js-utm" data-cta="nav_proposal_click" data-track="nav_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=proposal&amp;utm_content=nav" href="https://tally.so/r/jaxr2R" rel="noopener noreferrer" target="_blank">Request a Proposal</a><a href="policy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookies.html">Cookie Policy</a></nav>
+<header class="site-header"> 
+<div class="topbar">
+  <button aria-label="Go back" class="back-toggle" id="backButton" type="button"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+  <div class="brand-wrap"><a class="brand" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="92"/><span>Jakoma</span></a></div>
+  <nav aria-label="Primary" class="desktop-nav"><a href="index.html">Home</a><a href="services.html">Services</a><a href="how-we-work.html">How We Work</a><a href="about.html">About</a><a href="products.html">Toolkits</a><a class="nav-cta js-utm" data-cta="header_proposal_click" data-track="header_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=header&amp;utm_campaign=proposal&amp;utm_content=consulting.html" href="https://tally.so/r/jaxr2R" rel="noopener noreferrer" target="_blank">Request a Proposal</a></nav>
   <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
-
-  <a aria-label="Jakoma home" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
-
-  <h1>Consulting</h1>
-  <p>
-    Governance-first advisory and delivery for regulated organisations that need speed with assurance.
-    Clear decision routes, usable outputs, measurable outcomes.
-  </p>
-
-  <a class="cta-button js-utm"
-     data-cta="consulting_primary_interest"
-     data-track="consulting_primary_interest"
-     data-utm-base="utm_source=jakoma-site&amp;utm_medium=hero&amp;utm_campaign=consulting&amp;utm_content=interest_form"
-     href="https://tally.so/r/jaxr2R"
-     rel="noopener noreferrer"
-     target="_blank">Request a Proposal</a>
-
-  <p style="max-width:720px;margin:1rem auto 0;opacity:0.9;">
-    2–3 minutes. You’ll get a straight recommendation on the best starting point.
-  </p>
+</div>
+<div class="hero-shell">
+  <p class="eyebrow">Engagement models</p>
+  <h1>Engagement models built for clarity, momentum, and useful outputs.</h1>
+  <p class="hero-copy">Jakoma works through structured delivery models: sprints for focused problems, retainers for ongoing senior support, and prototypes for fast testing of tools, workflows, and automation ideas.</p>
+  <div class="hero-actions"><a class="cta-button js-utm" data-cta="hero_proposal_click" data-track="hero_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=hero&amp;utm_campaign=proposal&amp;utm_content=consulting.html" href="https://tally.so/r/jaxr2R" rel="noopener noreferrer" target="_blank">Request a Proposal</a><a class="cta-button ghost js-utm" data-cta="hero_checklist_click" data-track="hero_checklist_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=hero&amp;utm_campaign=checklist&amp;utm_content=consulting.html" href="https://tally.so/r/WO067L" rel="noopener noreferrer" target="_blank">Download the Checklist</a></div>
+</div>
 </header>
-
-<main id="main" style="padding:2rem;max-width:950px;margin:auto;">
-
-  <section>
-    <h2>What we do</h2>
-    <p>
-      Jakoma helps leaders deliver AI and data capability without losing trust.
-      That means practical governance, proportionate controls, and delivery support that survives scrutiny.
-    </p>
-    <p style="opacity:0.9;">
-      Client names and employer details are withheld for confidentiality. References available on request.
-    </p>
-  </section>
-
-  <hr/>
-
-  <section>
-    <h2>Representative outcomes (details withheld)</h2>
-    <div class="card-row">
-      <div class="card">
-        <h3>Less manual effort</h3>
-        <p>Typically <strong>50–80%</strong> reduction in recurring manual reporting through standard definitions, automation and self-serve outputs.</p>
-      </div>
-      <div class="card">
-        <h3>Faster decisions</h3>
-        <p>Governance moves when decision rights and escalation are explicit. Expect cleaner ownership and faster decisions.</p>
-      </div>
-      <div class="card">
-        <h3>Audit-ready confidence</h3>
-        <p>Registers, minimum documentation standards, and decision logs that make assurance simpler and defensible.</p>
-      </div>
-    </div>
-    <p style="opacity:0.85;max-width:820px;margin:0.75rem auto 0;">
-      These are typical patterns across regulated environments; specifics are withheld to protect confidentiality and professional boundaries.
-    </p>
-  </section>
-
-  <hr/>
-
-  <section>
-    <h2>Where we help most</h2>
-    <div class="card-row">
-      <div class="card">
-        <h3>AI governance &amp; assurance</h3>
-        <p>Operating model, decision routes, policy, registers, controls, and adoption guardrails.</p>
-      </div>
-      <div class="card">
-        <h3>Information governance</h3>
-        <p>UK GDPR-aligned approaches, DPIA workflows, risk management, supplier governance, audit readiness.</p>
-      </div>
-      <div class="card">
-        <h3>Data &amp; digital strategy</h3>
-        <p>Roadmaps, maturity, interoperability, metrics, and measurable delivery plans.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr/>
-
-  <section>
-    <h2>Ways to engage</h2>
-    <p style="max-width:780px;margin:auto;text-align:center;">
-      Choose the level of support you need. If you’re unsure, start with the proposal request and we’ll recommend the right option.
-    </p>
-
-    <div class="card-row">
-      <div class="card">
-        <h3>Option A: Sprint (timeboxed)</h3>
-        <p><strong>Best for:</strong> fast clarity and usable outputs.</p>
-        <ul>
-          <li>2–3 week delivery window</li>
-          <li>Governance pack + templates + roadmap</li>
-          <li>Clear decision routes and ownership</li>
-        </ul>
-        <a class="cta-button" href="ai-governance-readiness-sprint.html">Explore Sprint</a>
-      </div>
-
-      <div class="card">
-        <h3>Option B: Fractional leadership (retainer)</h3>
-        <p><strong>Best for:</strong> ongoing governance cadence and senior cover.</p>
-        <ul>
-          <li>Monthly steer + assurance</li>
-          <li>Risk, DPIA and supplier governance</li>
-          <li>Stakeholder alignment and unblock</li>
-        </ul>
-        <a class="cta-button" href="fractional-governance-leader-retainer.html">Explore Retainer</a>
-      </div>
-
-      <div class="card">
-        <h3>Option C: Advisory (flex)</h3>
-        <p><strong>Best for:</strong> targeted support, reviews, and decision support.</p>
-        <ul>
-          <li>Governance review + recommendations</li>
-          <li>Board briefings and exec support</li>
-          <li>Policy/controls review and uplift</li>
-        </ul>
-        <a class="cta-button js-utm"
-           data-cta="consulting_advisory_interest"
-           data-track="consulting_advisory_interest"
-           data-utm-base="utm_source=jakoma-site&amp;utm_medium=card&amp;utm_campaign=consulting&amp;utm_content=advisory_interest"
-           href="https://tally.so/r/jaxr2R"
-           rel="noopener noreferrer"
-           target="_blank">Ask about Advisory</a>
-      </div>
-    </div>
-  </section>
-
-  <hr/>
-
-  <section>
-    <h2>What you can expect (first 10 working days)</h2>
-    <div class="card-row">
-      <div class="card">
-        <h3>Clarity</h3>
-        <p>What you should do first, what can wait, and what “safe enough” looks like in your context.</p>
-      </div>
-      <div class="card">
-        <h3>Artefacts</h3>
-        <p>Templates and minimum standards that can be adopted immediately (not a generic policy deck).</p>
-      </div>
-      <div class="card">
-        <h3>Proof</h3>
-        <p>How you’ll measure progress: benefits, adoption, assurance evidence — and who owns what.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr/>
-
-  <section>
-    <h2>Typical deliverables</h2>
-    <ul>
-      <li>AI governance operating model (roles, RACI, decision rights, escalation)</li>
-      <li>Acceptable use policy + staff guidance</li>
-      <li>AI/tool register + minimum documentation standard</li>
-      <li>DPIA workflow templates + privacy-by-design patterns</li>
-      <li>Supplier due diligence questions + assurance pack</li>
-      <li>Benefits and measurement approach (what you’ll track and why)</li>
-    </ul>
-  </section>
-
-  <hr/>
-
-  <section>
-    <h2>How we work</h2>
-    <div class="card-row">
-      <div class="card">
-        <h3>1) Fit check</h3>
-        <p>You share goals, constraints and stakeholders. We look for fast wins and hidden risks.</p>
-      </div>
-      <div class="card">
-        <h3>2) Clear recommendation</h3>
-        <p>You get a straight answer: where to start, what to produce, and how to evidence it.</p>
-      </div>
-      <div class="card">
-        <h3>3) Deliver &amp; embed</h3>
-        <p>We ship usable outputs, land ownership, and define how success will be measured.</p>
-      </div>
-    </div>
-  </section>
-
-  <div style="text-align:center;margin-top:2rem;">
-    <p>Want the quickest route to safe progress? Start with a proposal request.</p>
-    <a class="cta-button js-utm"
-       data-cta="consulting_interest_form"
-       data-track="consulting_interest_form"
-       data-utm-base="utm_source=jakoma-site&amp;utm_medium=website&amp;utm_campaign=consulting&amp;utm_content=final_cta"
-       href="https://tally.so/r/jaxr2R"
-       rel="noopener noreferrer"
-       target="_blank">Request a Proposal</a>
-  </div>
+<main id="main">
+<section class="section"><div class="panel"><h2>How clients engage Jakoma</h2><p class="lead">This page reframes consulting as engagement models rather than a narrow advisory-only page. That helps visitors see that Jakoma can advise, build, prototype, and provide leadership cover.</p><div class="grid grid-3"><div class="card"><h3>Sprints</h3><p>Short, focused, outcome-led work for a specific problem or decision point.</p></div><div class="card"><h3>Retainers</h3><p>Ongoing senior support where leaders need regular governance, prioritisation, and delivery steer.</p></div><div class="card"><h3>Prototypes</h3><p>Fast proof-of-value work for workflows, tools, automation, or app concepts.</p></div></div></div></section>
+<section class="section split"><div class="panel"><h2>Where consulting meets building</h2><ul class="plain-list"><li>Analytics strategy that turns into working dashboards</li><li>AI governance that turns into usable controls and adoption plans</li><li>Transformation advice that turns into operating models and action plans</li><li>Automation ideas that turn into prototypes and pilot plans</li></ul></div><div class="panel"><h2>Best fit</h2><p>Jakoma is well suited to complex organisations that need credible judgement, practical outputs, and a partner who understands that delivery and accountability must work together.</p><p><a class="cta-button" href="how-we-work.html">See how we work</a></p></div></section>
 </main>
-
-<footer style="text-align:center;padding:2rem;"><p>© 2025–2026 Jakoma. All rights reserved.</p><p><em>Jakoma is a founder-led, multi-sector consultancy focused on AI governance, data and automation delivery.</em></p><a href="policy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="cookies.html">Cookies</a></footer>
-
+<footer class="site-footer"><div class="footer-grid"><div><h3>Jakoma</h3><p>Jakoma is a founder-led consultancy and product studio delivering AI, data, analytics, transformation, and automation support.</p></div><div><h4>Explore</h4><p><a href="services.html">Services</a><br/><a href="how-we-work.html">How We Work</a><br/><a href="audit-assurance.html">For Audit &amp; Assurance</a></p></div><div><h4>Legal</h4><p><a href="policy.html">Privacy</a><br/><a href="terms.html">Terms</a><br/><a href="cookies.html">Cookies</a></p></div></div><p class="footer-meta">© 2025–2026 Jakoma. All rights reserved.</p></footer>
 <script defer src="site.js"></script>
 </body>
 </html>
