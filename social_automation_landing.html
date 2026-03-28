@@ -1,270 +1,212 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jakoma Social Automation | Approved LinkedIn publishing without the chaos</title>
-  <link rel="canonical" href="https://www.jakoma.org/social_automation_landing.html" />
-  <meta name="description" content="LinkedIn-first social automation for small agencies, founders and consultants who want a practical approval and publishing workflow without spreadsheet chaos." />
-
-  <meta property="og:site_name" content="Jakoma" />
-  <meta property="og:title" content="Jakoma Social Automation | Approved LinkedIn publishing without the chaos" />
-  <meta property="og:description" content="Plan, approve and publish LinkedIn content with a practical workflow built for small agencies, founders and consultants." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.jakoma.org/social_automation_landing.html" />
-  <meta property="og:image" content="https://www.jakoma.org/logo.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <link rel="stylesheet" href="style.css" />
-
-  <script id="consent-init">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.__jakomaConsentInitialised = true;
-
-    function getCookie(name) {
-      const parts = document.cookie ? document.cookie.split('; ') : [];
-      for (const part of parts) {
-        const i = part.indexOf('=');
-        if (i === -1) continue;
-        const k = part.slice(0, i);
-        const v = part.slice(i + 1);
-        if (k === name) return decodeURIComponent(v);
-      }
-      return null;
-    }
-
-    let storedConsent = getCookie('jakoma_cookie_consent');
-    if (!storedConsent) {
-      try {
-        storedConsent =
-          localStorage.getItem('jakoma_cookie_consent') ||
-          localStorage.getItem('jakoma_cookie_consent_v1') ||
-          localStorage.getItem('jakomaCookieConsent');
-      } catch (e) { storedConsent = null; }
-    }
-
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'functionality_storage': 'granted',
-      'security_storage': 'granted'
-    });
-
-    const norm = (storedConsent === 'granted') ? 'accepted'
-               : (storedConsent === 'denied') ? 'declined'
-               : storedConsent;
-
-    if (norm === 'accepted') {
-      gtag('consent', 'update', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'granted',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'functionality_storage': 'granted',
-        'security_storage': 'granted'
-      });
-    } else if (norm === 'declined') {
-      gtag('consent', 'update', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'functionality_storage': 'granted',
-        'security_storage': 'granted'
-      });
-    }
-  </script>
-
-  <script id="gtm-script">
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WCJBPXM6');
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "LinkedIn content workflow and publishing support",
-    "name": "Jakoma Social Automation",
-    "provider": {
-      "@type": "Organization",
-      "name": "Jakoma",
-      "url": "https://www.jakoma.org/"
-    },
-    "areaServed": "GB",
-    "url": "https://www.jakoma.org/social_automation_landing.html"
-  }
-  </script>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Social Automation Beta | Powered by Jakoma</title>
+  <link href="https://www.jakoma.org/social_automation_landing.html" rel="canonical"/>
+  <meta content="Approval-led LinkedIn publishing workflow for founders, consultants and lean teams, powered by Jakoma." name="description"/>
+  <meta content="Jakoma" property="og:site_name"/>
+  <meta content="Social Automation Beta | Powered by Jakoma" property="og:title"/>
+  <meta content="Approval-led LinkedIn publishing workflow for founders, consultants and lean teams, powered by Jakoma." property="og:description"/>
+  <meta content="https://www.jakoma.org/social_automation_landing.html" property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://www.jakoma.org/logo.jpg" property="og:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="#031b4e" name="theme-color"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script id="consent-init">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.__jakomaConsentInitialised=true;function getCookie(name){const parts=document.cookie?document.cookie.split('; '):[];for(const part of parts){const i=part.indexOf('=');if(i===-1) continue;const k=part.slice(0,i);const v=part.slice(i+1);if(k===name) return decodeURIComponent(v);}return null;}let storedConsent=getCookie('jakoma_cookie_consent');if(!storedConsent){try{storedConsent=localStorage.getItem('jakoma_cookie_consent')||localStorage.getItem('jakoma_cookie_consent_v1')||localStorage.getItem('jakomaCookieConsent');}catch(e){storedConsent=null;}}gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','functionality_storage':'granted','security_storage':'granted'});const norm=(storedConsent==='granted')?'accepted':(storedConsent==='denied')?'declined':storedConsent;if(norm==='accepted'){gtag('consent','update',{'ad_storage':'denied','analytics_storage':'granted','ad_user_data':'denied','ad_personalization':'denied','functionality_storage':'granted','security_storage':'granted'});}else if(norm==='declined'){gtag('consent','update',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','functionality_storage':'granted','security_storage':'granted'});}</script>
+  <script id="gtm-script">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WCJBPXM6');</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "LinkedIn content workflow and publishing support",
+  "name": "Social Automation Beta",
+  "provider": {
+    "@type": "Organization",
+    "name": "Jakoma",
+    "url": "https://www.jakoma.org/"
+  },
+  "url": "https://www.jakoma.org/social_automation_landing.html"
+}</script>
 </head>
 <body data-page="social-automation">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<div aria-hidden="true" aria-label="Cookie consent" class="cookie-banner" id="cookie-banner" role="dialog" style="display:none;">
+  <div class="cookie-inner shell">
+    <p>We use essential cookies for site function and optional analytics cookies to understand usage. <a href="cookies.html">Learn more</a></p>
+    <div class="cookie-actions">
+      <button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button>
+      <button aria-label="Decline cookies" class="secondary-cookie" data-cookie="decline" type="button">Decline</button>
+    </div>
+  </div>
+</div>
 
-  <div aria-hidden="true" aria-label="Cookie consent" id="cookie-banner" role="dialog" style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">We use essential cookies for site function and optional analytics cookies to understand usage. <a href="cookies.html">Learn more</a><button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button><button aria-label="Decline cookies" data-cookie="decline" type="button">Decline</button></div>
-
-  <div aria-hidden="true" class="mobile-menu-overlay"></div>
-  <nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu">
-    <button aria-label="Close menu" class="menu-close" onclick="toggleMenu()" type="button">✕</button>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="consulting.html">Consulting</a>
-    <a href="products.html">Tools &amp; Apps</a>
-    <div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">Offers</div>
-    <a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a>
-    <a href="fractional-governance-leader-retainer.html">Fractional Retainer</a>
-    <a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
-    <a class="js-utm" data-cta="social_automation_mobile_beta_click" data-track="social_automation_mobile_beta_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=social-automation&amp;utm_content=mobile-beta" href="https://beta.jakoma.org/beta">Join Social Automation Beta</a>
-    <a href="policy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Use</a>
-    <a href="cookies.html">Cookie Policy</a>
-  </nav>
-
-  <header>
-    <button aria-label="Go back" class="back-toggle" id="backButton" type="button">
-      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-        <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-      </svg>
-    </button>
-    <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
-    <a href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150" /></a>
-    <h1>Approved LinkedIn content, scheduled and published without the chaos.</h1>
-    <p>Jakoma Social Automation helps small agencies, founders and consultants plan, approve and publish LinkedIn content with a practical workflow that cuts admin, missed posts and last-minute scrambling.</p>
-    <a class="cta-button js-utm" data-cta="social_automation_hero_beta_click" data-track="social_automation_hero_beta_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=hero&amp;utm_campaign=social-automation&amp;utm_content=hero-beta" href="https://beta.jakoma.org/beta?utm_source=jakoma-site&amp;utm_medium=hero&amp;utm_campaign=social-automation&amp;utm_content=hero-beta">Join the beta</a>
-    <a class="cta-button" href="#pricing" style="margin-top:0.75rem;display:inline-block;">View pricing</a>
-    <p style="max-width:720px;margin:1rem auto 0;opacity:0.9;">LinkedIn-first. Approval-led. Built for practical operator workflows.</p>
-  </header>
-
-  <main id="main">
-    <section>
-      <h2>Who it is for</h2>
-      <div class="card-row">
-        <div class="card">
-          <h3>Small agencies</h3>
-          <p>Manage multiple client brands without juggling spreadsheets, missing approvals or posting from the wrong account.</p>
-        </div>
-        <div class="card">
-          <h3>Founders and consultants</h3>
-          <p>Stay visible on LinkedIn with a practical workflow instead of another bloated social platform.</p>
-        </div>
-        <div class="card">
-          <h3>Lean teams</h3>
-          <p>Use a lightweight system for review, scheduling and publishing without adding more admin.</p>
-        </div>
+<div aria-hidden="true" class="mobile-menu-overlay"></div>
+<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu">
+  <button aria-label="Close menu" class="menu-close" onclick="toggleMenu()" type="button">✕</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="consulting.html">Consulting</a>
+  <a href="data-intelligence.html">Data &amp; Intelligence</a>
+  <a href="products.html">Products</a>
+  <div class="mobile-menu-section">Flagship offers</div>
+  <a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a>
+  <a href="fractional-governance-leader-retainer.html">Fractional Retainer</a>
+  <a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
+  <a class="js-utm" data-cta="nav_proposal_click" data-track="nav_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=proposal&amp;utm_content=nav" href="https://tally.so/r/jaxr2R" rel="noopener noreferrer" target="_blank">Request a Proposal</a>
+  <a href="policy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Use</a>
+  <a href="cookies.html">Cookie Policy</a>
+</nav>
+<div class="topbar-wrap">
+  <div class="topbar shell">
+    <a aria-label="Jakoma home" class="brandmark" href="index.html">
+      <img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="56" height="56"/>
+      <div>
+        <strong>Jakoma</strong>
+        <span>AI, data and governance</span>
       </div>
-    </section>
+    </a>
+    <nav aria-label="Primary" class="desktop-nav"><a class="" href="index.html">Home</a><a class="" href="about.html">About</a><a class="" href="services.html">Services</a><a class="" href="consulting.html">Consulting</a><a class="" href="data-intelligence.html">Data &amp; Intelligence</a><a class="current" href="products.html">Products</a></nav>
+    <div class="topbar-actions">
+      <a class="topbar-link" href="mailto:support@jakoma.org">Contact</a>
+      <a class="cta-button mini js-utm" data-cta="topbar_proposal_click" data-track="topbar_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=topbar&amp;utm_campaign=proposal&amp;utm_content=topbar" href="https://tally.so/r/jaxr2R" rel="noopener noreferrer" target="_blank">Request a Proposal</a>
+      <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
+    </div>
+  </div>
+</div>
 
-    <hr />
-
-    <section>
-      <h2>What it does</h2>
-      <div class="card-row">
-        <div class="card">
-          <h3>Plan content</h3>
-          <p>Organise posts by brand, date, platform, theme and campaign so your schedule is visible and manageable.</p>
-        </div>
-        <div class="card">
-          <h3>Review and approve</h3>
-          <p>Approve or reject posts before they become eligible for publishing.</p>
-        </div>
-        <div class="card">
-          <h3>Publish with visibility</h3>
-          <p>Track publish attempts, failures, retries and audit history from one operator console.</p>
-        </div>
+<header class="hero-premium hero-subpage">
+  <button aria-label="Go back" class="back-toggle" id="backButton" type="button"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+  <div class="hero-shell shell">
+    <div class="hero-copy">
+      <span class="hero-kicker">Focused product · powered by Jakoma</span>
+      <h1>Approved LinkedIn content, scheduled and published without the chaos.</h1>
+      <p class="hero-lead">Social Automation is a focused Jakoma product for lean teams who want a practical LinkedIn workflow with review, scheduling and operational visibility.</p>
+      <div class="hero-actions"><a class="cta-button js-utm" data-cta="social_automation_hero_beta_click" data-track="social_automation_hero_beta_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=hero&amp;utm_campaign=social-automation&amp;utm_content=hero-beta" href="https://beta.jakoma.org/beta?utm_source=jakoma-site&amp;utm_medium=hero&amp;utm_campaign=social-automation&amp;utm_content=hero-beta" rel="noopener noreferrer">Join the Beta</a><a class="cta-button secondary" href="#pricing">View Pricing</a></div>
+      
+    </div>
+    <aside aria-label="Jakoma overview" class="hero-showcase">
+      <div class="showcase-card logo-card">
+        <img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="108" height="108"/>
+        <strong>Jakoma</strong>
+        <span>Multi-sector consultancy and product studio</span>
       </div>
-    </section>
-
-    <hr />
-
-    <section>
-      <h2>How it works</h2>
-      <div class="card-row">
-        <div class="card">
-          <h3>1. Set up your brand</h3>
-          <p>Add brand details, LinkedIn configuration, tone and content rules.</p>
-        </div>
-        <div class="card">
-          <h3>2. Create or upload content</h3>
-          <p>Add captions and assets for text or image posts, then attach them to the schedule.</p>
-        </div>
-        <div class="card">
-          <h3>3. Approve what goes live</h3>
-          <p>Use the review flow so only approved content becomes publishable.</p>
-        </div>
+      <div class="showcase-card metric-card">
+        <span class="metric-label">Positioning</span>
+        <strong>Governance-first, outcome-led, delivery-ready</strong>
+        <p>Built for regulated and complex environments where credibility, ownership and measurable progress matter.</p>
       </div>
-      <div class="card-row" style="margin-top:1.5rem;">
-        <div class="card">
-          <h3>4. Publish and track</h3>
-          <p>Publish to LinkedIn, retry failures and keep a record of what happened.</p>
-        </div>
-        <div class="card">
-          <h3>5. Review billing intake</h3>
-          <p>Use the beta signup and billing workflow to handle plan selection and subscription intake cleanly.</p>
-        </div>
-        <div class="card">
-          <h3>6. Keep control</h3>
-          <p>Designed for environments where accountability matters more than vanity features.</p>
-        </div>
+      <div class="showcase-card metric-card">
+        <span class="metric-label">What clients get</span>
+        <ul>
+          <li>Clearer decisions and accountability</li>
+          <li>Sharper visibility, BI and reporting</li>
+          <li>Safer AI adoption and workable next steps</li>
+        </ul>
       </div>
-    </section>
+    </aside>
+  </div>
+</header>
+<main id="main">
+<section>
+  <div class="shell card-grid card-grid-3">
+    <article class="card"><h3>Approval-led workflow</h3><p>Content moves through review before it becomes publishable, which reduces risk and avoids the usual spreadsheet chaos.</p></article>
+    <article class="card"><h3>LinkedIn-first by design</h3><p>Built for founders, consultants and lean agencies who care more about reliable publishing than vanity feature lists.</p></article>
+    <article class="card"><h3>Powered by Jakoma</h3><p>A focused product inside the wider Jakoma studio, combining workflow clarity with practical operational design.</p></article>
+  </div>
+</section>
+<section>
+  <div class="shell split-section">
+    <div>
+      <span class="eyebrow">Who it fits</span>
+      <h2>Made for lean teams that need control without a bloated social stack.</h2>
+      <ul class="feature-list">
+        <li>Small agencies managing multiple brands or clients</li>
+        <li>Founders and consultants maintaining visibility on LinkedIn</li>
+        <li>Operator-led teams who want review, scheduling and clear audit history</li>
+      </ul>
+    </div>
+    <div class="highlight-panel">
+      <h3>What it helps solve</h3>
+      <ul>
+        <li>Missed approvals and late posting</li>
+        <li>Messy spreadsheets and poor workflow visibility</li>
+        <li>Unclear publishing history and retry failures</li>
+        <li>Too much admin for a simple LinkedIn programme</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="shell section-head"><span class="eyebrow">How it works</span><h2>Simple flow, clear operator control.</h2></div>
+  <div class="shell card-grid card-grid-3">
+    <article class="card process-card"><span class="process-step">Step 01</span><h3>Plan content</h3><p>Organise posts by brand, date, campaign and status so the schedule is visible and manageable.</p></article>
+    <article class="card process-card"><span class="process-step">Step 02</span><h3>Review and approve</h3><p>Use a practical approval flow so only signed-off content is ready to publish.</p></article>
+    <article class="card process-card"><span class="process-step">Step 03</span><h3>Publish and track</h3><p>Monitor publish attempts, retries and outcomes from one clear operating view.</p></article>
+  </div>
+</section>
+<section id="pricing">
+  <div class="shell section-head"><span class="eyebrow">Beta pricing</span><h2>Simple pricing for early users.</h2></div>
+  <div class="shell card-grid card-grid-3">
+    <article class="card premium-card"><h3>Starter — £49/month</h3><p>One brand or a focused solo workflow.</p><ul><li>LinkedIn text and image posts</li><li>Approval workflow</li><li>Basic schedule management</li></ul></article>
+    <article class="card premium-card"><h3>Growth — £99/month</h3><p>Best for consultants or agencies with a stronger posting rhythm.</p><ul><li>Everything in Starter</li><li>Asset library workflow</li><li>Retry and audit visibility</li></ul></article>
+    <article class="card premium-card"><h3>Pro — £199/month</h3><p>For higher-volume teams needing more operational control.</p><ul><li>Everything in Growth</li><li>Greater workflow visibility</li><li>Priority onboarding support</li></ul></article>
+  </div>
+</section>
+<section class="page-cta">
+  <div class="shell compact-shell">
+    <h2>Ready to test the Social Automation beta?</h2>
+    <p>Use the beta route to choose a plan, register interest and move into onboarding.</p>
+    <div class="hero-actions center-actions">
+      <a class="cta-button js-utm" data-cta="social_automation_bottom_beta_click" data-track="social_automation_bottom_beta_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=section&amp;utm_campaign=social-automation&amp;utm_content=bottom-beta" href="https://beta.jakoma.org/beta?utm_source=jakoma-site&amp;utm_medium=section&amp;utm_campaign=social-automation&amp;utm_content=bottom-beta" rel="noopener noreferrer">Start Beta Signup</a>
+      <a class="cta-button secondary" href="mailto:support@jakoma.org?subject=Jakoma%20Social%20Automation%20enquiry">Ask a Question</a>
+    </div>
+  </div>
+</section>
+</main>
 
-    <hr />
-
-    <section id="pricing">
-      <h2>Simple beta pricing</h2>
-      <div class="card-row">
-        <div class="card">
-          <h3>Starter — £49/month</h3>
-          <p>A simple starting point for one brand or a focused solo workflow.</p>
-          <ul>
-            <li>LinkedIn text and image posts</li>
-            <li>Approval workflow</li>
-            <li>Basic schedule management</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Growth — £99/month</h3>
-          <p>Best for agencies or consultants who need a more robust posting rhythm.</p>
-          <ul>
-            <li>Everything in Starter</li>
-            <li>Asset library workflow</li>
-            <li>Retry and audit visibility</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Pro — £199/month</h3>
-          <p>For teams managing more volume and needing a stronger operator workflow.</p>
-          <ul>
-            <li>Everything in Growth</li>
-            <li>Higher operational visibility</li>
-            <li>Priority onboarding support</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <hr />
-
-    <section style="text-align:center;">
-      <h2>Ready to test Jakoma Social Automation?</h2>
-      <p>Start with the beta flow, choose your plan and get your LinkedIn publishing workflow under control.</p>
-      <a class="cta-button js-utm" data-cta="social_automation_bottom_beta_click" data-track="social_automation_bottom_beta_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=section&amp;utm_campaign=social-automation&amp;utm_content=bottom-beta" href="https://beta.jakoma.org/beta?utm_source=jakoma-site&amp;utm_medium=section&amp;utm_campaign=social-automation&amp;utm_content=bottom-beta">Start beta signup</a>
-      <a class="cta-button" href="mailto:support@jakoma.org?subject=Jakoma%20Social%20Automation%20enquiry" style="margin-top:0.75rem;display:inline-block;">Ask a question</a>
-    </section>
-  </main>
-
-  <footer style="text-align:center;padding:2rem;">
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div>
+      <h3>Jakoma</h3>
+      <p>Founder-led consultancy and product studio helping complex organisations improve governance, strengthen decision-making and adopt AI safely.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="consulting.html">Consulting</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="social_automation_landing.html">Social automation beta</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Offers</h4>
+      <ul>
+        <li><a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a></li>
+        <li><a href="fractional-governance-leader-retainer.html">Fractional Retainer</a></li>
+        <li><a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:support@jakoma.org">support@jakoma.org</a></li>
+        <li><a href="policy.html">Privacy policy</a></li>
+        <li><a href="terms.html">Terms of use</a></li>
+        <li><a href="cookies.html">Cookie policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom shell">
     <p>© 2025–2026 Jakoma. All rights reserved.</p>
-    <p><em>Jakoma is a founder-led, multi-sector consultancy focused on AI governance, data and automation delivery.</em></p>
-    <a href="policy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="cookies.html">Cookies</a>
-  </footer>
-
-  <script defer src="site.js"></script>
+    <p>Built for clear positioning, clean conversion and publish-ready handoff.</p>
+  </div>
+</footer>
+<script defer src="site.js"></script>
 </body>
 </html>
