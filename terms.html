@@ -2,173 +2,149 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Terms of Use | Jakoma</title>
-  <link href="https://www.jakoma.org/terms.html" rel="canonical"/>
-  <meta content="Terms of Use for the Jakoma website." name="description"/>
-  <meta content="Jakoma" property="og:site_name"/>
-  <meta content="Terms of Use | Jakoma" property="og:title"/>
-  <meta content="Terms of Use for the Jakoma website." property="og:description"/>
-  <meta content="https://www.jakoma.org/terms.html" property="og:url"/>
-  <meta content="website" property="og:type"/>
-  <meta content="https://www.jakoma.org/logo.jpg" property="og:image"/>
-  <meta content="summary_large_image" name="twitter:card"/>
-  <meta content="#031b4e" name="theme-color"/>
+  <link rel="canonical" href="https://www.jakoma.org/terms.html"/>
   <link href="style.css" rel="stylesheet"/>
-  <script id="consent-init">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.__jakomaConsentInitialised=true;function getCookie(name){const parts=document.cookie?document.cookie.split('; '):[];for(const part of parts){const i=part.indexOf('=');if(i===-1) continue;const k=part.slice(0,i);const v=part.slice(i+1);if(k===name) return decodeURIComponent(v);}return null;}let storedConsent=getCookie('jakoma_cookie_consent');if(!storedConsent){try{storedConsent=localStorage.getItem('jakoma_cookie_consent')||localStorage.getItem('jakoma_cookie_consent_v1')||localStorage.getItem('jakomaCookieConsent');}catch(e){storedConsent=null;}}gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','functionality_storage':'granted','security_storage':'granted'});const norm=(storedConsent==='granted')?'accepted':(storedConsent==='denied')?'declined':storedConsent;if(norm==='accepted'){gtag('consent','update',{'ad_storage':'denied','analytics_storage':'granted','ad_user_data':'denied','ad_personalization':'denied','functionality_storage':'granted','security_storage':'granted'});}else if(norm==='declined'){gtag('consent','update',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','functionality_storage':'granted','security_storage':'granted'});}</script>
-  <script id="gtm-script">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WCJBPXM6');</script>
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Jakoma",
-  "url": "https://www.jakoma.org/",
-  "logo": "https://www.jakoma.org/logo.jpg",
-  "sameAs": ["https://www.linkedin.com/company/jakoma/"]
-}</script>
+
+  <meta name="description" content="Jakoma Terms of Use — covering digital products, services, and user responsibilities across Jakoma brands."/>
+  <meta name="robots" content="index,follow"/>
+
+  <style>
+    .legal-wrap{max-width:980px;margin:2rem auto;padding:0 2rem}
+    .legal-card{background:#fff;border-radius:16px;padding:2.5rem;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+    .legal-card h2{margin-top:2rem}
+    .legal-meta{opacity:0.85}
+    @media (max-width:768px){ .legal-wrap{padding:0 1rem} .legal-card{padding:1.5rem} }
+  </style>
+
+  <!-- Consent init (cookie-first, legacy fallback) -->
+  <script id="consent-init">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.__jakomaConsentInitialised = true;
+
+    function getCookie(name) {
+      const parts = document.cookie ? document.cookie.split('; ') : [];
+      for (const part of parts) {
+        const i = part.indexOf('=');
+        if (i === -1) continue;
+        const k = part.slice(0, i);
+        const v = part.slice(i + 1);
+        if (k === name) return decodeURIComponent(v);
+      }
+      return null;
+    }
+
+    let storedConsent = getCookie('jakoma_cookie_consent');
+    if (!storedConsent) {
+      try {
+        storedConsent =
+          localStorage.getItem('jakoma_cookie_consent') ||
+          localStorage.getItem('jakoma_cookie_consent_v1') ||
+          localStorage.getItem('jakomaCookieConsent');
+      } catch (e) { storedConsent = null; }
+    }
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted'
+    });
+
+    const norm = (storedConsent === 'granted') ? 'accepted'
+               : (storedConsent === 'denied') ? 'declined'
+               : storedConsent;
+
+    if (norm === 'accepted') {
+      gtag('consent', 'update', {
+        ad_storage: 'denied',
+        analytics_storage: 'granted',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+    } else if (norm === 'declined') {
+      gtag('consent', 'update', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script id="gtm-script">
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WCJBPXM6');
+  </script>
 </head>
+
 <body data-page="terms">
 <a class="skip-link" href="#main">Skip to content</a>
+
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-<div aria-hidden="true" aria-label="Cookie consent" class="cookie-banner" id="cookie-banner" role="dialog" style="display:none;">
-  <div class="cookie-inner shell">
-    <p>We use essential cookies for site function and optional analytics cookies to understand usage. <a href="cookies.html">Learn more</a></p>
-    <div class="cookie-actions">
-      <button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button>
-      <button aria-label="Decline cookies" class="secondary-cookie" data-cookie="decline" type="button">Decline</button>
-    </div>
-  </div>
-</div>
+
+<div aria-hidden="true" aria-label="Cookie consent" id="cookie-banner" role="dialog" style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">We use essential cookies for site function and optional analytics cookies to understand usage. <a href="cookies.html">Learn more</a><button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button><button aria-label="Decline cookies" data-cookie="decline" type="button">Decline</button></div>
 
 <div aria-hidden="true" class="mobile-menu-overlay"></div>
-<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu">
-  <button aria-label="Close menu" class="menu-close" onclick="toggleMenu()" type="button">✕</button>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="consulting.html">Consulting</a>
-  <a href="data-intelligence.html">Data &amp; Intelligence</a>
-  <a href="products.html">Products</a>
-  <div class="mobile-menu-section">Flagship offers</div>
-  <a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a>
-  <a href="fractional-governance-leader-retainer.html">Fractional Retainer</a>
-  <a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a>
-  <a class="js-utm" data-cta="nav_proposal_click" data-track="nav_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=proposal&amp;utm_content=nav" href="https://tally.so/r/jaxr2R" rel="noopener noreferrer" target="_blank">Request a Proposal</a>
-  <a href="policy.html">Privacy Policy</a>
-  <a href="terms.html">Terms of Use</a>
-  <a href="cookies.html">Cookie Policy</a>
-</nav>
-<div class="topbar-wrap">
-  <div class="topbar shell">
-    <a aria-label="Jakoma home" class="brandmark" href="index.html">
-      <img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="56" height="56"/>
-      <div>
-        <strong>Jakoma</strong>
-        <span>AI, data and governance</span>
-      </div>
-    </a>
-    <nav aria-label="Primary" class="desktop-nav"><a class="current" href="index.html">Home</a><a class="" href="about.html">About</a><a class="" href="services.html">Services</a><a class="" href="consulting.html">Consulting</a><a class="" href="data-intelligence.html">Data &amp; Intelligence</a><a class="" href="products.html">Products</a></nav>
-    <div class="topbar-actions">
-      <a class="topbar-link" href="mailto:support@jakoma.org">Contact</a>
-      <a class="cta-button mini js-utm" data-cta="topbar_proposal_click" data-track="topbar_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=topbar&amp;utm_campaign=proposal&amp;utm_content=topbar" href="https://tally.so/r/jaxr2R" rel="noopener noreferrer" target="_blank">Request a Proposal</a>
-      <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
-    </div>
-  </div>
-</div>
+<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu"><button aria-label="Close menu" class="menu-close" onclick="toggleMenu()" type="button">✕</button><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="consulting.html">Consulting</a><a href="data-intelligence.html">Data &amp; Intelligence</a><a href="products.html">Products</a><div class="mobile-menu-section">Flagship offers</div><a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a><a href="fractional-governance-leader-retainer.html">Fractional Retainer</a><a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a><a href="social_automation_landing.html">Social Automation Beta</a><a class="js-utm" data-cta="nav_proposal_click" data-track="nav_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=proposal&amp;utm_content=nav" href="https://tally.so/r/jaxr2R" rel="noopener noreferrer" target="_blank">Request a Proposal</a><a href="policy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookies.html">Cookie Policy</a></nav>
 
-<header class="hero-premium hero-subpage">
-  <button aria-label="Go back" class="back-toggle" id="backButton" type="button"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
-  <div class="hero-shell shell">
-    <div class="hero-copy">
-      <span class="hero-kicker">Legal</span>
-      <h1>Terms of Use</h1>
-      <p class="hero-lead">These terms explain the basis on which the Jakoma website is made available to visitors.</p>
-      <div class="hero-actions"><a class="cta-button" href="index.html">Back to Home</a></div>
-      
-    </div>
-    <aside aria-label="Jakoma overview" class="hero-showcase">
-      <div class="showcase-card logo-card">
-        <img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="108" height="108"/>
-        <strong>Jakoma</strong>
-        <span>Multi-sector consultancy and product studio</span>
-      </div>
-      <div class="showcase-card metric-card">
-        <span class="metric-label">Positioning</span>
-        <strong>Governance-first, outcome-led, delivery-ready</strong>
-        <p>Built for regulated and complex environments where credibility, ownership and measurable progress matter.</p>
-      </div>
-      <div class="showcase-card metric-card">
-        <span class="metric-label">What clients get</span>
-        <ul>
-          <li>Clearer decisions and accountability</li>
-          <li>Sharper visibility, BI and reporting</li>
-          <li>Safer AI adoption and workable next steps</li>
-        </ul>
-      </div>
-    </aside>
-  </div>
+<header>
+  <button id="backButton" class="back-toggle" type="button" aria-label="Go back">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
+
+  <a aria-label="Jakoma home" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
+
+  <h1>Terms of Use</h1>
+  <p>These terms govern use of Jakoma websites, platforms, and digital products.</p>
 </header>
-<main id="main">
-<section>
-  <div class="shell legal-shell">
-    <p class="policy-meta"><strong>Last updated:</strong> 28 March 2026</p>
-    <h2>Using this website</h2>
-    <p>By using this website, you agree to use it lawfully and in a way that does not interfere with its normal operation, security or availability.</p>
-    <h2>Information on the site</h2>
-    <p>Content on this website is provided for general information about Jakoma, its services and products. It is not a substitute for formal professional advice tailored to your organisation or circumstances.</p>
+
+<main id="main" class="legal-wrap">
+  <div class="legal-card">
+    <p class="legal-meta"><strong>Last updated:</strong> March 2026</p>
+
+    <h2>Acceptance</h2>
+    <p>By using our sites or purchasing our products, you agree to these terms. If you do not agree, please discontinue use.</p>
+
+    <h2>Products &amp; access</h2>
+    <p>Digital products are licensed for personal or business use as stated on the product page. Do not resell, redistribute, or reverse-engineer without permission.</p>
+
+    <h2>Payments &amp; refunds</h2>
+    <p>Payments are processed by trusted providers (e.g. digital checkout/delivery platforms). Provider terms apply at checkout. Refunds are considered per the relevant product policy.</p>
+
     <h2>Intellectual property</h2>
-    <p>Unless stated otherwise, the content, design and branding on this website belong to Jakoma or are used with permission. You may not reuse them in a misleading, infringing or unauthorised way.</p>
-    <h2>External links and third-party services</h2>
-    <p>This website may link to third-party tools, including forms, beta products and external services. Jakoma is not responsible for third-party content, availability or privacy practices outside its own site.</p>
-    <h2>No guarantees</h2>
-    <p>Jakoma aims to keep the website accurate and available, but does not guarantee that the site will always be uninterrupted, error-free or suitable for every purpose.</p>
-    <h2>Liability</h2>
-    <p>Nothing in these terms excludes liability that cannot legally be excluded. Subject to that, Jakoma will not be liable for indirect or consequential loss arising from use of this website.</p>
+    <p>All content, brand assets, and materials are owned by Jakoma unless stated otherwise. Do not copy or reuse without written consent.</p>
+
+    <h2>User content</h2>
+    <p>Content you submit (e.g. forms, feedback) must be lawful and respect intellectual property and privacy rights.</p>
+
     <h2>Changes</h2>
-    <p>We may update these terms from time to time. The current version will always appear on this page.</p>
-    <h2>Governing law</h2>
-    <p>These terms are governed by the laws of England and Wales unless another mandatory local law applies.</p>
+    <p>We may update these terms at any time. Material changes will be signposted on our site. Continued use means you accept the updated terms.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Email <a href="mailto:support@jakoma.org">support@jakoma.org</a>.</p>
   </div>
-</section>
 </main>
 
-<footer class="site-footer">
-  <div class="shell footer-grid">
-    <div>
-      <h3>Jakoma</h3>
-      <p>Founder-led consultancy and product studio helping complex organisations improve governance, strengthen decision-making and adopt AI safely.</p>
-    </div>
-    <div>
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="consulting.html">Consulting</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="social_automation_landing.html">Social automation beta</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Offers</h4>
-      <ul>
-        <li><a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a></li>
-        <li><a href="fractional-governance-leader-retainer.html">Fractional Retainer</a></li>
-        <li><a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="mailto:support@jakoma.org">support@jakoma.org</a></li>
-        <li><a href="policy.html">Privacy policy</a></li>
-        <li><a href="terms.html">Terms of use</a></li>
-        <li><a href="cookies.html">Cookie policy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom shell">
-    <p>© 2025–2026 Jakoma. All rights reserved.</p>
-    <p>Built for clear positioning, clean conversion and publish-ready handoff.</p>
-  </div>
-</footer>
+<footer class="site-footer"><div class="site-footer-inner"><div class="footer-grid"><div><h3>Jakoma</h3><p>Founder-led consultancy and product studio helping complex organisations improve governance, strengthen decision-making and adopt AI safely.</p></div><div><h4>Explore</h4><ul><li><a href="services.html">Services</a></li><li><a href="consulting.html">Consulting</a></li><li><a href="data-intelligence.html">Data &amp; Intelligence</a></li><li><a href="products.html">Products</a></li></ul></div><div><h4>Offers</h4><ul><li><a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a></li><li><a href="fractional-governance-leader-retainer.html">Fractional Retainer</a></li><li><a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a></li><li><a href="social_automation_landing.html">Social Automation Beta</a></li></ul></div><div><h4>Contact</h4><ul><li><a href="mailto:support@jakoma.org">support@jakoma.org</a></li><li><a href="policy.html">Privacy policy</a></li><li><a href="terms.html">Terms of use</a></li><li><a href="cookies.html">Cookie policy</a></li></ul></div></div><div class="footer-bottom"><p>© 2025–2026 Jakoma. All rights reserved.</p><p>Built for clear positioning, stronger conversion and publish-ready launch.</p></div></div></footer>
+
 <script defer src="site.js"></script>
 </body>
 </html>
