@@ -346,10 +346,14 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
   gap: 1.6rem;
   margin-top: 1.6rem;
 }
 .grid-2 > *, .grid-3 > *, .grid-4 > * { flex: 1 1 280px; max-width: 100%; }
+.grid > * {
+  min-width: 0;
+}
 .split {
   display: flex;
   flex-wrap: wrap;
@@ -381,6 +385,11 @@ h3 {
 .card {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+.panel,
+.stat {
+  height: 100%;
 }
 .card-action {
   margin-top: auto;
@@ -392,6 +401,12 @@ h3 {
 .stat-grid > .stat {
   flex: 0 1 calc(50% - 0.8rem);
   max-width: calc(50% - 0.8rem);
+  min-height: 168px;
+}
+.stat-grid.stats-uniform > .stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .card p:last-child,
 .panel p:last-child,
@@ -506,4 +521,130 @@ hr { margin: 3rem 0; border: 0; border-top: 1px solid #e3edf8; }
   display: block;
   width: 100%;
   margin-top: 1.5rem;
+}
+
+
+.cta-button.subtle {
+  background: #fff;
+  color: var(--brand-blue) !important;
+  border: 1px solid rgba(11, 92, 171, 0.18);
+  box-shadow: none;
+}
+.cta-button.subtle:hover {
+  background: #f3f8ff;
+  box-shadow: none;
+}
+
+.card .cta-button,
+.panel .cta-button,
+.stat .cta-button,
+.cta-band .cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.card p .cta-button,
+.panel p .cta-button,
+.stat p .cta-button {
+  display: inline-flex;
+}
+
+.center-actions {
+  text-align: center;
+}
+.proof-card strong {
+  display: inline-block;
+  margin-bottom: 0.65rem;
+  color: var(--brand-blue);
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.proof-card p + p {
+  margin-top: 0.75rem;
+}
+.proof-note {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.96rem;
+}
+.product-tier {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.34rem 0.72rem;
+  border-radius: 999px;
+  background: rgba(11, 92, 171, 0.09);
+  color: var(--brand-blue);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.product-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+.footer-contact {
+  margin-top: 0.9rem;
+  color: #d7e0ec;
+}
+.footer-contact a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+
+.hero-copy strong { color: #ffffff; }
+.proof-strip { margin-top: -2.4rem; position: relative; z-index: 3; }
+.proof-strip .grid { margin-top: 0; }
+.mini-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 148px;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f8ff 100%);
+}
+.mini-stat strong {
+  display: block;
+  font-size: 1.55rem;
+  line-height: 1.1;
+  color: var(--text-strong);
+  margin-bottom: 0.55rem;
+}
+.mini-stat span {
+  color: var(--text-soft);
+  font-size: 0.98rem;
+}
+.card .center-actions,
+.panel .center-actions,
+.stat .center-actions {
+  margin-top: auto;
+  padding-top: 1rem;
+  text-align: center;
+}
+.route-card,
+.proof-card,
+.product-card,
+.audience-card,
+.offer-card {
+  min-height: 100%;
+}
+.hero-actions .cta-button,
+.center-actions .cta-button,
+.product-cta-row .cta-button {
+  justify-content: center;
+}
+@media (max-width: 640px) {
+  .proof-strip { margin-top: -1.2rem; }
+  .mini-stat { min-height: 132px; }
 }
