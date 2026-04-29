@@ -3,29 +3,23 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Privacy Policy | Jakoma</title>
+  <title>Privacy Notice | Jakoma</title>
   <link rel="canonical" href="https://www.jakoma.org/policy.html"/>
   <link href="style.css" rel="stylesheet"/>
-
-  <meta name="description" content="How Jakoma protects your personal data. Learn about our privacy-first practices, policies, and compliance commitments."/>
+  <meta name="description" content="Jakoma privacy notice for consultancy, website enquiries and Independent Living Tech services."/>
   <meta name="robots" content="index,follow"/>
-
-  <!-- Minimal page-only readability styling (does NOT override your global header/menu) -->
   <style>
     .legal-wrap{max-width:980px;margin:2rem auto;padding:0 2rem}
     .legal-card{background:#fff;border-radius:16px;padding:2.5rem;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
     .legal-card h2{margin-top:2rem}
     .legal-meta{opacity:0.85}
+    .legal-card ul{padding-left:1.2rem}
     @media (max-width:768px){ .legal-wrap{padding:0 1rem} .legal-card{padding:1.5rem} }
   </style>
-
-  <!-- Consent init (cookie-first, legacy fallback) -->
   <script id="consent-init">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     window.__jakomaConsentInitialised = true;
-
     function getCookie(name) {
       const parts = document.cookie ? document.cookie.split('; ') : [];
       for (const part of parts) {
@@ -37,148 +31,124 @@
       }
       return null;
     }
-
     let storedConsent = getCookie('jakoma_cookie_consent');
     if (!storedConsent) {
       try {
-        storedConsent =
-          localStorage.getItem('jakoma_cookie_consent') ||
-          localStorage.getItem('jakoma_cookie_consent_v1') ||
-          localStorage.getItem('jakomaCookieConsent');
+        storedConsent = localStorage.getItem('jakoma_cookie_consent') || localStorage.getItem('jakoma_cookie_consent_v1') || localStorage.getItem('jakomaCookieConsent');
       } catch (e) { storedConsent = null; }
     }
-
     gtag('consent', 'default', {
-      ad_storage: 'denied',
-      analytics_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      functionality_storage: 'granted',
-      security_storage: 'granted'
+      ad_storage: 'denied', analytics_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', functionality_storage: 'granted', security_storage: 'granted'
     });
-
-    const norm = (storedConsent === 'granted') ? 'accepted'
-               : (storedConsent === 'denied') ? 'declined'
-               : storedConsent;
-
+    const norm = (storedConsent === 'granted') ? 'accepted' : (storedConsent === 'denied') ? 'declined' : storedConsent;
     if (norm === 'accepted') {
-      gtag('consent', 'update', {
-        ad_storage: 'denied',
-        analytics_storage: 'granted',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        functionality_storage: 'granted',
-        security_storage: 'granted'
-      });
+      gtag('consent', 'update', { ad_storage: 'denied', analytics_storage: 'granted', ad_user_data: 'denied', ad_personalization: 'denied', functionality_storage: 'granted', security_storage: 'granted' });
     } else if (norm === 'declined') {
-      gtag('consent', 'update', {
-        ad_storage: 'denied',
-        analytics_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        functionality_storage: 'granted',
-        security_storage: 'granted'
-      });
+      gtag('consent', 'update', { ad_storage: 'denied', analytics_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', functionality_storage: 'granted', security_storage: 'granted' });
     }
   </script>
-
-  <!-- Google Tag Manager -->
   <script id="gtm-script">
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WCJBPXM6');
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-WCJBPXM6'+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WCJBPXM6');
   </script>
-<link rel="icon" href="favicon.ico" sizes="any"/>
-<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png"/>
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png"/>
-<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
-<link rel="manifest" href="site.webmanifest"/>
-<meta name="theme-color" content="#0b2d6b"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0b2d6b"/>
 </head>
-
 <body data-page="policy">
 <a class="skip-link" href="#main">Skip to content</a>
-
-<!-- GTM (noscript) -->
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCJBPXM6" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-
-<!-- Cookie banner -->
 <div aria-hidden="true" aria-label="Cookie consent" id="cookie-banner" role="dialog" style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">We use essential cookies for site function and optional analytics cookies to understand usage. <a href="cookies.html">Learn more</a><button aria-label="Accept cookies" data-cookie="accept" type="button">Accept</button><button aria-label="Decline cookies" data-cookie="decline" type="button">Decline</button></div>
-
-<!-- Mobile menu -->
 <div aria-hidden="true" class="mobile-menu-overlay"></div>
-<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu"><button aria-label="Close menu" class="menu-close" onclick="toggleMenu()" type="button">✕</button><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="consulting.html">Consulting</a><a href="products.html">Toolkits</a><div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">Offers</div><a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a><a href="fractional-governance-leader-retainer.html">Fractional Retainer</a><a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a><a class="js-utm" data-cta="nav_proposal_click" data-track="nav_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=proposal&amp;utm_content=nav" href="https://tally.so/r/KYLADk" rel="noopener noreferrer" target="_blank">Request a Proposal</a><a aria-current="page" href="policy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookies.html">Cookie Policy</a></nav>
-
+<nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu"><button aria-label="Close menu" class="menu-close" onclick="toggleMenu()" type="button">✕</button><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="consulting.html">Consulting</a><a href="products.html">Toolkits</a><a href="independent-living-tech.html">Independent Living Tech</a><div class="mobile-menu-section" style="margin:0.75rem 0 0.25rem;opacity:0.85;font-weight:600;">Offers</div><a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a><a href="fractional-governance-leader-retainer.html">Fractional Retainer</a><a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a><a class="js-utm" data-cta="nav_proposal_click" data-track="nav_proposal_click" data-utm-base="utm_source=jakoma-site&amp;utm_medium=menu&amp;utm_campaign=proposal&amp;utm_content=nav" href="https://tally.so/r/KYLADk" rel="noopener noreferrer" target="_blank">Request a Proposal</a><a aria-current="page" href="policy.html">Privacy Notice</a><a href="terms.html">Customer Terms</a><a href="cookies.html">Cookie Policy</a></nav>
 <header>
-  <button id="backButton" class="back-toggle" type="button" aria-label="Go back">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-
+  <button id="backButton" class="back-toggle" type="button" aria-label="Go back"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
-
   <a aria-label="Jakoma home" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="150"/></a>
-
-  <h1>Privacy Policy</h1>
-  <p>Ethical, transparent, and privacy-first by design.</p>
+  <h1>Privacy Notice</h1>
+  <p>How Jakoma uses personal data across this website, enquiries, consultancy work and Independent Living Tech services.</p>
 </header>
-
 <main id="main" class="legal-wrap">
   <div class="legal-card">
-    <p class="legal-meta"><strong>Last updated:</strong> March 2026</p>
+    <p class="legal-meta"><strong>Last updated:</strong> 28 April 2026</p>
 
-    <h2>Scope</h2>
-    <p>This policy explains how <strong>Jakoma</strong> collects, uses, and protects personal data across our websites and tools, including ApplySmart and 100 to 10K.</p>
+    <h2>Who we are</h2>
+    <p><strong>Jakoma</strong> is the controller of personal data described in this notice. We use this site to provide consultancy information, take enquiries, and support our <strong>Independent Living Tech</strong> service for families supporting an older relative at home.</p>
+    <p>Privacy contact: <a href="mailto:support@jakoma.org">support@jakoma.org</a>.</p>
 
-    <h2>Controller &amp; contact</h2>
-    <p>Jakoma is the data controller for personal data processed on our sites. For privacy queries or rights requests, email <a href="mailto:support@jakoma.org">support@jakoma.org</a>.</p>
-
-    <h2>What we collect</h2>
+    <h2>What this notice covers</h2>
+    <p>This notice applies to:</p>
     <ul>
-      <li><strong>Information you provide</strong> — e.g. name, email, and message content submitted via forms or purchases.</li>
-      <li><strong>Usage data</strong> — limited usage data used to improve services; analytics load only after cookie consent.</li>
+      <li>visitors to jakoma.org;</li>
+      <li>people who contact us by email, web form or Tally form;</li>
+      <li>prospective and current consultancy clients; and</li>
+      <li>prospective and current Independent Living Tech clients and family contacts.</li>
     </ul>
 
-    <h2>Lawful bases</h2>
+    <h2>The personal data we collect</h2>
     <ul>
-      <li><strong>Consent</strong> — analytics cookies and optional marketing communications.</li>
-      <li><strong>Contract</strong> — delivering purchased digital products and services.</li>
-      <li><strong>Legitimate interests</strong> — security, fraud prevention, essential site operations.</li>
-      <li><strong>Legal obligation</strong> — tax, accounting, and regulatory compliance.</li>
+      <li><strong>Website and enquiry data</strong>: name, email address, phone number, service area information, referral source, and the details you enter in forms or emails.</li>
+      <li><strong>Independent Living Tech enquiry data</strong>: information about the home, routines, support arrangements, device preferences, concerns such as wandering, falls, lack of movement or calling for help, and whether broadband or Wi‑Fi is available.</li>
+      <li><strong>Project and client records</strong>: quotes, invoices, visit notes, device lists, installation records, support history and correspondence.</li>
+      <li><strong>Technical data</strong>: limited device, browser and usage information needed for security, site operation and, where you consent, analytics.</li>
+    </ul>
+    <p>Please do not submit more health or care detail than is needed for us to understand your enquiry. If you are enquiring on behalf of another person, please only share information you are comfortable sharing and that is relevant to the service requested.</p>
+
+    <h2>Where we get personal data from</h2>
+    <ul>
+      <li>directly from you;</li>
+      <li>from a family member or other authorised contact making an enquiry on someone else’s behalf;</li>
+      <li>from your organisation where you contact us as part of a professional referral; and</li>
+      <li>from basic website analytics if you accept analytics cookies.</li>
     </ul>
 
-    <h2>Processors &amp; third parties</h2>
-    <p>We use trusted providers acting under our instructions where relevant, such as payment/digital delivery, forms, and analytics tools (analytics only with consent).</p>
-    <p>We do <strong>not</strong> sell personal data. We share data only to operate services, comply with law, or with your consent.</p>
+    <h2>Why we use personal data and our lawful bases</h2>
+    <ul>
+      <li><strong>To respond to enquiries, arrange calls and provide quotations</strong> — our legitimate interests in operating and growing Jakoma, and taking steps at your request before entering into a contract.</li>
+      <li><strong>To deliver services you ask us to provide</strong> — performance of a contract.</li>
+      <li><strong>To keep records, manage billing, and handle complaints</strong> — performance of a contract, legal obligations, and our legitimate interests in running the business responsibly.</li>
+      <li><strong>To keep the site secure and functioning</strong> — our legitimate interests and, where strictly necessary, essential cookies.</li>
+      <li><strong>To measure site usage</strong> — your consent, where analytics cookies are used.</li>
+    </ul>
+
+    <h2>Independent Living Tech: important privacy points</h2>
+    <p>The Independent Living Tech service is <strong>non-clinical</strong>. We aim to collect only the information needed to assess whether we can help, design a suitable setup, install agreed third-party devices, and support the family contact after handover.</p>
+    <ul>
+      <li>We do not provide emergency response monitoring or clinical care.</li>
+      <li>Any cameras, microphones or household monitoring tools must be used lawfully and transparently by the client or family after handover.</li>
+      <li>The client or family remains responsible for deciding who receives alerts and how they respond.</li>
+      <li>If a family member makes an enquiry for someone else, we rely on them to share information fairly and appropriately.</li>
+    </ul>
+
+    <h2>Who we share personal data with</h2>
+    <p>We share personal data only where necessary for the purposes above. Depending on the service, this may include website hosting providers, form and email providers, analytics providers (only if you consent), payment or accounting providers, professional advisers, insurers, and selected device or platform providers needed to deliver the agreed setup.</p>
+    <p>We do not sell personal data.</p>
 
     <h2>International transfers</h2>
-    <p>Where data may be processed outside the UK/EEA, we rely on appropriate safeguards (e.g. contractual clauses and vendor protections).</p>
+    <p>Some suppliers may process data outside the UK. Where that happens, we expect appropriate safeguards to be in place, such as adequacy regulations or approved contractual protections.</p>
 
-    <h2>Retention</h2>
-    <p>We retain personal data only as long as necessary for the purpose collected, then delete or anonymise it.</p>
-
-    <h2>Security</h2>
-    <p>We apply technical and organisational measures appropriate to risk (access control, encryption in transit, least-privilege access).</p>
+    <h2>How long we keep personal data</h2>
+    <ul>
+      <li><strong>General enquiries not taken forward</strong>: up to 12 months after the last meaningful contact.</li>
+      <li><strong>Client records, quotes, installation records and support history</strong>: up to 6 years after the end of the client relationship, unless a longer period is needed for a legal claim or regulatory reason.</li>
+      <li><strong>Invoices and accounting records</strong>: as long as required by tax and accounting law.</li>
+      <li><strong>Analytics data</strong>: according to the settings of the analytics platform and your cookie choices.</li>
+    </ul>
 
     <h2>Your rights</h2>
-    <ul>
-      <li>Access, rectification, and erasure</li>
-      <li>Restriction or objection to processing</li>
-      <li>Data portability (where applicable)</li>
-      <li>Withdraw consent at any time (for consent-based processing)</li>
-    </ul>
-    <p>You may also complain to the ICO in the UK.</p>
+    <p>Depending on the circumstances, you may have the right to ask for access to your personal data, correction, erasure, restriction, objection, or data portability. You may also withdraw consent for analytics cookies at any time.</p>
+    <p>If you are unhappy with how we handle personal data, you can complain to the UK Information Commissioner’s Office.</p>
 
-    <h2>Cookies &amp; consent</h2>
-    <p>Analytics cookies load only after you click <em>Accept</em> on our banner. You can change your choice anytime on our <a href="cookies.html">Cookie Policy</a> page.</p>
+    <h2>Cookies and analytics</h2>
+    <p>We use essential cookies needed for site function and optional analytics cookies to understand site usage. Analytics are set only if you accept them through our cookie controls. See our <a href="cookies.html">Cookie Policy</a> for more detail.</p>
+
+    <h2>Changes to this notice</h2>
+    <p>We may update this notice from time to time. The latest version will always appear on this page.</p>
   </div>
 </main>
-
-<footer style="text-align:center;padding:2rem;"><p>© 2025–2026 Jakoma. All rights reserved.</p><p><em>Jakoma is a founder-led, multi-sector consultancy focused on AI governance, data and automation delivery.</em></p><a href="policy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="cookies.html">Cookies</a></footer>
-
+<footer style="text-align:center;padding:2rem;"><p>© 2025–2026 Jakoma. All rights reserved.</p><p><em>Jakoma is a founder-led consultancy and product studio with a family-facing Independent Living Tech service.</em></p><a href="policy.html">Privacy</a> | <a href="terms.html">Customer Terms</a> | <a href="cookies.html">Cookies</a></footer>
 <script defer src="site.js"></script>
 </body>
 </html>
