@@ -76,7 +76,7 @@ Repurly should not be priced at £79/month. That would make it look like another
 3. Updated the main Jakoma CTA to lead with AI Governance Triage.
 4. Updated sprint pricing to from £3,500, with typical range £3,500–£7,500.
 5. Expanded Independent Living Tech into the full package ladder.
-6. Added paid toolkit cards at £49, £149 and £299, with payment-link request routes until live Stripe URLs exist.
+6. Added paid toolkit cards at £49, £149 and £299, now wired to live Stripe payment links.
 7. Added `repurly-growth-os.html` to explain Repurly as the LinkedIn-first growth operating system.
 8. Added a commercial links map and aligned Repurly/Jakoma docs around the same offer ladder.
 
@@ -84,8 +84,8 @@ Repurly should not be priced at £79/month. That would make it look like another
 
 ## Immediate owner actions before live publishing
 
-1. Create live Stripe Payment Links for the £149 ILT assessment, £49 toolkit, £149 toolkit and £299 toolkit.
-2. Replace the paid toolkit email CTAs with live Stripe links.
-3. Add a dedicated booking link for AI Governance Triage if you do not want the general proposal form to handle it.
+1. Test each Stripe checkout link from the live site in an incognito browser.
+2. Confirm Stripe receipts, fulfilment wording and post-payment emails for each fixed-price product.
+3. Add a dedicated booking link or payment link for AI Governance Triage if you do not want the general proposal form to handle it.
 4. Create the four internal Repurly profiles: Jakoma B2B, Independent Living Tech, Toolkits and Repurly.
 5. Use the first month to sell AI Governance Triage and ILT assessments before spending more time building Repurly features.
