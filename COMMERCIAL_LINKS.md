@@ -32,3 +32,13 @@ Use this file as the owner checklist before publishing the commercial pages live
 - Full Family Setup — £599–£999 + devices, kept as enquiry so scope and device costs can be confirmed.
 - Workshop Add-on — ranged offer, kept as request/proposal.
 - Repurly Scale — custom quote only.
+
+
+## Tally form routing update
+
+- `https://tally.so/r/WO067L` — AI Governance Readiness Checklist. Keep.
+- `https://tally.so/r/3yAx84` — AI Governance Sprint Proposal. Keep.
+- `https://tally.so/r/KYLADk` — General proposal / AI triage request / retainer / prototype / Repurly scale enquiry. Keep for now; create a dedicated AI Triage form later.
+- `https://tally.so/r/yP05lg` — Independent Living Tech enquiry / full setup scoping. Keep for full setup/pre-sale enquiries, not paid assessment checkout.
+
+Forms recommended next: dedicated AI Governance Triage Request, ILT Post-Payment Intake, Repurly Founder Pilot Onboarding, and later a testimonial form.
