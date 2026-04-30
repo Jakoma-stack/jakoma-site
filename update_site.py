@@ -11,14 +11,14 @@ new_page = '''<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <title>Jakoma Independent Living Tech | Practical Home Technology Setup for Families</title>
-<link rel="canonical" href="https://www.jakoma.org/independent-living-tech.html"/>
+<link rel="canonical" href="https://jakoma.org/independent-living-tech.html"/>
 <meta name="description" content="Jakoma helps families set up practical home technology to support older relatives to remain safe, independent and connected at home."/>
 <meta property="og:site_name" content="Jakoma"/>
 <meta property="og:title" content="Jakoma Independent Living Tech"/>
 <meta property="og:description" content="Practical home technology setup for families supporting an older relative at home."/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://www.jakoma.org/independent-living-tech.html"/>
-<meta property="og:image" content="https://www.jakoma.org/logo.jpg"/>
+<meta property="og:url" content="https://jakoma.org/independent-living-tech.html"/>
+<meta property="og:image" content="https://jakoma.org/logo.jpg"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -53,9 +53,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "provider": {
     "@type": "Organization",
     "name": "Jakoma",
-    "url": "https://www.jakoma.org/"
+    "url": "https://jakoma.org/"
   },
-  "url": "https://www.jakoma.org/independent-living-tech.html",
+  "url": "https://jakoma.org/independent-living-tech.html",
   "serviceType": "Home independence technology setup and support",
   "areaServed": "United Kingdom"
 }</script>
