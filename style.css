@@ -733,3 +733,16 @@ hr { margin: 3rem 0; border: 0; border-top: 1px solid #e3edf8; }
 .hero-note a:hover, .service-hero a:hover {
   color: #ffffff;
 }
+
+
+/* Jakoma 10/10 upgrade */
+.section-eyebrow { background: rgba(11, 92, 171, 0.08); color: var(--brand-blue); border-color: rgba(11, 92, 171, 0.14); }
+.route-grid .route-card { display: flex; flex-direction: column; justify-content: space-between; }
+.route-card .center-actions, .offer-card .center-actions { margin-top: auto; }
+.mini-label { display: inline-block; color: var(--brand-blue); font-weight: 800; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .45rem; }
+.trust-panel { border: 1px solid var(--brand-line); }
+.process-steps .card strong { display: inline-flex; width: 2.15rem; height: 2.15rem; align-items: center; justify-content: center; border-radius: 999px; color: #fff; background: var(--brand-blue); margin-bottom: .65rem; }
+.decision-note { padding: 1rem 1.15rem; border-left: 4px solid var(--brand-blue); background: var(--brand-sky); border-radius: var(--radius-md); }
+.badge-row { display: flex; flex-wrap: wrap; gap: .55rem; justify-content: center; margin-top: 1rem; }
+.badge-row span { border: 1px solid var(--brand-line); background: #fff; border-radius: 999px; padding: .35rem .7rem; font-weight: 700; color: var(--text-strong); font-size: .9rem; }
+@media (max-width: 760px) { .route-grid .hero-actions, .route-card .center-actions { justify-content: stretch; } .route-card .cta-button { width: 100%; text-align: center; } }
