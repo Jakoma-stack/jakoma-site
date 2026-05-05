@@ -746,3 +746,33 @@ hr { margin: 3rem 0; border: 0; border-top: 1px solid #e3edf8; }
 .badge-row { display: flex; flex-wrap: wrap; gap: .55rem; justify-content: center; margin-top: 1rem; }
 .badge-row span { border: 1px solid var(--brand-line); background: #fff; border-radius: 999px; padding: .35rem .7rem; font-weight: 700; color: var(--text-strong); font-size: .9rem; }
 @media (max-width: 760px) { .route-grid .hero-actions, .route-card .center-actions { justify-content: stretch; } .route-card .cta-button { width: 100%; text-align: center; } }
+
+
+/* Repurly register interest form */
+.form-panel { max-width: 980px; margin-left: auto; margin-right: auto; }
+.interest-form { margin-top: 1.5rem; display: grid; gap: 1.25rem; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.interest-form label, .interest-form legend { font-weight: 800; color: var(--text-strong); }
+.interest-form input[type="text"], .interest-form input[type="email"], .interest-form select, .interest-form textarea {
+  width: 100%;
+  margin-top: .45rem;
+  padding: .85rem .9rem;
+  border: 1px solid rgba(16, 42, 77, .2);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--text-strong);
+  font: inherit;
+  box-shadow: 0 8px 18px rgba(16, 42, 77, .05);
+}
+.interest-form input:focus, .interest-form select:focus, .interest-form textarea:focus {
+  outline: 3px solid rgba(20, 112, 204, .22);
+  border-color: var(--brand-blue);
+}
+.interest-form fieldset { border: 1px solid rgba(16, 42, 77, .14); border-radius: 18px; padding: 1rem; }
+.interest-form legend { padding: 0 .35rem; }
+.checkbox-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1rem; margin-top: .75rem; }
+.checkbox-grid label, .consent-line { display: flex; align-items: flex-start; gap: .6rem; font-weight: 600; line-height: 1.5; }
+.interest-form input[type="checkbox"] { width: 1.05rem; height: 1.05rem; margin-top: .2rem; flex: 0 0 auto; accent-color: var(--brand-blue); }
+.form-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+.form-status { min-height: 1.5rem; font-weight: 800; color: var(--brand-blue); }
+@media (max-width: 760px) { .form-grid, .checkbox-grid { grid-template-columns: 1fr; } }

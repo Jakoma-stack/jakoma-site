@@ -438,6 +438,72 @@
     }
   }
 
+
+
+  // -----------------------------
+  // Repurly register interest form (static mailto fallback)
+  // -----------------------------
+  function initRepurlyInterestForm() {
+    const form = document.getElementById('repurlyInterestForm');
+    if (!form || form.__jakomaBound) return;
+    form.__jakomaBound = true;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const data = new FormData(form);
+      const get = (name) => (data.get(name) || '').toString().trim();
+      const checked = (name) => data.getAll(name).map(v => v.toString().trim()).filter(Boolean).join(', ');
+      const stored = getStoredUtm();
+
+      const lines = [
+        'Repurly register interest',
+        '',
+        `Name: ${get('name')}`,
+        `Email: ${get('email')}`,
+        `Organisation or brand: ${get('organisation')}`,
+        `Role: ${get('role')}`,
+        `Audience type: ${get('audience_type')}`,
+        `LinkedIn pages/profiles managed: ${get('linkedin_profiles_managed')}`,
+        `Help wanted: ${checked('help_with')}`,
+        `Testing interest: ${get('testing_interest')}`,
+        `Current workflow/tools: ${get('current_workflow')}`,
+        `Notes: ${get('notes')}`,
+        `Consent: ${get('consent')}`,
+        '',
+        'Tracking context',
+        `Page: ${document.body ? (document.body.getAttribute('data-page') || '') : ''}`,
+        `URL: ${window.location.href}`,
+        `UTM/source data: ${Object.keys(stored).length ? JSON.stringify(stored) : 'not captured'}`
+      ];
+
+      const subjectSource = get('organisation') || get('name') || 'website visitor';
+      const subject = `Repurly register interest: ${subjectSource}`;
+      const mailto = `mailto:support@jakoma.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'repurly_interest_submit',
+          cta: 'repurly_interest_form_submit',
+          page: document.body ? (document.body.getAttribute('data-page') || '') : '',
+          audience_type: get('audience_type'),
+          testing_interest: get('testing_interest')
+        });
+      } catch (err) {}
+
+      window.location.href = mailto;
+
+      const status = document.getElementById('repurlyFormStatus');
+      if (status) status.textContent = 'Your email app should open with the registration details. Please review and send it to complete your interest registration.';
+    });
+  }
+
   // -----------------------------
   // Boot
   // -----------------------------
@@ -450,5 +516,6 @@
     applyUtmDecoration();
     initClickTracking();
     initCookieBanner();
+    initRepurlyInterestForm();
   });
 })();
