@@ -14,6 +14,7 @@
   // -----------------------------
   const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','gclid','gbraid','wbraid','fbclid','ttclid','msclkid','li_fat_id'];
   const UTM_STORE_KEY = 'jakoma_utm_v1';
+  const TRACKING_KEYS = UTM_KEYS.concat(['page','service']);
 
   const CONSENT_KEY = 'jakoma_cookie_consent'; // 'accepted' | 'declined'
   const CONSENT_LEGACY_KEYS = [
@@ -29,7 +30,7 @@
   function parseQuery(qs) {
     const out = {};
     const params = new URLSearchParams(qs || '');
-    for (const k of UTM_KEYS) {
+    for (const k of TRACKING_KEYS) {
       const v = params.get(k);
       if (v) out[k] = v;
     }
@@ -301,7 +302,9 @@
   // UTM persistence + decoration
   // -----------------------------
   function captureInboundUtm() {
-    const inbound = parseQuery(window.location.search);
+    const inboundAll = parseQuery(window.location.search);
+    const inbound = {};
+    for (const k of UTM_KEYS) { if (inboundAll[k]) inbound[k] = inboundAll[k]; }
     const stored = getStoredUtm();
     const merged = Object.assign({}, stored, inbound); // inbound wins
     if (Object.keys(merged).length) setStoredUtm(merged);
