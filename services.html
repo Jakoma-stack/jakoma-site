@@ -1,643 +1,236 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jakoma Services | Organisations, Home Tech, Property Tech & Assurance</title>
-  <meta name="description" content="Clear Jakoma service routes for organisations, regulated services, assurance teams, homes, families, landlords, hosts and providers.">
-  <style>
-    :root {
-      --bg: #f7f4ef;
-      --panel: #ffffff;
-      --ink: #17201a;
-      --muted: #59635d;
-      --line: #dfd8ce;
-      --brand: #315c46;
-      --brand-dark: #1f3f30;
-      --accent: #d7ad63;
-      --soft: #eef3ec;
-      --shadow: 0 16px 44px rgba(25, 32, 26, 0.10);
-      --radius: 22px;
-      --max: 1180px;
-    }
+<title>Services | Jakoma</title>
+<link href="https://jakoma.org/services.html" rel="canonical"/>
+<meta content="Choose the right Jakoma route for AI governance, data analytics, automation, audit and assurance, independent living technology, property technology and practical toolkits." name="description"/>
+<meta content="Jakoma" property="og:site_name"/>
+<meta content="Services | Jakoma" property="og:title"/>
+<meta content="Choose the right Jakoma route for AI governance, data analytics, automation, audit and assurance, independent living technology, property technology and practical toolkits." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://jakoma.org/services.html" property="og:url"/>
+<meta content="https://jakoma.org/logo.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="favicon.ico" rel="icon" sizes="any"/>
+<link href="favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="site.webmanifest" rel="manifest"/>
+<meta content="#0b2d6b" name="theme-color"/>
+<link href="style.css" rel="stylesheet"/>
+<script id="consent-init">
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'analytics_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'functionality_storage': 'granted',
+  'security_storage': 'granted'
+});
+</script>
 
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.55;
-    }
-
-    a { color: inherit; }
-
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: 8px;
-      padding: 0.65rem 1rem;
-      background: var(--ink);
-      color: #fff;
-      z-index: 20;
-      border-radius: 999px;
-    }
-
-    .skip-link:focus { left: 8px; }
-
-    .cookie-note {
-      background: #fff8e9;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .cookie-note .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0.7rem 1.2rem;
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .cookie-note a { color: var(--brand-dark); font-weight: 700; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(247, 244, 239, 0.92);
-      border-bottom: 1px solid rgba(223, 216, 206, 0.78);
-      backdrop-filter: blur(16px);
-    }
-
-    .nav {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 1rem 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.25rem;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      text-decoration: none;
-      font-weight: 850;
-      letter-spacing: -0.035em;
-      font-size: 1.18rem;
-      white-space: nowrap;
-    }
-
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      display: inline-grid;
-      place-items: center;
-      border-radius: 12px;
-      background: var(--brand);
-      color: #fff;
-      font-weight: 900;
-      box-shadow: 0 8px 20px rgba(49, 92, 70, 0.22);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-      font-size: 0.96rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .nav-links a[aria-current="page"],
-    .nav-links a:hover { color: var(--brand-dark); }
-
-    .button,
-    .button-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      min-height: 44px;
-      padding: 0.78rem 1.05rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 800;
-      line-height: 1.1;
-      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
-    }
-
-    .button {
-      background: var(--brand);
-      color: #fff;
-      box-shadow: 0 12px 26px rgba(49, 92, 70, 0.2);
-    }
-
-    .button-secondary {
-      background: #fff;
-      color: var(--brand-dark);
-      border: 1px solid var(--line);
-    }
-
-    .button:hover,
-    .button-secondary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(25, 32, 26, 0.14);
-    }
-
-    main { overflow: hidden; }
-
-    .section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 4.2rem 1.2rem;
-    }
-
-    .hero {
-      position: relative;
-      padding-top: 5.2rem;
-      padding-bottom: 4.8rem;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: -10% auto auto 50%;
-      width: 640px;
-      height: 640px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(215, 173, 99, 0.34), rgba(215, 173, 99, 0));
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 0 0 1.05rem;
-      padding: 0.38rem 0.75rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      color: var(--brand-dark);
-      font-size: 0.86rem;
-      font-weight: 850;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3 { line-height: 1.08; letter-spacing: -0.045em; }
-
-    h1 {
-      max-width: 980px;
-      margin: 0;
-      font-size: clamp(2.7rem, 7vw, 5.8rem);
-    }
-
-    .hero p {
-      max-width: 790px;
-      margin: 1.35rem 0 0;
-      color: var(--muted);
-      font-size: clamp(1.08rem, 2vw, 1.35rem);
-    }
-
-    .hero-actions {
-      margin-top: 2rem;
-      display: flex;
-      gap: 0.85rem;
-      flex-wrap: wrap;
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(260px, 1.15fr);
-      gap: 2rem;
-      align-items: end;
-      margin-bottom: 1.8rem;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.35rem);
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.06rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .card {
-      position: relative;
-      min-height: 238px;
-      padding: 1.35rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 10px 30px rgba(25, 32, 26, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .card.featured {
-      background: linear-gradient(135deg, #ffffff 0%, #eef4ef 100%);
-      border-color: rgba(49, 92, 70, 0.28);
-    }
-
-    .card h3 {
-      margin: 0;
-      font-size: 1.32rem;
-    }
-
-    .card p { margin: 0; color: var(--muted); }
-
-    .card a {
-      margin-top: auto;
-      color: var(--brand-dark);
-      font-weight: 850;
-      text-decoration: none;
-    }
-
-    .card a:hover { text-decoration: underline; }
-
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: calc(var(--radius) + 8px);
-      background: var(--panel);
-      box-shadow: var(--shadow);
-      padding: clamp(1.35rem, 4vw, 2.35rem);
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .panel h2 {
-      margin: 0 0 0.85rem;
-      font-size: clamp(1.8rem, 3vw, 3rem);
-    }
-
-    .panel p { color: var(--muted); margin: 0 0 1.25rem; }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin: 1rem 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .tag-list li {
-      padding: 0.5rem 0.7rem;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--brand-dark);
-      font-size: 0.92rem;
-      font-weight: 750;
-    }
-
-    .models {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .model {
-      padding: 1.15rem;
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid var(--line);
-    }
-
-    .model strong { display: block; margin-bottom: 0.35rem; }
-    .model span { color: var(--muted); font-size: 0.95rem; }
-
-    .cta {
-      text-align: center;
-      padding: clamp(2rem, 5vw, 4rem);
-      background: linear-gradient(135deg, var(--brand-dark), var(--brand));
-      color: #fff;
-      border: 0;
-    }
-
-    .cta p {
-      max-width: 760px;
-      margin: 0.9rem auto 1.5rem;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 1.1rem;
-    }
-
-    .cta .button {
-      background: #fff;
-      color: var(--brand-dark);
-      box-shadow: none;
-    }
-
-    .cta .button-secondary {
-      background: transparent;
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.36);
-    }
-
-    .site-footer {
-      background: #111813;
-      color: #fff;
-      margin-top: 4rem;
-    }
-
-    .footer-grid {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 3rem 1.2rem;
-      display: grid;
-      grid-template-columns: 1.2fr repeat(3, 0.7fr);
-      gap: 2rem;
-    }
-
-    .site-footer p,
-    .site-footer a { color: rgba(255,255,255,0.72); }
-
-    .site-footer a {
-      display: block;
-      text-decoration: none;
-      margin: 0.38rem 0;
-    }
-
-    .site-footer a:hover { color: #fff; }
-
-    .site-footer h3,
-    .site-footer h4 { margin: 0 0 0.85rem; }
-
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 1rem 1.2rem 1.4rem;
-      color: rgba(255,255,255,0.6);
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 900px) {
-      .section-head,
-      .split,
-      .footer-grid { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .models { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .nav { align-items: flex-start; flex-direction: column; }
-      .nav-links { justify-content: flex-start; }
-    }
-
-    @media (max-width: 640px) {
-      .grid,
-      .models { grid-template-columns: 1fr; }
-      .section { padding: 3.2rem 1rem; }
-      .hero { padding-top: 3.6rem; }
-      .nav-links .hide-small { display: none; }
-      .button,
-      .button-secondary { width: 100%; }
-    }
-  </style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Jakoma",
+  "url": "https://jakoma.org/",
+  "logo": "https://jakoma.org/logo.jpg",
+  "sameAs": ["https://www.linkedin.com/company/jakoma/"]
+}</script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body data-page="services.html">
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="cookie-note" role="region" aria-label="Cookie notice">
-    <div class="wrap">
-      <span>We use essential cookies for site function and optional analytics cookies to understand usage.</span>
-      <a href="cookies.html">Learn more</a>
-    </div>
-  </div>
-
-  <header class="site-header">
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="index.html" aria-label="Jakoma home">
-        <span class="brand-mark" aria-hidden="true">J</span>
-        <span>Jakoma</span>
-      </a>
-      <div class="nav-links">
-        <a href="services.html" aria-current="page">Services</a>
-        <a href="how-we-work.html">How We Work</a>
-        <a href="about.html">About</a>
-        <a href="examples.html">Examples</a>
-        <a href="toolkits.html">Toolkits</a>
-        <a class="hide-small" href="independent-living.html">Independent Living</a>
-        <a class="button" href="https://tally.so/r/KYLADk?page=services&amp;service=general_proposal&amp;utm_campaign=form_enquiry&amp;utm_content=request_a_proposal&amp;utm_medium=nav&amp;utm_source=jakoma_website&amp;utm_term=not_set">Request a Proposal</a>
-      </div>
-    </nav>
-  </header>
-
-  <main id="main">
-    <section class="section hero" aria-labelledby="page-title">
-      <p class="eyebrow">Services</p>
-      <h1 id="page-title">Clear service routes for organisations, homes, families, landlords, hosts and providers.</h1>
-      <p>Choose the route that best matches the problem you need to solve, from safer AI adoption and stronger operational insight to audit, assurance, regulation, inspection, independent living home tech, Smart Stay, rental property technology and supported living reviews.</p>
-      <div class="hero-actions">
-        <a class="button" href="https://tally.so/r/KYLADk?page=services&amp;service=general_proposal&amp;utm_campaign=form_enquiry&amp;utm_content=request_a_proposal&amp;utm_medium=hero&amp;utm_source=jakoma_website&amp;utm_term=not_set">Request a Proposal</a>
-        <a class="button-secondary" href="https://tally.so/r/OD8XJM?page=services&amp;service=ai_governance_readiness&amp;utm_campaign=form_enquiry&amp;utm_content=download_the_checklist&amp;utm_medium=hero&amp;utm_source=jakoma_website&amp;utm_term=not_set">Download the Checklist</a>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="service-areas">
-      <div class="section-head">
-        <h2 id="service-areas">Service areas</h2>
-        <p>Jakoma works across strategy, delivery, assurance, analytics, automation and implementation in a joined-up way, so clients can start with the problem rather than guess the right label. This includes regulated, inspected and high-accountability environments where better data, evidence, modelling and workflow design can improve decisions.</p>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <h3>AI &amp; Governance</h3>
-          <p>Safe AI adoption, governance operating models, policies, controls, registers, DPIA support, and decision routes.</p>
-          <a href="ai-governance.html">Open page</a>
-        </article>
-
-        <article class="card featured">
-          <h3>Data &amp; Analytics</h3>
-          <p>BI, reporting, analytics design, data strategy, data quality, dashboards, risk modelling, service intelligence and data science-led insight where appropriate.</p>
-          <a href="data-analytics.html">Open page</a>
-        </article>
-
-        <article class="card">
-          <h3>Apps &amp; Automation</h3>
-          <p>Internal tools, prototypes, automation, copilots, workflow improvement, and digital product support.</p>
-          <a href="apps-automation.html">Open page</a>
-        </article>
-
-        <article class="card">
-          <h3>Strategy &amp; Transformation</h3>
-          <p>Leadership support, change management, operating models, service redesign, workforce capability, and implementation planning.</p>
-          <a href="strategy-transformation.html">Open page</a>
-        </article>
-
-        <article class="card featured">
-          <h3>Audit &amp; Assurance</h3>
-          <p>Evidence packs, control narratives, audit recommendation support, assurance dashboards, risk insight, AI/data controls and practical translation between delivery, scrutiny and improvement.</p>
-          <a href="audit-assurance.html">Open page</a>
-        </article>
-
-        <article class="card">
-          <h3>Independent Living</h3>
-          <p>Practical home technology setup for safer, more confident living at home - including families, people living alone, rental properties and supported living settings.</p>
-          <a href="independent-living.html">Open Independent Living page</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="independent-living">
-      <div class="panel split">
-        <div>
-          <p class="eyebrow">Jakoma Independent Living</p>
-          <h2 id="independent-living">Safer, more confident living at home.</h2>
-          <p>A distinct Jakoma service line for older relatives, people living alone, rental homes, post-hospital setup and supported living settings.</p>
-          <div class="hero-actions">
-            <a class="button" href="independent-living.html">View Independent Living options</a>
-            <a class="button-secondary" href="https://wa.me/447793497535?page=services&amp;service=independent_living&amp;text=Hi+Jakoma+-+I+would+like+to+ask+about+Independent+Living+or+home+technology+support.+Source%3A+jakoma_website%2C+page%3A+services.html%2C+service%3A+independent_living.&amp;utm_campaign=independent_living_enquiry&amp;utm_content=homepage_whatsapp&amp;utm_medium=whatsapp&amp;utm_source=jakoma_website&amp;utm_term=not_set">WhatsApp</a>
-            <a class="button-secondary" href="https://tally.so/r/yP05lg?page=services&amp;service=home_tech&amp;utm_campaign=independent_living_enquiry&amp;utm_content=homepage_independent_living_enquiry&amp;utm_medium=section&amp;utm_source=jakoma_website&amp;utm_term=not_set">Send Home Tech Enquiry</a>
-          </div>
-        </div>
-        <ul class="tag-list" aria-label="Independent Living examples">
-          <li>Older relatives</li>
-          <li>People living alone</li>
-          <li>Rental property safety tech</li>
-          <li>Supported living reviews</li>
-          <li>Post-hospital setup</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="audit-assurance">
-      <div class="panel split">
-        <div>
-          <p class="eyebrow">Audit, assurance, regulation and scrutiny</p>
-          <h2 id="audit-assurance">For regulators, inspectorates and assurance teams.</h2>
-          <p>Jakoma supports organisations that inspect, regulate, commission, audit or assure complex services. We help turn fragmented operational data into clearer evidence, risk insight, dashboards, control narratives, workflow automation and practical recommendations that support better scrutiny, decision-making and improvement.</p>
-          <div class="hero-actions">
-            <a class="button" href="audit-assurance.html">View Audit &amp; Assurance page</a>
-            <a class="button-secondary" href="data-analytics.html">Explore data &amp; analytics</a>
-          </div>
-        </div>
-        <ul class="tag-list" aria-label="Audit and assurance support examples">
-          <li>Risk insight</li>
-          <li>Evidence packs</li>
-          <li>Inspection intelligence</li>
-          <li>Assurance dashboards</li>
-          <li>Control narratives</li>
-          <li>Workflow automation</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="smart-stay">
-      <div class="panel split">
-        <div>
-          <p class="eyebrow">Jakoma Smart Stay</p>
-          <h2 id="smart-stay">Short-term rental tech setup.</h2>
-          <p>Smart access, guest Wi-Fi, QR welcome guides, heating controls, leak sensors and practical host handover for Airbnb, serviced accommodation and short-term rental properties.</p>
-          <div class="hero-actions">
-            <a class="button" href="smart-stay.html">Explore Smart Stay</a>
-            <a class="button-secondary" href="https://tally.so/r/zEOZEj?page=services&amp;service=smart_stay&amp;utm_campaign=smart_stay_enquiry&amp;utm_content=request_setup&amp;utm_medium=section&amp;utm_source=jakoma_website&amp;utm_term=not_set">Request setup</a>
-          </div>
-        </div>
-        <ul class="tag-list" aria-label="Smart Stay examples">
-          <li>Smart access</li>
-          <li>Guest Wi-Fi</li>
-          <li>QR welcome guides</li>
-          <li>Heating controls</li>
-          <li>Leak sensors</li>
-          <li>Host handover</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="engagement-models">
-      <div class="section-head">
-        <h2 id="engagement-models">Engagement models</h2>
-        <p>Flexible routes for different levels of urgency, assurance and implementation support.</p>
-      </div>
-      <div class="models">
-        <div class="model"><strong>Timeboxed sprints</strong><span>For clarity, momentum and defined outputs.</span></div>
-        <div class="model"><strong>Fractional retainers</strong><span>For senior ongoing support and governance cadence.</span></div>
-        <div class="model"><strong>Prototype sprints</strong><span>For fast testing, pilots and business-case evidence.</span></div>
-        <div class="model"><strong>Toolkits and learning</strong><span>For self-service readiness and buyer confidence.</span></div>
-      </div>
-      <div class="hero-actions">
-        <a class="button-secondary" href="consulting.html">View engagement models</a>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="final-cta">
-      <div class="panel cta">
-        <h2 id="final-cta">Choose the right route, then move with confidence.</h2>
-        <p>Start with the problem you need to solve. Jakoma can help shape the right engagement across advice, assurance, implementation and practical delivery.</p>
-        <div class="hero-actions" style="justify-content:center">
-          <a class="button" href="https://tally.so/r/KYLADk?page=services&amp;service=general_proposal&amp;utm_campaign=form_enquiry&amp;utm_content=request_a_proposal&amp;utm_medium=section&amp;utm_source=jakoma_website&amp;utm_term=not_set">Request a Proposal</a>
-          <a class="button-secondary" href="about.html">Read about Jakoma</a>
-          <a class="button-secondary" href="independent-living.html">Independent Living service</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <h3>Jakoma</h3>
-        <p>Jakoma is a founder-led consultancy and product studio for practical technology, governance, automation, independent living, property technology and digital products.</p>
-        <p><a href="mailto:support@jakoma.org">support@jakoma.org</a></p>
-        <a href="https://www.linkedin.com/company/jakoma/">LinkedIn</a>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <a href="services.html">Services</a>
-        <a href="how-we-work.html">How We Work</a>
-        <a href="independent-living.html">Independent Living</a>
-        <a href="audit-assurance.html">For Audit &amp; Assurance</a>
-        <a href="examples.html">Examples</a>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Customer Terms</a>
-        <a href="cookies.html">Cookies</a>
-      </div>
-      <div>
-        <h4>Independent Living</h4>
-        <a href="independent-living.html">Overview</a>
-        <a href="smart-stay.html">Smart Stay</a>
-        <a href="older-relatives.html">Older relatives</a>
-        <a href="people-living-alone.html">People living alone</a>
-        <a href="rental-property-safety-tech.html">Rental property safety tech</a>
-        <a href="supported-living-reviews.html">Supported living reviews</a>
-      </div>
-    </div>
-    <div class="copyright">© 2025–2026 Jakoma. All rights reserved.</div>
-  </footer>
+<div aria-hidden="true" aria-label="Cookie consent" id="cookie-banner" role="dialog" style="display:none;position:fixed;bottom:0;width:100%;background:#eee;padding:1rem;text-align:center;z-index:1000;">We use essential cookies for site function and optional analytics cookies only with your consent. <a href="cookies.html">Learn more</a><button aria-label="Accept optional analytics cookies" data-cookie="accept" type="button">Accept analytics</button><button aria-label="Reject optional analytics cookies" data-cookie="decline" type="button">Reject optional</button></div>
+<div aria-hidden="true" class="mobile-menu-overlay"></div><nav aria-label="Mobile menu" class="mobile-menu" id="mobileMenu"><button aria-label="Close menu" class="menu-close" onclick="toggleMenu()" type="button">✕</button><a href="index.html">Home</a><a aria-current="page" href="services.html">Services</a><a href="how-we-work.html">How We Work</a><a href="about.html">About</a><a href="case-studies.html">Examples</a><a href="products.html">Toolkits</a><div class="mobile-menu-section">Independent Living</div><a href="independent-living-tech.html">Overview</a><a href="short-term-rental-tech-setup.html">Smart Stay</a><br/><a href="technology-for-older-relatives.html">Older relatives</a><a href="technology-for-people-living-alone.html">People living alone</a><a href="rental-property-safety-tech.html">Rental property safety tech</a><a href="supported-living-technology.html">Supported living reviews</a><a href="post-hospital-home-setup.html">Post-hospital setup</a><div class="mobile-menu-section">Service areas</div><a href="ai-governance.html">AI &amp; Governance</a><a href="data-analytics.html">Data &amp; Analytics</a><a href="apps-automation.html">Apps &amp; Automation</a><a href="strategy-transformation.html">Strategy &amp; Transformation</a><a href="audit-assurance.html">Audit &amp; Assurance</a><div class="mobile-menu-section">Offers</div><a href="ai-governance-triage.html">AI Governance Triage</a><a href="ai-governance-readiness-sprint.html">AI Governance Sprint</a><a href="fractional-ai-data-transformation-leadership.html">Fractional Leadership</a><a href="copilot-workflow-automation-prototype-sprint.html">Prototype Sprint</a><a href="repurly-growth-os.html">Repurly — testing</a><a class="js-utm" data-cta="nav_proposal_click" data-track="nav_proposal_click" data-utm-base="utm_source=jakoma_website&amp;utm_medium=mobile_menu&amp;utm_campaign=form_enquiry&amp;utm_content=request_a_proposal&amp;utm_term=not_set&amp;page=about&amp;service=general_proposal" href="https://tally.so/r/KYLADk?utm_source=jakoma_website&amp;utm_medium=mobile_menu&amp;utm_campaign=form_enquiry&amp;utm_content=request_a_proposal&amp;utm_term=not_set&amp;page=about&amp;service=general_proposal" rel="noopener noreferrer" target="_blank">Request a Proposal</a><a href="policy.html">Privacy Notice</a><a href="terms.html">Customer Terms</a><a href="cookies.html">Cookie Policy</a></nav>
+<header class="site-header">
+<div class="topbar">
+<button aria-label="Go back" class="back-toggle" id="backButton" type="button"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+<div class="brand-wrap"><a aria-label="Jakoma home" class="brand" href="index.html"><img alt="Jakoma logo" loading="lazy" src="logo.jpg" width="92"/></a></div>
+<nav aria-label="Primary" class="desktop-nav"><a href="index.html">Home</a><a aria-current="page" href="services.html">Services</a><a href="how-we-work.html">How We Work</a><a href="about.html">About</a><a href="products.html">Toolkits</a><a href="independent-living-tech.html">Independent Living</a><a href="short-term-rental-tech-setup.html">Smart Stay</a><a class="nav-cta js-utm" data-cta="header_proposal_click" data-track="header_proposal_click" data-utm-base="utm_source=jakoma_website&amp;utm_medium=header&amp;utm_campaign=proposal&amp;utm_content=about.html&amp;utm_term=not_set&amp;page=about&amp;service=about" href="ai-governance-triage.html">Book AI Triage</a></nav>
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button">☰</button>
+</div>
+<div class="hero-shell">
+<p class="eyebrow">Services</p>
+<h1>Practical AI, data, automation and assurance support for organisations where trust, evidence and delivery matter.</h1>
+<p class="hero-copy">Choose the right Jakoma route: organisational AI, data and automation; regulation, inspection and assurance support; independent living technology; Smart Stay and property technology; or practical toolkits.</p>
+<div class="hero-actions"><a class="cta-button js-utm" data-cta="hero_proposal_click" data-track="hero_proposal_click" data-utm-base="utm_source=jakoma_website&amp;utm_medium=hero&amp;utm_campaign=form_enquiry&amp;utm_content=request_a_proposal&amp;utm_term=not_set&amp;page=services&amp;service=general_proposal" href="https://tally.so/r/KYLADk?utm_source=jakoma_website&amp;utm_medium=hero&amp;utm_campaign=form_enquiry&amp;utm_content=request_a_proposal&amp;utm_term=not_set&amp;page=services&amp;service=general_proposal" rel="noopener noreferrer" target="_blank">Request a Proposal</a><a class="cta-button ghost js-utm" data-cta="hero_checklist_click" data-track="hero_checklist_click" data-utm-base="utm_source=jakoma_website&amp;utm_medium=hero&amp;utm_campaign=form_enquiry&amp;utm_content=download_the_checklist&amp;utm_term=not_set&amp;page=services&amp;service=ai_governance_readiness" href="https://tally.so/r/OD8XJM?utm_source=jakoma_website&amp;utm_medium=hero&amp;utm_campaign=form_enquiry&amp;utm_content=download_the_checklist&amp;utm_term=not_set&amp;page=services&amp;service=ai_governance_readiness" rel="noopener noreferrer" target="_blank">Download the Checklist</a></div>
+</div>
+</header>
+<main id="main">
+<section class="section proof-strip">
+<div aria-label="Service summary" class="grid grid-3 compact-grid">
+<div class="stat mini-stat"><strong>Organisational buyers</strong><span>AI governance, data, analytics, automation and delivery support for teams that need useful outputs.</span></div>
+<div class="stat mini-stat"><strong>Assurance and scrutiny</strong><span>Evidence packs, risk insight and dashboards for regulated, inspected and high-accountability services.</span></div>
+<div class="stat mini-stat"><strong>Home and property tech</strong><span>Practical technology setup for independent living, short-term rentals and safer properties.</span></div>
+</div>
+</section>
+<section class="section">
+<p class="section-eyebrow">Start with the buyer route</p>
+<h2>Choose the route that matches the decision you need to make.</h2>
+<p class="lead">Jakoma works across strategy, delivery, assurance, analytics, automation and implementation. The routes below make the offer easier to understand for different audiences without diluting the core promise: practical technology work that improves decisions, evidence and delivery.</p>
+<div class="grid grid-3 route-grid">
+<article class="card route-card">
+<span class="tag">For organisations</span>
+<h3>AI, data, automation and transformation support</h3>
+<p>For leadership teams, operational teams and delivery functions that need safer adoption, clearer operating models, better reporting or more useful workflow automation.</p>
+<ul class="checklist">
+<li>AI governance and readiness</li>
+<li>Data quality, dashboards and analytics design</li>
+<li>Apps, workflow automation and prototypes</li>
+<li>Strategy, delivery and change support</li>
+</ul>
+<div class="center-actions"><a class="cta-button" href="ai-governance.html">Explore organisation services</a></div>
+</article>
+<article class="card route-card">
+<span class="tag">For assurance teams</span>
+<h3>Regulation, inspection, audit and assurance support</h3>
+<p>For organisations that inspect, regulate, commission, audit or assure complex services. Jakoma helps turn fragmented operational data into clearer evidence, risk insight and action.</p>
+<ul class="checklist">
+<li>Evidence packs and control narratives</li>
+<li>Assurance dashboards and risk modelling</li>
+<li>Inspection intelligence and follow-up workflows</li>
+<li>Practical recommendations that connect scrutiny to improvement</li>
+</ul>
+<div class="center-actions"><a class="cta-button" href="audit-assurance.html">View Audit &amp; Assurance</a></div>
+</article>
+<article class="card route-card">
+<span class="tag">For families and providers</span>
+<h3>Independent Living technology</h3>
+<p>Practical home technology setup for older relatives, people living alone, post-hospital support, rental property safety and supported living settings.</p>
+<ul class="checklist">
+<li>Calm assessment of needs and risks</li>
+<li>Device selection, setup and handover</li>
+<li>Support for families, landlords and providers</li>
+<li>Reviews that avoid unnecessary complexity</li>
+</ul>
+<div class="center-actions"><a class="cta-button" href="independent-living-tech.html">Explore Independent Living</a></div>
+</article>
+<article class="card route-card">
+<span class="tag">For landlords and hosts</span>
+<h3>Smart Stay and property technology</h3>
+<p>Setup support for short-term rental and property technology, including guest access, Wi-Fi, monitoring, documentation and practical automation.</p>
+<ul class="checklist">
+<li>Short-term rental setup</li>
+<li>Safety and access technology</li>
+<li>Guest-ready documentation</li>
+<li>Practical tools for smoother operations</li>
+</ul>
+<div class="center-actions"><a class="cta-button" href="short-term-rental-tech-setup.html">Explore Smart Stay</a></div>
+</article>
+<article class="card route-card">
+<span class="tag">For self-serve buyers</span>
+<h3>Toolkits, templates and productised support</h3>
+<p>Use Jakoma products to assess readiness, make internal progress and decide when a sprint, prototype or retainer would be worth it.</p>
+<ul class="checklist">
+<li>Governance and readiness checklists</li>
+<li>Practical templates and guides</li>
+<li>Buyer-friendly starting points</li>
+<li>Lower-friction entry into premium support</li>
+</ul>
+<div class="center-actions"><a class="cta-button" href="products.html">View toolkits</a></div>
+</article>
+<article class="card route-card">
+<span class="tag">Not sure yet?</span>
+<h3>Start with a short scoping conversation</h3>
+<p>Most Jakoma work starts by clarifying the problem, the decision-maker, the evidence available and the useful output. That avoids buying a label instead of solving the issue.</p>
+<ul class="checklist">
+<li>Clarify the route and audience</li>
+<li>Choose a sprint, retainer or prototype</li>
+<li>Identify risks and dependencies early</li>
+<li>Keep the first step proportionate</li>
+</ul>
+<div class="center-actions"><a class="cta-button" href="https://tally.so/r/KYLADk?utm_source=jakoma_website&amp;utm_medium=services_page&amp;utm_campaign=form_enquiry&amp;utm_content=request_a_proposal&amp;utm_term=not_set&amp;page=services&amp;service=general_proposal" rel="noopener noreferrer" target="_blank">Request a Proposal</a></div>
+</article>
+</div>
+</section>
+<section class="section">
+<p class="section-eyebrow">Service capabilities</p>
+<h2>Six connected service areas, one practical delivery approach.</h2>
+<p class="lead">These are the capability areas behind the buyer routes. They are deliberately connected because real-world problems rarely sit neatly in one box.</p>
+<div class="grid grid-3 compact-grid">
+<article class="card offer-card">
+<h3>AI &amp; Governance</h3>
+<p>Readiness, controls, responsible adoption, policies, risk assessment and operating structures for safer AI use.</p>
+<div class="center-actions"><a class="cta-button ghost" href="ai-governance.html">Open page</a></div>
+</article>
+<article class="card offer-card">
+<h3>Data &amp; Analytics</h3>
+<p>BI, data quality, dashboards, analytics design, service intelligence, risk modelling and data science-led insight where appropriate.</p>
+<div class="center-actions"><a class="cta-button ghost" href="data-analytics.html">Open page</a></div>
+</article>
+<article class="card offer-card">
+<h3>Apps &amp; Automation</h3>
+<p>Practical apps, workflow automation, prototypes, process digitisation and connected tools that reduce manual friction.</p>
+<div class="center-actions"><a class="cta-button ghost" href="apps-automation.html">Open page</a></div>
+</article>
+<article class="card offer-card">
+<h3>Strategy &amp; Transformation</h3>
+<p>Leadership support, change management, operating models, service redesign, workflow improvement and transformation delivery.</p>
+<div class="center-actions"><a class="cta-button ghost" href="strategy-transformation.html">Open page</a></div>
+</article>
+<article class="card offer-card">
+<h3>Audit &amp; Assurance</h3>
+<p>Evidence packs, control narratives, audit recommendation support, assurance dashboards, AI/data controls and practical translation between delivery and scrutiny.</p>
+<div class="center-actions"><a class="cta-button ghost" href="audit-assurance.html">Open page</a></div>
+</article>
+<article class="card offer-card">
+<h3>Independent Living</h3>
+<p>Practical technology setup for safer, more confident living at home, including families, people living alone, rental properties and supported living settings.</p>
+<div class="center-actions"><a class="cta-button ghost" href="independent-living-tech.html">Open page</a></div>
+</article>
+</div>
+</section>
+<section class="section split align-center">
+<div class="panel trust-panel">
+<p class="section-eyebrow">Regulated and high-accountability services</p>
+<h2>Better evidence, modelling and automation for scrutiny and improvement.</h2>
+<p>Jakoma is well suited to organisations where inspection, quality, safeguarding, governance, service performance or public confidence matter. The offer is not to replace professional judgement. It is to improve the quality, accessibility and usefulness of the evidence people use to make decisions.</p>
+<ul class="checklist">
+<li>Convert inconsistent reporting into clearer assurance packs.</li>
+<li>Model risk and service pressure without overselling certainty.</li>
+<li>Automate triage, evidence gathering, follow-up and recommendation tracking.</li>
+<li>Translate operational, technical and governance detail into board-usable narratives.</li>
+</ul>
+<div class="hero-actions"><a class="cta-button" href="audit-assurance.html">Explore Audit &amp; Assurance</a><a class="cta-button ghost" href="data-analytics.html">Explore Data &amp; Analytics</a></div>
+</div>
+<div class="panel caution-panel">
+<h3>Good-fit organisations</h3>
+<p>This language is intentionally broad and does not name specific target bodies. It is designed for:</p>
+<ul class="plain-list">
+<li>regulators and inspectorates;</li>
+<li>quality, risk and assurance teams;</li>
+<li>commissioners and oversight functions;</li>
+<li>health, care, housing, education and public-service providers;</li>
+<li>organisations with complex evidence, workflow or reporting problems.</li>
+</ul>
+<p class="decision-note">The page should avoid implying that Jakoma has worked with or is endorsed by any named regulator unless that is factually true and permission has been obtained.</p>
+</div>
+</section>
+<section class="section">
+<p class="section-eyebrow">Engagement models</p>
+<h2>Pick a shape of work that matches the problem.</h2>
+<div class="grid grid-4 compact-grid process-steps">
+<article class="card"><strong>1</strong><h3>Triage</h3><p>A short, structured review to clarify the opportunity, risks, evidence and next best step.</p></article>
+<article class="card"><strong>2</strong><h3>Sprint</h3><p>A focused delivery period for a defined output such as a readiness review, dashboard, evidence pack or automation prototype.</p></article>
+<article class="card"><strong>3</strong><h3>Prototype</h3><p>Build and test a practical tool or workflow before investing in a larger change programme.</p></article>
+<article class="card"><strong>4</strong><h3>Retainer</h3><p>Ongoing senior support for governance, transformation, analytics, assurance or automation delivery.</p></article>
+</div>
+<div class="hero-actions"><a class="cta-button" href="consulting.html">View engagement models</a><a class="cta-button ghost" href="https://tally.so/r/KYLADk?utm_source=jakoma_website&amp;utm_medium=services_page&amp;utm_campaign=form_enquiry&amp;utm_content=request_a_proposal&amp;utm_term=not_set&amp;page=services&amp;service=general_proposal" rel="noopener noreferrer" target="_blank">Request a Proposal</a></div>
+</section>
+<section class="section cta-band">
+<p class="section-eyebrow">Next step</p>
+<h2>Start with the route, not the label.</h2>
+<p>Tell Jakoma what kind of decision you need to make, what evidence exists now and where the friction sits. The response can then point you to the right service route, not just the nearest page title.</p>
+<div class="hero-actions"><a class="cta-button" href="https://tally.so/r/KYLADk?utm_source=jakoma_website&amp;utm_medium=services_page&amp;utm_campaign=form_enquiry&amp;utm_content=request_a_proposal&amp;utm_term=not_set&amp;page=services&amp;service=general_proposal" rel="noopener noreferrer" target="_blank">Request a Proposal</a><a class="cta-button ghost" href="https://tally.so/r/OD8XJM?utm_source=jakoma_website&amp;utm_medium=services_page&amp;utm_campaign=form_enquiry&amp;utm_content=download_the_checklist&amp;utm_term=not_set&amp;page=services&amp;service=ai_governance_readiness" rel="noopener noreferrer" target="_blank">Download the Checklist</a></div>
+</section>
+</main>
+<footer class="site-footer"><div class="footer-grid"><div><h3>Jakoma</h3><p>Jakoma is a founder-led consultancy and product studio for practical technology, governance, automation, independent living, property technology and digital products.</p><p class="footer-contact"><a href="mailto:support@jakoma.org">support@jakoma.org</a><br/><a href="https://www.linkedin.com/company/jakoma/" rel="noopener noreferrer" target="_blank">LinkedIn</a></p></div><div><h4>Explore</h4><p><a href="services.html">Services</a><br/><a href="how-we-work.html">How We Work</a><br/><a href="audit-assurance.html">For Audit &amp; Assurance</a><br/><a href="case-studies.html">Examples</a></p></div><div><h4>Legal</h4><p><a href="policy.html">Privacy</a><br/><a href="terms.html">Customer Terms</a><br/><a href="cookies.html">Cookies</a></p></div><div><h4>Independent Living</h4><p><a href="independent-living-tech.html">Overview</a><br/><a href="short-term-rental-tech-setup.html">Smart Stay</a><br/><a href="technology-for-older-relatives.html">Older relatives</a><br/><a href="technology-for-people-living-alone.html">People living alone</a><br/><a href="rental-property-safety-tech.html">Rental property safety tech</a><br/><a href="supported-living-technology.html">Supported living reviews</a></p></div></div><p class="footer-meta">© 2025–2026 Jakoma. All rights reserved.</p></footer>
+<script defer="" src="site.js"></script>
 </body>
 </html>

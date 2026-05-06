@@ -22,6 +22,25 @@
     'jakomaCookieConsent' // older pages sometimes used this
   ];
   const CONSENT_COOKIE_DAYS = 365;
+  const GTM_ID = 'GTM-WCJBPXM6';
+  let gtmLoaded = false;
+
+  function loadGtm() {
+    if (gtmLoaded || document.getElementById('gtm-script')) return;
+    if (!GTM_ID) return;
+
+    gtmLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+    const firstScript = document.getElementsByTagName('script')[0];
+    const script = document.createElement('script');
+    script.id = 'gtm-script';
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(GTM_ID);
+    if (firstScript && firstScript.parentNode) firstScript.parentNode.insertBefore(script, firstScript);
+    else document.head.appendChild(script);
+  }
 
   function safeJSONParse(str) {
     try { return JSON.parse(str || '{}'); } catch (e) { return {}; }
@@ -176,6 +195,7 @@
           functionality_storage: 'granted',
           security_storage: 'granted'
         });
+        loadGtm();
       } else if (val === 'declined') {
         gtag('consent', 'update', {
           ad_storage: 'denied',
@@ -407,35 +427,25 @@
 
   function initCookieBanner() {
     const banner = document.getElementById('cookie-banner');
-    if (!banner) return;
-
     const pref = getConsent();
+
     if (pref === 'accepted' || pref === 'declined') {
-      hideCookieBanner();
+      if (banner) hideCookieBanner();
       updateGtagConsent(pref);
-      return;
+    } else if (banner) {
+      showCookieBanner();
     }
 
-    showCookieBanner();
-
-    const acceptBtn = banner.querySelector('[data-cookie="accept"]');
-    const declineBtn = banner.querySelector('[data-cookie="decline"]');
-
-    if (acceptBtn && !acceptBtn.__jakomaBound) {
-      acceptBtn.addEventListener('click', () => {
-        setConsent('accepted');
+    // Bind all consent controls, including the cookie policy page buttons.
+    document.querySelectorAll('[data-cookie="accept"], [data-cookie="decline"]').forEach((btn) => {
+      if (btn.__jakomaBound) return;
+      btn.addEventListener('click', () => {
+        const choice = btn.getAttribute('data-cookie') === 'accept' ? 'accepted' : 'declined';
+        setConsent(choice);
         hideCookieBanner();
       });
-      acceptBtn.__jakomaBound = true;
-    }
-
-    if (declineBtn && !declineBtn.__jakomaBound) {
-      declineBtn.addEventListener('click', () => {
-        setConsent('declined');
-        hideCookieBanner();
-      });
-      declineBtn.__jakomaBound = true;
-    }
+      btn.__jakomaBound = true;
+    });
   }
 
 
